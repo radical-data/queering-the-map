@@ -32,5 +32,8 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.32.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"maplibre-gl": "^3.6.2"
+	}
 }
