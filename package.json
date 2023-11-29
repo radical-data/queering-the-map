@@ -34,6 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource/apfel-grotezk": "^5.0.7",
 		"maplibre-gl": "^3.6.2"
 	}
 }

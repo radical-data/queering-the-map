@@ -1,3 +1,6 @@
+@import '@fontsource/apfel-grotezk';
+
 body {
     margin: 0;
+    font-family: 'Apfel Grotezk', sans-serif;
 }
