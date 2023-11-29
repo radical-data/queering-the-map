@@ -1,3 +1,24 @@
+:root {
+    /* colors */
+    --color-dark: #1a1a1a;
+    --color-pink: #f4b9d6;
+    --color-pink-bright: #ff00ff;
+
+    /* breakpoints */
+    --screen-wide: 800px;
+    --screen-short: 450px;
+
+    /* transitions */
+    --transition-timing-function: ease;
+    --transition-duration: 300ms;
+
+    /* z-index */
+    --logo-z-index: 20;
+    --overlay-z-index: 15;
+    --loading-screen-z-index: 10;
+    --overlay-trigger-z-index: 5;
+}
+
 @import '@fontsource/apfel-grotezk';
 
 body {
