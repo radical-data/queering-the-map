@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { Map } from 'maplibre-gl';
+	import { Map, NavigationControl } from 'maplibre-gl';
 
 	let map: Map | undefined;
 	let mapContainer: HTMLDivElement;
@@ -14,8 +14,12 @@
 			container: mapContainer,
 			style: `https://api.maptiler.com/maps/${maptilerMapReference}/style.json?key=${maptilerApiKey}`,
 			center: [initialState.lng, initialState.lat],
-			zoom: initialState.zoom
+			zoom: initialState.zoom,
+			minZoom: 2,
+			maxZoom: 18
 		});
+		map.addControl(new NavigationControl({ showCompass: false }), 'bottom-right');
+		map.keyboard.enable();
 	});
 
 	onDestroy(() => {
