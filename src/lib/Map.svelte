@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { Map, NavigationControl } from 'maplibre-gl';
+	import 'maplibre-gl/dist/maplibre-gl.css'
 
 	let map: Map | undefined;
 	let mapContainer: HTMLDivElement;
@@ -33,8 +34,6 @@
 <div id="map" bind:this={mapContainer}></div>
 
 <style>
-	@import 'maplibre-gl/dist/maplibre-gl.css';
-
 	#map {
 		position: absolute;
 		width: 100%;
