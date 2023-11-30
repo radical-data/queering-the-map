@@ -1,3 +1,5 @@
+@import '@fontsource/apfel-grotezk';
+
 :root {
     /* colors */
     --color-dark: #1a1a1a;
@@ -18,9 +20,17 @@
     --overlay-trigger-z-index: 5;
 }
 
-@import '@fontsource/apfel-grotezk';
-
 body {
     margin: 0;
     font-family: 'Apfel Grotezk', sans-serif;
+}
+
+div.maplibregl-popup-content,
+div.mapboxgl-popup-content {
+	border-radius: 8px;
+	font-size: 1.2em;
+	max-width: min(70ch, 75vw);
+	width: max-content;
+	box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
+	font-family: 'Apfel Grotezk', sans-serif;
 }

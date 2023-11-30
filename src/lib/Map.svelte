@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { Map, NavigationControl } from 'maplibre-gl';
+	import { Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 
 	import moments from '$lib/data/filtered_data.json';
 
-	let map: Map | undefined;
+	let map: Map;
 	let mapContainer: HTMLDivElement;
 
 	const maptilerApiKey = 'SRfJh1CuGiISgDoqUg55';
@@ -25,29 +25,55 @@
 		map.keyboard.enable();
 
 		map.on('load', () => {
-			if (map) {
-				map.addSource('moments', {
-					type: 'geojson',
-					data: moments
-				});
+			map.addSource('moments', {
+				type: 'geojson',
+				data: moments
+			});
 
-				map.addLayer({
-					id: 'moments-layer',
-					type: 'circle',
-					source: 'moments',
-					paint: {
-						'circle-radius': 8,
-						'circle-color': 'black'
+			map.addLayer({
+				id: 'moments-layer',
+				type: 'circle',
+				source: 'moments',
+				paint: {
+					'circle-radius': 8,
+					'circle-color': 'black'
+				}
+			});
+
+			map.on('click', 'moments-layer', function (e) {
+				if (e.features && e.features.length > 0) {
+					const feature = e.features[0];
+					if (feature.geometry.type === 'Point') {
+						const coordinates = (feature.geometry as GeoJSON.Point).coordinates;
+						const description = feature.properties.description;
+
+						if (coordinates.length === 2) {
+							new Popup()
+								.setLngLat(coordinates as LngLatLike)
+								.setHTML(description)
+								.addTo(map);
+						} else {
+							console.error('Invalid coordinates format');
+						}
 					}
-				});
-			}
+				}
+			});
+
+			// Change the cursor to a pointer when the mouse is over the moments layer.
+			map.on('mouseenter', 'moments-layer', function () {
+				map.getCanvas().style.cursor = 'pointer';
+			});
+
+			// Change it back to a pointer when it leaves.
+			map.on('mouseleave', 'moments-layer', function () {
+				map.getCanvas().style.cursor = '';
+			});
 		});
 	});
 
 	onDestroy(() => {
 		if (map) {
 			map.remove();
-			map = undefined;
 		}
 	});
 </script>
