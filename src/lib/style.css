@@ -15,7 +15,6 @@
     /* z-index */
     --logo-z-index: 20;
     --overlay-z-index: 15;
-    --loading-screen-z-index: 10;
     --overlay-trigger-z-index: 5;
 }
 

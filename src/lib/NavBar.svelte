@@ -2,21 +2,43 @@
 	import logo from '$lib/assets/queering-the-map-logo.png';
 	import infoButton from '$lib/assets/info.svg';
 	import addButton from '$lib/assets/add.svg';
+	import { infoOverlayVisible, addOverlayVisible } from '../stores';
+
+	function openInfoOverlay() {
+		infoOverlayVisible.update(() => true);
+	}
+	function openAddOverlay() {
+		addOverlayVisible.update(() => true);
+	}
 </script>
 
 <nav>
-	<button class="overlay-trigger overlay-trigger--info" id="info" aria-label="open info overlay">
-		<span class="overlay-trigger__title">INFO</span>
-		<img class="overlay-trigger__icon" src={infoButton} alt="info" />
-	</button>
+	{#if !$infoOverlayVisible}
+		<button
+			on:click={openInfoOverlay}
+			class="overlay-trigger overlay-trigger--info"
+			id="info"
+			aria-label="open info overlay"
+		>
+			<span class="overlay-trigger__title">Info</span>
+			<img class="overlay-trigger__icon" src={infoButton} alt="info" />
+		</button>
+	{/if}
 
 	<div id="logo">
 		<img src={logo} alt="" />
 	</div>
 
-	<button class="overlay-trigger overlay-trigger--add" id="add" aria-label="open add overlay">
-		<img class="overlay-trigger__icon" src={addButton} alt="add" />
-	</button>
+	{#if !$addOverlayVisible}
+		<button
+			on:click={openAddOverlay}
+			class="overlay-trigger overlay-trigger--add"
+			id="add"
+			aria-label="open add overlay"
+		>
+			<img class="overlay-trigger__icon" src={addButton} alt="add" />
+		</button>
+	{/if}
 </nav>
 
 <style>
@@ -85,14 +107,15 @@
 		}
 	}
 
-	.overlay-trigger.overlay-trigger--info .overlay-trigger__icon {
-		@media (min-width: 800px) {
+	@media (min-width: 800px) {
+		.overlay-trigger.overlay-trigger--info .overlay-trigger__icon {
 			display: none;
 		}
 	}
 
 	.overlay-trigger.overlay-trigger--info .overlay-trigger__title {
 		display: none;
+		text-transform: uppercase;
 	}
 
 	@media (min-width: 800px) {
