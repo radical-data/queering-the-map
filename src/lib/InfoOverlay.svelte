@@ -212,9 +212,7 @@
 
 <style>
 	.overlay {
-		/* display: none; */
 		height: 100%;
-		/* width: 0%; */
 		position: fixed;
 		z-index: var(--overlay-z-index);
 		top: 0;
@@ -279,31 +277,8 @@
 		color: var(--color-pink-bright);
 	}
 
-	a.current {
-		color: var(--color-dark);
-		font-style: italic;
-	}
-
 	.overlay--info {
 		left: 0;
-	}
-
-	.overlay--add {
-		top: 40%;
-		height: 60%;
-		right: 0;
-	}
-
-	.close-btn {
-		display: none;
-	}
-
-	.overlay--active {
-		display: block;
-	}
-
-	.overlay--visible {
-		width: 100%;
 	}
 
 	@media (min-width: 800px) {
@@ -317,40 +292,9 @@
 			box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.5);
 		}
 
-		.overlay__inner.overlay--info {
-			padding-top: 2em;
-		}
-
-		.overlay--add {
-			top: 0;
-			right: -2px;
-			border-top: none;
-			border-left: var(--color-dark) solid 2px;
-			height: 100%;
-			box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.5);
-		}
-
 		.overlay__content {
 			margin: 0;
 			height: 125%;
-		}
-
-		.overlay--visible {
-			width: 40vw;
-		}
-
-		.close-btn {
-			display: block;
-		}
-
-		.close-btn.right {
-			top: 0.5em;
-			right: 0.25em;
-		}
-
-		.overlay-content {
-			margin: 8em 0 1em 0;
-			height: 100%;
 		}
 	}
 </style>
