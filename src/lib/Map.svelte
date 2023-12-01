@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
+	import { getMomentText } from "$lib/getMomentText"
 	import 'maplibre-gl/dist/maplibre-gl.css';
 
-	import moments from '$lib/data/filtered_data.json';
+	import moments from '$lib/data/filtered_data_id_only.json';
 
 	let map: Map;
 	let mapContainer: HTMLDivElement;
@@ -45,7 +46,7 @@
 					const feature = e.features[0];
 					if (feature.geometry.type === 'Point') {
 						const coordinates = (feature.geometry as GeoJSON.Point).coordinates;
-						const description = feature.properties.description;
+						const description = getMomentText(feature.properties.id);
 
 						if (coordinates.length === 2) {
 							new Popup()
