@@ -1,5 +1,5 @@
 <script>
-	import logo from '$lib/assets/queering-the-map-logo.png';
+	import logo from '$lib/assets/queering-the-map-logo.webp';
 	import infoButton from '$lib/assets/info.svg';
 	import addButton from '$lib/assets/add.svg';
 	import { infoOverlayVisible, addOverlayVisible } from '../stores';
