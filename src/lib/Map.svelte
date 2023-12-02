@@ -4,7 +4,19 @@
 	import { getMomentText } from '$lib/getMomentText';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 
-	import moments from '$lib/data/filtered_data_id_only.json';
+	import type { FeatureCollection, Point } from 'geojson';
+
+	let momentsPromise: Promise<FeatureCollection<Point, { id: number }>> | undefined;
+	let moments: FeatureCollection<Point, { id: number }> | undefined;
+
+	function loadMoments(): Promise<FeatureCollection<Point, { id: number }>> {
+		if (!momentsPromise) {
+			momentsPromise = import('$lib/data/filtered_data_id_only.json').then((module) => {
+				return module.default;
+			}) as Promise<FeatureCollection<Point, { id: number }>>;
+		}
+		return momentsPromise;
+	}
 
 	let map: Map;
 	let mapContainer: HTMLDivElement;
@@ -24,7 +36,8 @@
 		}
 	}
 
-	onMount(() => {
+	onMount(async () => {
+		moments = await loadMoments();
 		map = new Map({
 			container: mapContainer,
 			style: `https://api.maptiler.com/maps/${maptilerMapReference}/style.json?key=${maptilerApiKey}`,
