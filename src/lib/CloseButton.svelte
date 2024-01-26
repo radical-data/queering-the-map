@@ -1,6 +1,8 @@
 <script lang="ts">
 	export let functionOnClick: any;
 	export let position: 'right' | 'left' = 'left';
+
+	import closeButtonIcon from '$lib/assets/close-button.svg';
 </script>
 
 <button
@@ -9,7 +11,7 @@
 	aria-label="close overlay"
 	style={position === 'right' ? 'right: 0' : ''}
 >
-	<span class="close-btn__inner"></span>
+	<img src={closeButtonIcon} alt="close" />
 	<span class="close-btn__text"><slot /></span>
 </button>
 
@@ -19,44 +21,19 @@
 	}
 
 	.close-btn {
-		position: fixed;
-		line-height: 1;
-		border: none;
+		border: 0;
+		border-right: #000000 solid 1px;
+		border-bottom: #000000 solid 1px;
 		background-color: transparent;
-		overflow: hidden;
-		padding: 5px;
+		width: 45px;
+		height: 45px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.close-btn:hover {
 		cursor: pointer;
-	}
-
-	.close-btn__inner {
-		position: relative;
-		width: 24px;
-		height: 24px;
-		display: block;
-	}
-
-	.close-btn__inner:before,
-	.close-btn__inner:after {
-		content: '';
-		display: block;
-		width: 100%;
-		height: 2px;
-		background-color: var(--color-dark);
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform-origin: center center;
-	}
-
-	.close-btn__inner:before {
-		transform: translate(-50%, -50%) rotate(45deg);
-	}
-
-	.close-btn__inner:after {
-		transform: translate(-50%, -50%) rotate(-45deg);
 	}
 
 	.close-btn__text {

@@ -15,8 +15,8 @@
     --transition-duration: 300ms;
 
     /* z-index */
-    --logo-z-index: 20;
-    --overlay-z-index: 15;
+    --logo-z-index: 15;
+    --overlay-z-index: 20;
     --overlay-trigger-z-index: 5;
 }
 
@@ -33,4 +33,8 @@ div.mapboxgl-popup-content {
 	width: max-content;
 	box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
 	font-family: 'Apfel Grotezk', sans-serif;
+}
+
+p.copy-header {
+    font-weight: bold;
 }

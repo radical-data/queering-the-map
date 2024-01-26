@@ -1,7 +1,32 @@
 <script lang="ts">
 	import { infoOverlayVisible } from '../stores';
-	import CloseButton from './CloseButton.svelte';
+
+	import PageBar from "./PageBar.svelte";
 	import ActionButton from './ActionButton.svelte';
+	import OverlayNavBar from './OverlayNavBar.svelte';
+
+	import InfoAbout from './info-copy/InfoAbout.svelte';
+	import InfoSupportUs from './info-copy/InfoSupportUs.svelte';
+	import InfoModeration from './info-copy/InfoModeration.svelte';
+	import InfoPress from './info-copy/InfoPress.svelte';
+
+	import InfoFAQs from './info-copy/InfoFAQs.svelte';
+	import InfoTermsOfUse from './info-copy/InfoTermsOfUse.svelte';
+	import InfoPrivacyPolicy from './info-copy/InfoPrivacyPolicy.svelte';
+	import InfoContact from './info-copy/InfoContact.svelte';
+
+	const options = {
+		about: InfoAbout,
+		support: InfoSupportUs,
+		moderation: InfoModeration,
+		press: InfoPress,
+		faqs: InfoFAQs,
+		terms: InfoTermsOfUse,
+		privacy: InfoPrivacyPolicy,
+		contact: InfoContact,
+	}
+
+	let selectedOptionId = "about"
 
 	function closeInfoOverlay() {
 		infoOverlayVisible.update(() => false);
@@ -9,220 +34,66 @@
 </script>
 
 <aside class="overlay overlay--info">
-	<CloseButton functionOnClick={closeInfoOverlay}>close info overlay</CloseButton>
+	<OverlayNavBar
+		options={[{
+			id: 'about',
+			title: 'About'
+		}, {
+			id: 'support',
+			title: 'Support Us'
+		}, {
+			id: 'moderation',
+			title: 'Moderation'
+		}, {
+			id: 'press',
+			title: 'Press'
+		}]}
+		selectedOptionId={selectedOptionId}
+		onOptionSelected={optionId => selectedOptionId = optionId}
+
+		onCloseButtonClick={closeInfoOverlay}
+	/>
 	<div class="overlay__outer">
-		<div class="overlay__content">
-			<section>
-				<h2>About</h2>
-
-				<div class="overlay__section-text">
-					<p>
-						<i>Queering the Map</i> is a community generated counter-mapping platform for digitally archiving
-						LGBTQ2IA+ experience in relation to physical space.
-					</p>
-					<p>
-						The platform provides an interface to collaboratively record the cartography of queer
-						life—from park benches to the middle of the ocean—in order to preserve our histories and
-						unfolding realities, which continue to be invalidated, contested, and erased. From
-						collective action to stories of coming out, encounters with violence to moments of
-						rapturous love, <i>Queering the Map</i> functions as a living archive of queer life. If
-						it counts to you, then it counts for <i>Queering the Map</i>.
-					</p>
-					<p>
-						Through mapping LGBTQ2IA+ experience in its intersectional permutations, the project
-						works to generate affinities across difference and beyond borders—revealing the ways in
-						which we are intimately connected.
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h2>Support the project</h2>
-
-				<div class="overlay__section-text">
-					<p>
-						<i>Queering the Map</i> is a grassroots endeavour, and relies on donations to cover the
-						costs of keeping the site alive. Please consider supporting the future of
-						<i>Queering The Map</i> by joining our Patreon community!
-					</p>
-					<ActionButton link="https://www.patreon.com/queeringthemap">Donate</ActionButton>
-				</div>
-			</section>
-
-			<section>
-				<h2>Land Acknowledgment</h2>
-
-				<div class="overlay__section-text">
-					<p>
-						<i>Queering the Map</i> was initiated on the unceded traditional lands of the Kanien’kehá:ka
-						Nation. The island currently called “Montreal” is known as Tiohtia:ke in the language of
-						the Kanien’kehá:ka, and it has historically been a meeting place for other Indigenous nations.
-					</p>
-
-					<p>
-						A queer approach to space points out the limitations of the ways in which the world
-						around us is produced and normalized by and for certain bodies and not others. It is
-						pertinent that we continuously reflect and act on the ways in which LGBTQIA+ life is
-						complicit in ongoing processes of settler-colonialism. How does race, gender, sexuality,
-						citizenship, ability, and class affect the ways in which we relate to, move through, and
-						create space? As a pin on <i>Queering the Map</i> in Honolulu, Hawaii attests:
-						<i
-							>“queer liberation must mean decolonization, and decolonization must mean queer
-							liberation.”</i
-						>
-					</p>
-
-					<p>
-						If you are not currently aware of the rightful keepers of the land on which you are
-						located, you can learn more at <a
-							href="https://native-land.ca/"
-							target="_blank"
-							rel="noopener">www.native-land.ca</a
-						>. Beyond simply acknowledging the colonial histories of the land on which you are
-						located, we encourage you to take concrete steps towards decolonization by learning more
-						about the ways in which you can support Indigenous communities in the fight for
-						sovereignty. A good place to start is
-						<a href="https://unistoten.camp/" target="_blank" rel="noopener">unistoten.camp</a>.
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h2>Selected Press</h2>
-
-				<div class="overlay__section-text">
-					<p>
-						Immerse: <a
-							href="https://immerse.news/co-creating-a-map-of-queer-experience-bece7a743ca7"
-							target="_blank"
-							rel="noopener">Co-Creating a Map of Queer Experience</a
-						>
-					</p>
-					<p>
-						Sissy Screens: <a
-							href="https://www.sissyscreens.com/interview/queering-the-map-interview/"
-							target="_blank"
-							rel="noopener">Queering the Map: An Interview With Lucas LaRochelle</a
-						>
-					</p>
-					<p>
-						CityLab: <a
-							href="https://www.citylab.com/life/2018/02/how-to-queer-the-mapand-fend-off-an-attack/552824/"
-							target="_blank"
-							rel="noopener">A Crowdsourced Map of the Queer World</a
-						>
-					</p>
-					<p>
-						VICE: <a
-							href="https://www.vice.com/en_us/article/ne9kjx/queering-the-map-google-maps-lgtbq"
-							target="_blank"
-							rel="noopener">Find Yourself in The Queer Version of Google Maps</a
-						>
-					</p>
-					<p>
-						Ruthless: <a
-							href="http://www.ruthlessmagazine.co.uk/queering-the-map"
-							target="_blank"
-							rel="noopener">Queering The Map: A Skype Call with Lucas LaRochelle</a
-						>
-					</p>
-					<p>
-						i-D: <a
-							href="https://i-d.vice.com/en_us/article/vbxkpb/queering-the-map-is-connecting-queer-moments-in-life"
-							target="_blank"
-							rel="noopener">Queering The Map is connecting Queer Moments in Life</a
-						>
-					</p>
-					<p>
-						CBC Arts: <a
-							href="https://www.cbc.ca/arts/queer-love-in-the-making-this-massive-interactive-map-holds-a-whole-world-of-heartfelt-moments-1.4722385"
-							target="_blank"
-							rel="noopener">Queer Love in the Making</a
-						>
-					</p>
-					<p>
-						<a
-							href="https://docs.google.com/spreadsheets/d/1Th45pQQv4dRfKikt8ic7-TOhr9pxlDTXoPQ9G2aQxhk/edit?usp=sharing"
-							target="_blank"
-							rel="noopener">All Press</a
-						>
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h2>Moderation</h2>
-
-				<div class="overlay__section-text">
-					<p>
-						Posts to <i>Queering the Map</i> are moderated by a small group of volunteers before they
-						appear publically on the map. This to ensure no hate speech, spam or breaches of anonymity
-						are added to the site.
-					</p>
-					<p>
-						Given the amount of posts that have been made over the past few months, we are at a
-						significant moderation backlog, and are doing our best to publish posts as quickly as we
-						can. If you see anything you feel should be removed, or would like something you posted
-						to be deleted, please contact us!
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h2>Terms of Use</h2>
-
-				<div class="overlay__section-text">
-					<p>
-						The Terms of Use is a living document. You can access and annotate it <a
-							href="https://docs.google.com/document/d/1hfAU6Y4H3f3Vjr7nXdrxGwF197zGUeZQPKYOVyM6XsI/edit?usp=sharing"
-							target="_blank"
-							rel="noopener">here</a
-						>.
-					</p>
-				</div>
-			</section>
-
-			<section>
-				<h2>Contact</h2>
-
-				<div class="overlay__section-text">
-					<p>
-						Get in touch at <a href="mailto:hi.queeringthemap@gmail.com"
-							>hi.queeringthemap@gmail.com</a
-						>
-					</p>
-					<p>
-						Stay connected with us on <a
-							href="https://www.instagram.com/queeringthemap/"
-							target="_blank"
-							rel="noopener">Instagram</a
-						>,
-						<a href="https://www.facebook.com/queeringthemap" target="_blank" rel="noopener"
-							>Facebook</a
-						>
-						and
-						<a href="https://twitter.com/queeringthemap_" target="_blank" rel="noopener">Twitter</a
-						>.
-					</p>
-				</div>
-			</section>
-		</div>
+		<svelte:component this={options[selectedOptionId]} />
 	</div>
+	<PageBar
+		options={[{
+			id: 'faqs',
+			title: 'FAQs'
+		}, {
+			id: 'terms',
+			title: 'Terms of Use'
+		}, {
+			id: 'privacy',
+			title: 'Privacy Policy'
+		}, {
+			id: 'contact',
+			title: 'Contact'
+		}]}
+		selectedOptionId={selectedOptionId}
+		onOptionSelected={optionId => selectedOptionId = optionId}
+		
+		isBottom={true}
+	/>
 </aside>
 
 <style>
 	.overlay {
-		height: 100%;
+		height: calc(100% - 9px - 9px);
 		position: fixed;
 		z-index: var(--overlay-z-index);
 		top: 0;
 		background-color: var(--color-pink);
 		overflow-x: hidden;
+		margin: 9px;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.overlay__outer {
 		width: 0;
 		padding: 2em;
+		flex-grow: 1;
 	}
 
 	section {
@@ -287,9 +158,7 @@
 		}
 
 		.overlay--info {
-			left: -2px;
-			border-right: var(--color-dark) solid 2px;
-			box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.5);
+			border: var(--color-dark) solid 1px;
 		}
 
 		.overlay__content {
