@@ -13,31 +13,31 @@
 		<CloseButton functionOnClick={closeAddOverlay} position="right">close add overlay</CloseButton>
 	</div>
 	<div class="overlay__outer">
-			<div class="overlay__content">
-				<section>
-					<div class="overlay__section-title">How to add to the map</div>
+		<div class="overlay__content">
+			<section>
+				<div class="overlay__section-title">How to add to the map</div>
 
-					<div class="overlay__section-text">
-						<ol>
-							<li>Click on the location of your story.</li>
-							<li>Share your story in the the text box below.</li>
-							<li>Click the 'ADD' button.</li>
-						</ol>
-						<br />
-						<textarea id="txt_contents" class="subform"></textarea>
-						<div class="recaptcha-text">
-							This site is protected by reCAPTCHA and the Google
-							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
-								>Privacy Policy</a
-							>
-							and
-							<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
-								>Terms of Service</a
-							> apply.
-						</div>
-						<ActionButton link="">Add</ActionButton>
+				<div class="overlay__section-text">
+					<ol>
+						<li>Click on the location of your story.</li>
+						<li>Share your story in the the text box below.</li>
+						<li>Click the 'ADD' button.</li>
+					</ol>
+					<br />
+					<textarea id="txt_contents" class="subform"></textarea>
+					<div class="recaptcha-text">
+						This site is protected by reCAPTCHA and the Google
+						<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
+							>Privacy Policy</a
+						>
+						and
+						<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
+							>Terms of Service</a
+						> apply.
 					</div>
-				</section>
+					<ActionButton link="">Add</ActionButton>
+				</div>
+			</section>
 		</div>
 	</div>
 </aside>
@@ -54,7 +54,7 @@
 
 	.overlay__outer {
 		width: calc(40vw - 2px);
-        padding: 2em;
+		padding: 8px;
 	}
 
 	.overlay__section-title {
@@ -142,7 +142,7 @@
 		font-family: 'Apfel Grotezk', sans-serif;
 	}
 
-    .action-button-container {
-        right: 0;
-    }
+	.action-button-container {
+		right: 0;
+	}
 </style>

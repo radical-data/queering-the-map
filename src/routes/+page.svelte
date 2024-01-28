@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '$lib/style.css';
-	import '$lib/fonts.css';
 	import AddOverlay from '$lib/AddOverlay.svelte';
 	import InfoOverlay from '$lib/InfoOverlay.svelte';
 	import Map from '$lib/Map.svelte';

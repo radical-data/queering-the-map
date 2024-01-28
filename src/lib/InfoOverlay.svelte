@@ -92,7 +92,7 @@
 
 	.overlay__outer {
 		width: 0;
-		padding: 2em;
+		padding: 1em 8px;
 		flex-grow: 1;
 	}
 
