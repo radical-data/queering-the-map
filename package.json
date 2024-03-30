@@ -35,6 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/apfel-grotezk": "^5.0.7",
+		"@supabase/supabase-js": "^2.41.1",
 		"maplibre-gl": "^3.6.2"
 	}
 }
