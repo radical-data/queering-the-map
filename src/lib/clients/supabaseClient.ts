@@ -1,7 +1,16 @@
 import { createClient } from '@supabase/supabase-js'
-// import { Database } from './database.types'
+import type { Database } from './database.types.ts'
 
-// export const supabase = createClient<Database>(
-//   process.env.SUPABASE_URL,
-//   process.env.SUPABASE_ANON_KEY
-// )
+const url = process.env.SUPABASE_URL
+const key = process.env.SUPABASE_ANON_KEY
+
+class DBAuthError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "DBAuthError";
+  }
+}
+
+if (!url || !key) throw new DBAuthError('Missing credentials')
+
+export const supabase = createClient<Database>(url ?? '', key ?? '')
