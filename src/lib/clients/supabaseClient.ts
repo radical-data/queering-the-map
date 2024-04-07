@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
 import type { Database } from './database.types.ts'
+import { SUPABASE_ANON_KEY, SUPABASE_URL } from '$env/static/private';
 
-const url = process.env.SUPABASE_URL
-const key = process.env.SUPABASE_ANON_KEY
+const url = SUPABASE_URL
+const key = SUPABASE_ANON_KEY
 
 class DBAuthError extends Error {
   constructor(message: string) {
