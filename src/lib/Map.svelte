@@ -4,8 +4,6 @@
 	import { getMomentText } from '$lib/getMomentText';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 
-	import moments from '$lib/data/filtered_data_id_only.json';
-
 	let map: Map;
 	let mapContainer: HTMLDivElement;
 
@@ -39,7 +37,7 @@
 		map.on('load', () => {
 			map.addSource('moments', {
 				type: 'geojson',
-				data: moments
+				data: '/moments'
 			});
 
 			map.addLayer({
