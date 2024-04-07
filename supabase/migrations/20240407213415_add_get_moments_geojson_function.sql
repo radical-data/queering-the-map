@@ -13,6 +13,7 @@ BEGIN
             )
         )
         FROM public.moments
+        WHERE moments.status = 'approved'
     );
 END;
 $$ LANGUAGE plpgsql STABLE;
