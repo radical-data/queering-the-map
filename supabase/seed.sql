@@ -8,7 +8,7 @@ DECLARE
   lon FLOAT;
   lat FLOAT;
 BEGIN
-  FOR i IN 1..100 LOOP -- Generate 100 random rows
+  FOR i IN 1..100 LOOP -- Generate 100 random rows (change range as needed)
     randStatus := 'approved';
     randLang := 'en';
     randDescription := 'Description ' || i || ' ' || md5(random()::text);
