@@ -3,6 +3,7 @@
 	import { Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
 	import { getMomentText } from '$lib/getMomentText';
 	import 'maplibre-gl/dist/maplibre-gl.css';
+	import markerImage from '$lib/assets/marker.png';
 
 	let map: Map;
 	let mapContainer: HTMLDivElement;
@@ -40,14 +41,22 @@
 				data: '/moments'
 			});
 
+			map.loadImage(markerImage, (error, image) => {
+				if (error) throw error;
+				map.addImage('marker', image);
+			});
+
 			map.addLayer({
 				id: 'moments-layer',
-				type: 'circle',
+				type: 'symbol',
 				source: 'moments',
-				paint: {
-					'circle-radius': 8,
-					'circle-color': 'black'
-				}
+				layout: {
+					'icon-allow-overlap': true,
+					'icon-image': 'marker',
+					'icon-size': 0.5,
+					"icon-anchor": "bottom"
+				},
+				paint: {}
 			});
 
 			map.on('click', 'moments-layer', function (e) {
@@ -59,7 +68,7 @@
 							.then((text) => {
 								const description = text;
 								if (coordinates.length === 2) {
-									new Popup()
+									new Popup({offset: 40})
 										.setLngLat(coordinates as LngLatLike)
 										.setHTML(description)
 										.addTo(map);
