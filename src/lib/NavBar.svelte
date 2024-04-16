@@ -1,6 +1,6 @@
 <script>
-	import logo from '$lib/assets/queering-the-map-logo.webp';
-	import infoButton from '$lib/assets/info.svg';
+	import logo from '$lib/assets/queering-the-map-logo.svg';
+	import InfoButton from '$lib/assets/info.svg';
 	import addButton from '$lib/assets/add.svg';
 	import { infoOverlayVisible, addOverlayVisible } from '../stores';
 
@@ -20,8 +20,12 @@
 			id="info"
 			aria-label="open info overlay"
 		>
-			<span class="overlay-trigger__title">Info</span>
-			<img class="overlay-trigger__icon" src={infoButton} alt="info" />
+			<span class="overlay-trigger__title">
+			
+				<img src={InfoButton} alt="info" />
+
+			</span>
+			<img class="overlay-trigger__icon" src={InfoButton} alt="info" />
 		</button>
 	{/if}
 
@@ -60,6 +64,7 @@
 	@media (min-width: 800px) {
 		#logo img {
 			width: 200px;
+
 		}
 	}
 
@@ -96,14 +101,14 @@
 	}
 
 	.overlay-trigger.overlay-trigger--info {
-		left: 0.25em;
-		top: 0.25em;
+		left: 9px;
+		top: 9px;
 		text-shadow: 0px 0px 3px white;
 	}
 
 	@media (min-width: 800px) {
 		.overlay-trigger.overlay-trigger--info {
-			left: 0.5em;
+			left: 5.001px;
 		}
 	}
 

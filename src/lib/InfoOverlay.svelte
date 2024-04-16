@@ -14,44 +14,84 @@
 		<div class="overlay__content">
 			<section>
 				<h2>About</h2>
-
 				<div class="overlay__section-text">
 					<p>
-						<i>Queering the Map</i> is a community generated counter-mapping platform for digitally archiving
-						LGBTQ2IA+ experience in relation to physical space.
+						Queering the Map is a community generated counter-mapping platform for digitally
+						archiving LGBTQ2IA+ experience in relation to physical space.
 					</p>
+
 					<p>
 						The platform provides an interface to collaboratively record the cartography of queer
 						life—from park benches to the middle of the ocean—in order to preserve our histories and
 						unfolding realities, which continue to be invalidated, contested, and erased. From
 						collective action to stories of coming out, encounters with violence to moments of
-						rapturous love, <i>Queering the Map</i> functions as a living archive of queer life. If
-						it counts to you, then it counts for <i>Queering the Map</i>.
+						rapturous love, Queering the Map functions as a living archive of queer life.
 					</p>
+
 					<p>
 						Through mapping LGBTQ2IA+ experience in its intersectional permutations, the project
-						works to generate affinities across difference and beyond borders—revealing the ways in
-						which we are intimately connected.
+						works to generate affinities across difference and beyond borders — revealing the ways
+						in which we are intimately connected.
 					</p>
+
+					<h2>Territorial Acknowledgment</h2>
+					<div class="overlay__section-text">
+						<p>
+							Queering the Map was initiated on the unceded traditional lands of the Kanien'kehá:ka
+							Nation. The island currently called “Montreal” is known as Tiohtia:ke in the language
+							of the Kanien'kehá:ka, and it has historically been a meeting place for other
+							Indigenous nations.
+						</p>
+
+						<p>
+							A queer approach to space points out the limitations of the ways in which the world
+							around us is produced and normalized by and for certain bodies and not others. It is
+							pertinent that we continuously reflect and act on the ways in which LGBTQIA+ life is
+							complicit in ongoing processes of settler-colonialism. How does race, gender,
+							sexuality, citizenship, ability, and class affect the ways in which we relate to, move
+							through, and create space? As a pin on Queering the Map in Honolulu, Hawaii attests:
+							“queer liberation must mean decolonization, and decolonization must mean queer
+							liberation.”
+						</p>
+
+						<p>
+							If you are not currently aware of the rightful keepers of the land on which you are
+							located, you can learn more at <a
+								href="https://www.native-land.ca/"
+								target="_blank"
+								rel="noopener">native-land.ca</a
+							>. Beyond simply acknowledging the colonial histories of the land on which you are
+							located, we encourage you to take concrete steps towards decolonization by learning
+							more about the ways in which you can support Indigenous communities in the fight for
+							sovereignty.
+						</p>
+					</div>
 				</div>
 			</section>
 
 			<section>
-				<h2>Support the project</h2>
-
+				<h2>Donate</h2>
 				<div class="overlay__section-text">
 					<p>
 						<i>Queering the Map</i> is a grassroots endeavour, and relies on donations to cover the
-						costs of keeping the site alive. Please consider supporting the future of
-						<i>Queering The Map</i> by joining our Patreon community!
+						costs of keeping the site alive. Please support the future of
+						<i>Queering The Map</i> by making a donation through our Patreon!
 					</p>
 					<ActionButton link="https://www.patreon.com/queeringthemap">Donate</ActionButton>
+				</div>
+
+				<h2>Volunteer</h2>
+				<div class="overlay__section-text">
+					<p>
+						We are always looking for moderators and developers to support the maintenance of the
+						platform! If you would like to volunteer your time, please send us an email expressing
+						your interest at <a href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a>.
+					</p>
 				</div>
 			</section>
 
 			<section>
 				<h2>Land Acknowledgment</h2>
-
 				<div class="overlay__section-text">
 					<p>
 						<i>Queering the Map</i> was initiated on the unceded traditional lands of the Kanien’kehá:ka
@@ -88,8 +128,76 @@
 			</section>
 
 			<section>
-				<h2>Selected Press</h2>
+				<h2>Moderation Guidelines</h2>
+				<div class="overlay__section-text">
+					<p>
+						Posts to Queering the Map are moderated by a small group of volunteers before they
+						appear publicly. This to ensure the following are not added to the platform:
+					</p>
 
+					<div class="partial_div-numbered">
+						<span>1</span>
+						<p>
+							Breaches of Anonymity We do not approve posts that breach your or anyone else's
+							anonymity. This means posts containing last names, phone numbers, email addresses,
+							social media handles, or exact addresses will not be approved.
+						</p>
+					</div>
+
+					<div class="partial_div-numbered">
+						<span>2</span>
+						<p>
+							Hate Speech We do not approve posts that degrade or threaten a group of people based
+							on race, ethnicity, citizenship, ability, sexuality, sex, gender, or class.
+						</p>
+					</div>
+					<div class="partial_div-numbered">
+						<span>3</span>
+						<p>Spam/Advertising We do not approve spam posts, or advertisements of any kind.</p>
+					</div>
+
+					<div class="partial_div-numbered">
+						<p>
+							The moderation process is to ensure the safety of the map, and is not about policing
+							expressions or identities.
+						</p>
+					</div>
+					<div class="partial_div-numbered">
+						<p>
+							Given the amount of posts that have been made over the past few months, we are at a
+							significant moderation backlog, and are doing our best to publish posts as quickly as
+							we can. We appreciate your patience.
+						</p>
+					</div>
+				</div>
+
+				<h2>Request Removal</h2>
+				<div class="overlay__section-text removal_textarea">
+					<p>
+						If you would like something you posted to be removed, or see something on the map you
+						feel shouldn't be there, please contact us through the form below.
+					</p>
+					<p>Content of Post</p>
+					Please copy and paste the text if it is visible on the map, or list a few keywords if the post
+					has not yet been approved.
+					<textarea></textarea>
+
+					<p>Reason for Removal</p>
+					<p>Please provide a brief explanation for the removal of the post.</p>
+					<textarea></textarea>
+
+					<p>Email</p>
+					<p>Please provide your email so we can contact you to confirm the removal of the post.</p>
+
+					<input type="email" />
+					<p>By submitting I agree to the <a>Terms of Use</a> and <a>Privacy Policy</a></p>
+
+					<input type="submit" value="Submit" />
+				</div>
+			</section>
+
+			<section>
+				<h2>Press</h2>
 				<div class="overlay__section-text">
 					<p>
 						Immerse: <a
@@ -151,26 +259,7 @@
 			</section>
 
 			<section>
-				<h2>Moderation</h2>
-
-				<div class="overlay__section-text">
-					<p>
-						Posts to <i>Queering the Map</i> are moderated by a small group of volunteers before they
-						appear publically on the map. This to ensure no hate speech, spam or breaches of anonymity
-						are added to the site.
-					</p>
-					<p>
-						Given the amount of posts that have been made over the past few months, we are at a
-						significant moderation backlog, and are doing our best to publish posts as quickly as we
-						can. If you see anything you feel should be removed, or would like something you posted
-						to be deleted, please contact us!
-					</p>
-				</div>
-			</section>
-
-			<section>
 				<h2>Terms of Use</h2>
-
 				<div class="overlay__section-text">
 					<p>
 						The Terms of Use is a living document. You can access and annotate it <a
@@ -184,7 +273,6 @@
 
 			<section>
 				<h2>Contact</h2>
-
 				<div class="overlay__section-text">
 					<p>
 						Get in touch at <a href="mailto:hi.queeringthemap@gmail.com"
@@ -211,6 +299,48 @@
 </aside>
 
 <style>
+	.partial_div-numbered {
+		display: flex;
+		gap: 8px;
+	}
+	.partial_div-numbered p {
+		margin-top: 0px;
+	}
+	.partial_div-numbered span {
+		border: 1px solid var(--color-dark);
+		border-radius: 50%;
+		min-width: 22px;
+		height: 22px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.removal_textarea textarea,
+	.removal_textarea input {
+		background-color: var(--color-pink);
+		width: 100%;
+		min-height: 76px;
+		margin: 10px 0px;
+		filter: drop-shadow(0px 3px 3px #1a1a1a78);
+		padding: 10px;
+		padding-right: 0px;
+		box-sizing: border-box;
+		font-size: 15px;
+		border: 2px solid var(--color-dark);
+	}
+	.removal_textarea [type='submit'] {
+		width: 100%;
+		background-color: black;
+		text-transform: uppercase;
+		color: white;
+		font-size: 30px;
+	}
+
+	.removal_textarea input {
+		min-height: 26px;
+		filter: drop-shadow(0px 3px 3px #1a1a1a78);
+	}
+
 	.overlay {
 		height: 100%;
 		position: fixed;
@@ -238,15 +368,17 @@
 		font-size: 1.2rem;
 		color: var(--color-dark);
 		display: block;
-		font-weight: bold;
-		text-transform: uppercase;
+		font-weight: 500;
+		/* text-transform: uppercase; */
 		padding-bottom: 4px;
-		border-bottom: 2px solid var(--color-dark);
+		border-top: 2px solid var(--color-dark);
 	}
 
 	@media (min-width: 800px) {
 		h2 {
 			font-size: 1.4rem;
+			padding-left: 1.05rem;
+			padding-top: 1em;
 		}
 	}
 
@@ -287,7 +419,8 @@
 		}
 
 		.overlay--info {
-			left: -2px;
+			left: 9px;
+			top: 9px;
 			border-right: var(--color-dark) solid 2px;
 			box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.5);
 		}

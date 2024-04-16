@@ -11,28 +11,28 @@ export let link: string;
 	.button {
 		display: inline-block;
 		border: 2px solid var(--color-dark);
-		background: var(--color-pink-bright);
-		color: var(--color-pink-bright);
-		box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
-		border-radius: 25px;
-		cursor: pointer;
-		padding: 5px 20px;
-		text-align: center;
-		font-size: 18px;
+		background: var(--color-pink);
 		color: var(--color-dark);
+		box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+		cursor: pointer;
+		padding: 10px 0px;
+		text-align: center;
+		font-size: 30px;
 		text-transform: uppercase;
 		text-decoration: none;
 		transition-property: color, border-color, background-color;
 		transition-duration: 300ms;
 		transition-timing-function: ease;
+		width: 100%;
+		font-size: 30px;
 	}
 
-	.button:hover, .button:focus {
+	/* .button:hover, .button:focus {
 		color: var(--color-pink-bright);
 		border: 2px solid var(--color-pink-bright);
 		background: var(--color-dark);
 		text-decoration: none;
-	}
+	} */
 
 	.button-wrapper {
 		text-align: center;
