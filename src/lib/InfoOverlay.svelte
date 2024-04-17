@@ -20,12 +20,12 @@
 
 	<div class="header__menu__margin">
 		<div class="info__tabs first__row">
-			<button on:click={() => showTabState(1)}>About </button>
-			<button on:click={() => showTabState(2)}>Support Us </button>
+			<button class:active={active_tab ==(1)} on:click={() => showTabState(1)}>About </button>
+			<button class:active={active_tab ==(2)} on:click={() => showTabState(2)}>Support Us </button>
 		</div>
 		<div class="info__tabs">
-			<button on:click={() => showTabState(3)}>Moderation </button>
-			<button on:click={() => showTabState(4)}>Press </button>
+			<button class:active={active_tab ==(3)} on:click={() => showTabState(3)}>Moderation </button>
+			<button class:active={active_tab ==(4)} on:click={() => showTabState(4)}>Press </button>
 		</div>
 	</div>
 	<div class="overlay__outer">
@@ -313,27 +313,38 @@
 				</div>
 			</section>
 		</div>
+		<div class="footer__menu__margin">
+			<div class="info__tabs first__row">
+				<button class:active={active_tab == (5)} on:click={() => showTabState(5)}>FAQs </button>
+				<button class:active={active_tab ==(6)} on:click={() => showTabState(6)}>Terms of Use </button>
+			</div>
+			<div class="info__tabs">
+				<button class:active={active_tab ==(7)} on:click={() => showTabState(7)}>Privacy Policy </button>
+				<button class:active={active_tab ==(8)} on:click={() => showTabState(8)}>Contact </button>
+			</div>
+		</div>
 	</div>
 
-	<div class="footer__menu__margin">
-		<div class="info__tabs first__row">
-			<button on:click={() => showTabState(5)}>About </button>
-			<button on:click={() => showTabState(6)}>Support Us </button>
-		</div>
-		<div class="info__tabs">
-			<button on:click={() => showTabState(7)}>Moderation </button>
-			<button on:click={() => showTabState(8)}>Press </button>
-		</div>
-	</div>
+	
 
 </aside>
 
 <style>
-	.header__menu__margin {
-		width: calc(100% - 45px);
-		float: right;
+	.footer__menu__margin {
+		margin-top: 15px;
+		width: calc((40vw));
 		position: sticky;
+    bottom: 0px;
+    background: var(--color-pink);
 	}
+	.header__menu__margin {
+		/* width: calc(100% - 45px); */
+		width: calc((40vw - 43px));
+		left: 55px;
+		position: fixed;
+		background: var(--color-pink);
+	}
+
 	.info__tabs {
 		display: flex;
 		flex-wrap: nowrap;
@@ -344,15 +355,28 @@
 		width: 50%;
 		border: 1px solid var(--color-dark);
 		height: 22.5px;
-		font-size: 1.1rem;
+		font-size: 0.9rem;
 		font-weight: 500;
 		background: transparent;
 		cursor: pointer;
 	}
-	.info__tabs button.active,
-	.info__tabs button:hover {
+	.info__tabs button:nth-child(odd){
+	border-left: 0px;
+	}
+	.info__tabs button:nth-child(odd){
+		border-right: 0px;
+	}
+	.info__tabs button.active
+	{
 		background-color: var(--color-dark);
 		color: white;
+	}
+	.info__tabs button:hover {
+		background-color: black;
+		color: white;
+	}
+	.info__tabs button:hover {
+
 	}
 	.info__tabs.first__row button {
 		border-bottom: 0px;
@@ -409,6 +433,18 @@
 	}
 
 	/* aqui */
+	.overlay__outer section p
+	{
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+	.overlay__outer section .partial_div-numbered {
+		padding-left: 2em;
+	}
+	.overlay__outer section .partial_div-numbered p {
+		padding-left: 0em;
+		padding-right: 1em;
+	}
 	/* .overlay__outer {
 		width: 0;
 		padding: 2em;
@@ -471,6 +507,7 @@
 
 	.overlay--info {
 		left: 0;
+		z-index: 99999;
 	}
 	.overlay--info::-webkit-scrollbar {
 		display: none;
@@ -480,9 +517,12 @@
 		-ms-overflow-style: none;
 		scrollbar-width: none;
 	}
+	.overlay__outer {
+	padding-top: 11px;
+	}
 	@media (min-width: 800px) {
 		.overlay__outer {
-			width: calc(40vw - 2px);
+			width: calc(40vw);
 			padding-top: 12px;
 		}
 
@@ -492,6 +532,8 @@
 			border-right: var(--color-dark) solid 2px;
 			border-left: var(--color-dark) solid 2px;
 			box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.5);
+			max-height: 90vh;
+			height: unset;
 		}
 
 		.overlay__content {

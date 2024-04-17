@@ -10,7 +10,6 @@
 	aria-label="close overlay"
 	style={position === 'right' ? 'right: 0' : ''}
 >
-	
 	<span class="close-btn__text">
 		<img src={closeButton} alt="close" />
 	</span>
@@ -45,4 +44,8 @@
 		display: inline-block;
 		overflow: hidden;
 	}
+		.overlay--info .close-btn {
+		display: none;
+	}
+
 </style>

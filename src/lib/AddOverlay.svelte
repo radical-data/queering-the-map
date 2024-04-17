@@ -15,27 +15,28 @@
 	<div class="overlay__outer">
 			<div class="overlay__content">
 				<section>
-					<div class="overlay__section-title">How to add to the map</div>
+					<div class="overlay__section-title">Add Your Story</div>
 
 					<div class="overlay__section-text">
 						<ol>
-							<li>Click on the location of your story.</li>
+							<li>Click on the location of your story on the map.</li>
 							<li>Share your story in the the text box below.</li>
-							<li>Click the 'ADD' button.</li>
+							<li>Click the Add button.</li>
 						</ol>
 						<br />
 						<textarea id="txt_contents" class="subform"></textarea>
 						<div class="recaptcha-text">
-							This site is protected by reCAPTCHA and the Google
-							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
-								>Privacy Policy</a
-							>
-							and
+							By submitting I agree to
 							<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
-								>Terms of Service</a
-							> apply.
+							>Terms of Use</a
+						> apply.
+							
+							and
+							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
+							>Privacy Policy</a
+						>
 						</div>
-						<ActionButton link="">Add</ActionButton>
+						<ActionButton link="">ADD</ActionButton>
 					</div>
 				</section>
 		</div>
@@ -125,7 +126,7 @@
 		width: 100%;
 		height: 18em;
 		font-size: 12pt;
-		background-color: #f0cbdd;
+		background-color: #f4b9d6;
 		border: 2px solid var(--color-dark);
 	}
 
