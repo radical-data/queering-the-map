@@ -3,16 +3,34 @@
 	import CloseButton from './CloseButton.svelte';
 	import ActionButton from './ActionButton.svelte';
 
+
+	let active_tab = 1;
+
 	function closeInfoOverlay() {
 		infoOverlayVisible.update(() => false);
+	}
+
+	function showTabState(parameter: number) {
+		active_tab = parameter;
 	}
 </script>
 
 <aside class="overlay overlay--info">
 	<CloseButton functionOnClick={closeInfoOverlay}>close info overlay</CloseButton>
+
+	<div class="header__menu__margin">
+		<div class="info__tabs first__row">
+			<button on:click={() => showTabState(1)}>About </button>
+			<button on:click={() => showTabState(2)}>Support Us </button>
+		</div>
+		<div class="info__tabs">
+			<button on:click={() => showTabState(3)}>Moderation </button>
+			<button on:click={() => showTabState(4)}>Press </button>
+		</div>
+	</div>
 	<div class="overlay__outer">
 		<div class="overlay__content">
-			<section>
+			<section style={active_tab !== 1 ? "display: none;" : "" }>
 				<h2>About</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -69,7 +87,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section style={active_tab !== 2 ? "display: none;" : "" }>
 				<h2>Donate</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -90,7 +108,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section style={active_tab !== 3 ? "display: none;" : "" }>
 				<h2>Land Acknowledgment</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -127,7 +145,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section style={active_tab !== 4 ? "display: none;" : "" }>
 				<h2>Moderation Guidelines</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -196,7 +214,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section style={active_tab !== 5 ? "display: none;" : "" }>
 				<h2>Press</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -258,7 +276,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section style={active_tab !== 6 ? "display: none;" : "" }>
 				<h2>Terms of Use</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -271,7 +289,7 @@
 				</div>
 			</section>
 
-			<section>
+			<section style={active_tab !== 7 ? "display: none;" : "" }>
 				<h2>Contact</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -296,9 +314,49 @@
 			</section>
 		</div>
 	</div>
+
+	<div class="footer__menu__margin">
+		<div class="info__tabs first__row">
+			<button on:click={() => showTabState(5)}>About </button>
+			<button on:click={() => showTabState(6)}>Support Us </button>
+		</div>
+		<div class="info__tabs">
+			<button on:click={() => showTabState(7)}>Moderation </button>
+			<button on:click={() => showTabState(8)}>Press </button>
+		</div>
+	</div>
+
 </aside>
 
 <style>
+	.header__menu__margin {
+		width: calc(100% - 45px);
+		float: right;
+		position: sticky;
+	}
+	.info__tabs {
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		justify-content: center;
+	}
+	.info__tabs button {
+		width: 50%;
+		border: 1px solid var(--color-dark);
+		height: 22.5px;
+		font-size: 1.1rem;
+		font-weight: 500;
+		background: transparent;
+		cursor: pointer;
+	}
+	.info__tabs button.active,
+	.info__tabs button:hover {
+		background-color: var(--color-dark);
+		color: white;
+	}
+	.info__tabs.first__row button {
+		border-bottom: 0px;
+	}
 	.partial_div-numbered {
 		display: flex;
 		gap: 8px;
@@ -350,18 +408,19 @@
 		overflow-x: hidden;
 	}
 
-	.overlay__outer {
+	/* aqui */
+	/* .overlay__outer {
 		width: 0;
 		padding: 2em;
-	}
+	} */
 
 	section {
 		margin-top: 2em;
 	}
 
-	section:first-child {
+	/* section:first-child {
 		margin-top: -1.2em;
-	}
+	} */
 
 	h2 {
 		text-decoration: none;
@@ -400,28 +459,38 @@
 
 	a {
 		text-decoration: underline;
-		text-decoration-color: var(--color-pink-bright);
+		text-decoration-color: var(--color-dark);
 		color: var(--color-dark);
 	}
 
 	a:not(.closebtn):hover,
 	a:not(.closebtn):focus {
 		color: var(--color-pink-bright);
+		text-decoration-color: var(--color-pink-bright);
 	}
 
 	.overlay--info {
 		left: 0;
 	}
+	.overlay--info::-webkit-scrollbar {
+		display: none;
+	}
 
+	.overlay--info {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
 	@media (min-width: 800px) {
 		.overlay__outer {
 			width: calc(40vw - 2px);
+			padding-top: 12px;
 		}
 
 		.overlay--info {
 			left: 9px;
 			top: 9px;
 			border-right: var(--color-dark) solid 2px;
+			border-left: var(--color-dark) solid 2px;
 			box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.5);
 		}
 
