@@ -196,8 +196,8 @@
 						feel shouldn't be there, please contact us through the form below.
 					</p>
 					<p>Content of Post</p>
-					Please copy and paste the text if it is visible on the map, or list a few keywords if the post
-					has not yet been approved.
+					<p>Please copy and paste the text if it is visible on the map, or list a few keywords if the post
+					has not yet been approved.</p>
 					<textarea></textarea>
 
 					<p>Reason for Removal</p>
@@ -433,7 +433,8 @@
 	}
 
 	/* aqui */
-	.overlay__outer section p
+	.overlay__outer section p,
+	.overlay__outer section textarea
 	{
 		padding-left: 2em;
 		padding-right: 2em;
@@ -532,7 +533,7 @@
 			border-right: var(--color-dark) solid 2px;
 			border-left: var(--color-dark) solid 2px;
 			box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.5);
-			max-height: 90vh;
+			max-height: 97vh;
 			height: unset;
 		}
 

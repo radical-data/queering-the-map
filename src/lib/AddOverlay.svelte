@@ -18,18 +18,16 @@
 					<div class="overlay__section-title">Add Your Story</div>
 
 					<div class="overlay__section-text">
-						<ol>
-							<li>Click on the location of your story on the map.</li>
-							<li>Share your story in the the text box below.</li>
-							<li>Click the Add button.</li>
-						</ol>
+							<div class="partial_div-numbered"><span>1</span>Click on the location of your story on the map.</div>
+							<div class="partial_div-numbered"><span>2</span>Share your story in the the text box below.	</div> 
+							<div class="partial_div-numbered"><span>3</span>Click the Add button.						</div>	 
 						<br />
 						<textarea id="txt_contents" class="subform"></textarea>
 						<div class="recaptcha-text">
-							By submitting I agree to
+							By submitting I agree to 
 							<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
 							>Terms of Use</a
-						> apply.
+						> 
 							
 							and
 							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
@@ -44,6 +42,18 @@
 </aside>
 
 <style>
+	.partial_div-numbered span {
+		border: 1px solid var(--color-dark);
+		border-radius: 50%;
+		min-width: 22px;
+		height: 22px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		margin-right: 10px;
+	}
 	.overlay {
 		height: 100%;
 		position: fixed;
@@ -63,10 +73,10 @@
 		font-size: 1.2rem;
 		color: var(--color-dark);
 		display: block;
-		font-weight: bold;
-		text-transform: uppercase;
+		font-weight: 500;
 		padding-bottom: 4px;
-		border-bottom: 2px solid var(--color-dark);
+		border-top: 2px solid var(--color-dark);
+		padding-top: 10px;
 	}
 
 	.overlay__section-text {
@@ -75,8 +85,12 @@
 		display: block;
 		margin-top: 1em;
 		font-size: 1.1rem;
-	}
 
+	}
+	.overlay__section-text > div {
+		display: flex;
+		align-items: center;
+	}
 	.overlay__section-text > *:first-child {
 		margin-top: 0;
 	}
@@ -87,8 +101,10 @@
 
 	a {
 		text-decoration: underline;
-		text-decoration-color: var(--color-pink-bright);
+		text-decoration-color: var(--color-dark);
 		color: var(--color-dark);
+		margin-left:  3px;
+		margin-right: 3px;
 	}
 
 	@media (min-width: 800px) {
@@ -103,11 +119,16 @@
 			border-left: var(--color-dark) solid 2px;
 			height: 100%;
 			box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.5);
+			
 		}
 
 		.overlay__content {
 			margin: 0;
 			height: 125%;
+			left: 9px;
+    top: 9px;
+    max-height: 97vh;
+    height: unset;
 		}
 	}
 
@@ -124,7 +145,7 @@
 		padding-bottom: 0.4em;
 		padding-right: 0.4em;
 		width: 100%;
-		height: 18em;
+		height: 12.7em;
 		font-size: 12pt;
 		background-color: #f4b9d6;
 		border: 2px solid var(--color-dark);
