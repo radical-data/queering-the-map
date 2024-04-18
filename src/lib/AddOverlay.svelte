@@ -11,12 +11,12 @@
 <aside class="overlay overlay--add">
 	<div class="action-button-container">
 		<div>
-			<div class="bordered">aaaaaaaaaa</div>
-			<div class="bordered">aaaaaaaaaa</div>
+			<div class="bordered"></div>
+			<div class="bordered"></div>
 		</div>
 		<div>
-			<div class="bordered">aaaaaaaaaa</div>
-			<div class="bordered">aaaaaaaaaa</div>
+			<div class="bordered"></div>
+			<div class="bordered"></div>
 		</div>
 			
 		<CloseButton functionOnClick={closeAddOverlay} position="right">close add overlay</CloseButton>
@@ -88,8 +88,8 @@
 		display: block;
 		font-weight: 500;
 		padding-bottom: 4px;
-		border-top: 2px solid var(--color-dark);
 		padding-top: 10px;
+		padding-left: 18px;
 	}
 
 	.overlay__section-text {
@@ -177,7 +177,8 @@
 		width: 50%;
 	}
 	.action-button-container .bordered {
-		border: 1px solid var(--color-dark);
-		height: 20px;
+	border-right: 1px solid var(--color-dark);
+    border-bottom: 1px solid var(--color-dark);
+    height: 21px;
 	}
 </style>

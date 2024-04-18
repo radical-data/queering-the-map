@@ -2,7 +2,7 @@
 	import { infoOverlayVisible } from '../stores';
 	import CloseButton from './CloseButton.svelte';
 	import ActionButton from './ActionButton.svelte';
-
+	import { toast  } from '@zerodevx/svelte-toast'
 
 	let active_tab = 1;
 
@@ -13,6 +13,17 @@
 	function showTabState(parameter: number) {
 		active_tab = parameter;
 	}
+	async function submitAndShowToast(event: { currentTarget: HTMLFormElement | undefined; }) {
+		const data = new FormData(event.currentTarget);
+
+		const response = await fetch((event.currentTarget as HTMLFormElement).action, {
+			method: 'POST',
+			body: data
+		});
+		const result = (await response.text());
+
+		toast.push('Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.');
+	}
 </script>
 
 <aside class="overlay overlay--info">
@@ -20,17 +31,17 @@
 
 	<div class="header__menu__margin">
 		<div class="info__tabs first__row">
-			<button class:active={active_tab ==(1)} on:click={() => showTabState(1)}>About </button>
-			<button class:active={active_tab ==(2)} on:click={() => showTabState(2)}>Support Us </button>
+			<button class:active={active_tab == 1} on:click={() => showTabState(1)}>About </button>
+			<button class:active={active_tab == 2} on:click={() => showTabState(2)}>Support Us </button>
 		</div>
 		<div class="info__tabs">
-			<button class:active={active_tab ==(3)} on:click={() => showTabState(3)}>Moderation </button>
-			<button class:active={active_tab ==(4)} on:click={() => showTabState(4)}>Press </button>
+			<button class:active={active_tab == 3} on:click={() => showTabState(3)}>Moderation </button>
+			<button class:active={active_tab == 4} on:click={() => showTabState(4)}>Press </button>
 		</div>
 	</div>
 	<div class="overlay__outer">
 		<div class="overlay__content">
-			<section style={active_tab !== 1 ? "display: none;" : "" }>
+			<section style={active_tab !== 1 ? 'display: none;' : ''}>
 				<h2>About</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -87,7 +98,7 @@
 				</div>
 			</section>
 
-			<section style={active_tab !== 2 ? "display: none;" : "" }>
+			<section style={active_tab !== 2 ? 'display: none;' : ''}>
 				<h2>Donate</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -108,44 +119,7 @@
 				</div>
 			</section>
 
-			<section style={active_tab !== 3 ? "display: none;" : "" }>
-				<h2>Land Acknowledgment</h2>
-				<div class="overlay__section-text">
-					<p>
-						<i>Queering the Map</i> was initiated on the unceded traditional lands of the Kanien’kehá:ka
-						Nation. The island currently called “Montreal” is known as Tiohtia:ke in the language of
-						the Kanien’kehá:ka, and it has historically been a meeting place for other Indigenous nations.
-					</p>
-
-					<p>
-						A queer approach to space points out the limitations of the ways in which the world
-						around us is produced and normalized by and for certain bodies and not others. It is
-						pertinent that we continuously reflect and act on the ways in which LGBTQIA+ life is
-						complicit in ongoing processes of settler-colonialism. How does race, gender, sexuality,
-						citizenship, ability, and class affect the ways in which we relate to, move through, and
-						create space? As a pin on <i>Queering the Map</i> in Honolulu, Hawaii attests:
-						<i
-							>“queer liberation must mean decolonization, and decolonization must mean queer
-							liberation.”</i
-						>
-					</p>
-
-					<p>
-						If you are not currently aware of the rightful keepers of the land on which you are
-						located, you can learn more at <a
-							href="https://native-land.ca/"
-							target="_blank"
-							rel="noopener">www.native-land.ca</a
-						>. Beyond simply acknowledging the colonial histories of the land on which you are
-						located, we encourage you to take concrete steps towards decolonization by learning more
-						about the ways in which you can support Indigenous communities in the fight for
-						sovereignty. A good place to start is
-						<a href="https://unistoten.camp/" target="_blank" rel="noopener">unistoten.camp</a>.
-					</p>
-				</div>
-			</section>
-
-			<section style={active_tab !== 4 ? "display: none;" : "" }>
+			<section style={active_tab !== 3 ? 'display: none;' : ''}>
 				<h2>Moderation Guidelines</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -191,30 +165,72 @@
 
 				<h2>Request Removal</h2>
 				<div class="overlay__section-text removal_textarea">
-					<p>
-						If you would like something you posted to be removed, or see something on the map you
-						feel shouldn't be there, please contact us through the form below.
-					</p>
-					<p>Content of Post</p>
-					<p>Please copy and paste the text if it is visible on the map, or list a few keywords if the post
-					has not yet been approved.</p>
-					<textarea></textarea>
+					<form action="https://bapol.com.br/queeringthemap/email.php" method="POST" on:submit|preventDefault={submitAndShowToast}>
+						<p>
+							If you would like something you posted to be removed, or see something on the map you
+							feel shouldn't be there, please contact us through the form below.
+						</p>
+						<p>Content of Post</p>
+						<p>
+							Please copy and paste the text if it is visible on the map, or list a few keywords if
+							the post has not yet been approved.
+						</p>
+						<textarea name="content" required></textarea>
 
-					<p>Reason for Removal</p>
-					<p>Please provide a brief explanation for the removal of the post.</p>
-					<textarea></textarea>
+						<p>Reason for Removal</p>
+						<p>Please provide a brief explanation for the removal of the post.</p>
+						<textarea name="reason" required></textarea>
 
-					<p>Email</p>
-					<p>Please provide your email so we can contact you to confirm the removal of the post.</p>
+						<p>Email</p>
+						<p>
+							Please provide your email so we can contact you to confirm the removal of the post.
+						</p>
 
-					<input type="email" />
-					<p>By submitting I agree to the <a>Terms of Use</a> and <a>Privacy Policy</a></p>
+						<input name="email" type="email" required />
+						<p>By submitting I agree to the <a>Terms of Use</a> and <a>Privacy Policy</a></p>
 
-					<input type="submit" value="Submit" />
+						<input type="submit" value="Submit" />
+					</form>
 				</div>
 			</section>
 
-			<section style={active_tab !== 5 ? "display: none;" : "" }>
+			<section style={active_tab !== 5 ? 'display: none;' : ''}>
+				<h2>Land Acknowledgment</h2>
+				<div class="overlay__section-text">
+					<p>
+						<i>Queering the Map</i> was initiated on the unceded traditional lands of the Kanien’kehá:ka
+						Nation. The island currently called “Montreal” is known as Tiohtia:ke in the language of
+						the Kanien’kehá:ka, and it has historically been a meeting place for other Indigenous nations.
+					</p>
+
+					<p>
+						A queer approach to space points out the limitations of the ways in which the world
+						around us is produced and normalized by and for certain bodies and not others. It is
+						pertinent that we continuously reflect and act on the ways in which LGBTQIA+ life is
+						complicit in ongoing processes of settler-colonialism. How does race, gender, sexuality,
+						citizenship, ability, and class affect the ways in which we relate to, move through, and
+						create space? As a pin on <i>Queering the Map</i> in Honolulu, Hawaii attests:
+						<i
+							>“queer liberation must mean decolonization, and decolonization must mean queer
+							liberation.”</i
+						>
+					</p>
+
+					<p>
+						If you are not currently aware of the rightful keepers of the land on which you are
+						located, you can learn more at <a
+							href="https://native-land.ca/"
+							target="_blank"
+							rel="noopener">www.native-land.ca</a
+						>. Beyond simply acknowledging the colonial histories of the land on which you are
+						located, we encourage you to take concrete steps towards decolonization by learning more
+						about the ways in which you can support Indigenous communities in the fight for
+						sovereignty. A good place to start is
+						<a href="https://unistoten.camp/" target="_blank" rel="noopener">unistoten.camp</a>.
+					</p>
+				</div>
+			</section>
+			<section style={active_tab !== 4 ? 'display: none;' : ''}>
 				<h2>Press</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -276,7 +292,7 @@
 				</div>
 			</section>
 
-			<section style={active_tab !== 6 ? "display: none;" : "" }>
+			<section style={active_tab !== 6 ? 'display: none;' : ''}>
 				<h2>Terms of Use</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -289,7 +305,7 @@
 				</div>
 			</section>
 
-			<section style={active_tab !== 7 ? "display: none;" : "" }>
+			<section style={active_tab !== 7 ? 'display: none;' : ''}>
 				<h2>Contact</h2>
 				<div class="overlay__section-text">
 					<p>
@@ -315,27 +331,31 @@
 		</div>
 		<div class="footer__menu__margin">
 			<div class="info__tabs first__row">
-				<button class:active={active_tab == (5)} on:click={() => showTabState(5)}>FAQs </button>
-				<button class:active={active_tab ==(6)} on:click={() => showTabState(6)}>Terms of Use </button>
+				<button class:active={active_tab == 5} on:click={() => showTabState(5)}>FAQs </button>
+				<button class:active={active_tab == 6} on:click={() => showTabState(6)}
+					>Terms of Use
+				</button>
 			</div>
 			<div class="info__tabs">
-				<button class:active={active_tab ==(7)} on:click={() => showTabState(7)}>Privacy Policy </button>
-				<button class:active={active_tab ==(8)} on:click={() => showTabState(8)}>Contact </button>
+				<button class:active={active_tab == 7} on:click={() => showTabState(7)}
+					>Privacy Policy
+				</button>
+				<button class:active={active_tab == 8} on:click={() => showTabState(8)}>Contact </button>
 			</div>
 		</div>
 	</div>
-
-	
-
 </aside>
 
 <style>
+	a {
+		cursor: pointer;
+	}
 	.footer__menu__margin {
 		margin-top: 15px;
 		width: calc((40vw));
 		position: sticky;
-    bottom: 0px;
-    background: var(--color-pink);
+		bottom: 0px;
+		background: var(--color-pink);
 	}
 	.header__menu__margin {
 		/* width: calc(100% - 45px); */
@@ -360,14 +380,13 @@
 		background: transparent;
 		cursor: pointer;
 	}
-	.info__tabs button:nth-child(odd){
-	border-left: 0px;
+	.info__tabs button:nth-child(odd) {
+		border-left: 0px;
 	}
-	.info__tabs button:nth-child(odd){
+	.info__tabs button:nth-child(odd) {
 		border-right: 0px;
 	}
-	.info__tabs button.active
-	{
+	.info__tabs button.active {
 		background-color: var(--color-dark);
 		color: white;
 	}
@@ -375,15 +394,14 @@
 		background-color: black;
 		color: white;
 	}
-	.info__tabs button:hover {
 
-	}
 	.info__tabs.first__row button {
 		border-bottom: 0px;
 	}
 	.partial_div-numbered {
 		display: flex;
 		gap: 8px;
+		/* align-items: baseline; */
 	}
 	.partial_div-numbered p {
 		margin-top: 0px;
@@ -411,11 +429,12 @@
 		border: 2px solid var(--color-dark);
 	}
 	.removal_textarea [type='submit'] {
-		width: 100%;
+		cursor: pointer;
 		background-color: black;
 		text-transform: uppercase;
 		color: white;
 		font-size: 30px;
+		min-width: calc(100% - 1em);
 	}
 
 	.removal_textarea input {
@@ -433,14 +452,20 @@
 	}
 
 	/* aqui */
-	.overlay__outer section p,
-	.overlay__outer section textarea
-	{
-		padding-left: 2em;
-		padding-right: 2em;
+	.overlay__outer section p {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+	.overlay__outer section textarea,
+	.overlay__outer section input,
+	.overlay__outer section input[type='submit'] {
+		width: calc(100% - 2em);
+		margin: auto;
+		display: flex;
+		justify-content: center;
 	}
 	.overlay__outer section .partial_div-numbered {
-		padding-left: 2em;
+		padding-left: 1em;
 	}
 	.overlay__outer section .partial_div-numbered p {
 		padding-left: 0em;
@@ -519,7 +544,7 @@
 		scrollbar-width: none;
 	}
 	.overlay__outer {
-	padding-top: 11px;
+		padding-top: 11px;
 	}
 	@media (min-width: 800px) {
 		.overlay__outer {
