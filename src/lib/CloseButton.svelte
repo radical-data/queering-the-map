@@ -32,20 +32,10 @@
 	.close-btn:hover {
 		cursor: pointer;
 	}
-
-	.close-btn__inner {
-		position: relative;
-		width: 24px;
-		height: 24px;
-		display: block;
-	}
-
 	.close-btn__text {
 		display: inline-block;
 		overflow: hidden;
 	}
-		.overlay--info .close-btn {
-		display: none;
-	}
+		
 
 </style>

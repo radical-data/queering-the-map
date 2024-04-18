@@ -58,3 +58,13 @@ div.maplibregl-ctrl-group button:hover {
 .overlay--info .close-btn {
     margin-left: -1px;
 }
+
+.overlay--add button {
+    top: 1em;
+    right: 1.0em !important;
+}
+
+.overlay--add .button-wrapper .button {
+    background-color: transparent;
+    color: var(--color-dark);
+}

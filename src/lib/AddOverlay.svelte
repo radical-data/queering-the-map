@@ -10,33 +10,46 @@
 
 <aside class="overlay overlay--add">
 	<div class="action-button-container">
+		<div>
+			<div class="bordered">aaaaaaaaaa</div>
+			<div class="bordered">aaaaaaaaaa</div>
+		</div>
+		<div>
+			<div class="bordered">aaaaaaaaaa</div>
+			<div class="bordered">aaaaaaaaaa</div>
+		</div>
+			
 		<CloseButton functionOnClick={closeAddOverlay} position="right">close add overlay</CloseButton>
 	</div>
 	<div class="overlay__outer">
-			<div class="overlay__content">
-				<section>
-					<div class="overlay__section-title">Add Your Story</div>
+		<div class="overlay__content">
+			<section>
+				<div class="overlay__section-title">Add Your Story</div>
 
-					<div class="overlay__section-text">
-							<div class="partial_div-numbered"><span>1</span>Click on the location of your story on the map.</div>
-							<div class="partial_div-numbered"><span>2</span>Share your story in the the text box below.	</div> 
-							<div class="partial_div-numbered"><span>3</span>Click the Add button.						</div>	 
-						<br />
-						<textarea id="txt_contents" class="subform"></textarea>
-						<div class="recaptcha-text">
-							By submitting I agree to 
-							<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
+				<div class="overlay__section-text">
+					<div class="partial_div-numbered">
+						<span>1</span>Click on the location of your story on the map.
+					</div>
+					<div class="partial_div-numbered">
+						<span>2</span>Share your story in the the text box below.
+					</div>
+					<div class="partial_div-numbered"><span>3</span>Click the Add button.</div>
+					<br />
+					<textarea id="txt_contents" class="subform"></textarea>
+					<div class="recaptcha-text">
+						By submitting I agree to
+						<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
 							>Terms of Use</a
-						> 
-							
-							and
-							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
+						>
+
+						and
+						<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
 							>Privacy Policy</a
 						>
-						</div>
-						<ActionButton link="">ADD</ActionButton>
 					</div>
-				</section>
+					<ActionButton link="">ADD</ActionButton>
+				</div>
+			</section>
 		</div>
 	</div>
 </aside>
@@ -65,7 +78,7 @@
 
 	.overlay__outer {
 		width: calc(40vw - 2px);
-        padding: 2em;
+		padding: 0.8em;
 	}
 
 	.overlay__section-title {
@@ -85,7 +98,6 @@
 		display: block;
 		margin-top: 1em;
 		font-size: 1.1rem;
-
 	}
 	.overlay__section-text > div {
 		display: flex;
@@ -103,7 +115,7 @@
 		text-decoration: underline;
 		text-decoration-color: var(--color-dark);
 		color: var(--color-dark);
-		margin-left:  3px;
+		margin-left: 3px;
 		margin-right: 3px;
 	}
 
@@ -113,22 +125,23 @@
 		}
 
 		.overlay--add {
-			top: 0;
-			right: -2px;
 			border-top: none;
 			border-left: var(--color-dark) solid 2px;
 			height: 100%;
 			box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.5);
-			
+			top: 0.8em;
+			right: 0.8em !important;
+			border: 1px solid;
+			height: 62vh;
 		}
 
 		.overlay__content {
 			margin: 0;
 			height: 125%;
 			left: 9px;
-    top: 9px;
-    max-height: 97vh;
-    height: unset;
+			top: 9px;
+			max-height: 97vh;
+			height: unset;
 		}
 	}
 
@@ -151,20 +164,20 @@
 		border: 2px solid var(--color-dark);
 	}
 
-	ol {
-		text-align: left;
-		padding-left: 1em;
-	}
-
-	ol li:not(:first-child) {
-		margin-top: 0.5em;
-	}
-
 	textarea {
 		font-family: 'Apfel Grotezk', sans-serif;
 	}
 
-    .action-button-container {
-        right: 0;
-    }
+	.action-button-container {
+	    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+	}
+	.action-button-container > div {
+		width: 50%;
+	}
+	.action-button-container .bordered {
+		border: 1px solid var(--color-dark);
+		height: 20px;
+	}
 </style>
