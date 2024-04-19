@@ -4,17 +4,20 @@
 	import { getMomentText } from '$lib/getMomentText';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import { addOverlayVisible } from '../stores';
-
+	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
 	import markerImage from '$lib/assets/marker.png';
 
 	import moments from '$lib/data/filtered_data_id_only.json';
 
 	let map: Map;
 	let mapContainer: HTMLDivElement;
+	let openPopup = false;
 
 	const maptilerApiKey = 'SRfJh1CuGiISgDoqUg55';
 	const maptilerMapReference = 'd27741ff-e220-4106-a5a1-aedace679204';
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
+
+	
 
 	async function getMoment(id: number) {
 		try {
@@ -28,8 +31,11 @@
 	}
 
 	function openAddOverlay(e: any) {
-		localStorage.setItem('addCurrentLongLat', JSON.stringify({ lng: e.lngLat.lng, lat: e.lngLat.lat }));
-		addOverlayVisible.update(() => true);
+		if(openPopup == true) {
+			localStorage.setItem('addCurrentLongLat', JSON.stringify({ lng: e.lngLat.lng, lat: e.lngLat.lat }));
+			map.getCanvas().style.cursor = 'pointer';
+			addOverlayVisible.update(() => true);
+	}
 	}
 
 	onMount(() => {
@@ -71,7 +77,6 @@
 
 			map.on('click', function (e) {
 				openAddOverlay(e);
-				console.log(e.lngLat.lng, e.lngLat.lat);
 			});
 
 			map.on('click', 'moments-layer', function (e) {
@@ -101,21 +106,43 @@
 							});
 					}
 				}
-
-				
-
 			});
 
 			// Change the cursor to a pointer when the mouse is over the moments layer.
 			map.on('mouseenter', 'moments-layer', function () {
 				map.getCanvas().style.cursor = 'pointer';
+			
+				openPopup = false;
 			});
-
+			
 			// Change it back to a pointer when it leaves.
 			map.on('mouseleave', 'moments-layer', function () {
 				map.getCanvas().style.cursor = '';
+				openPopup = true;
 			});
 		});
+
+		const app = new SvelteToast({
+		// Set where the toast container should be appended into
+		target: document.body,
+		props: {
+			options: {
+				// Optionally set default options here
+			}
+		}
+	});
+	
+	toast.push(
+			// 'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
+			'<a style="color:var(--color-pink);" href="https://www.patreon.com/queeringthemap" rel="noopener" target="_blank">DONATE</a> to Queering The Map to help us stay online.',
+			{
+				target: 'new',
+				initial: 0,
+				theme: {
+					'--toastBarHeight': 0
+				}
+			}
+		);
 	});
 
 	onDestroy(() => {
@@ -126,8 +153,12 @@
 </script>
 
 <div id="map" bind:this={mapContainer}></div>
+<div class="wrap">
+	<SvelteToast target="new" options={{ initial: 0, intro: { y: -64 } }} />
+  </div>
 
 <style>
+
 	#map {
 		position: absolute;
 		width: 100%;

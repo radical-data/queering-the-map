@@ -3,27 +3,55 @@
 	import CloseButton from './CloseButton.svelte';
 	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
 
+	const app = new SvelteToast({
+		// Set where the toast container should be appended into
+		target: document.body,
+		props: {
+			options: {
+				// Optionally set default options here
+			}
+		}
+	});
+
 	function closeAddOverlay() {
 		addOverlayVisible.update(() => false);
 	}
-	async function submitAndShowToast(event: { currentTarget: HTMLFormElement | undefined }) {
-		const data = new FormData(event.currentTarget);
 
-		const response = await fetch((event.currentTarget as HTMLFormElement).action, {
-			method: 'POST',
-			body: data
-		});
-		await response.text();
-		toast.push(
-			// 'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
-			'Your report was succesfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
-			{
+	function retrieveLongLat() {
+		let longLat = localStorage.getItem('addCurrentLongLat');
+		// if (removeLongLat) {
+		// 	localStorage.setItem('addCurrentLongLat', '');
+		// }
+		return longLat;
+	}
+
+	async function submitAndShowToastAdd(event: { currentTarget: HTMLFormElement | undefined }) {
+		if (retrieveLongLat() == '' || retrieveLongLat() == null) {
+			toast.push('Please click on the map to select a location for your story.', {
 				initial: 0,
 				theme: {
 					'--toastBarHeight': 0
 				}
-			}
-		);
+			});
+		} else {
+			const dataX = new FormData(event.currentTarget);
+			const response = await fetch((event.currentTarget as HTMLFormElement).action, {
+				method: 'POST',
+				body: dataX
+			});
+			toast.push(
+				'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
+				{
+					initial: 0,
+					theme: {
+						'--toastBarHeight': 0
+					}
+				}
+			);
+
+			await response.text();
+			closeAddOverlay();
+		}
 	}
 </script>
 
@@ -37,7 +65,7 @@
 			<div class="bordered"></div>
 			<div class="bordered"></div>
 		</div>
-			
+
 		<CloseButton functionOnClick={closeAddOverlay} position="right">close add overlay</CloseButton>
 	</div>
 	<div class="overlay__outer">
@@ -45,7 +73,6 @@
 			<section>
 				<div class="overlay__section-title">Add Your Story</div>
 
-				
 				<div class="overlay__section-text">
 					<div class="partial_div-numbered">
 						<span>1</span>Click on the location of your story on the map.
@@ -56,30 +83,29 @@
 					<div class="partial_div-numbered"><span>3</span>Click the Add button.</div>
 					<br />
 
-
 					<form
 						action="https://bapol.com.br/queeringthemap/email.php"
 						method="POST"
-						on:submit|preventDefault={submitAndShowToast}
+						on:submit|preventDefault={submitAndShowToastAdd}
 					>
-					<textarea id="txt_contents" name="txt_contents" class="subform"></textarea>
+						<textarea required id="txt_contents" name="txt_contents" class="subform"></textarea>
 
-					<!-- This hidden input sends the current long/lat to the server: -->
-					<input type="" name="addCurrentLongLat" required value="{localStorage.getItem('addCurrentLongLat')}"/>
+						<!-- This hidden input sends the current long/lat to the server: -->
+						<input required type="hidden" name="addCurrentLongLat" value={retrieveLongLat()} />
 
-					<div class="recaptcha-text">
-						By submitting I agree to
-						<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
-							>Terms of Use</a
-						>
+						<div class="recaptcha-text">
+							By submitting I agree to
+							<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
+								>Terms of Use</a
+							>
 
-						and
-						<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
-							>Privacy Policy</a
-						>
-					</div>
-					<input class="submit_button" type="submit" value="ADD" />
-				</form>
+							and
+							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
+								>Privacy Policy</a
+							>
+						</div>
+						<input class="submit_button" type="submit" value="ADD" />
+					</form>
 				</div>
 			</section>
 		</div>
@@ -104,11 +130,16 @@
 		transition-timing-function: ease;
 		width: 100%;
 		font-size: 30px;
-    text-transform: uppercase;
-    font-size: 30px;
-	margin-top: 1rem;
+		text-transform: uppercase;
+		font-size: 30px;
+		margin-top: 1rem;
 	}
-	
+
+	.submit_button:hover {
+		background-color: black;
+		color: white;
+	}
+
 	.partial_div-numbered span {
 		border: 1px solid var(--color-dark);
 		border-radius: 50%;
@@ -172,7 +203,34 @@
 		margin-left: 3px;
 		margin-right: 3px;
 	}
-
+	
+	@media (max-width: 800px) {
+		.overlay--add,
+		.overlay__outer {
+			width: 100%;
+		}
+		.overlay__outer {
+			max-width: 98% !important;
+		}
+		.overlay__content {
+			max-width: 95%;
+		}
+		.overlay--add textarea {
+		padding: 10px;
+			width: 99%;
+			height: 135px;
+		}
+		.overlay--add {
+			border: 1px solid var(--color-dark);
+			height: 535px;
+			position: fixed;
+			top: unset;
+			width: 95%;
+			left: 50%;
+			bottom: 5%;
+			transform: translateX(-50%);
+		}
+	}
 	@media (min-width: 800px) {
 		.overlay__outer {
 			width: calc(40vw - 2px);
@@ -223,16 +281,20 @@
 	}
 
 	.action-button-container {
-	    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
 	}
 	.action-button-container > div {
 		width: 50%;
 	}
 	.action-button-container .bordered {
-	border-right: 1px solid var(--color-dark);
-    border-bottom: 1px solid var(--color-dark);
-    height: 21px;
+		border-right: 1px solid var(--color-dark);
+		border-bottom: 1px solid var(--color-dark);
+		height: 21px;
+	}
+	.overlay--add textarea {
+		box-sizing: border-box !important;
+		padding: 10px !important;
 	}
 </style>
