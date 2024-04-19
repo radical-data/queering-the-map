@@ -81,6 +81,7 @@
 		color: var(--color-dark);
 	}
 
+	
 	@media (min-width: 800px) {
 		.overlay-trigger {
 			top: 0.5em;
@@ -89,7 +90,7 @@
 
 	.overlay-trigger .overlay-trigger__icon {
 		display: block;
-		width: 40px;
+		/* width: 40px; */
 		height: auto;
 	}
 

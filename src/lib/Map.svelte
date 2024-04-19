@@ -3,6 +3,7 @@
 	import { Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
 	import { getMomentText } from '$lib/getMomentText';
 	import 'maplibre-gl/dist/maplibre-gl.css';
+	import { addOverlayVisible } from '../stores';
 
 	import markerImage from '$lib/assets/marker.png';
 
@@ -24,6 +25,11 @@
 			console.error('Error fetching moment:', error);
 			return '';
 		}
+	}
+
+	function openAddOverlay(e: any) {
+		localStorage.setItem('addCurrentLongLat', JSON.stringify({ lng: e.lngLat.lng, lat: e.lngLat.lat }));
+		addOverlayVisible.update(() => true);
 	}
 
 	onMount(() => {
@@ -62,11 +68,22 @@
 				paint: {}
 			});
 
+
+			map.on('click', function (e) {
+				openAddOverlay(e);
+				console.log(e.lngLat.lng, e.lngLat.lat);
+			});
+
 			map.on('click', 'moments-layer', function (e) {
+
+
 				if (e.features && e.features.length > 0) {
 					const feature = e.features[0];
+
 					if (feature.geometry.type === 'Point') {
 						const coordinates = (feature.geometry as GeoJSON.Point).coordinates;
+
+
 						getMoment(feature.properties.id)
 							.then((text) => {
 								const description = text;
@@ -84,6 +101,9 @@
 							});
 					}
 				}
+
+				
+
 			});
 
 			// Change the cursor to a pointer when the mouse is over the moments layer.

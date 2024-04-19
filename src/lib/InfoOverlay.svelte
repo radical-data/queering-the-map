@@ -2,10 +2,19 @@
 	import { infoOverlayVisible } from '../stores';
 	import CloseButton from './CloseButton.svelte';
 	import ActionButton from './ActionButton.svelte';
-	import { toast  } from '@zerodevx/svelte-toast'
+	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
+
+	const app = new SvelteToast({
+		// Set where the toast container should be appended into
+		target: document.body,
+		props: {
+			options: {
+				// Optionally set default options here
+			}
+		}
+	});
 
 	let active_tab = 1;
-
 	function closeInfoOverlay() {
 		infoOverlayVisible.update(() => false);
 	}
@@ -13,16 +22,25 @@
 	function showTabState(parameter: number) {
 		active_tab = parameter;
 	}
-	async function submitAndShowToast(event: { currentTarget: HTMLFormElement | undefined; }) {
+
+	async function submitAndShowToast(event: { currentTarget: HTMLFormElement | undefined }) {
 		const data = new FormData(event.currentTarget);
 
 		const response = await fetch((event.currentTarget as HTMLFormElement).action, {
 			method: 'POST',
 			body: data
 		});
-		const result = (await response.text());
-
-		toast.push('Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.');
+		await response.text();
+		toast.push(
+			// 'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
+			'Your report was succesfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
+			{
+				initial: 0,
+				theme: {
+					'--toastBarHeight': 0
+				}
+			}
+		);
 	}
 </script>
 
@@ -165,7 +183,11 @@
 
 				<h2>Request Removal</h2>
 				<div class="overlay__section-text removal_textarea">
-					<form action="https://bapol.com.br/queeringthemap/email.php" method="POST" on:submit|preventDefault={submitAndShowToast}>
+					<form
+						action="https://bapol.com.br/queeringthemap/email.php"
+						method="POST"
+						on:submit|preventDefault={submitAndShowToast}
+					>
 						<p>
 							If you would like something you posted to be removed, or see something on the map you
 							feel shouldn't be there, please contact us through the form below.
@@ -546,6 +568,25 @@
 	.overlay__outer {
 		padding-top: 11px;
 	}
+	@media (max-width: 800px) {
+		.overlay--info {
+			margin-top: 8.5px;
+			margin-left: 11.5px;
+			margin-right: 11.5px;
+			max-height: 98vh;
+			background: transparent;
+		}
+		.overlay__outer {
+			background: var(--color-pink);
+		}
+		.header__menu__margin {
+			width: calc((95% - 45px));
+		}
+		.footer__menu__margin {
+			width: 100%;
+		}
+	}
+
 	@media (min-width: 800px) {
 		.overlay__outer {
 			width: calc(40vw);

@@ -1,10 +1,28 @@
 <script lang="ts">
 	import { addOverlayVisible } from '../stores';
-	import ActionButton from './ActionButton.svelte';
 	import CloseButton from './CloseButton.svelte';
 
 	function closeAddOverlay() {
 		addOverlayVisible.update(() => false);
+	}
+	async function submitAndShowToast(event: { currentTarget: HTMLFormElement | undefined }) {
+		const data = new FormData(event.currentTarget);
+
+		const response = await fetch((event.currentTarget as HTMLFormElement).action, {
+			method: 'POST',
+			body: data
+		});
+		await response.text();
+		toast.push(
+			// 'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
+			'Your report was succesfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
+			{
+				initial: 0,
+				theme: {
+					'--toastBarHeight': 0
+				}
+			}
+		);
 	}
 </script>
 
@@ -26,6 +44,7 @@
 			<section>
 				<div class="overlay__section-title">Add Your Story</div>
 
+				
 				<div class="overlay__section-text">
 					<div class="partial_div-numbered">
 						<span>1</span>Click on the location of your story on the map.
@@ -35,7 +54,18 @@
 					</div>
 					<div class="partial_div-numbered"><span>3</span>Click the Add button.</div>
 					<br />
-					<textarea id="txt_contents" class="subform"></textarea>
+
+
+					<form
+						action="https://bapol.com.br/queeringthemap/email.php"
+						method="POST"
+						on:submit|preventDefault={submitAndShowToast}
+					>
+					<textarea id="txt_contents" name="txt_contents" class="subform"></textarea>
+
+					<!-- This hidden input sends the current long/lat to the server: -->
+					<input type="" name="addCurrentLongLat" required value="{localStorage.getItem('addCurrentLongLat')}"/>
+
 					<div class="recaptcha-text">
 						By submitting I agree to
 						<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
@@ -47,7 +77,8 @@
 							>Privacy Policy</a
 						>
 					</div>
-					<ActionButton link="">ADD</ActionButton>
+					<input class="submit_button" type="submit" value="ADD" />
+				</form>
 				</div>
 			</section>
 		</div>
@@ -55,6 +86,28 @@
 </aside>
 
 <style>
+	.submit_button {
+		display: inline-block;
+		border: 2px solid var(--color-dark);
+		background: var(--color-pink);
+		color: var(--color-dark);
+		box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+		cursor: pointer;
+		padding: 10px 0px;
+		text-align: center;
+		font-size: 30px;
+		text-transform: uppercase;
+		text-decoration: none;
+		transition-property: color, border-color, background-color;
+		transition-duration: 300ms;
+		transition-timing-function: ease;
+		width: 100%;
+		font-size: 30px;
+    text-transform: uppercase;
+    font-size: 30px;
+	margin-top: 1rem;
+	}
+	
 	.partial_div-numbered span {
 		border: 1px solid var(--color-dark);
 		border-radius: 50%;

@@ -68,3 +68,22 @@ div.maplibregl-ctrl-group button:hover {
     background-color: transparent;
     color: var(--color-dark);
 }
+._toastItem  {
+    background-color: var(--color-dark) !important;
+}
+._toastContainer div {
+    background-color: var(--color-dark);
+    right: 0px;
+}
+._toastContainer li > div {
+    color: var(--color-pink) !important;
+    min-width: 383px;
+}
+._toastContainer li > div > div {
+   flex: unset !important;
+}
+._toastBtn::after {
+    top: 2px;
+    right: 4px;
+    position: absolute;
+}   

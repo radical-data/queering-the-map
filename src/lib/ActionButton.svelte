@@ -31,15 +31,16 @@ export let link: string;
     font-size: 30px;
 	}
 
+	
+
+	.button-wrapper {
+		text-align: center;
+		margin-top: 1rem;
+	}
 	/* .button:hover, .button:focus {
 		color: var(--color-pink-bright);
 		border: 2px solid var(--color-pink-bright);
 		background: var(--color-dark);
 		text-decoration: none;
 	} */
-
-	.button-wrapper {
-		text-align: center;
-		margin-top: 1rem;
-	}
 </style>
