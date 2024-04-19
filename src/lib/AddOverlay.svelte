@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { addOverlayVisible } from '../stores';
 	import CloseButton from './CloseButton.svelte';
+	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
 
 	function closeAddOverlay() {
 		addOverlayVisible.update(() => false);
