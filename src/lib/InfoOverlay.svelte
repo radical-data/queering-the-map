@@ -23,8 +23,6 @@
 		active_tab = parameter;
 	}
 
-
-
 	async function submitAndShowToast(event: { currentTarget: HTMLFormElement | undefined }) {
 		const data = new FormData(event.currentTarget);
 
@@ -221,387 +219,867 @@
 
 			<section style={active_tab !== 5 ? 'display: none;' : ''}>
 				<h2>Why can’t I see my post on the map?</h2>
-				<div class="overlay__section-text"> 
-				 <p>
-					In 99.9% of cases, it is because it has not been reviewed by our moderation team yet. All posts are moderated by a small group of volunteers before appearing publicly on the map, in order to ensure they do not contain breaches of anonymity, hate speech, or spam/advertising. Rest assured that your post will be visible as soon as we reach it in the moderation queue. 
-				</p>
+				<div class="overlay__section-text">
+					<p>
+						In 99.9% of cases, it is because it has not been reviewed by our moderation team yet.
+						All posts are moderated by a small group of volunteers before appearing publicly on the
+						map, in order to ensure they do not contain breaches of anonymity, hate speech, or
+						spam/advertising. Rest assured that your post will be visible as soon as we reach it in
+						the moderation queue.
+					</p>
 				</div>
 				<h2>Can I delete my post?</h2>
 				<div class="overlay__section-text">
 					<p>
-						Yes, of course! To delete a post, please fill out the Request Removal form in the Moderation tab. 
+						Yes, of course! To delete a post, please fill out the Request Removal form in the
+						Moderation tab.
 					</p>
 				</div>
 				<h2>How can I become a moderator?</h2>
 				<div class="overlay__section-text">
 					<p>
-						We are always welcoming new volunteer moderators to our team. For information on upcoming moderator onboarding sessions, please email us at hi@queeringthemap.com
+						We are always welcoming new volunteer moderators to our team. For information on
+						upcoming moderator onboarding sessions, please email us at hi@queeringthemap.com
 					</p>
-			</div>
+				</div>
 				<h2>Who made Queering the Map?</h2>
 				<div class="overlay__section-text">
 					<p>
-						Queering the Map was created by Lucas LaRochelle in 2017. The platform is maintained by LaRochelle and a global network of moderators, developers, and advisors. This network includes (in alphabetical order by last name): Jacqueline Beaumont, Jamie Bliss, Jean-Sebastien Gervais, William Gibson, Jonathan Chomko, Arianna C., Nova Courtoise, Liane Decary-Chen, Melisa D., Sarah D., Moira A., Andy E., Andy M., Miriam B., Felix W. P., Dennis Ohm-Fickler, Yonah B., J. Park, Miguel Rosales, Juan Camilo Rodriguez Gonzalez, Sabine Rosenberg, Sunshine S., Ellie T., Tess Kuramoto, Emma Kirby, Jo Kroese, Erin K., Robbie Mackay, Collette M., Elizabeth M., Lake M., Abirami N., Alexandra Ulsh, Ashleigh Watson, Iris H., Nadine F., August T., Desi B., Igor B., Brendan L., Doga A., as well as other members who prefer to remain anonymous. 
+						Queering the Map was created by Lucas LaRochelle in 2017. The platform is maintained by
+						LaRochelle and a global network of moderators, developers, and advisors. This network
+						includes (in alphabetical order by last name): Jacqueline Beaumont, Jamie Bliss,
+						Jean-Sebastien Gervais, William Gibson, Jonathan Chomko, Arianna C., Nova Courtoise,
+						Liane Decary-Chen, Melisa D., Sarah D., Moira A., Andy E., Andy M., Miriam B., Felix W.
+						P., Dennis Ohm-Fickler, Yonah B., J. Park, Miguel Rosales, Juan Camilo Rodriguez
+						Gonzalez, Sabine Rosenberg, Sunshine S., Ellie T., Tess Kuramoto, Emma Kirby, Jo Kroese,
+						Erin K., Robbie Mackay, Collette M., Elizabeth M., Lake M., Abirami N., Alexandra Ulsh,
+						Ashleigh Watson, Iris H., Nadine F., August T., Desi B., Igor B., Brendan L., Doga A.,
+						as well as other members who prefer to remain anonymous.
 					</p>
-			</div>
+				</div>
 				<h2>What data does Queering the Map collect?</h2>
 				<div class="overlay__section-text">
 					<p>
-						The only data we collect is the story you write, the location you click on the map, and the time and date of the submission. We do not collect any other data in association with the posts.
+						The only data we collect is the story you write, the location you click on the map, and
+						the time and date of the submission. We do not collect any other data in association
+						with the posts.
 					</p>
-			</div>
+				</div>
 				<h2>Can I use content from Queering the Map in my own work?</h2>
 				<div class="overlay__section-text">
-					<p>
-				Yes, as long as you follow a few rules! 
-			</p>
-			</div>
+					<p>Yes, as long as you follow a few rules!</p>
+				</div>
 				<div class="overlay__section-text">
-				<p>
-					The content of Queering the Map is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. This means you can freely share the content by copying and redistributing it in any way you like. Additionally, you're allowed to adapt the material by remixing, transforming, or building upon it. 
-				<br><br>
-				However, there are some conditions: <br>
-				<br>1. You must give proper credit to Queering the Map, provide a link to the Creative Commons license, and specify if you've made any changes to the original content, 
-				<br>2. You may not use the content of Queering the Map, or any works you create based on it, for commercial purposes. 
-				<br>3. If you create something new based on the content of Queering the Map, you must share it under the same Creative Commons license as the original.
-				<br>
-				If you have any questions, or are interested in exploring a collaborative project with us, please email us at <a href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a>. 
-			</p>
-			</div>
-
-
+					<p>
+						The content of Queering the Map is licensed under the <a
+							href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+							target="_blank"
+							rel="noopener"
+							>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a
+						>. This means you can freely share the content by copying and redistributing it in any
+						way you like. Additionally, you're allowed to adapt the material by remixing,
+						transforming, or building upon it.
+						<br /><br />
+						However, there are some conditions: <br />
+						<br />1. You must give proper credit to Queering the Map, provide a link to the Creative
+						Commons license, and specify if you've made any changes to the original content,
+						<br />2. You may not use the content of Queering the Map, or any works you create based
+						on it, for commercial purposes.
+						<br />3. If you create something new based on the content of Queering the Map, you must
+						share it under the same Creative Commons license as the original.
+						<br />
+						If you have any questions, or are interested in exploring a collaborative project with us,
+						please email us at <a href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a>.
+					</p>
+				</div>
 			</section>
-			
+
 			<section style={active_tab !== 4 ? 'display: none;' : ''}>
-				<h2>Press</h2>
+				<h2 style="margin-bottom:0px;">Press</h2>
 
 				<div class="__press">
+					<h2>New York Times</h2>
+					<a
+						href="https://www.nytimes.com/2023/06/25/style/queering-the-map-lucas-larochelle.html"
+						title="Just Made a Queer Memory? Drop a Pin."
+						rel="noopener noreferrer"
+						target="_blank">Just Made a Queer Memory? Drop a Pin.</a
+					>
+					<span> By Katherine Oung</span>
 
-				<h2>New York Times</h2>
-				<a href="https://www.nytimes.com/2023/06/25/style/queering-the-map-lucas-larochelle.html" title="Just Made a Queer Memory? Drop a Pin." rel="noopener noreferrer" target="_blank">Just Made a Queer Memory? Drop a Pin.</a>
-				<span> By Katherine Oung</span>
-				
-				<h2>The Nation</h2>
-				<a href="https://www.thenation.com/article/world/gaza-queering-the-map/" title="Gaza’s Queer Palestinians Fight to Be Remembered" rel="noopener noreferrer" target="_blank">Gaza’s Queer Palestinians Fight to Be Remembered</a>
-				<span> By Sarah O'Neal</span>
-				
-				<h2>Time Magazine</h2>
-				<a href="https://time.com/6326254/queering-the-map-gaza-lgbt-palestinians/" title="In Gaza, ‘Queering the Map’ Reveals Heartbreaking Notes of LGBT Love and Loss" rel="noopener noreferrer" target="_blank">In Gaza, ‘Queering the Map’ Reveals Heartbreaking Notes of LGBT Love and Loss</a>
-				<span> By Chad De Guzman</span>
-				
-				<h2>C Magazine</h2>
-				<a href="https://cmagazine.com/articles/the-map-emisem-the-territory-on-lucas-larochelles-queering-the-m" title="The Map Is the Territory: On Lucas LaRochelle’s Queering the Map" rel="noopener noreferrer" target="_blank">The Map Is the Territory: On Lucas LaRochelle’s Queering the Map</a>
-				<span> By Kat Benedict</span>
-				
-				<h2>Sissy Screens</h2>
-				<a href="https://www.sissyscreens.com/interview/queering-the-map-interview/" title="Queering the Map: An Interview With Lucas LaRochelle" rel="noopener noreferrer" target="_blank">Queering the Map: An Interview With Lucas LaRochelle</a>
-				<span> By Stephanie Williams</span>
-				
-				<h2>Them</h2>
-				<a href="https://www.them.us/story/queering-the-map-the-dyke-project-london-transit-ad-hack" title="Queer U.K. Activists Hacked London Transit Ads to Support LGBTQ+ Gazans" rel="noopener noreferrer" target="_blank">Queer U.K. Activists Hacked London Transit Ads to Support LGBTQ+ Gazans</a>
-				<span> By Abby Monteil</span>
-				
-				<h2 class="divider">OTHER PRESS</h2>
-				
-				<h2>HuffPost</h2>
-				<a href="https://www.huffpost.com/entry/queering-the-map-palestine_n_652fde5ce4b0da897ab610a9" title="Queering the Map Reveals Poignant Glimpses Of Survival In Gaza" rel="noopener noreferrer" target="_blank">Queering the Map Reveals Poignant Glimpses Of Survival In Gaza</a>
-				<span> By Ian Kumamoto</span>
-				
-				<h2>The Independent</h2>
-				<a href="https://www.independent.co.uk/news/uk/home-news/lgbt-activists-palestine-london-b2438425.html" title="LGBT+ activists hack London tube and bus adverts with stories of Palestinians" rel="noopener noreferrer" target="_blank">LGBT+ activists hack London tube and bus adverts with stories of Palestinians</a>
-				<span> By Maira Butt</span>
-				
-				<h2>WIRED Italia</h2>
-				<a href="https://www.wired.it/article/striscia-di-gaza-vittime-lgbtqia/" title="Il muro digitale dove le persone queer piangono le perdite nella Striscia di Gaza" rel="noopener noreferrer" target="_blank">Il muro digitale dove le persone queer piangono le perdite nella Striscia di Gaza</a>
-				<span> By Danielle Biaggi </span>
-				
-				<h2>Mondoweiss</h2>
-				<a href="https://mondoweiss.net/2023/11/a-view-from-the-queer-bloc-to-free-palestine/" title="A view from the Queer bloc to Free Palestine" rel="noopener noreferrer" target="_blank">A view from the Queer bloc to Free Palestine</a>
-				<span> By Steven W. Thrasher</span>
-				
-				<h2>Autostraddle</h2>
-				<a href="https://www.autostraddle.com/palestinian-liberation-is-queer-liberation/" title="Palestinian Liberation Is Queer Liberation" rel="noopener noreferrer" target="_blank">Palestinian Liberation Is Queer Liberation</a>
-				<span> By Kayla Kumari Upadhyaya</span>
-				
-				<h2>Vice</h2>
-				<a href="https://www.vice.com/en/article/m7bxxq/hackers-took-over-transit-ads-with-messages-from-queer-palestinians-in-gaza" title="Hackers Took Over Transit Ads with Messages from Queer Palestinians in Gaza" rel="noopener noreferrer" target="_blank">Hackers Took Over Transit Ads with Messages from Queer Palestinians in Gaza</a>
-				<span> By Jordan Pearson</span>
-				
-				<h2>Truthout</h2>
-				<a href="https://truthout.org/articles/uk-lesbian-collective-demands-ends-to-british-funding-of-israels-military/" title="UK ‘Dyke Project’ Hacks London Bus Ads to Challenge Israeli Pinkwashing" rel="noopener noreferrer" target="_blank">UK ‘Dyke Project’ Hacks London Bus Ads to Challenge Israeli Pinkwashing</a>
-				<span> By Zane McNeill</span>
-				
-				<h2>Feminist Giant</h2>
-				<a href="https://www.feministgiant.com/p/global-roundup-gaza-on-queering-the" title="Global Roundup: Gaza on ‘Queering the Map’, Bolivia Sexual Violence, Philippines Drag Artist Arrest, Indigenous Women in Malaysia vs Double Discrimination, Film on Caribbean Masculine-Presenting Women" rel="noopener noreferrer" target="_blank">Global Roundup: Gaza on ‘Queering the Map’, Bolivia Sexual Violence, Philippines Drag Artist Arrest, Indigenous Women in Malaysia vs Double Discrimination, Film on Caribbean Masculine-Presenting Women</a>
-				<span> By Mona Eltahawy</span>
-				
-				<h2>Feminism in India</h2>
-				<a href="https://feminisminindia.com/2023/12/05/how-queering-the-map-has-helped-queer-palestinians-gain-visibility-and-challenge-geopolitical-stereotypes/" title="How ‘Queering The Map’ Has Helped Queer Palestinians Gain Visibility And Challenge Geopolitical Stereotypes" rel="noopener noreferrer" target="_blank">How ‘Queering The Map’ Has Helped Queer Palestinians Gain Visibility And Challenge Geopolitical Stereotypes</a>
-				<span> By Flavia D'mello</span>
-				
-				<h2>KAOSGL</h2>
-				<a href="https://kaosgl.org/haber/lgbti-aktivistleri-londra-metrosunu-hackledi-filistin-le-dayanisma-mesaji-paylasti" title="LGBTİ+ aktivistleri Londra metrosunu hackledi, Filistin’le dayanışma mesajı paylaştı" rel="noopener noreferrer" target="_blank">LGBTİ+ aktivistleri Londra metrosunu hackledi, Filistin’le dayanışma mesajı paylaştı</a>
-				<span> By Yazar</span>
-				
-				<h2>Attitude</h2>
-				<a href="https://www.attitude.co.uk/news/lgbtq-activists-the-dyke-project-hack-tfl-ads-palestinians-451431/" title="LGBTQ+ activists ‘hack’ TfL ads with messages from queer Palestinians" rel="noopener noreferrer" target="_blank">LGBTQ+ activists ‘hack’ TfL ads with messages from queer Palestinians</a>
-				<span> By Charlotte Manning</span>
-				
-				<h2>GCN</h2>
-				<a href="https://gcn.ie/lgbtq-activists-london-ads-messages-palestinians/" title="LGBTQ+ activists hijack London ads to share messages from queer Palestinians" rel="noopener noreferrer" target="_blank">LGBTQ+ activists hijack London ads to share messages from queer Palestinians</a>
-				<span> By Beatrice Fanucci</span>
-				
-				<h2>Pink News</h2>
-				<a href="https://www.thepinknews.com/2023/10/31/palestine-queering-map-lesbian-adverts-protest/" title="Lesbian group replaces adverts with stories of LGBTQ+ people in Palestine" rel="noopener noreferrer" target="_blank">Lesbian group replaces adverts with stories of LGBTQ+ people in Palestine</a>
-				<span> By Chantelle Billson</span>
-				
-				<h2>Metro UK</h2>
-				<a href="https://metro.co.uk/2023/10/30/lgbtq-palestinians-are-sharing-heartbreaking-goodbye-messages-on-mapping-app-19742837/?ico=zone-widget_home_israel-hamas-war&utm_source=headtopics&utm_medium=news&utm_campaign=2023-10-31" title="Heartbreaking goodbye messages shared by gay Palestinians" rel="noopener noreferrer" target="_blank">Heartbreaking goodbye messages shared by gay Palestinians</a>
-				<span> By Sarah Hooper</span>
-				
-				<h2>Fanpage.it</h2>
-				<a href="https://www.fanpage.it/innovazione/tecnologia/i-messaggi-damore-strazianti-pubblicati-dalle-coppie-lgbtq-di-gaza-ti-bacero-in-paradiso/" title="I messaggi d’amore strazianti pubblicati dalle coppie Lgbtq+ di Gaza: 'Ti bacerò in paradiso'" rel="noopener noreferrer" target="_blank">I messaggi d’amore strazianti pubblicati dalle coppie Lgbtq+ di Gaza: "Ti bacerò in paradiso"</a>
-				<span> By Elisabetta Rosso</span>
-				
-				<h2>La Nazione</h2>
-				<a href="https://luce.lanazione.it/attualita/messaggi-amore-gaza-queer/" title="Messaggi d’amore dalla Striscia di Gaza: “Qui essere gay è difficile”" rel="noopener noreferrer" target="_blank">Messaggi d’amore dalla Striscia di Gaza: “Qui essere gay è difficile”</a>
-				<span> By Giorgia Borgioli </span>
-				
-				<h2>Reckon</h2>
-				<a href="https://www.reckon.news/lgbtq/2023/10/lgbtq-palestinians-in-gaza-are-sharing-their-last-words-on-online-mapping-platform.html" title="LGBTQ Palestinians in Gaza are sharing their last words on an online mapping platform" rel="noopener noreferrer" target="_blank">LGBTQ Palestinians in Gaza are sharing their last words on an online mapping platform</a>
-				<span> By Denny</span>
-				
-				<h2>Out</h2>
-				<a href="https://www.out.com/news/queer-palestinians-queering-the-map#toggle-gdpr" title="LGBTQ+ Palestinians Pay Tribute to Their Lost Loves in Heartbreaking Social Posts" rel="noopener noreferrer" target="_blank">LGBTQ+ Palestinians Pay Tribute to Their Lost Loves in Heartbreaking Social Posts</a>
-				<span> By Mey Rude</span>
-				
-				<h2>Pride</h2>
-				<a href="https://www.pride.com/gay-news/queering-the-map-gaza-lgbtq-palestinians#rebelltitem1" title="Queering the Map in Gaza: LGBTQ+ Palestinians Pay Tribute to Deceased Loved Ones" rel="noopener noreferrer" target="_blank">Queering the Map in Gaza: LGBTQ+ Palestinians Pay Tribute to Deceased Loved Ones</a>
-				<span> By Ryan Adamczeski</span>
-				
-				<h2>Semafor</h2>
-				<a href="https://www.semafor.com/article/10/17/2023/an-online-map-for-lgbtq-personal-stories-becomes-a-rare-window-into-gaza" title="An online map for LGBTQ personal stories becomes a rare window into Gaza" rel="noopener noreferrer" target="_blank">An online map for LGBTQ personal stories becomes a rare window into Gaza</a>
-				<span> By Louise Matsakis</span>
-				
-				<h2>Konbini</h2>
-				<a href="https://www.konbini.com/societe/au-moyen-orient-la-population-lgbtqia-raconte-son-vecu-sur-une-carte-en-ligne-bouleversante/" title="Au Moyen-Orient, la population LGBTQIA+ raconte son vécu sur une carte en ligne bouleversante" rel="noopener noreferrer" target="_blank">Au Moyen-Orient, la population LGBTQIA+ raconte son vécu sur une carte en ligne bouleversante</a>
-				<span> By Flavio Sillitti</span>
-				
-				<h2>Antivirus</h2>
-				<a href="https://avmag.gr/queering-the-map-ta-kouir-atoma-stin-palaistini-vriskoun-ena-diadiktyako-katafygio2/" title="Queering the Map: Τα κουήρ άτομα στην Παλαιστίνη βρίσκουν ένα διαδικτυακό καταφύγιο" rel="noopener noreferrer" target="_blank">Queering the Map: Τα κουήρ άτομα στην Παλαιστίνη βρίσκουν ένα διαδικτυακό καταφύγιο</a>
-				<span> By Ανδρομάχη Κουτσουλέντη</span>
-				
-				<h2>GCN</h2>
-				<a href="https://gcn.ie/queer-messages-gaza-hamas-israel-conflict/" title="Queer people in Gaza share memories of lost loved ones amid Hamas-Israel conflict" rel="noopener noreferrer" target="_blank">Queer people in Gaza share memories of lost loved ones amid Hamas-Israel conflict</a>
-				<span> By Beatrice Fanucci</span>
-				
-				<h2>MSU Reporter</h2>
-				<a href="https://www.msureporter.com/2023/11/02/queer-love-and-death-in-the-gaza-strip/" title="Queer love and death in the Gaza Strip" rel="noopener noreferrer" target="_blank">Queer love and death in the Gaza Strip</a>
-				<span> By Jeremy Redlien</span>
-				
-				<h2>Nylon Manila</h2>
-				<a href="https://nylonmanila.com/what-is-queering-the-map-immortalizes-queer-experiences/" title="Filipino pins on Queering the Map, the digital atlas that immortalizes queer experiences all over the world" rel="noopener noreferrer" target="_blank">Filipino pins on Queering the Map, the digital atlas that immortalizes queer experiences all over the world</a>
-				<span> By Nica Glorioso </span>
-				
-				<h2>Radio France</h2>
-				<a href="https://www.radiofrance.fr/franceculture/podcasts/les-nouvelles-d-un-monde-meilleur/queering-the-map-une-carte-en-ligne-dediee-aux-lgbtqia-utilisee-a-gaza-8673669" title="Queering the map: une carte en ligne dédiée aux LGBTQIA+ utilisée à Gaza" rel="noopener noreferrer" target="_blank">Queering the map: une carte en ligne dédiée aux LGBTQIA+ utilisée à Gaza</a>
-				<span> By Juliette Devaux</span>
-				
-				<h2>The Hindu</h2>
-				<a href="https://www.thehindu.com/life-and-style/pride-month-2023-this-website-celebrates-queer-memories-from-across-the-world/article66997007.ece" title="This website celebrates queer memories from across the world" rel="noopener noreferrer" target="_blank">This website celebrates queer memories from across the world</a>
-				<span> By Sanjana Ganesh</span>
-				
-				<h2>Dezeen</h2>
-				<a href="https://www.dezeen.com/2023/06/28/queer-spaces-trans-lgbtq-designers-researchers/" title="Support is needed to keep queer and trans spaces alive say LGBTQ+ designers" rel="noopener noreferrer" target="_blank">"Support is needed to keep queer and trans spaces alive" say LGBTQ+ designers</a>
-				<span> By Amy Peacock</span>
-				
-				<h2>Woo</h2>
-				<a href="https://planetwoo.itv.com/posts/queering-the-map-global-community-pride" title="This interactive, pink world map celebrates a global queer community" rel="noopener noreferrer" target="_blank">This interactive, pink world map celebrates a global queer community</a>
-				<span> By Darhsita Goyal</span>
-				
-				<h2>De Volkskrant</h2>
-				<a href="https://www.volkskrant.nl/cultuur-media/lucas-larochelle-ontwierp-een-online-lhbti-wereldkaart-waarop-bijna-een-half-miljoen-persoonlijke-queer-ervaringen-staan~b6ef9def/" title="Lucas LaRochelle ontwierp een online lhbti-wereldkaart waarop bijna een half miljoen persoonlijke, queer ervaringen staan" rel="noopener noreferrer" target="_blank">Lucas LaRochelle ontwierp een online lhbti-wereldkaart waarop bijna een half miljoen persoonlijke, queer ervaringen staan</a>
-				<span> By Emma Ruiter</span>
-				
-				<h2>Gay Times</h2>
-				<a href="https://www.gaytimes.co.uk/life/lesbian-is-not-a-dirty-word-how-learning-about-our-history-filled-me-with-pride/" title="‘Lesbian is not a dirty word: How learning about our history filled me with pride’" rel="noopener noreferrer" target="_blank">‘Lesbian is not a dirty word: How learning about our history filled me with pride’</a>
-				<span> By Zaynab Melhuish-Khan</span>
-				
-				<h2>El Espectador</h2>
-				<a href="https://www.elespectador.com/genero-y-diversidad/la-disidencia/asi-se-creo-el-mapamundi-lgbtiq-que-ubica-experiencias-de-diversidad-sexual-queering-the-map/" title="Así se creó el mapamundi LGBTIQ+ que ubica experiencias de diversidad sexual" rel="noopener noreferrer" target="_blank">Así se creó el mapamundi LGBTIQ+ que ubica experiencias de diversidad sexual</a>
-				<span> By Mariana Escobar Bernoske</span>
-				
-				<h2>Honi Soit</h2>
-				<a href="http://honisoit.com/2023/05/queer-foreign-finding-our-own-space-between-borders-and-communities/" title="Queer & Foreign: Finding our own space between borders and communities" rel="noopener noreferrer" target="_blank">Queer & Foreign: Finding our own space between borders and communities</a>
-				<span> By René Hà</span>
-				
-				<h2>Scratching the Surface</h2>
-				<a href="https://scratchingthesurface.fm/stories/2023-4-25-community-archives/" title="Why community archives are a radical approach to archiving" rel="noopener noreferrer" target="_blank">Why community archives are a radical approach to archiving</a>
-				<span> By Randa Hadi & Victoria Gerson</span>
-				
-				<h2>Infogr8</h2>
-				<a href="https://infogr8.com/best-of-data-for-everyone-april-2023/" title="Best of Data for Everyone, April 2023: Because even ship tracking can be beautiful" rel="noopener noreferrer" target="_blank">Best of Data for Everyone, April 2023: Because even ship tracking can be beautiful</a>
-				<span> By Jane Zhang</span>
-				
-				<h2>Repubblica</h2>
-				<a href="https://www.repubblica.it/venerdi/2023/04/21/news/queering_the_map_mappa_gay_lgbtq_storie_damore-397067781/" title="La mappa dell'amore queer" rel="noopener noreferrer" target="_blank">La mappa dell'amore queer</a>
-				<span> By Michele Gravino</span>
-				
-				<h2>Urban Creature</h2>
-				<a href="https://urbancreature.co/queering-the-map/" title="อ่านบันทึกเรื่องราวของชาว LGBTQ+ ที่เชื่อมโยงความทรงจำกับสถานที่ บนแผนที่ออนไลน์ ‘Queering the Map’" rel="noopener noreferrer" target="_blank">อ่านบันทึกเรื่องราวของชาว LGBTQ+ ที่เชื่อมโยงความทรงจำกับสถานที่ บนแผนที่ออนไลน์ ‘Queering the Map’</a>
-				<span> By Urban Creature Staff </span>
-				
-				<h2>Nexo</h2>
-				<a href="https://www.nexojornal.com.br/expresso/2023/03/24/Este-site-conta-hist%C3%B3rias-da-comunidade-LGBTI-pelo-mundo" title="Este site conta histórias da comunidade LGBTI+ pelo mundo" rel="noopener noreferrer" target="_blank">Este site conta histórias da comunidade LGBTI+ pelo mundo</a>
-				<span> By Murillo Otavio</span>
-				
-				<h2>Screenshot Media</h2>
-				<a href="https://screenshot-media.com/politics/lgbtqi-rights/queering-the-map-interview-lucas-larochelle/?utm_term=Autofeed&utm_medium=Social&utm_source=Twitter#Echobox=1675503952" title="Queering the Map: a community-based platform sharing queer and trans stories from across the globe" rel="noopener noreferrer" target="_blank">Queering the Map: a community-based platform sharing queer and trans stories from across the globe</a>
-				<span> By Charlie Sawyer</span>
-				
-				<h2>Global Voices</h2>
-				<a href="https://globalvoices.org/2023/02/07/queering-the-internet-anonymous-online-spaces-for-lgbtq-people/" title="Queering the internet: anonymous online spaces for LGBTQ+ people" rel="noopener noreferrer" target="_blank">Queering the internet: anonymous online spaces for LGBTQ+ people</a>
-				<span> By Sydney Allen</span>
-				
-				<h2>Paging Dr. Lesbian</h2>
-				<a href="https://kiradeshler.substack.com/p/towards-a-global-queer-consciousness" title="Towards a Global Queer Consciousness" rel="noopener noreferrer" target="_blank">Towards a Global Queer Consciousness</a>
-				<span> By Kira Deshler</span>
-				
-				<h2>Star Observer</h2>
-				<a href="https://www.starobserver.com.au/features/queering-the-map-this-maps-style-site-helps-you-drop-a-pin-on-your-queer-experiences/223072" title="Queering the Map: This Maps-Style Site Helps You Drop a Pin on Your Queer Experiences" rel="noopener noreferrer" target="_blank">Queering the Map: This Maps-Style Site Helps You Drop a Pin on Your Queer Experiences</a>
-				<span> By Brandon Bentley</span>
-				
-				<h2>CBC News</h2>
-				<a href="https://www.cbc.ca/news/canada/montreal/queering-the-map-viral-tiktok-1.6347097" title="Montrealer's 'Queering the Map' project documents queer experiences all over the world" rel="noopener noreferrer" target="_blank">Montrealer's 'Queering the Map' project documents queer experiences all over the world</a>
-				<span> By Shahroze Rauf</span>
-				
-				<h2>Red Pepper</h2>
-				<a href="https://www.redpepper.org.uk/queer-space/" title="The importance of queer space" rel="noopener noreferrer" target="_blank">The importance of queer space</a>
-				<span> By Molly Fleming</span>
-				
-				<h2>Immerse</h2>
-				<a href="https://immerse.news/co-creating-a-map-of-queer-experience-bece7a743ca7" title="Co-Creating a Map of Queer Experience" rel="noopener noreferrer" target="_blank">Co-Creating a Map of Queer Experience</a>
-				<span> By Sarah Wolozin</span>
-				
-				<h2>CityLab</h2>
-				<a href="https://www.citylab.com/life/2018/02/how-to-queer-the-mapand-fend-off-an-attack/552824/" title="A Crowdsourced Map of the Queer World" rel="noopener noreferrer" target="_blank">A Crowdsourced Map of the Queer World</a>
-				<span> By Martin Echenique + Alastair Boone</span>
-				
-				<h2>VICE</h2>
-				<a href="https://www.vice.com/en_us/article/ne9kjx/queering-the-map-google-maps-lgtbq" title="Find Yourself in The Queer Version of Google Maps" rel="noopener noreferrer" target="_blank">Find Yourself in The Queer Version of Google Maps</a>
-				<span> By Sarah Burke</span>
-				
-				<h2>CBC Arts</h2>
-				<a href="https://www.cbc.ca/arts/queer-love-in-the-making-this-massive-interactive-map-holds-a-whole-world-of-heartfelt-moments-1.4722385" title="Queer Love in the Making" rel="noopener noreferrer" target="_blank">Queer Love in the Making</a>
-				<span> By Peter Knegt</span>
-				
-				<h2>CBC Arts</h2>
-				<a href="https://www.cbc.ca/arts/the-year-in-queer-an-a-z-guide-to-the-exceptional-lgbtq-arts-and-culture-of-2018-1.4921091" title="The year in queer: An A-Z guide to the exceptional LGBTQ arts and culture of 2018" rel="noopener noreferrer" target="_blank">The year in queer: An A-Z guide to the exceptional LGBTQ arts and culture of 2018</a>
-				<span> By Peter Knegt</span>
-				
-				<h2>Ruthless Magazine</h2>
-				<a href="http://www.ruthlessmagazine.co.uk/queering-the-map" title="Queering The Map: A Skype Call with Lucas LaRochelle" rel="noopener noreferrer" target="_blank">Queering The Map: A Skype Call with Lucas LaRochelle</a>
-				<span> By Angad Singh</span>
-				
-				<h2>Projeto Colabora</h2>
-				<a href="https://projetocolabora.com.br/ods5/o-amor-em-tempos-de-gps/" title="O amor em tempos de GPS" rel="noopener noreferrer" target="_blank">O amor em tempos de GPS</a>
-				<span> By Carlos Albuquerque</span>
-				
-				<h2>Yorokobu</h2>
-				<a href="https://www.yorokobu.es/queering-the-map/" title="El mapa queer que desafía las reglas sociales de sexo y género" rel="noopener noreferrer" target="_blank">El mapa queer que desafía las reglas sociales de sexo y género</a>
-				<span> By Manu Garrido</span>
-				
-				<h2>Project Myopia</h2>
-				<a href="https://projectmyopia.com/interview-with-lucas-larochelle-founder-of-queering-the-map/" title="Interview with Lucas LaRochelle, Founder of Queering The Map" rel="noopener noreferrer" target="_blank">Interview with Lucas LaRochelle, Founder of Queering The Map</a>
-				<span> By Toby Sharpe</span>
-				
-				<h2>Archer Magazine</h2>
-				<a href="http://archermagazine.com.au/2018/08/queering-the-map/" title="Queering The Map: An Archive of Queer Experience" rel="noopener noreferrer" target="_blank">Queering The Map: An Archive of Queer Experience</a>
-				<span> By Allison Gallagher</span>
-				
-				<h2>VOGUE</h2>
-				<a href="https://www.vogue.co.uk/article/digi-diary-pride-month" title="Faved, Followed, Hacked, Blocked - The Digi Diary Celebrates Pride With BBZ" rel="noopener noreferrer" target="_blank">Faved, Followed, Hacked, Blocked - The Digi Diary Celebrates Pride With BBZ</a>
-				<span> By BBZ London</span>
-				
-				<h2>CityNews</h2>
-				<a href="https://montreal.citynews.ca/video/2019/07/19/queering-the-map-at-concordia/" title="Queering The Map at Concordia" rel="noopener noreferrer" target="_blank">Queering The Map at Concordia</a>
-				<span> By Aimée Lemieux</span>
-				
-				<h2>Tourisme Montreal</h2>
-				<a href="https://blog.mtl.org/en/15-montrealers-2019" title="15 Montrealers Changing The World" rel="noopener noreferrer" target="_blank">15 Montrealers Changing The World</a>
-				<span> By Mark Andrew Hamilton</span>
-				
-				<h2>Conde Nast Traveller</h2>
-				<a href="https://www.cntraveler.com/story/queering-the-map-collects-queer-sites-and-memories" title="This Mapping Tool Collects Queer Sites and Memories" rel="noopener noreferrer" target="_blank">This Mapping Tool Collects Queer Sites and Memories</a>
-				<span> By Melissa Kravitz Hoeffner</span>
-				
-				<h2>Concordia</h2>
-				<a href="https://www.concordia.ca/news/stories/2019/07/09/queering-the-map-comes-to-concordia-s-4th-space.html" title="Queering The Map comes to Concordia’s 4TH SPACE" rel="noopener noreferrer" target="_blank">Queering The Map comes to Concordia’s 4TH SPACE</a>
-				<span> By Mackenzie Lad and Tom Peacock</span>
-				
-				<h2>AIGA Eye On Design</h2>
-				<a href="https://eyeondesign.aiga.org/no-184-a-map-of-queer-experience-art-and-design-in-the-gulf-jumpy-design-for-a-historic-playhouse-more/" title="A Map of Queer Experience, Art and Design in the Gulf, Jumpy Design for a Historic Playhouse + More" rel="noopener noreferrer" target="_blank">A Map of Queer Experience, Art and Design in the Gulf, Jumpy Design for a Historic Playhouse + More</a>
-				<span> By Meg Miller</span>
-				
-				<h2>Paper</h2>
-				<a href="https://www.papermag.com/queering-the-map-lgbtq-history-2543546974.html" title="Queering The Map is a Living LGBTQ History" rel="noopener noreferrer" target="_blank">Queering The Map is a Living LGBTQ History</a>
-				<span> By Jhoni Jackson</span>
-				
-				<h2>i-D</h2>
-				<a href="https://i-d.vice.com/en_us/article/vbxkpb/queering-the-map-is-connecting-queer-moments-in-life" title="Queering The Map is connecting Queer Moments in Life" rel="noopener noreferrer" target="_blank">Queering The Map is connecting Queer Moments in Life</a>
-				<span> By Amelia Abraham</span>
-				
-				<h2>INTO</h2>
-				<a href="https://www.intomore.com/culture/postcyberattack-queering-the-map-argues-that-anywhere-can-be-a-queer-space" title="Post Cyber Attack Queering The Map Argues That Anywhere Can Be a Queer Space" rel="noopener noreferrer" target="_blank">Post Cyber Attack Queering The Map Argues That Anywhere Can Be a Queer Space</a>
-				<span> By Matthew Rodriguez</span>
-				
-				<h2>LGBT Sentinel</h2>
-				<a href="http://www.thelgbtsentinel.com/queering-the-map-interview-creator-lucas-larochelle/" title="Queering The Map: An Interview with Creator Lucas LaRochelle" rel="noopener noreferrer" target="_blank">Queering The Map: An Interview with Creator Lucas LaRochelle</a>
-				<span> By Jo Jackson</span>
-				
-				<h2>The Outline</h2>
-				<a href="https://theoutline.com/post/4043/queering-the-map-is-back?zd=1&zi=lue4kna4" title="Queering The Map is back" rel="noopener noreferrer" target="_blank">Queering The Map is back</a>
-				<span> By Anne-Derrick Gaillot</span>
-				
-				<h2>The Skinny</h2>
-				<a href="https://www.theskinny.co.uk/sexuality/lgbt/queering-the-map-on-capturing-lgbtq-history" title="Queering The Map on Capturing LGBTQ+ History" rel="noopener noreferrer" target="_blank">Queering The Map on Capturing LGBTQ+ History</a>
-				<span> By Katie Goh</span>
-				
-				<h2>Hornet</h2>
-				<a href="https://hornet.com/stories/queering-the-map-website/" title="This Project Dedicated to Mapping Queer Spaces Is a Precious Tool for Our LGBTQ Community" rel="noopener noreferrer" target="_blank">This Project Dedicated to Mapping Queer Spaces Is a Precious Tool for Our LGBTQ Community</a>
-				<span> By Alexander Kacala</span>
-				
-				<h2>Autostraddle</h2>
-				<a href="https://www.autostraddle.com/here-queer-everywhere-queering-the-map-gives-voice-to-queer-spaces-worldwide-419732/" title="Here, Queer, Everywhere: ‘Queering the Map’ Gives Voice to Queer Spaces Worldwide" rel="noopener noreferrer" target="_blank">Here, Queer, Everywhere: ‘Queering the Map’ Gives Voice to Queer Spaces Worldwide</a>
-				<span> By Vanessa Pamela</span>
-				
-				<h2>Fugues</h2>
-				<a href="https://www.fugues.com/252198-7240-7276-article-geolocaliser-nos-souvenirs-queer.html" title="Géolocaliser nos souvenirs queer" rel="noopener noreferrer" target="_blank">Géolocaliser nos souvenirs queer</a>
-				<span> By Michel Joanny-Furtin</span>
-				
-				<h2>Numerama</h2>
-				<a href="https://www.numerama.com/pop-culture/367351-sur-cette-carte-interactive-des-personnes-queer-faconnent-leur-histoire-collective.html" title="Sur cette carte interactive, des personnes queer façonnent leur histoire collective" rel="noopener noreferrer" target="_blank">Sur cette carte interactive, des personnes queer façonnent leur histoire collective</a>
-				<span> By Nelly Lesage</span>
-				
-				<h2>ZETT</h2>
-				<a href="https://ze.tt/landkarte-queerer-momente-hier-hatte-ich-meinen-ersten-blowjob-von-einem-anderen-mann/" title="Landkarte queerer Momente: Hier hatte ich meinen ersten Blowjob von einem anderen Mann" rel="noopener noreferrer" target="_blank">Landkarte queerer Momente: Hier hatte ich meinen ersten Blowjob von einem anderen Mann</a>
-				<span> By Eva Reisinger</span>
-				
-				<h2>Komitid</h2>
-				<a href="https://www.komitid.fr/2018/06/11/queering-the-map-cartographie-interview/" title="« Queering the Map » ou comment repenser le territoire quand on est invisibilisé.e.s" rel="noopener noreferrer" target="_blank">« Queering the Map » ou comment repenser le territoire quand on est invisibilisé.e.s</a>
-				<span> By Anne-Laure Pineau</span>
-				
-				<h2>McGill Daily</h2>
-				<a href="https://www.mcgilldaily.com/2018/01/archiving-queer-histories/" title="Archiving Queer Histories" rel="noopener noreferrer" target="_blank">Archiving Queer Histories</a>
-				<span> By Panayot Gaidov</span>
-				
-				<h2>Concordia</h2>
-				<a href="https://www.concordia.ca/news/stories/2018/12/11/a-digital-project-crowdsources-27-000-queer-memories-from-around-the-globe.html" title="A digital project crowdsources 27,000 queer memories from around the globe" rel="noopener noreferrer" target="_blank">A digital project crowdsources 27,000 queer memories from around the globe</a>
-				<span> By Mackenzie Lad</span>
-				
-				<h2>SRF</h2>
-				<a href="https://www.srf.ch/kultur/netzwelt/webprojekt-gegen-homophobie-eine-weltkarte-der-queeren-liebe" title="Eine Weltkarte der queeren Liebe" rel="noopener noreferrer" target="_blank">Eine Weltkarte der queeren Liebe</a>
-				<span> By Mirja Gabathuler</span>
+					<h2>The Nation</h2>
+					<a
+						href="https://www.thenation.com/article/world/gaza-queering-the-map/"
+						title="Gaza’s Queer Palestinians Fight to Be Remembered"
+						rel="noopener noreferrer"
+						target="_blank">Gaza’s Queer Palestinians Fight to Be Remembered</a
+					>
+					<span> By Sarah O'Neal</span>
+
+					<h2>Time Magazine</h2>
+					<a
+						href="https://time.com/6326254/queering-the-map-gaza-lgbt-palestinians/"
+						title="In Gaza, ‘Queering the Map’ Reveals Heartbreaking Notes of LGBT Love and Loss"
+						rel="noopener noreferrer"
+						target="_blank"
+						>In Gaza, ‘Queering the Map’ Reveals Heartbreaking Notes of LGBT Love and Loss</a
+					>
+					<span> By Chad De Guzman</span>
+
+					<h2>C Magazine</h2>
+					<a
+						href="https://cmagazine.com/articles/the-map-emisem-the-territory-on-lucas-larochelles-queering-the-m"
+						title="The Map Is the Territory: On Lucas LaRochelle’s Queering the Map"
+						rel="noopener noreferrer"
+						target="_blank">The Map Is the Territory: On Lucas LaRochelle’s Queering the Map</a
+					>
+					<span> By Kat Benedict</span>
+
+					<h2>Sissy Screens</h2>
+					<a
+						href="https://www.sissyscreens.com/interview/queering-the-map-interview/"
+						title="Queering the Map: An Interview With Lucas LaRochelle"
+						rel="noopener noreferrer"
+						target="_blank">Queering the Map: An Interview With Lucas LaRochelle</a
+					>
+					<span> By Stephanie Williams</span>
+
+					<h2>Them</h2>
+					<a
+						href="https://www.them.us/story/queering-the-map-the-dyke-project-london-transit-ad-hack"
+						title="Queer U.K. Activists Hacked London Transit Ads to Support LGBTQ+ Gazans"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Queer U.K. Activists Hacked London Transit Ads to Support LGBTQ+ Gazans</a
+					>
+					<span> By Abby Monteil</span>
+
+					<h2 class="divider">OTHER PRESS</h2>
+
+					<h2>HuffPost</h2>
+					<a
+						href="https://www.huffpost.com/entry/queering-the-map-palestine_n_652fde5ce4b0da897ab610a9"
+						title="Queering the Map Reveals Poignant Glimpses Of Survival In Gaza"
+						rel="noopener noreferrer"
+						target="_blank">Queering the Map Reveals Poignant Glimpses Of Survival In Gaza</a
+					>
+					<span> By Ian Kumamoto</span>
+
+					<h2>The Independent</h2>
+					<a
+						href="https://www.independent.co.uk/news/uk/home-news/lgbt-activists-palestine-london-b2438425.html"
+						title="LGBT+ activists hack London tube and bus adverts with stories of Palestinians"
+						rel="noopener noreferrer"
+						target="_blank"
+						>LGBT+ activists hack London tube and bus adverts with stories of Palestinians</a
+					>
+					<span> By Maira Butt</span>
+
+					<h2>WIRED Italia</h2>
+					<a
+						href="https://www.wired.it/article/striscia-di-gaza-vittime-lgbtqia/"
+						title="Il muro digitale dove le persone queer piangono le perdite nella Striscia di Gaza"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Il muro digitale dove le persone queer piangono le perdite nella Striscia di Gaza</a
+					>
+					<span> By Danielle Biaggi </span>
+
+					<h2>Mondoweiss</h2>
+					<a
+						href="https://mondoweiss.net/2023/11/a-view-from-the-queer-bloc-to-free-palestine/"
+						title="A view from the Queer bloc to Free Palestine"
+						rel="noopener noreferrer"
+						target="_blank">A view from the Queer bloc to Free Palestine</a
+					>
+					<span> By Steven W. Thrasher</span>
+
+					<h2>Autostraddle</h2>
+					<a
+						href="https://www.autostraddle.com/palestinian-liberation-is-queer-liberation/"
+						title="Palestinian Liberation Is Queer Liberation"
+						rel="noopener noreferrer"
+						target="_blank">Palestinian Liberation Is Queer Liberation</a
+					>
+					<span> By Kayla Kumari Upadhyaya</span>
+
+					<h2>Vice</h2>
+					<a
+						href="https://www.vice.com/en/article/m7bxxq/hackers-took-over-transit-ads-with-messages-from-queer-palestinians-in-gaza"
+						title="Hackers Took Over Transit Ads with Messages from Queer Palestinians in Gaza"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Hackers Took Over Transit Ads with Messages from Queer Palestinians in Gaza</a
+					>
+					<span> By Jordan Pearson</span>
+
+					<h2>Truthout</h2>
+					<a
+						href="https://truthout.org/articles/uk-lesbian-collective-demands-ends-to-british-funding-of-israels-military/"
+						title="UK ‘Dyke Project’ Hacks London Bus Ads to Challenge Israeli Pinkwashing"
+						rel="noopener noreferrer"
+						target="_blank"
+						>UK ‘Dyke Project’ Hacks London Bus Ads to Challenge Israeli Pinkwashing</a
+					>
+					<span> By Zane McNeill</span>
+
+					<h2>Feminist Giant</h2>
+					<a
+						href="https://www.feministgiant.com/p/global-roundup-gaza-on-queering-the"
+						title="Global Roundup: Gaza on ‘Queering the Map’, Bolivia Sexual Violence, Philippines Drag Artist Arrest, Indigenous Women in Malaysia vs Double Discrimination, Film on Caribbean Masculine-Presenting Women"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Global Roundup: Gaza on ‘Queering the Map’, Bolivia Sexual Violence, Philippines Drag
+						Artist Arrest, Indigenous Women in Malaysia vs Double Discrimination, Film on Caribbean
+						Masculine-Presenting Women</a
+					>
+					<span> By Mona Eltahawy</span>
+
+					<h2>Feminism in India</h2>
+					<a
+						href="https://feminisminindia.com/2023/12/05/how-queering-the-map-has-helped-queer-palestinians-gain-visibility-and-challenge-geopolitical-stereotypes/"
+						title="How ‘Queering The Map’ Has Helped Queer Palestinians Gain Visibility And Challenge Geopolitical Stereotypes"
+						rel="noopener noreferrer"
+						target="_blank"
+						>How ‘Queering The Map’ Has Helped Queer Palestinians Gain Visibility And Challenge
+						Geopolitical Stereotypes</a
+					>
+					<span> By Flavia D'mello</span>
+
+					<h2>KAOSGL</h2>
+					<a
+						href="https://kaosgl.org/haber/lgbti-aktivistleri-londra-metrosunu-hackledi-filistin-le-dayanisma-mesaji-paylasti"
+						title="LGBTİ+ aktivistleri Londra metrosunu hackledi, Filistin’le dayanışma mesajı paylaştı"
+						rel="noopener noreferrer"
+						target="_blank"
+						>LGBTİ+ aktivistleri Londra metrosunu hackledi, Filistin’le dayanışma mesajı paylaştı</a
+					>
+					<span> By Yazar</span>
+
+					<h2>Attitude</h2>
+					<a
+						href="https://www.attitude.co.uk/news/lgbtq-activists-the-dyke-project-hack-tfl-ads-palestinians-451431/"
+						title="LGBTQ+ activists ‘hack’ TfL ads with messages from queer Palestinians"
+						rel="noopener noreferrer"
+						target="_blank">LGBTQ+ activists ‘hack’ TfL ads with messages from queer Palestinians</a
+					>
+					<span> By Charlotte Manning</span>
+
+					<h2>GCN</h2>
+					<a
+						href="https://gcn.ie/lgbtq-activists-london-ads-messages-palestinians/"
+						title="LGBTQ+ activists hijack London ads to share messages from queer Palestinians"
+						rel="noopener noreferrer"
+						target="_blank"
+						>LGBTQ+ activists hijack London ads to share messages from queer Palestinians</a
+					>
+					<span> By Beatrice Fanucci</span>
+
+					<h2>Pink News</h2>
+					<a
+						href="https://www.thepinknews.com/2023/10/31/palestine-queering-map-lesbian-adverts-protest/"
+						title="Lesbian group replaces adverts with stories of LGBTQ+ people in Palestine"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Lesbian group replaces adverts with stories of LGBTQ+ people in Palestine</a
+					>
+					<span> By Chantelle Billson</span>
+
+					<h2>Metro UK</h2>
+					<a
+						href="https://metro.co.uk/2023/10/30/lgbtq-palestinians-are-sharing-heartbreaking-goodbye-messages-on-mapping-app-19742837/?ico=zone-widget_home_israel-hamas-war&utm_source=headtopics&utm_medium=news&utm_campaign=2023-10-31"
+						title="Heartbreaking goodbye messages shared by gay Palestinians"
+						rel="noopener noreferrer"
+						target="_blank">Heartbreaking goodbye messages shared by gay Palestinians</a
+					>
+					<span> By Sarah Hooper</span>
+
+					<h2>Fanpage.it</h2>
+					<a
+						href="https://www.fanpage.it/innovazione/tecnologia/i-messaggi-damore-strazianti-pubblicati-dalle-coppie-lgbtq-di-gaza-ti-bacero-in-paradiso/"
+						title="I messaggi d’amore strazianti pubblicati dalle coppie Lgbtq+ di Gaza: 'Ti bacerò in paradiso'"
+						rel="noopener noreferrer"
+						target="_blank"
+						>I messaggi d’amore strazianti pubblicati dalle coppie Lgbtq+ di Gaza: "Ti bacerò in
+						paradiso"</a
+					>
+					<span> By Elisabetta Rosso</span>
+
+					<h2>La Nazione</h2>
+					<a
+						href="https://luce.lanazione.it/attualita/messaggi-amore-gaza-queer/"
+						title="Messaggi d’amore dalla Striscia di Gaza: “Qui essere gay è difficile”"
+						rel="noopener noreferrer"
+						target="_blank">Messaggi d’amore dalla Striscia di Gaza: “Qui essere gay è difficile”</a
+					>
+					<span> By Giorgia Borgioli </span>
+
+					<h2>Reckon</h2>
+					<a
+						href="https://www.reckon.news/lgbtq/2023/10/lgbtq-palestinians-in-gaza-are-sharing-their-last-words-on-online-mapping-platform.html"
+						title="LGBTQ Palestinians in Gaza are sharing their last words on an online mapping platform"
+						rel="noopener noreferrer"
+						target="_blank"
+						>LGBTQ Palestinians in Gaza are sharing their last words on an online mapping platform</a
+					>
+					<span> By Denny</span>
+
+					<h2>Out</h2>
+					<a
+						href="https://www.out.com/news/queer-palestinians-queering-the-map#toggle-gdpr"
+						title="LGBTQ+ Palestinians Pay Tribute to Their Lost Loves in Heartbreaking Social Posts"
+						rel="noopener noreferrer"
+						target="_blank"
+						>LGBTQ+ Palestinians Pay Tribute to Their Lost Loves in Heartbreaking Social Posts</a
+					>
+					<span> By Mey Rude</span>
+
+					<h2>Pride</h2>
+					<a
+						href="https://www.pride.com/gay-news/queering-the-map-gaza-lgbtq-palestinians#rebelltitem1"
+						title="Queering the Map in Gaza: LGBTQ+ Palestinians Pay Tribute to Deceased Loved Ones"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Queering the Map in Gaza: LGBTQ+ Palestinians Pay Tribute to Deceased Loved Ones</a
+					>
+					<span> By Ryan Adamczeski</span>
+
+					<h2>Semafor</h2>
+					<a
+						href="https://www.semafor.com/article/10/17/2023/an-online-map-for-lgbtq-personal-stories-becomes-a-rare-window-into-gaza"
+						title="An online map for LGBTQ personal stories becomes a rare window into Gaza"
+						rel="noopener noreferrer"
+						target="_blank"
+						>An online map for LGBTQ personal stories becomes a rare window into Gaza</a
+					>
+					<span> By Louise Matsakis</span>
+
+					<h2>Konbini</h2>
+					<a
+						href="https://www.konbini.com/societe/au-moyen-orient-la-population-lgbtqia-raconte-son-vecu-sur-une-carte-en-ligne-bouleversante/"
+						title="Au Moyen-Orient, la population LGBTQIA+ raconte son vécu sur une carte en ligne bouleversante"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Au Moyen-Orient, la population LGBTQIA+ raconte son vécu sur une carte en ligne
+						bouleversante</a
+					>
+					<span> By Flavio Sillitti</span>
+
+					<h2>Antivirus</h2>
+					<a
+						href="https://avmag.gr/queering-the-map-ta-kouir-atoma-stin-palaistini-vriskoun-ena-diadiktyako-katafygio2/"
+						title="Queering the Map: Τα κουήρ άτομα στην Παλαιστίνη βρίσκουν ένα διαδικτυακό καταφύγιο"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Queering the Map: Τα κουήρ άτομα στην Παλαιστίνη βρίσκουν ένα διαδικτυακό καταφύγιο</a
+					>
+					<span> By Ανδρομάχη Κουτσουλέντη</span>
+
+					<h2>GCN</h2>
+					<a
+						href="https://gcn.ie/queer-messages-gaza-hamas-israel-conflict/"
+						title="Queer people in Gaza share memories of lost loved ones amid Hamas-Israel conflict"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Queer people in Gaza share memories of lost loved ones amid Hamas-Israel conflict</a
+					>
+					<span> By Beatrice Fanucci</span>
+
+					<h2>MSU Reporter</h2>
+					<a
+						href="https://www.msureporter.com/2023/11/02/queer-love-and-death-in-the-gaza-strip/"
+						title="Queer love and death in the Gaza Strip"
+						rel="noopener noreferrer"
+						target="_blank">Queer love and death in the Gaza Strip</a
+					>
+					<span> By Jeremy Redlien</span>
+
+					<h2>Nylon Manila</h2>
+					<a
+						href="https://nylonmanila.com/what-is-queering-the-map-immortalizes-queer-experiences/"
+						title="Filipino pins on Queering the Map, the digital atlas that immortalizes queer experiences all over the world"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Filipino pins on Queering the Map, the digital atlas that immortalizes queer
+						experiences all over the world</a
+					>
+					<span> By Nica Glorioso </span>
+
+					<h2>Radio France</h2>
+					<a
+						href="https://www.radiofrance.fr/franceculture/podcasts/les-nouvelles-d-un-monde-meilleur/queering-the-map-une-carte-en-ligne-dediee-aux-lgbtqia-utilisee-a-gaza-8673669"
+						title="Queering the map: une carte en ligne dédiée aux LGBTQIA+ utilisée à Gaza"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Queering the map: une carte en ligne dédiée aux LGBTQIA+ utilisée à Gaza</a
+					>
+					<span> By Juliette Devaux</span>
+
+					<h2>The Hindu</h2>
+					<a
+						href="https://www.thehindu.com/life-and-style/pride-month-2023-this-website-celebrates-queer-memories-from-across-the-world/article66997007.ece"
+						title="This website celebrates queer memories from across the world"
+						rel="noopener noreferrer"
+						target="_blank">This website celebrates queer memories from across the world</a
+					>
+					<span> By Sanjana Ganesh</span>
+
+					<h2>Dezeen</h2>
+					<a
+						href="https://www.dezeen.com/2023/06/28/queer-spaces-trans-lgbtq-designers-researchers/"
+						title="Support is needed to keep queer and trans spaces alive say LGBTQ+ designers"
+						rel="noopener noreferrer"
+						target="_blank"
+						>"Support is needed to keep queer and trans spaces alive" say LGBTQ+ designers</a
+					>
+					<span> By Amy Peacock</span>
+
+					<h2>Woo</h2>
+					<a
+						href="https://planetwoo.itv.com/posts/queering-the-map-global-community-pride"
+						title="This interactive, pink world map celebrates a global queer community"
+						rel="noopener noreferrer"
+						target="_blank">This interactive, pink world map celebrates a global queer community</a
+					>
+					<span> By Darhsita Goyal</span>
+
+					<h2>De Volkskrant</h2>
+					<a
+						href="https://www.volkskrant.nl/cultuur-media/lucas-larochelle-ontwierp-een-online-lhbti-wereldkaart-waarop-bijna-een-half-miljoen-persoonlijke-queer-ervaringen-staan~b6ef9def/"
+						title="Lucas LaRochelle ontwierp een online lhbti-wereldkaart waarop bijna een half miljoen persoonlijke, queer ervaringen staan"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Lucas LaRochelle ontwierp een online lhbti-wereldkaart waarop bijna een half miljoen
+						persoonlijke, queer ervaringen staan</a
+					>
+					<span> By Emma Ruiter</span>
+
+					<h2>Gay Times</h2>
+					<a
+						href="https://www.gaytimes.co.uk/life/lesbian-is-not-a-dirty-word-how-learning-about-our-history-filled-me-with-pride/"
+						title="‘Lesbian is not a dirty word: How learning about our history filled me with pride’"
+						rel="noopener noreferrer"
+						target="_blank"
+						>‘Lesbian is not a dirty word: How learning about our history filled me with pride’</a
+					>
+					<span> By Zaynab Melhuish-Khan</span>
+
+					<h2>El Espectador</h2>
+					<a
+						href="https://www.elespectador.com/genero-y-diversidad/la-disidencia/asi-se-creo-el-mapamundi-lgbtiq-que-ubica-experiencias-de-diversidad-sexual-queering-the-map/"
+						title="Así se creó el mapamundi LGBTIQ+ que ubica experiencias de diversidad sexual"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Así se creó el mapamundi LGBTIQ+ que ubica experiencias de diversidad sexual</a
+					>
+					<span> By Mariana Escobar Bernoske</span>
+
+					<h2>Honi Soit</h2>
+					<a
+						href="http://honisoit.com/2023/05/queer-foreign-finding-our-own-space-between-borders-and-communities/"
+						title="Queer & Foreign: Finding our own space between borders and communities"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Queer & Foreign: Finding our own space between borders and communities</a
+					>
+					<span> By René Hà</span>
+
+					<h2>Scratching the Surface</h2>
+					<a
+						href="https://scratchingthesurface.fm/stories/2023-4-25-community-archives/"
+						title="Why community archives are a radical approach to archiving"
+						rel="noopener noreferrer"
+						target="_blank">Why community archives are a radical approach to archiving</a
+					>
+					<span> By Randa Hadi & Victoria Gerson</span>
+
+					<h2>Infogr8</h2>
+					<a
+						href="https://infogr8.com/best-of-data-for-everyone-april-2023/"
+						title="Best of Data for Everyone, April 2023: Because even ship tracking can be beautiful"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Best of Data for Everyone, April 2023: Because even ship tracking can be beautiful</a
+					>
+					<span> By Jane Zhang</span>
+
+					<h2>Repubblica</h2>
+					<a
+						href="https://www.repubblica.it/venerdi/2023/04/21/news/queering_the_map_mappa_gay_lgbtq_storie_damore-397067781/"
+						title="La mappa dell'amore queer"
+						rel="noopener noreferrer"
+						target="_blank">La mappa dell'amore queer</a
+					>
+					<span> By Michele Gravino</span>
+
+					<h2>Urban Creature</h2>
+					<a
+						href="https://urbancreature.co/queering-the-map/"
+						title="อ่านบันทึกเรื่องราวของชาว LGBTQ+ ที่เชื่อมโยงความทรงจำกับสถานที่ บนแผนที่ออนไลน์ ‘Queering the Map’"
+						rel="noopener noreferrer"
+						target="_blank"
+						>อ่านบันทึกเรื่องราวของชาว LGBTQ+ ที่เชื่อมโยงความทรงจำกับสถานที่ บนแผนที่ออนไลน์
+						‘Queering the Map’</a
+					>
+					<span> By Urban Creature Staff </span>
+
+					<h2>Nexo</h2>
+					<a
+						href="https://www.nexojornal.com.br/expresso/2023/03/24/Este-site-conta-hist%C3%B3rias-da-comunidade-LGBTI-pelo-mundo"
+						title="Este site conta histórias da comunidade LGBTI+ pelo mundo"
+						rel="noopener noreferrer"
+						target="_blank">Este site conta histórias da comunidade LGBTI+ pelo mundo</a
+					>
+					<span> By Murillo Otavio</span>
+
+					<h2>Screenshot Media</h2>
+					<a
+						href="https://screenshot-media.com/politics/lgbtqi-rights/queering-the-map-interview-lucas-larochelle/?utm_term=Autofeed&utm_medium=Social&utm_source=Twitter#Echobox=1675503952"
+						title="Queering the Map: a community-based platform sharing queer and trans stories from across the globe"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Queering the Map: a community-based platform sharing queer and trans stories from
+						across the globe</a
+					>
+					<span> By Charlie Sawyer</span>
+
+					<h2>Global Voices</h2>
+					<a
+						href="https://globalvoices.org/2023/02/07/queering-the-internet-anonymous-online-spaces-for-lgbtq-people/"
+						title="Queering the internet: anonymous online spaces for LGBTQ+ people"
+						rel="noopener noreferrer"
+						target="_blank">Queering the internet: anonymous online spaces for LGBTQ+ people</a
+					>
+					<span> By Sydney Allen</span>
+
+					<h2>Paging Dr. Lesbian</h2>
+					<a
+						href="https://kiradeshler.substack.com/p/towards-a-global-queer-consciousness"
+						title="Towards a Global Queer Consciousness"
+						rel="noopener noreferrer"
+						target="_blank">Towards a Global Queer Consciousness</a
+					>
+					<span> By Kira Deshler</span>
+
+					<h2>Star Observer</h2>
+					<a
+						href="https://www.starobserver.com.au/features/queering-the-map-this-maps-style-site-helps-you-drop-a-pin-on-your-queer-experiences/223072"
+						title="Queering the Map: This Maps-Style Site Helps You Drop a Pin on Your Queer Experiences"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Queering the Map: This Maps-Style Site Helps You Drop a Pin on Your Queer Experiences</a
+					>
+					<span> By Brandon Bentley</span>
+
+					<h2>CBC News</h2>
+					<a
+						href="https://www.cbc.ca/news/canada/montreal/queering-the-map-viral-tiktok-1.6347097"
+						title="Montrealer's 'Queering the Map' project documents queer experiences all over the world"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Montrealer's 'Queering the Map' project documents queer experiences all over the world</a
+					>
+					<span> By Shahroze Rauf</span>
+
+					<h2>Red Pepper</h2>
+					<a
+						href="https://www.redpepper.org.uk/queer-space/"
+						title="The importance of queer space"
+						rel="noopener noreferrer"
+						target="_blank">The importance of queer space</a
+					>
+					<span> By Molly Fleming</span>
+
+					<h2>Immerse</h2>
+					<a
+						href="https://immerse.news/co-creating-a-map-of-queer-experience-bece7a743ca7"
+						title="Co-Creating a Map of Queer Experience"
+						rel="noopener noreferrer"
+						target="_blank">Co-Creating a Map of Queer Experience</a
+					>
+					<span> By Sarah Wolozin</span>
+
+					<h2>CityLab</h2>
+					<a
+						href="https://www.citylab.com/life/2018/02/how-to-queer-the-mapand-fend-off-an-attack/552824/"
+						title="A Crowdsourced Map of the Queer World"
+						rel="noopener noreferrer"
+						target="_blank">A Crowdsourced Map of the Queer World</a
+					>
+					<span> By Martin Echenique + Alastair Boone</span>
+
+					<h2>VICE</h2>
+					<a
+						href="https://www.vice.com/en_us/article/ne9kjx/queering-the-map-google-maps-lgtbq"
+						title="Find Yourself in The Queer Version of Google Maps"
+						rel="noopener noreferrer"
+						target="_blank">Find Yourself in The Queer Version of Google Maps</a
+					>
+					<span> By Sarah Burke</span>
+
+					<h2>CBC Arts</h2>
+					<a
+						href="https://www.cbc.ca/arts/queer-love-in-the-making-this-massive-interactive-map-holds-a-whole-world-of-heartfelt-moments-1.4722385"
+						title="Queer Love in the Making"
+						rel="noopener noreferrer"
+						target="_blank">Queer Love in the Making</a
+					>
+					<span> By Peter Knegt</span>
+
+					<h2>CBC Arts</h2>
+					<a
+						href="https://www.cbc.ca/arts/the-year-in-queer-an-a-z-guide-to-the-exceptional-lgbtq-arts-and-culture-of-2018-1.4921091"
+						title="The year in queer: An A-Z guide to the exceptional LGBTQ arts and culture of 2018"
+						rel="noopener noreferrer"
+						target="_blank"
+						>The year in queer: An A-Z guide to the exceptional LGBTQ arts and culture of 2018</a
+					>
+					<span> By Peter Knegt</span>
+
+					<h2>Ruthless Magazine</h2>
+					<a
+						href="http://www.ruthlessmagazine.co.uk/queering-the-map"
+						title="Queering The Map: A Skype Call with Lucas LaRochelle"
+						rel="noopener noreferrer"
+						target="_blank">Queering The Map: A Skype Call with Lucas LaRochelle</a
+					>
+					<span> By Angad Singh</span>
+
+					<h2>Projeto Colabora</h2>
+					<a
+						href="https://projetocolabora.com.br/ods5/o-amor-em-tempos-de-gps/"
+						title="O amor em tempos de GPS"
+						rel="noopener noreferrer"
+						target="_blank">O amor em tempos de GPS</a
+					>
+					<span> By Carlos Albuquerque</span>
+
+					<h2>Yorokobu</h2>
+					<a
+						href="https://www.yorokobu.es/queering-the-map/"
+						title="El mapa queer que desafía las reglas sociales de sexo y género"
+						rel="noopener noreferrer"
+						target="_blank">El mapa queer que desafía las reglas sociales de sexo y género</a
+					>
+					<span> By Manu Garrido</span>
+
+					<h2>Project Myopia</h2>
+					<a
+						href="https://projectmyopia.com/interview-with-lucas-larochelle-founder-of-queering-the-map/"
+						title="Interview with Lucas LaRochelle, Founder of Queering The Map"
+						rel="noopener noreferrer"
+						target="_blank">Interview with Lucas LaRochelle, Founder of Queering The Map</a
+					>
+					<span> By Toby Sharpe</span>
+
+					<h2>Archer Magazine</h2>
+					<a
+						href="http://archermagazine.com.au/2018/08/queering-the-map/"
+						title="Queering The Map: An Archive of Queer Experience"
+						rel="noopener noreferrer"
+						target="_blank">Queering The Map: An Archive of Queer Experience</a
+					>
+					<span> By Allison Gallagher</span>
+
+					<h2>VOGUE</h2>
+					<a
+						href="https://www.vogue.co.uk/article/digi-diary-pride-month"
+						title="Faved, Followed, Hacked, Blocked - The Digi Diary Celebrates Pride With BBZ"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Faved, Followed, Hacked, Blocked - The Digi Diary Celebrates Pride With BBZ</a
+					>
+					<span> By BBZ London</span>
+
+					<h2>CityNews</h2>
+					<a
+						href="https://montreal.citynews.ca/video/2019/07/19/queering-the-map-at-concordia/"
+						title="Queering The Map at Concordia"
+						rel="noopener noreferrer"
+						target="_blank">Queering The Map at Concordia</a
+					>
+					<span> By Aimée Lemieux</span>
+
+					<h2>Tourisme Montreal</h2>
+					<a
+						href="https://blog.mtl.org/en/15-montrealers-2019"
+						title="15 Montrealers Changing The World"
+						rel="noopener noreferrer"
+						target="_blank">15 Montrealers Changing The World</a
+					>
+					<span> By Mark Andrew Hamilton</span>
+
+					<h2>Conde Nast Traveller</h2>
+					<a
+						href="https://www.cntraveler.com/story/queering-the-map-collects-queer-sites-and-memories"
+						title="This Mapping Tool Collects Queer Sites and Memories"
+						rel="noopener noreferrer"
+						target="_blank">This Mapping Tool Collects Queer Sites and Memories</a
+					>
+					<span> By Melissa Kravitz Hoeffner</span>
+
+					<h2>Concordia</h2>
+					<a
+						href="https://www.concordia.ca/news/stories/2019/07/09/queering-the-map-comes-to-concordia-s-4th-space.html"
+						title="Queering The Map comes to Concordia’s 4TH SPACE"
+						rel="noopener noreferrer"
+						target="_blank">Queering The Map comes to Concordia’s 4TH SPACE</a
+					>
+					<span> By Mackenzie Lad and Tom Peacock</span>
+
+					<h2>AIGA Eye On Design</h2>
+					<a
+						href="https://eyeondesign.aiga.org/no-184-a-map-of-queer-experience-art-and-design-in-the-gulf-jumpy-design-for-a-historic-playhouse-more/"
+						title="A Map of Queer Experience, Art and Design in the Gulf, Jumpy Design for a Historic Playhouse + More"
+						rel="noopener noreferrer"
+						target="_blank"
+						>A Map of Queer Experience, Art and Design in the Gulf, Jumpy Design for a Historic
+						Playhouse + More</a
+					>
+					<span> By Meg Miller</span>
+
+					<h2>Paper</h2>
+					<a
+						href="https://www.papermag.com/queering-the-map-lgbtq-history-2543546974.html"
+						title="Queering The Map is a Living LGBTQ History"
+						rel="noopener noreferrer"
+						target="_blank">Queering The Map is a Living LGBTQ History</a
+					>
+					<span> By Jhoni Jackson</span>
+
+					<h2>i-D</h2>
+					<a
+						href="https://i-d.vice.com/en_us/article/vbxkpb/queering-the-map-is-connecting-queer-moments-in-life"
+						title="Queering The Map is connecting Queer Moments in Life"
+						rel="noopener noreferrer"
+						target="_blank">Queering The Map is connecting Queer Moments in Life</a
+					>
+					<span> By Amelia Abraham</span>
+
+					<h2>INTO</h2>
+					<a
+						href="https://www.intomore.com/culture/postcyberattack-queering-the-map-argues-that-anywhere-can-be-a-queer-space"
+						title="Post Cyber Attack Queering The Map Argues That Anywhere Can Be a Queer Space"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Post Cyber Attack Queering The Map Argues That Anywhere Can Be a Queer Space</a
+					>
+					<span> By Matthew Rodriguez</span>
+
+					<h2>LGBT Sentinel</h2>
+					<a
+						href="http://www.thelgbtsentinel.com/queering-the-map-interview-creator-lucas-larochelle/"
+						title="Queering The Map: An Interview with Creator Lucas LaRochelle"
+						rel="noopener noreferrer"
+						target="_blank">Queering The Map: An Interview with Creator Lucas LaRochelle</a
+					>
+					<span> By Jo Jackson</span>
+
+					<h2>The Outline</h2>
+					<a
+						href="https://theoutline.com/post/4043/queering-the-map-is-back?zd=1&zi=lue4kna4"
+						title="Queering The Map is back"
+						rel="noopener noreferrer"
+						target="_blank">Queering The Map is back</a
+					>
+					<span> By Anne-Derrick Gaillot</span>
+
+					<h2>The Skinny</h2>
+					<a
+						href="https://www.theskinny.co.uk/sexuality/lgbt/queering-the-map-on-capturing-lgbtq-history"
+						title="Queering The Map on Capturing LGBTQ+ History"
+						rel="noopener noreferrer"
+						target="_blank">Queering The Map on Capturing LGBTQ+ History</a
+					>
+					<span> By Katie Goh</span>
+
+					<h2>Hornet</h2>
+					<a
+						href="https://hornet.com/stories/queering-the-map-website/"
+						title="This Project Dedicated to Mapping Queer Spaces Is a Precious Tool for Our LGBTQ Community"
+						rel="noopener noreferrer"
+						target="_blank"
+						>This Project Dedicated to Mapping Queer Spaces Is a Precious Tool for Our LGBTQ
+						Community</a
+					>
+					<span> By Alexander Kacala</span>
+
+					<h2>Autostraddle</h2>
+					<a
+						href="https://www.autostraddle.com/here-queer-everywhere-queering-the-map-gives-voice-to-queer-spaces-worldwide-419732/"
+						title="Here, Queer, Everywhere: ‘Queering the Map’ Gives Voice to Queer Spaces Worldwide"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Here, Queer, Everywhere: ‘Queering the Map’ Gives Voice to Queer Spaces Worldwide</a
+					>
+					<span> By Vanessa Pamela</span>
+
+					<h2>Fugues</h2>
+					<a
+						href="https://www.fugues.com/252198-7240-7276-article-geolocaliser-nos-souvenirs-queer.html"
+						title="Géolocaliser nos souvenirs queer"
+						rel="noopener noreferrer"
+						target="_blank">Géolocaliser nos souvenirs queer</a
+					>
+					<span> By Michel Joanny-Furtin</span>
+
+					<h2>Numerama</h2>
+					<a
+						href="https://www.numerama.com/pop-culture/367351-sur-cette-carte-interactive-des-personnes-queer-faconnent-leur-histoire-collective.html"
+						title="Sur cette carte interactive, des personnes queer façonnent leur histoire collective"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Sur cette carte interactive, des personnes queer façonnent leur histoire collective</a
+					>
+					<span> By Nelly Lesage</span>
+
+					<h2>ZETT</h2>
+					<a
+						href="https://ze.tt/landkarte-queerer-momente-hier-hatte-ich-meinen-ersten-blowjob-von-einem-anderen-mann/"
+						title="Landkarte queerer Momente: Hier hatte ich meinen ersten Blowjob von einem anderen Mann"
+						rel="noopener noreferrer"
+						target="_blank"
+						>Landkarte queerer Momente: Hier hatte ich meinen ersten Blowjob von einem anderen Mann</a
+					>
+					<span> By Eva Reisinger</span>
+
+					<h2>Komitid</h2>
+					<a
+						href="https://www.komitid.fr/2018/06/11/queering-the-map-cartographie-interview/"
+						title="« Queering the Map » ou comment repenser le territoire quand on est invisibilisé.e.s"
+						rel="noopener noreferrer"
+						target="_blank"
+						>« Queering the Map » ou comment repenser le territoire quand on est invisibilisé.e.s</a
+					>
+					<span> By Anne-Laure Pineau</span>
+
+					<h2>McGill Daily</h2>
+					<a
+						href="https://www.mcgilldaily.com/2018/01/archiving-queer-histories/"
+						title="Archiving Queer Histories"
+						rel="noopener noreferrer"
+						target="_blank">Archiving Queer Histories</a
+					>
+					<span> By Panayot Gaidov</span>
+
+					<h2>Concordia</h2>
+					<a
+						href="https://www.concordia.ca/news/stories/2018/12/11/a-digital-project-crowdsources-27-000-queer-memories-from-around-the-globe.html"
+						title="A digital project crowdsources 27,000 queer memories from around the globe"
+						rel="noopener noreferrer"
+						target="_blank"
+						>A digital project crowdsources 27,000 queer memories from around the globe</a
+					>
+					<span> By Mackenzie Lad</span>
+
+					<h2>SRF</h2>
+					<a
+						href="https://www.srf.ch/kultur/netzwelt/webprojekt-gegen-homophobie-eine-weltkarte-der-queeren-liebe"
+						title="Eine Weltkarte der queeren Liebe"
+						rel="noopener noreferrer"
+						target="_blank">Eine Weltkarte der queeren Liebe</a
+					>
+					<span> By Mirja Gabathuler</span>
 				</div>
 			</section>
 
@@ -633,9 +1111,7 @@
 				<h2>Contact</h2>
 				<div class="overlay__section-text">
 					<p>
-						Get in touch at <a href="mailto:hi@queeringthemap.com"
-							>hi@queeringthemap.com</a
-						>
+						Get in touch at <a href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a>
 					</p>
 					<p>
 						Stay connected with us on <a
@@ -643,11 +1119,10 @@
 							target="_blank"
 							rel="noopener">Instagram</a
 						>,
-						<a href="https://twitter.com/queeringthemap_" target="_blank" rel="noopener"
-							>Twitter</a
-						>
+						<a href="https://twitter.com/queeringthemap_" target="_blank" rel="noopener">Twitter</a>
 						and
-						<a href="https://www.tiktok.com/@queering_the_map" target="_blank" rel="noopener">TikTok</a
+						<a href="https://www.tiktok.com/@queering_the_map" target="_blank" rel="noopener"
+							>TikTok</a
 						>.
 					</p>
 				</div>
@@ -675,7 +1150,9 @@
 		cursor: pointer;
 	}
 	.__press h2.divider {
-		border-top: 1px solid var(--color-dark); padding-top: 30px; padding-left: 1.1em;
+		border-top: 1px solid var(--color-dark);
+		padding-top: 30px;
+		padding-left: 1.1em;
 	}
 	.__press {
 		display: flex;
@@ -692,11 +1169,11 @@
 	}
 	.__press h2 {
 		font-size: 120%;
-		border-top:0px;
+		border-top: 0px;
 		padding-top: 0px;
-    padding-left: 10px;
-	margin-bottom: 0px;
-	margin-top: 30px;
+		padding-left: 10px;
+		margin-bottom: 0px;
+		margin-top: 30px;
 	}
 	.footer__menu__margin {
 		margin-top: 20px;
@@ -795,7 +1272,6 @@
 		color: white;
 	}
 
-
 	.removal_textarea input {
 		min-height: 26px;
 		filter: drop-shadow(0px 3px 3px #1a1a1a78);
@@ -852,8 +1328,7 @@
 		/* text-transform: uppercase; */
 		padding-bottom: 4px;
 		border-top: 2px solid var(--color-dark);
-			padding-left: 2.05rem;
-
+		padding-left: 2.05rem;
 	}
 
 	@media (min-width: 800px) {
@@ -909,7 +1384,7 @@
 	@media (max-width: 800px) {
 		h2 {
 			padding-top: 1.05em;
-    padding-bottom: 0px;
+			padding-bottom: 0px;
 		}
 		.overlay--info {
 			margin-top: 8.5px;
