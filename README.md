@@ -19,6 +19,13 @@ To start a development server:
 npm run dev
 ```
 
+## Testing
+
+For testing the database make sure that the `pgTap` extension is enabled in postgres ([more info](https://supabase.com/docs/guides/database/extensions/pgtap))
+Aftwerards you can run:
+`supabase test db`
+
+
 ## Deploying and Building for production
 
 To use Supabase as a remote backend make sure to link your local development with your remote Supabase project:
