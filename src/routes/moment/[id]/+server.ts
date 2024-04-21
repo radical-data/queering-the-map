@@ -1,8 +1,13 @@
-import { getMomentText } from '$lib/getMomentText';
-import { json } from '@sveltejs/kit';
+import { json, error } from '@sveltejs/kit';
+import {supabase}  from '$lib/clients/supabaseClient'
 
 export async function GET({ params }) {
 	const { id } = params;
-	const text = await getMomentText(parseInt(id, 10));
-	return json(text);
+    const { data, error: fetchError } = await supabase.from('moments').select('description').eq('short_id', parseInt(id, 10)).single()
+
+    if (fetchError) {
+        error(500, 'Error fetching moment text')
+    }
+
+    return json(data);
 }

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
-	import { getMomentText } from '$lib/getMomentText';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import markerImage from '$lib/assets/marker.png';
 
@@ -12,11 +11,11 @@
 	const maptilerMapReference = 'd27741ff-e220-4106-a5a1-aedace679204';
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
-	async function getMoment(id: number) {
+	async function getMoment(id?: number) {
 		try {
-			const response = await fetch(`/moment/${id}`);
-			const data = await response.json();
-			return data;
+			const response = await fetch(`/moment/${id}`);			
+			const moment = await response.json();
+			return moment.description;
 		} catch (error) {
 			console.error('Error fetching moment:', error);
 			return '';
@@ -64,7 +63,7 @@
 					const feature = e.features[0];
 					if (feature.geometry.type === 'Point') {
 						const coordinates = (feature.geometry as GeoJSON.Point).coordinates;
-						getMoment(feature.properties.id)
+						getMoment(feature.id)
 							.then((text) => {
 								const description = text;
 								if (coordinates.length === 2) {
