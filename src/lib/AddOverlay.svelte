@@ -168,13 +168,14 @@
 
 	.overlay__section-title {
 		text-decoration: none;
-		font-size: 1.2rem;
+		font-size: 15px;
 		color: var(--color-dark);
 		display: block;
 		font-weight: 500;
 		padding-bottom: 4px;
 		padding-top: 10px;
 		padding-left: 18px;
+		font-weight: bold;
 	}
 
 	.overlay__section-text {
@@ -182,7 +183,7 @@
 		color: var(--color-dark);
 		display: block;
 		margin-top: 1em;
-		font-size: 1.1rem;
+		font-size: 15px;
 	}
 	.overlay__section-text > div {
 		display: flex;
@@ -244,7 +245,7 @@
 			top: 0.8em;
 			right: 0.8em !important;
 			border: 1px solid;
-			height: 62vh;
+			height: 560px;
 		}
 
 		.overlay__content {

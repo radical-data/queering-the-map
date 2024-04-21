@@ -1321,7 +1321,7 @@
 
 	h2 {
 		text-decoration: none;
-		font-size: 1.2rem;
+		font-size: 15px;
 		color: var(--color-dark);
 		display: block;
 		font-weight: 500;
@@ -1330,20 +1330,24 @@
 		border-top: 2px solid var(--color-dark);
 		padding-left: 2.05rem;
 	}
-
+	.overlay__content h2 {
+		font-weight: bold;
+		font-size: 15px;
+	}
 	@media (min-width: 800px) {
 		h2 {
-			font-size: 1.4rem;
+			font-size: 15px;
 			padding-top: 1em;
 		}
 	}
 
+	
 	.overlay__section-text {
 		text-decoration: none;
 		color: var(--color-dark);
 		display: block;
 		margin-top: 1em;
-		font-size: 1.1rem;
+		font-size: 15px;
 	}
 
 	.overlay__section-text > *:first-child {
