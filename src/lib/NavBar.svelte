@@ -131,8 +131,8 @@
 	}
 
 	.overlay-trigger.overlay-trigger--add {
-		right: 0.25em;
-		top: 0.25em;
+		right: 0.2em;
+		top: 0.2em;
 	}
 
 	@media (min-width: 800px) {

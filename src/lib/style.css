@@ -67,13 +67,20 @@ div.maplibregl-ctrl-group button:hover {
 
 }
 
+.overlay--info img.close-btn  {
+    width: 45px;
+    border-bottom: 1px solid black;
+    width: 44px;
+    border: 1px solid black;
+    margin-left: -1px;
+}
 .overlay--info .close-btn {
     margin-left: -1px;
 }
 
 .overlay--add button {
-    top: 1em;
-    right: 1.0em !important;
+    top: 0.9em;
+    right: 0.9em !important;
 }
 
 .overlay--add .button-wrapper .button {
@@ -152,7 +159,9 @@ div.maplibregl-ctrl-group button:hover {
     }
 }
 @media screen and (max-width: 800px) {
-    
+    .overlay--info .close-btn {
+        margin-left: 1px;
+    }
     .wrap ._toastContainer {
         left: 50% !important;
         right: unset !important;

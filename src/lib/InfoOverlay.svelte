@@ -61,7 +61,7 @@
 	<div class="overlay__outer">
 		<div class="overlay__content">
 			<section style={active_tab !== 1 ? 'display: none;' : ''}>
-				<h2>About</h2>
+				<h2 style="border-top: 0px;">About</h2>
 				<div class="overlay__section-text">
 					<p>
 						Queering the Map is a community generated counter-mapping platform for digitally
@@ -1133,7 +1133,7 @@
 		<div class="footer__menu__margin">
 			<div class="info__tabs first__row">
 				<button class:active={active_tab == 5} on:click={() => showTabState(5)}>FAQs </button>
-				<button class:active={active_tab == 6} on:click={() => showTabState(6)}
+				<button class:active={active_tab == 6} style="border-right: unset;" on:click={() => showTabState(6)}
 					>Terms of Use
 				</button>
 			</div>
@@ -1141,7 +1141,7 @@
 				<button class:active={active_tab == 7} on:click={() => showTabState(7)}
 					>Privacy Policy
 				</button>
-				<button class:active={active_tab == 8} on:click={() => showTabState(8)}>Contact </button>
+				<button class:active={active_tab == 8} style="border-right: unset;" on:click={() => showTabState(8)}>Contact </button>
 			</div>
 		</div>
 	</div>
@@ -1203,7 +1203,7 @@
 	.info__tabs button {
 		width: 50%;
 		border: 2.01px solid var(--color-dark);
-		height: 22.5px;
+		height: 23px;
 		font-size: 0.9rem;
 		font-weight: 500;
 		background: transparent;

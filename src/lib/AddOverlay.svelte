@@ -62,8 +62,8 @@
 			<div class="bordered"></div>
 		</div>
 		<div>
-			<div class="bordered"></div>
-			<div class="bordered"></div>
+			<div class="bordered" style="border-right: 0px;"></div>
+			<div class="bordered" style="border-right: 0px;"></div>
 		</div>
 
 		<CloseButton functionOnClick={closeAddOverlay} position="right">close add overlay</CloseButton>
@@ -224,14 +224,14 @@
 		}
 		.overlay--add {
 			border: 2.01px solid var(--color-dark);
-			height: 50vh;
-			min-height: 395px;
-			position: fixed;
-			top: unset;
-			width: 95%;
-			left: 50%;
-			bottom: 5%;
-			transform: translateX(-50%);
+        height: 50vh;
+        position: fixed;
+        top: unset;
+        width: 95%;
+        left: 50%;
+        bottom: 1%;
+        transform: translateX(-50%);
+        min-height: 475px;
 		}
 	}
 	@media (min-width: 800px) {
@@ -244,9 +244,9 @@
 			border-left: var(--color-dark) solid 2px;
 			height: 100%;
 			box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.5);
-			top: 0.8em;
-			right: 0.8em !important;
-			border: 1px solid;
+			top: 0.7em;
+        right: 0.7em !important;
+			border: 2px solid;
 			height: 560px;
 		}
 

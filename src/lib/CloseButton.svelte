@@ -20,6 +20,9 @@
 		z-index: 999;
 	}
 
+	.close-btn img {
+		width: 46px;
+	}
 	.close-btn {
 		position: fixed;
 		line-height: 1;
