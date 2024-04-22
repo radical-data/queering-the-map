@@ -28,8 +28,10 @@ body {
 
 .wrap ._toastContainer {
     position: fixed !important;
-    top: 93% !important;
-    left: 1% !important;
+    top: unset !important;
+    left: 10px !important;
+    bottom: 6px !important;
+    bottom: 21px !important;
 }
 
 
@@ -48,7 +50,7 @@ div.maplibregl-ctrl-group button {
     width: 45px;
     border-radius: 0px;
     background-color: var(--color-pink);
-    border: 1px solid var(--color-dark);
+    border: 2.01px solid var(--color-dark);
     color: var(--color-dark);
 }
 
@@ -80,11 +82,13 @@ div.maplibregl-ctrl-group button:hover {
 }
 
 ._toastItem {
-    background-color: var(--color-dark) !important;
+    background-color: black !important;
+    border: 1px solid var(--color-pink) !important;
 }
 
+
 ._toastContainer div {
-    background-color: var(--color-dark);
+    background-color: black;
     right: 0px;
 }
 
@@ -103,10 +107,48 @@ div.maplibregl-ctrl-group button:hover {
     position: absolute;
 }
 
+.donate_button {
+    display: inline-block;
+    border: 2px solid var(--color-dark);
+    background: var(--color-pink);
+    color: var(--color-dark);
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding: 10px 0px;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition-property: color, border-color, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-decoration: none !important;
+}
+
+.button__fadein .donate_button:hover {
+    background: var(--color-dark);
+    color: var(--color-pink) !important;
+    transition-property: color, border-color, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+    border: 2px solid var(--color-dark);
+}
 @media screen and (min-width: 800px) {
+    ._toastContainer {
+        top: var(--toastContainerTop, 0.8rem) !important;
+        right: var(--toastContainerRight, 0.8rem) !important;
+        }
     .wrap ._toastContainer ._toastItem {
         width: 406px;
         max-width: 90%;
+        /* top: var(--toastContainerTop, unset) !important; */
+        top: calc(100% - 20px) !important;
+        bottom: var(--toastContainerBottom, unset) !important;
+        right: var(--toastContainerRight, unset) !important;
+        left: var(--toastContainerLeft, unset) !important;
     }
 }
 @media screen and (max-width: 800px) {
@@ -114,8 +156,10 @@ div.maplibregl-ctrl-group button:hover {
     .wrap ._toastContainer {
         left: 50% !important;
         right: unset !important;
-        transform: translateX(-50%) !important;
-        top: 91% !important;
+        transform: none !important;
+        top: 0px;
+        left: 9px !important;
+        bottom: 0px !important;
     }
     .wrap ._toastContainer li>div{
         min-width: unset !important;
@@ -132,7 +176,6 @@ div.maplibregl-ctrl-group button:hover {
         transform: translateX(-50%) !important;
         max-width: 96%;
         border: 1px solid var(--color-pink);
-        background: var(--color-dark);
         padding-right: 0px !important;
         padding-left: 0px !important;
         overflow: hidden;
@@ -143,10 +186,14 @@ div.maplibregl-ctrl-group button:hover {
         right: 18px;
     }
     .maplibregl-ctrl-group:not(:empty) {
-        top: 88.5% !important;
+        top: unset !important;
         position: fixed;
+        bottom: 0px;
         right: 0em;
         z-index: 999;
-        margin-right: 1%;
     }
+}
+
+button img[src$=".svg"]:hover path  {
+ fill: blue;
 }

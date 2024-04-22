@@ -137,7 +137,7 @@
 
 	@media (min-width: 800px) {
 		.overlay-trigger.overlay-trigger--add {
-			right: 0.5em;
+			/* right: 0.5em; */
 		}
 	}
 </style>

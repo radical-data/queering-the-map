@@ -36,7 +36,7 @@
 			// 'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
 			'Your report was succesfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
 			{
-				initial: 0,
+				// initial: 0,
 				theme: {
 					'--toastBarHeight': 0
 				}
@@ -121,11 +121,13 @@
 				<h2>Donate</h2>
 				<div class="overlay__section-text">
 					<p>
-						<i>Queering the Map</i> is a grassroots endeavour, and relies on donations to cover the
+						Queering the Map is a grassroots endeavour, and relies on donations to cover the
 						costs of keeping the site alive. Please support the future of
-						<i>Queering The Map</i> by making a donation through our Patreon!
+						Queering The Map by making a donation through our Patreon!
 					</p>
-					<ActionButton link="https://www.patreon.com/queeringthemap">Donate</ActionButton>
+					<div class="button__fadein">
+ 					<a href="https://www.patreon.com/queeringthemap" class="donate_button" target="_blank" rel="noopener">DONATE</a>
+					</div>
 				</div>
 
 				<h2>Volunteer</h2>
@@ -1150,7 +1152,7 @@
 		cursor: pointer;
 	}
 	.__press h2.divider {
-		border-top: 1px solid var(--color-dark);
+		border-top: 2.01px solid var(--color-dark);
 		padding-top: 30px;
 		padding-left: 1.1em;
 	}
@@ -1161,6 +1163,8 @@
 	.__press span {
 		padding-left: 10px;
 		margin-top: 10px;
+		display: none;
+		/* hides press names */
 	}
 	.__press a {
 		padding-left: 10px;
@@ -1198,12 +1202,22 @@
 	}
 	.info__tabs button {
 		width: 50%;
-		border: 1px solid var(--color-dark);
+		border: 2.01px solid var(--color-dark);
 		height: 22.5px;
 		font-size: 0.9rem;
 		font-weight: 500;
 		background: transparent;
 		cursor: pointer;
+	}
+	.info__tabs button.active {
+		background-color: var(--color-dark);
+		color: var(--color-pink);
+	}
+	.info__tabs button:hover {
+		background-color: black;
+		color: var(--color-pink);
+		transition-duration: 300ms;
+    transition-timing-function: ease;
 	}
 	.info__tabs button:nth-child(odd) {
 		border-left: 0px;
@@ -1211,14 +1225,7 @@
 	.info__tabs button:nth-child(odd) {
 		border-right: 0px;
 	}
-	.info__tabs button.active {
-		background-color: var(--color-dark);
-		color: white;
-	}
-	.info__tabs button:hover {
-		background-color: black;
-		color: white;
-	}
+
 
 	.info__tabs.first__row button {
 		border-bottom: 0px;
@@ -1232,7 +1239,7 @@
 		margin-top: 0px;
 	}
 	.partial_div-numbered span {
-		border: 1px solid var(--color-dark);
+		border: 2.01px solid var(--color-dark);
 		border-radius: 50%;
 		min-width: 22px;
 		height: 22px;
@@ -1256,20 +1263,24 @@
 	.removal_textarea [type='submit'] {
 		cursor: pointer;
 		background-color: black;
-		text-transform: uppercase;
-		color: white;
-		font-size: 30px;
+		color: var(--color-pink);
+		font-size: 20px;
 		min-width: calc(100% - 1em);
 	}
 
-	.removal_textarea form [type='submit'] {
+	.removal_textarea form [type='submit']
+	 {
 		background-color: var(--color-pink);
 		color: black;
+		text-transform: uppercase;
 	}
 
 	.removal_textarea form [type='submit']:hover {
 		background-color: black;
-		color: white;
+		color: var(--color-pink);
+		transition-property: color, border-color, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
 	}
 
 	.removal_textarea input {
@@ -1293,12 +1304,15 @@
 	}
 	.overlay__outer section textarea,
 	.overlay__outer section input,
-	.overlay__outer section input[type='submit'] {
+	.overlay__outer section input[type='submit'],
+	.overlay__outer section .donate_button 
+	{
 		width: calc(100% - 2em);
 		margin: auto;
 		display: flex;
 		justify-content: center;
 	}
+	
 	.overlay__outer section .partial_div-numbered {
 		padding-left: 1em;
 	}
@@ -1399,7 +1413,7 @@
 		}
 		.overlay__outer {
 			background: var(--color-pink);
-			border: 1px solid var(--color-dark);
+			border: 2.01px solid var(--color-dark);
 		}
 		.header__menu__margin {
 			width: calc((95% - 45px));

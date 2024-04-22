@@ -24,11 +24,10 @@ export let link: string;
 		transition-duration: 300ms;
 		transition-timing-function: ease;
 		width: 100%;
-		font-size: 30px;
 		background-color: black;
     text-transform: uppercase;
     color: white;
-    font-size: 30px;
+    font-size: 20px;
 	}
 
 	

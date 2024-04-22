@@ -28,7 +28,7 @@
 	async function submitAndShowToastAdd(event: { currentTarget: HTMLFormElement | undefined }) {
 		if (retrieveLongLat() == '' || retrieveLongLat() == null) {
 			toast.push('Please click on the map to select a location for your story.', {
-				initial: 0,
+				// initial: 0,
 				theme: {
 					'--toastBarHeight': 0
 				}
@@ -42,7 +42,7 @@
 			toast.push(
 				'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
 				{
-					initial: 0,
+					// initial: 0,
 					theme: {
 						'--toastBarHeight': 0
 					}
@@ -122,26 +122,24 @@
 		cursor: pointer;
 		padding: 10px 0px;
 		text-align: center;
-		font-size: 30px;
 		text-transform: uppercase;
 		text-decoration: none;
 		transition-property: color, border-color, background-color;
 		transition-duration: 300ms;
 		transition-timing-function: ease;
 		width: 100%;
-		font-size: 30px;
 		text-transform: uppercase;
-		font-size: 30px;
+		font-size: 20px;
 		margin-top: 1rem;
 	}
 
 	.submit_button:hover {
 		background-color: black;
-		color: white;
+		color: var(--color-pink);
 	}
 
 	.partial_div-numbered span {
-		border: 1px solid var(--color-dark);
+		border: 2.01px solid var(--color-dark);
 		border-radius: 50%;
 		min-width: 22px;
 		height: 22px;
@@ -212,6 +210,9 @@
 		}
 		.overlay__outer {
 			max-width: 98% !important;
+			padding-top: 0px;
+        padding-bottom: 0px;
+
 		}
 		.overlay__content {
 			max-width: 95%;
@@ -222,8 +223,9 @@
 			height: 135px;
 		}
 		.overlay--add {
-			border: 1px solid var(--color-dark);
-			height: 535px;
+			border: 2.01px solid var(--color-dark);
+			height: 50vh;
+			min-height: 395px;
 			position: fixed;
 			top: unset;
 			width: 95%;
@@ -290,8 +292,8 @@
 		width: 50%;
 	}
 	.action-button-container .bordered {
-		border-right: 1px solid var(--color-dark);
-		border-bottom: 1px solid var(--color-dark);
+		border-right: 2.01px solid var(--color-dark);
+		border-bottom: 2.01px solid var(--color-dark);
 		height: 21px;
 	}
 	.overlay--add textarea {
