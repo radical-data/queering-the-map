@@ -244,8 +244,8 @@
 			border-left: var(--color-dark) solid 2px;
 			height: 100%;
 			box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.5);
-			top: 0.7em;
-        right: 0.7em !important;
+			top: 0.5em;
+        right: 0.5em !important;
 			border: 2px solid;
 			height: 560px;
 		}

@@ -97,7 +97,7 @@
 	@media (min-width: 800px) {
 		.overlay-trigger .overlay-trigger__icon {
 			top: 0.25em;
-			width: 50px;
+			width: 45px;
 		}
 	}
 
@@ -105,11 +105,11 @@
 		left: 9px;
 		top: 9px;
 		text-shadow: 0px 0px 3px white;
+		width: 45px;
 	}
 
 	@media (min-width: 800px) {
 		.overlay-trigger.overlay-trigger--info {
-			left: 5.001px;
 		}
 	}
 
@@ -119,6 +119,9 @@
 		}
 	}
 
+	.overlay-trigger.overlay-trigger--info .overlay-trigger__title img {
+		width: 45px;
+	}
 	.overlay-trigger.overlay-trigger--info .overlay-trigger__title {
 		display: none;
 		text-transform: uppercase;
@@ -131,8 +134,9 @@
 	}
 
 	.overlay-trigger.overlay-trigger--add {
-		right: 0.2em;
-		top: 0.2em;
+		right: 0.25em;
+		top:   0.25em;
+		width: 45px;
 	}
 
 	@media (min-width: 800px) {

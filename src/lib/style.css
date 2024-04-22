@@ -25,7 +25,13 @@ body {
     margin: 0;
     font-family: 'Apfel Grotezk', sans-serif;
 }
-
+.partial_div-numbered {
+    padding-left: 1em;
+}
+.partial_div-numbered p {
+    padding-left: 0em;
+    padding-right: 1em;
+}
 .wrap ._toastContainer {
     position: fixed !important;
     top: unset !important;
@@ -79,8 +85,8 @@ div.maplibregl-ctrl-group button:hover {
 }
 
 .overlay--add button {
-    top: 0.9em;
-    right: 0.9em !important;
+    top: 0.7em;
+    right: 0.7em !important;
 }
 
 .overlay--add .button-wrapper .button {
@@ -156,6 +162,9 @@ div.maplibregl-ctrl-group button:hover {
         bottom: var(--toastContainerBottom, unset) !important;
         right: var(--toastContainerRight, unset) !important;
         left: var(--toastContainerLeft, unset) !important;
+    }  
+    .overlay--add .close-btn img {
+  width: 46px !important;
     }
 }
 @media screen and (max-width: 800px) {

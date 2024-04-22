@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { infoOverlayVisible } from '../stores';
 	import CloseButton from './CloseButton.svelte';
-	import ActionButton from './ActionButton.svelte';
 	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
 
 	const app = new SvelteToast({
@@ -51,11 +50,11 @@
 	<div class="header__menu__margin">
 		<div class="info__tabs first__row">
 			<button class:active={active_tab == 1} on:click={() => showTabState(1)}>About </button>
-			<button class:active={active_tab == 2} on:click={() => showTabState(2)}>Support Us </button>
+			<button class:active={active_tab == 2} style="border-right: 1px solid black;" on:click={() => showTabState(2)}>Support Us </button>
 		</div>
 		<div class="info__tabs">
-			<button class:active={active_tab == 3} on:click={() => showTabState(3)}>Moderation </button>
-			<button class:active={active_tab == 4} on:click={() => showTabState(4)}>Press </button>
+			<button class:active={active_tab == 3}     on:click={() => showTabState(3)}>Moderation </button>
+			<button class:active={active_tab == 4}     style="border-right: 1px solid black;" on:click={() => showTabState(4)}>Press </button>
 		</div>
 	</div>
 	<div class="overlay__outer">
@@ -272,8 +271,7 @@
 					<p>Yes, as long as you follow a few rules!</p>
 				</div>
 				<div class="overlay__section-text">
-					<p>
-						The content of Queering the Map is licensed under the <a
+						<p>The content of Queering the Map is licensed under the <a
 							href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
 							target="_blank"
 							rel="noopener"
@@ -281,23 +279,37 @@
 						>. This means you can freely share the content by copying and redistributing it in any
 						way you like. Additionally, you're allowed to adapt the material by remixing,
 						transforming, or building upon it.
-						<br /><br />
+						<br /><br /></p>
+
+					
+						<p>
 						However, there are some conditions: <br />
-						<br />1. You must give proper credit to Queering the Map, provide a link to the Creative
-						Commons license, and specify if you've made any changes to the original content,
-						<br />2. You may not use the content of Queering the Map, or any works you create based
-						on it, for commercial purposes.
-						<br />3. If you create something new based on the content of Queering the Map, you must
-						share it under the same Creative Commons license as the original.
-						<br />
-						If you have any questions, or are interested in exploring a collaborative project with us,
-						please email us at <a href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a>.
 					</p>
+						
+						<br />
+
+						<div class="partial_div-numbered">
+							<span>1</span>You must give proper credit to Queering the Map, provide a link to the Creative
+							Commons license, and specify if you've made any changes to the original content.
+						</div>
+						<br>
+						<div class="partial_div-numbered">
+							<span>2</span>2. You may not use the content of Queering the Map, or any works you create based
+							on it, for commercial purposes.
+						</div>
+						<br>
+						<div class="partial_div-numbered">
+							<span>3</span>3. If you create something new based on the content of Queering the Map, you must
+							share it under the same Creative Commons license as the original.
+						</div>
+						
+						<p>If you have any questions, or are interested in exploring a collaborative project with us,
+						please email us at <a href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a>.</p>
 				</div>
 			</section>
 
 			<section style={active_tab !== 4 ? 'display: none;' : ''}>
-				<h2 style="margin-bottom:0px;">Press</h2>
+				<h2 style="margin-bottom:0px;">Selected Press</h2>
 
 				<div class="__press">
 					<h2>New York Times</h2>
@@ -356,7 +368,7 @@
 					>
 					<span> By Abby Monteil</span>
 
-					<h2 class="divider">OTHER PRESS</h2>
+					<h2 class="divider">All Press</h2>
 
 					<h2>HuffPost</h2>
 					<a
@@ -1220,11 +1232,10 @@
     transition-timing-function: ease;
 	}
 	.info__tabs button:nth-child(odd) {
-		border-left: 0px;
+		border-left: 1px solid black;
+		border-right: unset;
 	}
-	.info__tabs button:nth-child(odd) {
-		border-right: 0px;
-	}
+	
 
 
 	.info__tabs.first__row button {
@@ -1313,13 +1324,7 @@
 		justify-content: center;
 	}
 	
-	.overlay__outer section .partial_div-numbered {
-		padding-left: 1em;
-	}
-	.overlay__outer section .partial_div-numbered p {
-		padding-left: 0em;
-		padding-right: 1em;
-	}
+
 	/* .overlay__outer {
 		width: 0;
 		padding: 2em;

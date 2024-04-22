@@ -21,7 +21,9 @@
 	}
 
 	.close-btn img {
-		width: 46px;
+		width: 45px;
+		border-bottom: 1px solid black;
+		margin-bottom: -1px;
 	}
 	.close-btn {
 		position: fixed;
