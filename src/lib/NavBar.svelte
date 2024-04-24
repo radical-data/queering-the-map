@@ -1,7 +1,9 @@
 <script>
 	import logo from '$lib/assets/queering-the-map-logo.svg';
 	import InfoButton from '$lib/assets/info.svg';
+	import InfoButtonHover from '$lib/assets/info-hover.svg';
 	import addButton from '$lib/assets/add.svg';
+	import addButtonHover from '$lib/assets/add-hover.svg';
 	import { infoOverlayVisible, addOverlayVisible } from '../stores';
 
 	function openInfoOverlay() {
@@ -10,6 +12,9 @@
 	function openAddOverlay() {
 		addOverlayVisible.update(() => true);
 	}
+
+	let currentInfoButton = InfoButton;
+	let currentAddButton = addButton;
 </script>
 
 <nav>
@@ -22,7 +27,12 @@
 		>
 			<span class="overlay-trigger__title">
 			
-				<img src={InfoButton} alt="info" />
+				<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+				<img class="info_butto" src={currentInfoButton} on:mouseover={()=>{
+					currentInfoButton = InfoButtonHover;
+				}} on:mouseleave={()=>{
+					currentInfoButton = InfoButton;
+				}} alt="info" />
 
 			</span>
 			<img class="overlay-trigger__icon" src={InfoButton} alt="info" />
@@ -40,7 +50,12 @@
 			id="add"
 			aria-label="open add overlay"
 		>
-			<img class="overlay-trigger__icon" src={addButton} alt="add" />
+			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+			<img class="overlay-trigger__icon" src={currentAddButton} on:mouseover={()=>{
+				currentAddButton = addButtonHover;
+			}} on:mouseleave={()=>{
+				currentAddButton = addButton;
+			}} alt="add" />
 		</button>
 	{/if}
 </nav>

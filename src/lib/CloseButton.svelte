@@ -1,7 +1,9 @@
 <script lang="ts">
 	import closeButton from '$lib/assets/close.svg';
+	import closeButtonHover from '$lib/assets/close-hover.svg';
 	export let functionOnClick: any;
 	export let position: 'right' | 'left' = 'left';
+	let closeButtonButton = closeButton;
 </script>
 
 <button
@@ -11,7 +13,12 @@
 	style={position === 'right' ? 'right: 0' : ''}
 >
 	<span class="close-btn__text">
-		<img src={closeButton} alt="close" />
+		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+		<img src={closeButtonButton} on:mouseover={()=>{
+			closeButtonButton = closeButtonHover;
+		}} on:mouseleave={()=>{
+			closeButtonButton = closeButton;
+		}} alt="close" />
 	</span>
 </button>
 

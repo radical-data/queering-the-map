@@ -248,6 +248,7 @@
         right: 0.5em !important;
 			border: 2px solid;
 			height: 560px;
+			z-index: 199;
 		}
 
 		.overlay__content {
