@@ -1757,8 +1757,8 @@
 	}
 	.header__menu__margin {
 		/* width: calc(100% - 45px); */
-		width: calc((40vw - 44px));
-		left: 55px;
+	    width: calc((40% - 43px));
+    left: 54px;
 		position: fixed;
 		background: var(--color-pink);
 	}
@@ -1972,7 +1972,8 @@
 			border: 1.01px solid var(--color-dark);
 		}
 		.header__menu__margin {
-			width: calc((100% - 64px));
+			width: calc((100% - 63px));
+        left: 54px;
 		}
 		.footer__menu__margin {
 			width: 100%;

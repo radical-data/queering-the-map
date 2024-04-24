@@ -86,7 +86,7 @@ div.maplibregl-ctrl-group button:hover {
     margin-left: -1px;
 }
 .overlay--info .close-btn {
-    margin-left: 0px;
+    margin-left: -1px;
 }
 
 .overlay--add button {
@@ -178,7 +178,7 @@ div.maplibregl-ctrl-group button:hover {
         width: 45px !important
     }
     .overlay--info .close-btn {
-        margin-left: 1px;
+        margin-left: 0px;
     }
     .wrap ._toastContainer {
         left: 50% !important;
