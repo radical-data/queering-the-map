@@ -20,7 +20,7 @@
 <nav>
 	{#if !$infoOverlayVisible}
 		<button
-			on:click={openInfoOverlay}
+			on:click={() => openInfoOverlay()}
 			class="overlay-trigger overlay-trigger--info"
 			id="info"
 			aria-label="open info overlay"

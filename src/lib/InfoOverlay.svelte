@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { infoOverlayVisible } from '../stores';
+	import { infoOverlayVisible, infoOverlayActiveTab } from '../stores';
 	import CloseButton from './CloseButton.svelte';
 	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
 
@@ -13,7 +13,9 @@
 		}
 	});
 
-	let active_tab = 1;
+
+	let active_tab = localStorage.getItem('active_tab')? Number(localStorage.getItem('active_tab')) : 1;
+	localStorage.removeItem('active_tab');
 	function closeInfoOverlay() {
 		infoOverlayVisible.update(() => false);
 	}
@@ -211,22 +213,33 @@
 						</p>
 						<p>Content of Post</p>
 						<p>
+						<small>
 							Please copy and paste the text if it is visible on the map, or list a few keywords if
 							the post has not yet been approved.
+						</small>
 						</p>
 						<textarea name="content" required></textarea>
 
 						<p>Reason for Removal</p>
-						<p>Please provide a brief explanation for the removal of the post.</p>
+						<p ><small>Please provide a brief explanation for the removal of the post.</small></p>
 						<textarea name="reason" required></textarea>
 
 						<p>Email</p>
 						<p>
-							Please provide your email so we can contact you to confirm the removal of the post.
+							<small>Please provide your email so we can contact you to confirm the removal of the post.</small>
 						</p>
 
 						<input name="email" type="email" required />
-						<p>By submitting I agree to the <a>Terms of Use</a> and <a>Privacy Policy</a></p>
+						<p><small>By submitting I agree to the 
+							<a href="/" on:click|preventDefault={() => showTabState(6)} target="_blank" rel="noopener"
+								>Terms of Use</a
+							>
+
+							and
+							<a href="/" on:click|preventDefault={() => showTabState(7)} target="_blank" rel="noopener"
+								>Privacy Policy</a
+							>
+							</small></p>
 
 						<input type="submit" value="Submit" />
 					</form>

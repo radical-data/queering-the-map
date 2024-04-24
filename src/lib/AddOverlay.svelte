@@ -1,7 +1,10 @@
 <script lang="ts">
-	import { addOverlayVisible } from '../stores';
+	import { addOverlayVisible,  infoOverlayVisible, infoOverlayActiveTab} from '../stores';
 	import CloseButton from './CloseButton.svelte';
 	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
+	import { onMount } from 'svelte';
+
+	
 
 	const app = new SvelteToast({
 		// Set where the toast container should be appended into
@@ -12,6 +15,10 @@
 			}
 		}
 	});
+	function openInfoOverlay(tabActive: number) {
+		infoOverlayVisible.update(() => true);
+		infoOverlayActiveTab(tabActive);
+	}
 
 	function closeAddOverlay() {
 		addOverlayVisible.update(() => false);
@@ -56,6 +63,7 @@
 </script>
 
 <aside class="overlay overlay--add">
+	
 	<div class="action-button-container">
 		<div>
 			<div class="bordered"></div>
@@ -95,12 +103,12 @@
 
 						<div class="recaptcha-text">
 							By submitting I agree to
-							<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
+							<a href="/" on:click|preventDefault={() => openInfoOverlay(6)} target="_blank" rel="noopener"
 								>Terms of Use</a
 							>
 
 							and
-							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
+							<a href="/" on:click|preventDefault={() => openInfoOverlay(7)} target="_blank" rel="noopener"
 								>Privacy Policy</a
 							>
 						</div>
