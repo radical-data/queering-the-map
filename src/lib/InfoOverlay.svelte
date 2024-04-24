@@ -1118,18 +1118,6 @@
 
 			<section style={active_tab !== 6 ? 'display: none;' : ''}>
 				<h2>Terms of Use</h2>
-				<div class="overlay__section-text">
-					<p>
-						The Terms of Use is a living document. You can access and annotate it <a
-							href="https://docs.google.com/document/d/1SVnyyZMFW1sQHXw8DsFYMDgpZllAc43WWoly09zKQrA/edit?usp=sharing"
-							target="_blank"
-							rel="noopener">here</a
-						>.
-					</p>
-				</div>
-			</section>
-			<section style={active_tab !== 7 ? 'display: none;' : ''}>
-				<h2>Privacy Policy</h2>
 				<div class="privacy_policy overlay__section-text">
 					<p>Last Updated on April 15, 2024</p>
 
@@ -1552,6 +1540,116 @@
 					</p>
 
 					<div class="partial_div-numbered"><span>14</span>Contact Us</div>
+					<p>
+						For answers to any questions you may have about our Terms of Use, email us at <a
+							href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a
+						>.
+					</p>
+				</div>
+			</section>
+			<section style={active_tab !== 7 ? 'display: none;' : ''}>
+				<h2>Privacy Policy</h2>
+				<div class="privacy_policy overlay__section-text">
+					<p>Last Updated on April 15, 2024</p>
+
+					<p>Welcome to Queering the Map!</p>
+					<p>
+						This Privacy Policy outlines the collection, use, disclosure, and protection of your
+						information when you access and use our platform.
+					</p>
+					<p>
+						Your privacy is crucial to us, and we are committed to maintaining the confidentiality
+						and security of the information you provide.
+					</p>
+					<p>
+						By using Queering the Map, you acknowledge that you have read and understood this
+						Privacy Policy.
+					</p>
+					<p>
+						Your continued use of the platform constitutes acceptance of any updates or changes to
+						this policy.
+					</p>
+					<p>If you do not agree to this Privacy Policy, do not use Queering the Map.</p>
+
+					<div class="partial_div-numbered"><span>1</span>Information We Collect</div>
+					<p>
+						User Content: Users may voluntarily provide User Content, such as personal stories,
+						experiences, and other content, in text format.
+					</p>
+					<p>
+						Location Data: Users may voluntarily select a location on the map where they would like
+						their User Content to appear. We do not collect information about users' actual
+						location.
+					</p>
+					<p>
+						Time Data: We collect the time that a user's submission is made. This is so that we can
+						organize submissions chronologically in our database.
+					</p>
+
+					<p>
+						Email Addresses: We collect user’s email addresses if they directly contact us through
+						email, or use the Request for Removal form. We do not collect email addresses when a
+						user submits User Content. We do not share email addresses with any third parties.
+					</p>
+					<div class="partial_div-numbered"><span>2</span>Use of Information</div>
+					<p>
+						Platform Functionality: We use the information collected to provide and improve the
+						functionality of Queering the Map, allowing users to share and explore LGBTQ2IA+
+						experiences globally.
+					</p>
+
+					<p>
+						Research and Dissemination: We may analyze and use aggregated, non-personal data for
+						research and artistic purposes to enhance the platform's overall experience and mission.
+					</p>
+
+					<div class="partial_div-numbered"><span>3</span>Disclosure of Information</div>
+					<p>
+						Anonymity: Users contribute anonymously if they choose not to associate their
+						contributions with identifiable information. Users cannot create accounts, so no
+						usernames, passwords, phone numbers, email addresses or social media handles are
+						associated with contributions. We moderate all contributions for breaches of anonymity.
+					</p>
+
+					<p>
+						Legal Compliance: We may disclose information in response to legal processes or when
+						required to comply with applicable laws, regulations, or government requests.
+					</p>
+
+					<div class="partial_div-numbered"><span>4</span>Third-Party Services</div>
+					<p>
+						Queering the Map may use third-party services for analytics, hosting, and other
+						functionalities. These services may have their own privacy policies, and users are
+						encouraged to review them.
+					</p>
+				
+
+					<div class="partial_div-numbered"><span>5</span>Security</div>
+					<p>
+						We implement reasonable measures to protect the information we collect from unauthorized access, disclosure, or alteration. However, no data transmission over the internet is entirely secure, and we cannot guarantee absolute security.
+
+					</p>
+
+					<div class="partial_div-numbered">
+						<span>6</span>Children's Privacy
+					</div>
+					<p>
+						Queering the Map is intended for users aged 13 and older. We do not knowingly collect information from individuals under the age of 13.
+					</p>
+
+					
+
+					<div class="partial_div-numbered">
+						<span>7</span>Changes to This Privacy Policy
+					</div>
+
+					<p>
+						We reserve the right to update or change our Privacy Policy at any time. Any changes will be effective immediately upon posting the updated Privacy Policy on the platform.
+					</p>
+					
+
+					<div class="partial_div-numbered"><span>8</span>Preteens And Users Under 18</div>
+					
 					<p>
 						For answers to any questions you may have about our Terms of Use, email us at <a
 							href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a
