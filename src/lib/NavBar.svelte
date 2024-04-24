@@ -149,8 +149,8 @@
 	}
 
 	.overlay-trigger.overlay-trigger--add {
-		right: 0.25em;
-		top:   0.25em;
+		right: 9px;
+		top:   9px;
 		width: 45px;
 	}
 

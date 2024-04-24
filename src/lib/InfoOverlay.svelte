@@ -1988,8 +1988,8 @@
 		.overlay--info {
 			left: 9px;
 			top: 9px;
-			border-right: var(--color-dark) solid 2px;
-			border-left: var(--color-dark) solid 2px;
+			border-right: var(--color-dark) solid 1px;
+			border-left: var(--color-dark) solid 1px;
 			box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.5);
 			max-height: 97vh;
 			height: unset;

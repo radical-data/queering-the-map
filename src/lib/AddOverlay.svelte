@@ -249,11 +249,11 @@
 
 		.overlay--add {
 			border-top: none;
-			border-left: var(--color-dark) solid 2px;
+			border-left: var(--color-dark) solid 1px;
 			height: 100%;
 			box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.5);
-			top: 0.5em;
-        right: 0.5em !important;
+			top: 9px;
+        right: 9px !important;
 			border: 1.01px solid;
 			height: 560px;
 			z-index: 199;
