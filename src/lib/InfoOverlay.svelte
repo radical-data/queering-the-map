@@ -1757,7 +1757,7 @@
 	}
 	.header__menu__margin {
 		/* width: calc(100% - 45px); */
-		width: calc((40vw - 43px));
+		width: calc((40vw - 44px));
 		left: 55px;
 		position: fixed;
 		background: var(--color-pink);
