@@ -10,7 +10,7 @@ export let link: string;
 <style>
 	.button {
 		display: inline-block;
-		border: 2px solid var(--color-dark);
+		border: 1.01px solid var(--color-dark);
 		background: var(--color-pink);
 		color: var(--color-dark);
 		box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
@@ -38,7 +38,7 @@ export let link: string;
 	}
 	/* .button:hover, .button:focus {
 		color: var(--color-pink-bright);
-		border: 2px solid var(--color-pink-bright);
+		border: 1.01px solid var(--color-pink-bright);
 		background: var(--color-dark);
 		text-decoration: none;
 	} */

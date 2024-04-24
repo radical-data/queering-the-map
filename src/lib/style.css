@@ -59,7 +59,7 @@ div.maplibregl-ctrl-group button {
     width: 45px;
     border-radius: 0px;
     background-color: var(--color-pink);
-    border: 2.01px solid var(--color-dark);
+    border: 1.01px solid var(--color-dark);
     color: var(--color-dark);
 }
 
@@ -90,8 +90,8 @@ div.maplibregl-ctrl-group button:hover {
 }
 
 .overlay--add button {
-    top: 0.7em;
-    right: 0.7em !important;
+    top: 0.6em;
+    right: 0.6em !important;
 }
 
 .overlay--add .button-wrapper .button {
@@ -127,7 +127,7 @@ div.maplibregl-ctrl-group button:hover {
 
 .donate_button {
     display: inline-block;
-    border: 2px solid var(--color-dark);
+    border: 1.01px solid var(--color-dark);
     background: var(--color-pink);
     color: var(--color-dark);
     box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
@@ -152,7 +152,7 @@ div.maplibregl-ctrl-group button:hover {
     transition-property: color, border-color, background-color;
     transition-duration: 300ms;
     transition-timing-function: ease;
-    border: 2px solid var(--color-dark);
+    border: 1.01px solid var(--color-dark);
 }
 @media screen and (min-width: 800px) {
     ._toastContainer {
@@ -169,12 +169,13 @@ div.maplibregl-ctrl-group button:hover {
         left: var(--toastContainerLeft, unset) !important;
     }  
     .overlay--add .close-btn img {
-  width: 46px !important;
+  width: 45px !important;
+  border: unset !important;
     }
 }
 @media screen and (max-width: 800px) {
     .overlay--add .close-btn img {
-        width: 46px !important;
+        width: 45px !important
     }
     .overlay--info .close-btn {
         margin-left: 1px;

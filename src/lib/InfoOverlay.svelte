@@ -1721,7 +1721,7 @@
 		cursor: pointer;
 	}
 	.__press h2.divider {
-		border-top: 2.01px solid var(--color-dark);
+		border-top: 1.01px solid var(--color-dark);
 		padding-top: 30px;
 		padding-left: 1.1em;
 	}
@@ -1771,8 +1771,8 @@
 	}
 	.info__tabs button {
 		width: 50%;
-		border: 2.01px solid var(--color-dark);
-		height: 23px;
+		border: 1.01px solid var(--color-dark);
+		height: 22.5px;
 		font-size: 0.9rem;
 		font-weight: 500;
 		background: transparent;
@@ -1805,7 +1805,7 @@
 		margin-top: 0px;
 	}
 	.partial_div-numbered span {
-		border: 2.01px solid var(--color-dark);
+		border: 1.01px solid var(--color-dark);
 		border-radius: 50%;
 		min-width: 22px;
 		height: 22px;
@@ -1824,7 +1824,7 @@
 		padding-right: 0px;
 		box-sizing: border-box;
 		font-size: 15px;
-		border: 2px solid var(--color-dark);
+		border: 1.01px solid var(--color-dark);
 	}
 	.removal_textarea [type='submit'] {
 		cursor: pointer;
@@ -1898,7 +1898,7 @@
 		font-weight: 500;
 		/* text-transform: uppercase; */
 		padding-bottom: 4px;
-		border-top: 2px solid var(--color-dark);
+		border-top: 1px solid var(--color-dark);
 		padding-left: 2.05rem;
 	}
 	.overlay__content h2 {
@@ -1969,10 +1969,10 @@
 		}
 		.overlay__outer {
 			background: var(--color-pink);
-			border: 2.01px solid var(--color-dark);
+			border: 1.01px solid var(--color-dark);
 		}
 		.header__menu__margin {
-			width: calc((95% - 45px));
+			width: calc((100% - 64px));
 		}
 		.footer__menu__margin {
 			width: 100%;

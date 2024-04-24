@@ -123,7 +123,7 @@
 <style>
 	.submit_button {
 		display: inline-block;
-		border: 2px solid var(--color-dark);
+		border: 1.01px solid var(--color-dark);
 		background: var(--color-pink);
 		color: var(--color-dark);
 		box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
@@ -147,7 +147,7 @@
 	}
 
 	.partial_div-numbered span {
-		border: 2.01px solid var(--color-dark);
+		border: 1.01px solid var(--color-dark);
 		border-radius: 50%;
 		min-width: 22px;
 		height: 22px;
@@ -231,7 +231,7 @@
 			height: 135px;
 		}
 		.overlay--add {
-			border: 2.01px solid var(--color-dark);
+			border: 1.01px solid var(--color-dark);
         height: 50vh;
         position: fixed;
         top: unset;
@@ -254,7 +254,7 @@
 			box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.5);
 			top: 0.5em;
         right: 0.5em !important;
-			border: 2px solid;
+			border: 1.01px solid;
 			height: 560px;
 			z-index: 199;
 		}
@@ -285,7 +285,7 @@
 		height: 12.7em;
 		font-size: 12pt;
 		background-color: #f4b9d6;
-		border: 2px solid var(--color-dark);
+		border: 1.01px solid var(--color-dark);
 	}
 
 	textarea {
@@ -301,8 +301,8 @@
 		width: 50%;
 	}
 	.action-button-container .bordered {
-		border-right: 2.01px solid var(--color-dark);
-		border-bottom: 2.01px solid var(--color-dark);
+		border-right: 1.01px solid var(--color-dark);
+		border-bottom: 1.01px solid var(--color-dark);
 		height: 21px;
 	}
 	.overlay--add textarea {
