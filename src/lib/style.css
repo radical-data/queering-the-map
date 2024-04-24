@@ -32,6 +32,9 @@ body {
     padding-left: 0em;
     padding-right: 1em;
 }
+.privacy_policy .partial_div-numbered {
+    align-items: baseline;
+}
 .wrap ._toastContainer {
     position: fixed !important;
     top: unset !important;
