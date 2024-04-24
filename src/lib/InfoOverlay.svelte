@@ -1776,7 +1776,7 @@
 		transition-timing-function: ease;
 	}
 	.info__tabs button:nth-child(odd) {
-		border-left: 1px solid black;
+		border-left: 0px solid black;
 		border-right: unset;
 	}
 
@@ -1948,9 +1948,9 @@
 			padding-bottom: 0px;
 		}
 		.overlay--info {
-			margin-top: 8.5px;
-			margin-left: 11.5px;
-			margin-right: 11.5px;
+			margin-top: 9px;
+			margin-left: 9px;
+			margin-right: 9px;
 			max-height: 98vh;
 			background: transparent;
 		}

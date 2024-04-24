@@ -97,7 +97,7 @@
 	@media (min-width: 800px) {
 		.overlay-trigger .overlay-trigger__icon {
 			top: 0.25em;
-			width: 45px;
+			width: 46px;
 		}
 	}
 

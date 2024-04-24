@@ -173,6 +173,9 @@ div.maplibregl-ctrl-group button:hover {
     }
 }
 @media screen and (max-width: 800px) {
+    .overlay--add .close-btn img {
+        width: 46px !important;
+    }
     .overlay--info .close-btn {
         margin-left: 1px;
     }
