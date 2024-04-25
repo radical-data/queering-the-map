@@ -8,6 +8,7 @@
 
 	function openInfoOverlay() {
 		infoOverlayVisible.update(() => true);
+		currentInfoButton = InfoButton;
 	}
 	function openAddOverlay() {
 		addOverlayVisible.update(() => true);
@@ -44,7 +45,6 @@
 		<img src={logo} alt="" />
 	</div>
 
-	{#if !$addOverlayVisible}
 		<button
 			on:click={openAddOverlay}
 			class="overlay-trigger overlay-trigger--add"
@@ -61,7 +61,6 @@
 				
 			alt="add" />
 		</button>
-	{/if}
 </nav>
 
 <style>

@@ -1189,10 +1189,11 @@
 							<p>
 								You retain the right to remove User Content that you have submitted to the Queering
 								the Map website. If you want your User Content removed at any time, and for any
-								reason, please contact us at <a href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a>.
+								reason, please contact us at <a href="mailto:hi@queeringthemap.com"
+									>hi@queeringthemap.com</a
+								>.
 							</p>
 						</li>
-						
 					</ul>
 					<p>
 						When using our Services, you can create, upload, and share User Content subject to
@@ -1225,7 +1226,7 @@
 							>hi@queeringthemap.com</a
 						>.
 					</p>
-<br>
+					<br />
 					<h2>1. Introduction</h2>
 					<p>
 						The Queering the Map website, application and other services (the “Queering the Ma
@@ -1316,37 +1317,60 @@
 						published in the Queering the Map Services from time to time.
 					</p>
 
-					<p>User Content:</p>
-					<ul >
-						<li><h2 style="padding-left: 0px;">Must:</h2></li>
-						</ul>
-					<p>
-						be uploaded in good faith and compliant with all applicable laws, regulations and codes of
-						conduct; and only be uploaded if you own the rights in such content, have appropriate permission
-						from the rights owner, or are otherwise authorized by law.
-					</p>
-					<ul style="padding-left: 0px;">
-					<li><h2>Must Not:</h2></li>
+					<h2>User Content:</h2>
+					<ul>
+						<li><h2 style="padding-left: 0px;border-top: 0px;padding-top: 10px;">Must:</h2></li>
 					</ul>
-					<p>
-						be hateful, inflammatory, threatening, intentionally misleading, harassing, or fraudulent
-						in any way; promote violence or discrimination; reveal details that enable you or anyone
-						else to be identified or contacted outside of the Queering the Map Services (e.g. last name,
-						postal address, email address, telephone number or social media handle); be defamatory or
-						an invasion of an individual’s right to privacy; infringe the intellectual property or other
-						rights of any third party, including copyrights, trademarks, database rights, any rights
-						of confidentiality or any similar rights; attempt to or purport to impersonate any person
-						or misrepresent your identity, affiliation or connection to any other person; include hyperlinks
-						or connections to third party websites; contain viruses, Trojans, worms, time-bombs, keystroke
-						loggers, spyware, adware or any other harmful programs or similar computer code designed
-						to affect the operation of any computer software, hardware or network; have any commercial
-						purpose; involve junk mail, spam, pyramid selling or similar schemes; or consist of any other
-						content that, in our opinion breaches or may breach the spirit of or intention behind any
-						of the above “must nots”.
-					</p>
+					<ul class="voidcircle">
+						<li>
+							Be uploaded in good faith and compliant with all applicable laws, regulations and
+							codes of conduct; and
+						</li>
+						<li>
+							Only be uploaded if you own the rights in such content, have appropriate permission
+							from the rights owner, or are otherwise authorized by law.
+						</li>
+					</ul>
+					<ul>
+						<li><h2 style="padding-left: 0px;border-top: 0px;padding-top: 0px;">Must Not:</h2></li>
+					</ul>
+						<ul class="voidcircle">
+							<li>
+								Be hateful, inflammatory, threatening, intentionally misleading, harassing, or
+								fraudulent in any way;
+							</li>
+							<li>Promote violence or discrimination;</li>
+							<li>
+								Reveal details that enable you or anyone else to be identified or contacted outside
+								of the Queering the Map Services (e.g. last name, postal address, email address,
+								telephone number or social media handle);
+							</li>
+							<li>Be defamatory or an invasion of an individual’s right to privacy;</li>
+							<li>
+								Infringe the intellectual property or other rights of any third party, including
+								copyrights, trademarks, database rights, any rights of confidentiality or any
+								similar rights;
+							</li>
+							<li>
+								Attempt to or purport to impersonate any person or misrepresent your identity,
+								affiliation or connection to any other person;
+							</li>
+							<li>Include hyperlinks or connections to third party websites;</li>
+							<li>
+								Contain viruses, Trojans, worms, time-bombs, keystroke loggers, spyware, adware or
+								any other harmful programs or similar computer code designed to affect the operation
+								of any computer software, hardware or network;
+							</li>
+							<li>Have any commercial purpose;</li>
+							<li>Involve junk mail, spam, pyramid selling or similar schemes; or</li>
+							<li>
+								Consist of any other content that, in our opinion breaches or may breach the spirit
+								of or intention behind any of the above “must nots”.
+							</li>
+						</ul>
 
 					<h2>6. Your License To Use Queering The Map Services</h2>
-				
+
 					<p>
 						Queering the Map Services operates under the terms of the Creative Commons
 						Attribution-NonCommercial-ShareAlike 4.0 International License ("License"). By accessing
@@ -1358,22 +1382,24 @@
 
 					<p>In summary, this License allows you to:</p>
 
-					<p>Share: Copy and redistribute the material in any medium or format.</p>
-					<p>Adapt: Remix, transform, and build upon the material.</p>
-
+					<ul>
+					<li>Share: Copy and redistribute the material in any medium or format.</li>
+					<li>Adapt: Remix, transform, and build upon the material.</li>
+				</ul>
 					<p>Under the following conditions:</p>
 
-					<p>
+					<ul>
+					<li>
 						Attribution: You must give appropriate credit, provide a link to the license, and
 						indicate if changes were made. You may do so in any reasonable manner, but not in any
 						way that suggests the licensor endorses you or your use.
-					</p>
-					<p>NonCommercial: You may not use the material for commercial purposes.</p>
-					<p>
+					</li>
+					<li>NonCommercial: You may not use the material for commercial purposes.</li>
+					<li>
 						ShareAlike: If you remix, transform, or build upon the material, you must distribute
 						your contributions under the same license as the original.
-					</p>
-
+					</li>
+				</ul>
 					<p>
 						By using Queering the Map Services, you acknowledge that we offer the material of the
 						website under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0
@@ -1389,7 +1415,7 @@
 					</p>
 
 					<h2>7. Intellectual Property Rights, Ownership And Restrictions</h2>
-				
+
 					<p>
 						The names, brands and logos in the Queering the Map Services, whether existing now or in
 						the future, are either the registered and/or unregistered trademarks of Queering the Map
@@ -1670,7 +1696,6 @@
 						entirely secure, and we cannot guarantee absolute security.
 					</p>
 
-					
 					<h2>6. Children's Privacy</h2>
 					<p>
 						Queering the Map is intended for users aged 13 and older. We do not knowingly collect
@@ -1741,6 +1766,21 @@
 <style>
 	a {
 		cursor: pointer;
+	}
+	ul {
+		list-style-type: disc;
+		margin-top: -5px;
+		/* padding-left: 1em;
+    padding-right: 1em; */
+	}
+	ul.voidcircle li {
+		margin-top: -5px;
+		padding-bottom: 10px;
+	}
+	ul.voidcircle {
+		padding-left: 3.5em;
+		padding-right: 1.5em;
+		list-style-type: circle;
 	}
 	p.no_margin_top {
 		margin-top: -15px;
@@ -1889,13 +1929,12 @@
 	}
 
 	/* aqui */
-	
+
 	.overlay__outer section p {
 		padding-left: 1em;
 		padding-right: 1em;
 	}
 	.overlay__outer section ul p {
-	
 		padding-left: 0em;
 		padding-right: 0em;
 	}
@@ -1998,6 +2037,7 @@
 			margin-right: 9px;
 			max-height: 98vh;
 			background: transparent;
+			width:calc(100vw - 18px);
 		}
 		.overlay__outer {
 			background: var(--color-pink);

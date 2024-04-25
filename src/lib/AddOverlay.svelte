@@ -18,6 +18,7 @@
 	function openInfoOverlay(tabActive: number) {
 		infoOverlayVisible.update(() => true);
 		infoOverlayActiveTab(tabActive);
+	
 	}
 
 	function closeAddOverlay() {
@@ -164,7 +165,7 @@
 	}
 
 	.overlay__outer {
-		width: calc(40vw - 2px);
+		width: calc(40vw);
 		padding: 0.8em;
 	}
 
@@ -239,9 +240,13 @@
 	}
 	@media (min-width: 800px) {
 		.overlay__outer {
-			width: calc(40vw - 2px);
+			width: calc(40vw);
+			padding: 0em;
 		}
-
+		.overlay__outer form {
+			padding: 0.8em;
+		}
+	
 		.overlay--add {
 			border-top: none;
 			border-left: var(--color-dark) solid 1px;
@@ -298,7 +303,7 @@
 	.action-button-container .bordered {
 		border-right: 1.01px solid var(--color-dark);
 		border-bottom: 1.01px solid var(--color-dark);
-		height: 21px;
+		height: 21.0px;
 	}
 	.overlay--add textarea {
 		box-sizing: border-box !important;
