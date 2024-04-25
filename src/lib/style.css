@@ -27,6 +27,11 @@ body {
 }
 .partial_div-numbered {
     padding-left: 1em;
+    padding-right: 1em;
+}
+body .maplibregl-ctrl-bottom-right .maplibregl-ctrl {
+    margin-right: 9px;
+    margin-bottom: 9px;
 }
 .partial_div-numbered p {
     padding-left: 0em;
@@ -210,7 +215,7 @@ div.maplibregl-ctrl-group button:hover {
 
     ._toastBtn::after {
         top: 0px;
-        right: 18px;
+        right: 6px;
     }
     .maplibregl-ctrl-group:not(:empty) {
         top: unset !important;

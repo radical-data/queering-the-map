@@ -12,16 +12,18 @@
 			}
 		}
 	});
-
-
-	let active_tab = localStorage.getItem('active_tab')? Number(localStorage.getItem('active_tab')) : 1;
-	localStorage.removeItem('active_tab');
+	let root: HTMLDivElement;
+	let active_tab = localStorage.getItem('active_tab')
+		? Number(localStorage.getItem('active_tab'))
+		: 1;
 	function closeInfoOverlay() {
 		infoOverlayVisible.update(() => false);
+		localStorage.removeItem('active_tab');
 	}
 
 	function showTabState(parameter: number) {
 		active_tab = parameter;
+		root.scrollTop = 0;
 	}
 
 	async function submitAndShowToast(event: { currentTarget: HTMLFormElement | undefined }) {
@@ -46,7 +48,7 @@
 	}
 </script>
 
-<aside class="overlay overlay--info">
+<aside class="overlay overlay--info" bind:this={root}>
 	<CloseButton functionOnClick={closeInfoOverlay}>close info overlay</CloseButton>
 
 	<div class="header__menu__margin">
@@ -167,37 +169,38 @@
 					<div class="partial_div-numbered">
 						<span>1</span>
 						<p>
-							Breaches of Anonymity We do not approve posts that breach your or anyone else's
-							anonymity. This means posts containing last names, phone numbers, email addresses,
-							social media handles, or exact addresses will not be approved.
+							Breaches of Anonymity <br />
+							We do not approve posts that breach your or anyone else's anonymity. This means posts containing
+							last names, phone numbers, email addresses, social media handles, or exact addresses will
+							not be approved.
 						</p>
 					</div>
 
 					<div class="partial_div-numbered">
 						<span>2</span>
 						<p>
-							Hate Speech We do not approve posts that degrade or threaten a group of people based
-							on race, ethnicity, citizenship, ability, sexuality, sex, gender, or class.
+							Hate Speech <br />
+							We do not approve posts that degrade or threaten a group of people based on race, ethnicity,
+							citizenship, ability, sexuality, sex, gender, or class.
 						</p>
 					</div>
 					<div class="partial_div-numbered">
 						<span>3</span>
-						<p>Spam/Advertising We do not approve spam posts, or advertisements of any kind.</p>
+						<p>
+							Spam/Advertising <br />
+							We do not approve spam posts, or advertisements of any kind.
+						</p>
 					</div>
 
-					<div class="partial_div-numbered">
-						<p>
-							The moderation process is to ensure the safety of the map, and is not about policing
-							expressions or identities.
-						</p>
-					</div>
-					<div class="partial_div-numbered">
-						<p>
-							Given the amount of posts that have been made over the past few months, we are at a
-							significant moderation backlog, and are doing our best to publish posts as quickly as
-							we can. We appreciate your patience.
-						</p>
-					</div>
+					<p>
+						The moderation process is to ensure the safety of the map, and is not about policing
+						expressions or identities.
+					</p>
+					<p>
+						Given the amount of posts that have been made over the past few months, we are at a
+						significant moderation backlog, and are doing our best to publish posts as quickly as we
+						can. We appreciate your patience.
+					</p>
 				</div>
 
 				<h2>Request Removal</h2>
@@ -212,34 +215,47 @@
 							feel shouldn't be there, please contact us through the form below.
 						</p>
 						<p>Content of Post</p>
-						<p>
-						<small>
-							Please copy and paste the text if it is visible on the map, or list a few keywords if
-							the post has not yet been approved.
-						</small>
+						<p class="no_margin_top">
+							<small>
+								Please copy and paste the text if it is visible on the map, or list a few keywords
+								if the post has not yet been approved.
+							</small>
 						</p>
 						<textarea name="content" required></textarea>
 
 						<p>Reason for Removal</p>
-						<p ><small>Please provide a brief explanation for the removal of the post.</small></p>
+						<p class="no_margin_top">
+							<small>Please provide a brief explanation for the removal of the post.</small>
+						</p>
 						<textarea name="reason" required></textarea>
 
 						<p>Email</p>
-						<p>
-							<small>Please provide your email so we can contact you to confirm the removal of the post.</small>
+						<p class="no_margin_top">
+							<small
+								>Please provide your email so we can contact you to confirm the removal of the post.</small
+							>
 						</p>
 
 						<input name="email" type="email" required />
-						<p><small>By submitting I agree to the 
-							<a href="/" on:click|preventDefault={() => showTabState(6)} target="_blank" rel="noopener"
-								>Terms of Use</a
-							>
+						<p>
+							<small
+								>By submitting I agree to the
+								<a
+									href="/"
+									on:click|preventDefault={() => showTabState(6)}
+									target="_blank"
+									rel="noopener">Terms of Use</a
+								>
 
-							and
-							<a href="/" on:click|preventDefault={() => showTabState(7)} target="_blank" rel="noopener"
-								>Privacy Policy</a
-							>
-							</small></p>
+								and
+								<a
+									href="/"
+									on:click|preventDefault={() => showTabState(7)}
+									target="_blank"
+									rel="noopener">Privacy Policy</a
+								>
+							</small>
+						</p>
 
 						<input type="submit" value="Submit" />
 					</form>
@@ -275,15 +291,17 @@
 				<div class="overlay__section-text">
 					<p>
 						Queering the Map was created by Lucas LaRochelle in 2017. The platform is maintained by
-						LaRochelle and a global network of moderators, developers, and advisors. This network
-						includes (in alphabetical order by last name): Jacqueline Beaumont, Jamie Bliss,
-						Jean-Sebastien Gervais, William Gibson, Jonathan Chomko, Arianna C., Nova Courtoise,
-						Liane Decary-Chen, Melisa D., Sarah D., Moira A., Andy E., Andy M., Miriam B., Felix W.
-						P., Dennis Ohm-Fickler, Yonah B., J. Park, Miguel Rosales, Juan Camilo Rodriguez
-						Gonzalez, Sabine Rosenberg, Sunshine S., Ellie T., Tess Kuramoto, Emma Kirby, Jo Kroese,
-						Erin K., Robbie Mackay, Collette M., Elizabeth M., Lake M., Abirami N., Alexandra Ulsh,
-						Ashleigh Watson, Iris H., Nadine F., August T., Desi B., Igor B., Brendan L., Doga A.,
-						as well as other members who prefer to remain anonymous.
+						LaRochelle and a global network of moderators, developers, and advisors.
+					</p>
+					<p>
+						This network includes (in alphabetical order by last name): Jacqueline Beaumont, Jamie
+						Bliss, Jean-Sebastien Gervais, William Gibson, Jonathan Chomko, Arianna C., Nova
+						Courtoise, Liane Decary-Chen, Melisa D., Sarah D., Moira A., Andy E., Andy M., Miriam
+						B., Felix W. P., Dennis Ohm-Fickler, Yonah B., J. Park, Miguel Rosales, Juan Camilo
+						Rodriguez Gonzalez, Sabine Rosenberg, Sunshine S., Ellie T., Tess Kuramoto, Emma Kirby,
+						Jo Kroese, Erin K., Robbie Mackay, Collette M., Elizabeth M., Lake M., Abirami N.,
+						Alexandra Ulsh, Ashleigh Watson, Iris H., Nadine F., August T., Desi B., Igor B.,
+						Brendan L., Doga A., as well as other members who prefer to remain anonymous.
 					</p>
 				</div>
 				<h2>What data does Queering the Map collect?</h2>
@@ -308,14 +326,10 @@
 						>. This means you can freely share the content by copying and redistributing it in any
 						way you like. Additionally, you're allowed to adapt the material by remixing,
 						transforming, or building upon it.
-						<br /><br />
+						<br />
 					</p>
 
-					<p>
-						However, there are some conditions: <br />
-					</p>
-
-					<br />
+					<p>However, there are some conditions:</p>
 
 					<div class="partial_div-numbered">
 						<span>1</span>You must give proper credit to Queering the Map, provide a link to the
@@ -324,13 +338,13 @@
 					</div>
 					<br />
 					<div class="partial_div-numbered">
-						<span>2</span>2. You may not use the content of Queering the Map, or any works you
-						create based on it, for commercial purposes.
+						<span>2</span>You may not use the content of Queering the Map, or any works you create
+						based on it, for commercial purposes.
 					</div>
 					<br />
 					<div class="partial_div-numbered">
-						<span>3</span>3. If you create something new based on the content of Queering the Map,
-						you must share it under the same Creative Commons license as the original.
+						<span>3</span>If you create something new based on the content of Queering the Map, you
+						must share it under the same Creative Commons license as the original.
 					</div>
 
 					<p>
@@ -1132,9 +1146,9 @@
 			<section style={active_tab !== 6 ? 'display: none;' : ''}>
 				<h2>Terms of Use</h2>
 				<div class="privacy_policy overlay__section-text">
-					<p>Last Updated on April 15, 2024</p>
+					<p><small>Last Updated on April 15, 2024</small></p>
 
-					<p><b>Summary</b></p>
+					<h2>Summary</h2>
 
 					<p>
 						It is important to us that you understand our Terms of Use, which, simply put, are the
@@ -1147,27 +1161,39 @@
 						of Use, and we strongly recommend reviewing the full Terms of Use before engaging with
 						our website.
 					</p>
-					<p>
-						By using the Queering the Map website, application or other services (“Services”), you
-						agree to our Terms of Use and our Privacy Policy. If you don’t agree to our Terms of Use
-						or Privacy Policy, do not use our Services.
-					</p>
-					<p>
-						We can change the Terms of Use and Privacy Policy at any time, so please check them both
-						often to ensure you are up to date on any changes.
-					</p>
-					<p>
-						Our Services allow you to share User Content and you retain ownership of what you post,
-						but by using the Services, you grant us and other users of the website permission to
-						use, modify, and share your User Content, both on the website itself and beyond it. You
-						confirm that you own or have permission to use the content you share and agree that
-						Queering the Map and others can use it according to these terms.
-					</p>
-					<p>
-						You retain the right to remove User Content that you have submitted to the Queering the
-						Map website. If you want your User Content removed at any time, and for any reason,
-						please contact us at hi@queeringthemap.com.
-					</p>
+					<ul>
+						<li>
+							<p>
+								By using the Queering the Map website, application or other services (“Services”),
+								you agree to our Terms of Use and our Privacy Policy. If you don’t agree to our
+								Terms of Use or Privacy Policy, do not use our Services.
+							</p>
+						</li>
+						<li>
+							<p>
+								We can change the Terms of Use and Privacy Policy at any time, so please check them
+								both often to ensure you are up to date on any changes.
+							</p>
+						</li>
+						<li>
+							<p>
+								Our Services allow you to share User Content and you retain ownership of what you
+								post, but by using the Services, you grant us and other users of the website
+								permission to use, modify, and share your User Content, both on the website itself
+								and beyond it. You confirm that you own or have permission to use the content you
+								share and agree that Queering the Map and others can use it according to these
+								terms.
+							</p>
+						</li>
+						<li>
+							<p>
+								You retain the right to remove User Content that you have submitted to the Queering
+								the Map website. If you want your User Content removed at any time, and for any
+								reason, please contact us at <a href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a>.
+							</p>
+						</li>
+						
+					</ul>
 					<p>
 						When using our Services, you can create, upload, and share User Content subject to
 						specific guidelines. Your content must comply with all laws and be uploaded only if you
@@ -1199,8 +1225,8 @@
 							>hi@queeringthemap.com</a
 						>.
 					</p>
-
-					<div class="partial_div-numbered"><span>1</span>Introduction</div>
+<br>
+					<h2>1. Introduction</h2>
 					<p>
 						The Queering the Map website, application and other services (the “Queering the Ma
 						Services”) are made available to you in accordance with these Terms by Queering the Map
@@ -1222,7 +1248,7 @@
 						time in accordance with the process set out at Section 2 below.
 					</p>
 
-					<div class="partial_div-numbered"><span>2</span>Changes To These Terms</div>
+					<h2>2. Changes To These Terms</h2>
 					<p>
 						We may change these Terms to reflect: (a) changes in applicable laws; (b) regulatory or
 						security requirements; (c) relevant guidance or codes of practice; (d) technical
@@ -1237,7 +1263,7 @@
 						stop using our Services.
 					</p>
 
-					<div class="partial_div-numbered"><span>3</span>Your Right to Post User Content</div>
+					<h2>3. Your Right to Post User Content</h2>
 					<p>
 						Queering The Map (‘the Service’) allows you to post content. You retain any and all of
 						your rights to any content you submit, post or display on or through Queering The Map
@@ -1267,7 +1293,7 @@
 						privacy, right of publicity, copyright, contract right or any other right of any person.
 					</p>
 
-					<div class="partial_div-numbered"><span>4</span>Removal Of User Content</div>
+					<h2>4. Removal Of User Content</h2>
 					<p>
 						You retain the right to remove User Content that you have submitted to the Queering the
 						Map Services. If you want your User Content removed from the Queering the Map Services
@@ -1281,7 +1307,7 @@
 						and for any reason.
 					</p>
 
-					<div class="partial_div-numbered"><span>5</span>Content Standards Policy</div>
+					<h2>5. Content Standards Policy</h2>
 					<p>
 						You may have the opportunity to create, upload and/or share content when using the
 						Queering the Map Services (“User Content”). You shall ensure that all User Content
@@ -1291,14 +1317,18 @@
 					</p>
 
 					<p>User Content:</p>
+					<ul >
+						<li><h2 style="padding-left: 0px;">Must:</h2></li>
+						</ul>
 					<p>
-						<b>Must:</b>
 						be uploaded in good faith and compliant with all applicable laws, regulations and codes of
 						conduct; and only be uploaded if you own the rights in such content, have appropriate permission
 						from the rights owner, or are otherwise authorized by law.
 					</p>
+					<ul style="padding-left: 0px;">
+					<li><h2>Must Not:</h2></li>
+					</ul>
 					<p>
-						<b>Must Not:</b>
 						be hateful, inflammatory, threatening, intentionally misleading, harassing, or fraudulent
 						in any way; promote violence or discrimination; reveal details that enable you or anyone
 						else to be identified or contacted outside of the Queering the Map Services (e.g. last name,
@@ -1315,9 +1345,8 @@
 						of the above “must nots”.
 					</p>
 
-					<div class="partial_div-numbered">
-						<span>6</span>Your License To Use Queering The Map Services
-					</div>
+					<h2>6. Your License To Use Queering The Map Services</h2>
+				
 					<p>
 						Queering the Map Services operates under the terms of the Creative Commons
 						Attribution-NonCommercial-ShareAlike 4.0 International License ("License"). By accessing
@@ -1359,9 +1388,8 @@
 						>.
 					</p>
 
-					<div class="partial_div-numbered">
-						<span>7</span>Intellectual Property Rights, Ownership And Restrictions
-					</div>
+					<h2>7. Intellectual Property Rights, Ownership And Restrictions</h2>
+				
 					<p>
 						The names, brands and logos in the Queering the Map Services, whether existing now or in
 						the future, are either the registered and/or unregistered trademarks of Queering the Map
@@ -1401,7 +1429,7 @@
 						the Queering the Map Services unless required by law.
 					</p>
 
-					<div class="partial_div-numbered"><span>8</span>Preteens And Users Under 18</div>
+					<h2>8. Preteens And Users Under 18</h2>
 					<p>
 						You may not use the Queering the Map Services if you are under the age of 13. For users
 						between 13 and 18 years of age, subject to the laws of your country of residence and you
@@ -1418,9 +1446,7 @@
 						familiarize themselves with parental controls on devices they provide their child.
 					</p>
 
-					<div class="partial_div-numbered">
-						<span>9</span>Functioning Of Queering The Map Services
-					</div>
+					<h2>9. Functioning Of Queering The Map Services</h2>
 					<p>
 						We will use reasonable endeavors to maintain the operation of the Queering the Map
 						Services and rectify faults as quickly as possible. We reserve the right to modify,
@@ -1440,7 +1466,7 @@
 						Services can be accessed in all geographic locations.
 					</p>
 
-					<div class="partial_div-numbered"><span>10</span>Third Party Sites And Technologies</div>
+					<h2>10. Third Party Sites And Technologies</h2>
 					<p>
 						Queering the Map Services may include links to internet sites or other technologies
 						supplied by third parties. We make no promises about those third-party sites,
@@ -1455,7 +1481,7 @@
 						technologies.
 					</p>
 
-					<div class="partial_div-numbered"><span>11</span>Our And Your Legal Responsibility</div>
+					<h2>11. Our And Your Legal Responsibility</h2>
 					<p>
 						The Queering the Map Services are provided on an “as is” and “as available’ basis. To
 						the fullest extent permitted under applicable law, we provide no express, implied, or
@@ -1471,12 +1497,14 @@
 						particular software or connectivity services. We do not accept responsibility for such
 						equipment, software, or services.
 					</p>
-					We expressly disclaim liability for any loss or damage caused by us or our employees or agents
-					in circumstances where (a) there is no breach of a legal duty of care owed to you by us or
-					by any of our employees or agents; (b) such loss or damage is not a reasonably foreseeable
-					result of any such breach; or (c) such loss or damage relates to a business. By using the Queering
-					the Map Services or other services offered by us, you agree to waive any legal duty of care
-					owed to you by us, to the maximum extent allowed by law.
+					<p>
+						We expressly disclaim liability for any loss or damage caused by us or our employees or
+						agents in circumstances where (a) there is no breach of a legal duty of care owed to you
+						by us or by any of our employees or agents; (b) such loss or damage is not a reasonably
+						foreseeable result of any such breach; or (c) such loss or damage relates to a business.
+						By using the Queering the Map Services or other services offered by us, you agree to
+						waive any legal duty of care owed to you by us, to the maximum extent allowed by law.
+					</p>
 					<p>
 						To the maximum extent permissible by law, our total liability, whether arising in
 						contract, tort, strict liability, or otherwise, including liability for any losses,
@@ -1502,7 +1530,7 @@
 						consequential loss. Nothing in these terms affects your statutory rights as a consumer.
 					</p>
 
-					<div class="partial_div-numbered"><span>12</span> General</div>
+					<h2>12. General</h2>
 					<p>
 						These Terms and any document incorporated by reference constitute the entire agreement
 						between the parties with respect to its subject matter and supersede any previous terms
@@ -1535,7 +1563,7 @@
 						use of the Queering the Map Services.
 					</p>
 
-					<div class="partial_div-numbered"><span>13</span> Force Majeure</div>
+					<h2>13. Force Majeure</h2>
 					<p>
 						Force majeure means any cause or event beyond the reasonable control of the affected
 						party including without limitation war, civil war, armed conflict or terrorist attack,
@@ -1552,7 +1580,7 @@
 						of notice to you.
 					</p>
 
-					<div class="partial_div-numbered"><span>14</span>Contact Us</div>
+					<h2>14. Contact Us</h2>
 					<p>
 						For answers to any questions you may have about our Terms of Use, email us at <a
 							href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a
@@ -1563,9 +1591,8 @@
 			<section style={active_tab !== 7 ? 'display: none;' : ''}>
 				<h2>Privacy Policy</h2>
 				<div class="privacy_policy overlay__section-text">
-					<p>Last Updated on April 15, 2024</p>
+					<p><small>Last Updated on April 15, 2024</small></p>
 
-					<p>Welcome to Queering the Map!</p>
 					<p>
 						This Privacy Policy outlines the collection, use, disclosure, and protection of your
 						information when you access and use our platform.
@@ -1584,7 +1611,7 @@
 					</p>
 					<p>If you do not agree to this Privacy Policy, do not use Queering the Map.</p>
 
-					<div class="partial_div-numbered"><span>1</span>Information We Collect</div>
+					<h2>1. Information We Collect</h2>
 					<p>
 						User Content: Users may voluntarily provide User Content, such as personal stories,
 						experiences, and other content, in text format.
@@ -1604,7 +1631,7 @@
 						email, or use the Request for Removal form. We do not collect email addresses when a
 						user submits User Content. We do not share email addresses with any third parties.
 					</p>
-					<div class="partial_div-numbered"><span>2</span>Use of Information</div>
+					<h2>2. Use of Information</h2>
 					<p>
 						Platform Functionality: We use the information collected to provide and improve the
 						functionality of Queering the Map, allowing users to share and explore LGBTQ2IA+
@@ -1616,7 +1643,7 @@
 						research and artistic purposes to enhance the platform's overall experience and mission.
 					</p>
 
-					<div class="partial_div-numbered"><span>3</span>Disclosure of Information</div>
+					<h2>3. Disclosure of Information</h2>
 					<p>
 						Anonymity: Users contribute anonymously if they choose not to associate their
 						contributions with identifiable information. Users cannot create accounts, so no
@@ -1629,40 +1656,35 @@
 						required to comply with applicable laws, regulations, or government requests.
 					</p>
 
-					<div class="partial_div-numbered"><span>4</span>Third-Party Services</div>
+					<h2>4. Third-Party Services</h2>
 					<p>
 						Queering the Map may use third-party services for analytics, hosting, and other
 						functionalities. These services may have their own privacy policies, and users are
 						encouraged to review them.
 					</p>
-				
 
-					<div class="partial_div-numbered"><span>5</span>Security</div>
+					<h2>5. Security</h2>
 					<p>
-						We implement reasonable measures to protect the information we collect from unauthorized access, disclosure, or alteration. However, no data transmission over the internet is entirely secure, and we cannot guarantee absolute security.
-
-					</p>
-
-					<div class="partial_div-numbered">
-						<span>6</span>Children's Privacy
-					</div>
-					<p>
-						Queering the Map is intended for users aged 13 and older. We do not knowingly collect information from individuals under the age of 13.
+						We implement reasonable measures to protect the information we collect from unauthorized
+						access, disclosure, or alteration. However, no data transmission over the internet is
+						entirely secure, and we cannot guarantee absolute security.
 					</p>
 
 					
+					<h2>6. Children's Privacy</h2>
+					<p>
+						Queering the Map is intended for users aged 13 and older. We do not knowingly collect
+						information from individuals under the age of 13.
+					</p>
 
-					<div class="partial_div-numbered">
-						<span>7</span>Changes to This Privacy Policy
-					</div>
+					<h2>7. Changes to This Privacy Policy</h2>
 
 					<p>
-						We reserve the right to update or change our Privacy Policy at any time. Any changes will be effective immediately upon posting the updated Privacy Policy on the platform.
+						We reserve the right to update or change our Privacy Policy at any time. Any changes
+						will be effective immediately upon posting the updated Privacy Policy on the platform.
 					</p>
-					
 
-					<div class="partial_div-numbered"><span>8</span>Preteens And Users Under 18</div>
-					
+					<h2>8. Preteens And Users Under 18</h2>
 					<p>
 						For answers to any questions you may have about our Terms of Use, email us at <a
 							href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a
@@ -1720,10 +1742,13 @@
 	a {
 		cursor: pointer;
 	}
+	p.no_margin_top {
+		margin-top: -15px;
+	}
 	.__press h2.divider {
 		border-top: 1.01px solid var(--color-dark);
 		padding-top: 30px;
-		padding-left: 1.1em;
+		padding-left: 2.05rem;
 	}
 	.__press {
 		display: flex;
@@ -1738,10 +1763,10 @@
 	.__press a {
 		padding-left: 10px;
 		padding-top: 0px;
-		font-size: 120%;
+		font-size: 15px.1;
 	}
 	.__press h2 {
-		font-size: 120%;
+		font-size: 15.1px;
 		border-top: 0px;
 		padding-top: 0px;
 		padding-left: 10px;
@@ -1757,8 +1782,8 @@
 	}
 	.header__menu__margin {
 		/* width: calc(100% - 45px); */
-	    width: calc((40% - 43px));
-    left: 54px;
+		width: calc((40% - 43px));
+		left: 54px;
 		position: fixed;
 		background: var(--color-pink);
 	}
@@ -1819,7 +1844,7 @@
 		width: 100%;
 		min-height: 76px;
 		margin: 10px 0px;
-		filter: drop-shadow(0px 3px 3px #1a1a1a78);
+		/* filter: drop-shadow(0px 3px 3px #1a1a1a78); */
 		padding: 10px;
 		padding-right: 0px;
 		box-sizing: border-box;
@@ -1846,11 +1871,12 @@
 		transition-property: color, border-color, background-color;
 		transition-duration: 300ms;
 		transition-timing-function: ease;
+		box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
 	}
 
 	.removal_textarea input {
 		min-height: 26px;
-		filter: drop-shadow(0px 3px 3px #1a1a1a78);
+		/* filter: drop-shadow(0px 3px 3px #1a1a1a78); */
 	}
 
 	.overlay {
@@ -1863,9 +1889,15 @@
 	}
 
 	/* aqui */
+	
 	.overlay__outer section p {
 		padding-left: 1em;
 		padding-right: 1em;
+	}
+	.overlay__outer section ul p {
+	
+		padding-left: 0em;
+		padding-right: 0em;
 	}
 	.overlay__outer section textarea,
 	.overlay__outer section input,
@@ -1970,10 +2002,11 @@
 		.overlay__outer {
 			background: var(--color-pink);
 			border: 1.01px solid var(--color-dark);
+			border-bottom: 0px;
 		}
 		.header__menu__margin {
 			width: calc((100% - 63px));
-        left: 54px;
+			left: 54px;
 		}
 		.footer__menu__margin {
 			width: 100%;
@@ -1992,7 +2025,7 @@
 			border-right: var(--color-dark) solid 1px;
 			border-left: var(--color-dark) solid 1px;
 			box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.5);
-			max-height: 97vh;
+			max-height: calc(100vh - 18px);
 			height: unset;
 		}
 

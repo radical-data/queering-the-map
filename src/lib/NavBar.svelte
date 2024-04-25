@@ -11,6 +11,7 @@
 	}
 	function openAddOverlay() {
 		addOverlayVisible.update(() => true);
+		currentAddButton = addButton;
 	}
 
 	let currentInfoButton = InfoButton;
@@ -51,11 +52,14 @@
 			aria-label="open add overlay"
 		>
 			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
-			<img class="overlay-trigger__icon" src={currentAddButton} on:mouseover={()=>{
+			<img class="overlay-trigger__icon" src={currentAddButton} 
+			on:mouseover={()=>{
 				currentAddButton = addButtonHover;
 			}} on:mouseleave={()=>{
 				currentAddButton = addButton;
-			}} alt="add" />
+			}} 
+				
+			alt="add" />
 		</button>
 	{/if}
 </nav>

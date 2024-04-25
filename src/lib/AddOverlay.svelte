@@ -102,13 +102,9 @@
 						<input required type="hidden" name="addCurrentLongLat" value={retrieveLongLat()} />
 
 						<div class="recaptcha-text">
-							By submitting I agree to
-							<a href="/" on:click|preventDefault={() => openInfoOverlay(6)} target="_blank" rel="noopener"
+							By submitting I agree to the <a href="/" on:click|preventDefault={() => openInfoOverlay(6)} target="_blank" rel="noopener"
 								>Terms of Use</a
-							>
-
-							and
-							<a href="/" on:click|preventDefault={() => openInfoOverlay(7)} target="_blank" rel="noopener"
+							> and the <a href="/" on:click|preventDefault={() => openInfoOverlay(7)} target="_blank" rel="noopener"
 								>Privacy Policy</a
 							>
 						</div>
@@ -126,12 +122,12 @@
 		border: 1.01px solid var(--color-dark);
 		background: var(--color-pink);
 		color: var(--color-dark);
-		box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
 		cursor: pointer;
 		padding: 10px 0px;
 		text-align: center;
 		text-transform: uppercase;
 		text-decoration: none;
+		box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
 		transition-property: color, border-color, background-color;
 		transition-duration: 300ms;
 		transition-timing-function: ease;
@@ -207,8 +203,6 @@
 		text-decoration: underline;
 		text-decoration-color: var(--color-dark);
 		color: var(--color-dark);
-		margin-left: 3px;
-		margin-right: 3px;
 	}
 	
 	@media (max-width: 800px) {
@@ -240,6 +234,7 @@
         bottom: 1%;
         transform: translateX(-50%);
         min-height: 475px;
+		z-index: 999999;
 		}
 	}
 	@media (min-width: 800px) {

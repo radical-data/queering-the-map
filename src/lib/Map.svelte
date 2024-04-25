@@ -134,7 +134,7 @@
 	
 	toast.push(
 			// 'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
-			'<a style="color:var(--color-pink);" href="https://www.patreon.com/queeringthemap" rel="noopener" target="_blank">DONATE</a> to Queering The Map to help us stay online.',
+			'<a style="color:var(--color-pink);text-decoration:unset;" href="https://www.patreon.com/queeringthemap" rel="noopener" target="_blank"><span style="color:var(--color-pink);text-decoration:underline;">DONATE</span> <span style="color:var(--color-pink);">to Queering The Map to help us stay online.</span></a> ',
 			{
 				target: 'new',
 				initial: 0,
