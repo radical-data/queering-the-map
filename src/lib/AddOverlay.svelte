@@ -47,6 +47,9 @@
 				method: 'POST',
 				body: dataX
 			});
+
+			await response.text();
+
 			toast.push(
 				'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
 				{
@@ -56,8 +59,7 @@
 					}
 				}
 			);
-
-			await response.text();
+			
 			closeAddOverlay();
 		}
 	}
@@ -151,8 +153,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-bottom: 10px;
-		margin-top: 10px;
+		margin-bottom: 5px;
+		margin-top: 5px;
 		margin-right: 10px;
 	}
 	.overlay {
@@ -176,8 +178,8 @@
 		display: block;
 		font-weight: 500;
 		padding-bottom: 4px;
-		padding-top: 10px;
-		padding-left: 18px;
+		padding-top: 1em;
+		padding-left: 2.05rem;
 		font-weight: bold;
 	}
 
@@ -207,18 +209,26 @@
 	}
 	
 	@media (max-width: 800px) {
+		.overlay__section-title {
+		padding-left: 1.05rem;
+	}
+	
+	.partial_div-numbered {
+		padding-left: 0.5em;
+	}
 		.overlay--add,
 		.overlay__outer {
 			width: 100%;
 		}
 		.overlay__outer {
-			max-width: 98% !important;
+			max-width: 100% !important;
 			padding-top: 0px;
         padding-bottom: 0px;
+		box-sizing: border-box;
 
 		}
 		.overlay__content {
-			max-width: 95%;
+			max-width: 100%;
 		}
 		.overlay--add textarea {
 		padding: 10px;
@@ -230,11 +240,11 @@
         height: 50vh;
         position: fixed;
         top: unset;
-        width: 95%;
+        width: calc(100vw - 18px);
         left: 50%;
         bottom: 1%;
         transform: translateX(-50%);
-        min-height: 475px;
+        min-height: 455px;
 		z-index: 999999;
 		}
 	}
@@ -255,7 +265,7 @@
 			top: 9px;
         right: 9px !important;
 			border: 1.01px solid;
-			height: 560px;
+			height: 535px;
 			z-index: 199;
 		}
 

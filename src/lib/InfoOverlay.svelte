@@ -29,26 +29,38 @@
 	async function submitAndShowToast(event: { currentTarget: HTMLFormElement | undefined }) {
 		const data = new FormData(event.currentTarget);
 
-		const response = await fetch((event.currentTarget as HTMLFormElement).action, {
-			method: 'POST',
-			body: data
-		});
-		await response.text();
-		closeInfoOverlay();
-		toast.push(
-			// 'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
-			'Your report was succesfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
-			{
-				// initial: 0,
-				theme: {
-					'--toastBarHeight': 0
-				}
-			}
-		);
+		try {
+			const response = await fetch((event.currentTarget as HTMLFormElement).action, {
+				method: 'POST',
+				body: data
+			});
+			
+				closeInfoOverlay();
+				toast.push(
+					'Your Request for Removal has been successfully submitted. We will contact you once the post has been removed.',
+					{
+						theme: {
+							'--toastBarHeight': 0
+						}
+					}
+				);
+			
+		} catch (error) {
+			toast.push(
+					'Your Request for Removal was unsuccessful. Please try again.',
+					{
+						theme: {
+							'--toastBarHeight': 0
+						}
+					}
+				);
+		}
+
+
 	}
 </script>
 
-<aside class="overlay overlay--info" bind:this={root}>
+<aside class="overlay overlay--info">
 	<CloseButton functionOnClick={closeInfoOverlay}>close info overlay</CloseButton>
 
 	<div class="header__menu__margin">
@@ -1193,8 +1205,8 @@
 									>hi@queeringthemap.com</a
 								>.
 							</p>
-						</li>
-					</ul>
+						</li><li>
+					
 					<p>
 						When using our Services, you can create, upload, and share User Content subject to
 						specific guidelines. Your content must comply with all laws and be uploaded only if you
@@ -1202,31 +1214,31 @@
 						promote hate, violence, or discrimination, disclose personal contact information,
 						infringe on intellectual property rights, impersonate others, contain harmful software,
 						serve commercial purposes, or engage in spam or fraudulent activities.
-					</p>
+					</p></li><li>
 					<p>
 						Our Services operates under the Creative Commons Attribution-NonCommercial-ShareAlike
 						4.0 International License, which allows you to share and adapt the material on the
 						website as long as you give appropriate credit, use it for non-commercial purposes, and
 						share any adaptations under the same license. By accessing or using the website, you
 						agree to comply with these terms.
-					</p>
-					<p>Don't use our Services if you are under 13.</p>
+					</p></li><li>
+					<p>Don't use our Services if you are under 13.</p></li><li>
 					<p>
 						While we try to keep our Services up and running, sometimes the site may go down, data
 						may be lost, or other issues may arise. We will try to fix these issues, but we are not
 						liable to you or any other users if such issues arise.
-					</p>
+					</p></li><li>
 					<p>
 						Our Services may include links to third-party websites or technologies. We make no
 						promises about the content of those third-party sites or the safety of those sites.
-					</p>
-					<p>Our Services are only for personal use, not for business or commercial purposes.</p>
+					</p></li><li>
+					<p>Our Services are only for personal use, not for business or commercial purposes.</p></li><li>
 					<p>
 						If you have questions, please contact us: <a href="mailto:hi@queeringthemap.com"
 							>hi@queeringthemap.com</a
 						>.
-					</p>
-					<br />
+					</p></li>
+				</ul>
 					<h2>1. Introduction</h2>
 					<p>
 						The Queering the Map website, application and other services (the “Queering the Ma
@@ -1622,32 +1634,26 @@
 					<p>
 						This Privacy Policy outlines the collection, use, disclosure, and protection of your
 						information when you access and use our platform.
-					</p>
-					<p>
+					<br>
 						Your privacy is crucial to us, and we are committed to maintaining the confidentiality
 						and security of the information you provide.
-					</p>
-					<p>
+					<br>
 						By using Queering the Map, you acknowledge that you have read and understood this
 						Privacy Policy.
-					</p>
-					<p>
+					<br>
 						Your continued use of the platform constitutes acceptance of any updates or changes to
 						this policy.
-					</p>
-					<p>If you do not agree to this Privacy Policy, do not use Queering the Map.</p>
+					<br>If you do not agree to this Privacy Policy, do not use Queering the Map.</p>
 
 					<h2>1. Information We Collect</h2>
 					<p>
 						User Content: Users may voluntarily provide User Content, such as personal stories,
 						experiences, and other content, in text format.
-					</p>
-					<p>
+					<br>
 						Location Data: Users may voluntarily select a location on the map where they would like
 						their User Content to appear. We do not collect information about users' actual
 						location.
-					</p>
-					<p>
+					<br>
 						Time Data: We collect the time that a user's submission is made. This is so that we can
 						organize submissions chronologically in our database.
 					</p>
@@ -1770,8 +1776,8 @@
 	ul {
 		list-style-type: disc;
 		margin-top: -5px;
-		/* padding-left: 1em;
-    padding-right: 1em; */
+		
+    padding-right: 1em; 
 	}
 	ul.voidcircle li {
 		margin-top: -5px;
@@ -1789,6 +1795,7 @@
 		border-top: 1.01px solid var(--color-dark);
 		padding-top: 30px;
 		padding-left: 2.05rem;
+		font-weight: bold !important;
 	}
 	.__press {
 		display: flex;
@@ -1811,7 +1818,8 @@
 		padding-top: 0px;
 		padding-left: 10px;
 		margin-bottom: 0px;
-		margin-top: 30px;
+		/* margin-top: 30px; */
+		font-weight: 400 !important;
 	}
 	.footer__menu__margin {
 		margin-top: 20px;
@@ -1864,6 +1872,7 @@
 	.partial_div-numbered {
 		display: flex;
 		gap: 8px;
+		
 		/* align-items: baseline; */
 	}
 	.partial_div-numbered p {
@@ -1880,16 +1889,16 @@
 	}
 	.removal_textarea textarea,
 	.removal_textarea input {
-		background-color: var(--color-pink);
-		width: 100%;
-		min-height: 76px;
-		margin: 10px 0px;
-		/* filter: drop-shadow(0px 3px 3px #1a1a1a78); */
-		padding: 10px;
-		padding-right: 0px;
-		box-sizing: border-box;
-		font-size: 15px;
-		border: 1.01px solid var(--color-dark);
+		background-color: var(--color-pink) !important;
+    width: 100%;
+    min-height: 76px;
+    margin: 10px 0px;
+    padding: 10px;
+    padding-right: 0px;
+    box-sizing: border-box;
+    font-size: 15px;
+    border: 1.01px solid var(--color-dark);
+    font-family: 'Apfel Grotezk', sans-serif !important;
 	}
 	.removal_textarea [type='submit'] {
 		cursor: pointer;
@@ -1906,7 +1915,7 @@
 	}
 
 	.removal_textarea form [type='submit']:hover {
-		background-color: black;
+		background-color: black !important;
 		color: var(--color-pink);
 		transition-property: color, border-color, background-color;
 		transition-duration: 300ms;

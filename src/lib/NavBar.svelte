@@ -45,7 +45,7 @@
 		display: inline-block;
 		position: absolute;
 		text-align: center;
-		top: 1em;
+		top: 6px;
 		width: 100%;
 		margin: 0 auto;
 		pointer-events: none;
@@ -103,10 +103,7 @@
 		width: 45px;
 	}
 
-	@media (min-width: 800px) {
-		.overlay-trigger.overlay-trigger--info {
-		}
-	}
+	
 
 	@media (min-width: 800px) {
 		.overlay-trigger.overlay-trigger--info .overlay-trigger__icon {
@@ -118,7 +115,6 @@
 		width: 45px;
 	}
 	.overlay-trigger.overlay-trigger--info .overlay-trigger__title {
-		display: none;
 		text-transform: uppercase;
 	}
 

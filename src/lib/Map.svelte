@@ -134,15 +134,30 @@
 	
 	toast.push(
 			// 'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
-			'<a style="color:var(--color-pink);text-decoration:unset;" href="https://www.patreon.com/queeringthemap" rel="noopener" target="_blank"><span style="color:var(--color-pink);text-decoration:underline;">DONATE</span> <span style="color:var(--color-pink);">to Queering The Map to help us stay online.</span></a> ',
+			'<a style="color:var(--color-pink);text-decoration:unset;" href="https://www.patreon.com/queeringthemap" rel="noopener" target="_blank"><span style="color:var(--color-pink);text-decoration:underline;">DONATE</span> <span style="color:var(--color-pink);">to Queering the Map to help us stay online.</span></a> ',
 			{
 				target: 'new',
+				classes: ['toastlinkDonate'],
 				initial: 0,
 				theme: {
 					'--toastBarHeight': 0
 				}
 			}
 		);
+	});
+
+	function handleClick() {
+		document.addEventListener('click', (e) => {
+			if(e.target.className) {
+				if (e.target.className.includes('_toastMsg')&& (e.target.querySelector('a'))) {
+					e.target.querySelector('a').click();
+				}
+			}
+		});
+	}
+
+	onMount(() => {
+		handleClick();
 	});
 
 	onDestroy(() => {
