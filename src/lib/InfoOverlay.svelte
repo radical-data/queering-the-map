@@ -60,7 +60,7 @@
 	}
 </script>
 
-<aside class="overlay overlay--info">
+<aside class="overlay overlay--info" bind:this={root}>
 	<CloseButton functionOnClick={closeInfoOverlay}>close info overlay</CloseButton>
 
 	<div class="header__menu__margin">
@@ -296,7 +296,7 @@
 				<div class="overlay__section-text">
 					<p>
 						We are always welcoming new volunteer moderators to our team. For information on
-						upcoming moderator onboarding sessions, please email us at hi@queeringthemap.com
+						upcoming moderator onboarding sessions, please email us at <a href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a>
 					</p>
 				</div>
 				<h2>Who made Queering the Map?</h2>

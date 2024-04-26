@@ -148,11 +148,13 @@
 
 	function handleClick() {
 		document.addEventListener('click', (e) => {
+			if(e){
 			if(e.target.className) {
 				if (e.target.className.includes('_toastMsg')&& (e.target.querySelector('a'))) {
 					e.target.querySelector('a').click();
 				}
 			}
+		}
 		});
 	}
 
