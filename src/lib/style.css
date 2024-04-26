@@ -25,6 +25,24 @@ body {
     margin: 0;
     font-family: 'Apfel Grotezk', sans-serif;
 }
+.general_button__fadein {
+    width: 45px;
+}
+.general_button__fadein:hover rect,
+.general_button__fadein:hover circle,
+.general_button__fadein:hover line {
+    transition-property: fill, stroke, opacity, color, border-color, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+}
+.general_button__fadein:hover rect {
+   fill: var(--color-dark) !important;
+}
+.general_button__fadein:hover circle,
+.general_button__fadein:hover line {
+    stroke: var(--color-pink) !important;
+}
+
 .partial_div-numbered {
     padding-left: 1em;
     padding-right: 1em;
