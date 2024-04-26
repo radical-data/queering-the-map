@@ -144,8 +144,8 @@ div.maplibregl-ctrl-group button:hover {
 }
 
 ._toastBtn::after {
-    top: 2px;
-    right: 4px;
+    top: 4px;
+    right: 6px;
     position: absolute;
 }
 
