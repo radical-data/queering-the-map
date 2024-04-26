@@ -1793,7 +1793,7 @@
 	}
 	.__press h2.divider {
 		border-top: 1.01px solid var(--color-dark);
-		padding-top: 30px;
+		padding-top: 1em;
 		padding-left: 2.05rem;
 		font-weight: bold !important;
 	}
@@ -1808,7 +1808,7 @@
 		/* hides press names */
 	}
 	.__press a {
-		padding-left: 10px;
+		padding-left: 1em;
 		padding-top: 0px;
 		font-size: 15px.1;
 	}
@@ -1816,7 +1816,7 @@
 		font-size: 15.1px;
 		border-top: 0px;
 		padding-top: 0px;
-		padding-left: 10px;
+		padding-left: 1em;
 		margin-bottom: 0px;
 		/* margin-top: 30px; */
 		font-weight: 400 !important;
