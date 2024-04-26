@@ -107,7 +107,7 @@
 						<div class="recaptcha-text">
 							By submitting I agree to the <a href="/" on:click|preventDefault={() => openInfoOverlay(6)} target="_blank" rel="noopener"
 								>Terms of Use</a
-							> and the <a href="/" on:click|preventDefault={() => openInfoOverlay(7)} target="_blank" rel="noopener"
+							> and <a href="/" on:click|preventDefault={() => openInfoOverlay(7)} target="_blank" rel="noopener"
 								>Privacy Policy</a
 							>
 						</div>
@@ -245,7 +245,14 @@
         bottom: 1%;
         transform: translateX(-50%);
         min-height: 455px;
+		max-height: 455px;
 		z-index: 999999;
+		}
+	}
+	@media (min-width: 800px) and (max-width: 930px){
+		.overlay--add {
+		 min-height: 540px;
+		max-height: 540px;
 		}
 	}
 	@media (min-width: 800px) {

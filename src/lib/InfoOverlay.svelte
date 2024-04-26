@@ -204,7 +204,7 @@
 						</p>
 					</div>
 
-					<p>
+					<p style="margin-top: 0px;">
 						The moderation process is to ensure the safety of the map, and is not about policing
 						expressions or identities.
 					</p>
@@ -1634,26 +1634,23 @@
 					<p>
 						This Privacy Policy outlines the collection, use, disclosure, and protection of your
 						information when you access and use our platform.
-					<br>
 						Your privacy is crucial to us, and we are committed to maintaining the confidentiality
 						and security of the information you provide.
-					<br>
 						By using Queering the Map, you acknowledge that you have read and understood this
 						Privacy Policy.
-					<br>
 						Your continued use of the platform constitutes acceptance of any updates or changes to
 						this policy.
-					<br>If you do not agree to this Privacy Policy, do not use Queering the Map.</p>
+					If you do not agree to this Privacy Policy, do not use Queering the Map.</p>
 
 					<h2>1. Information We Collect</h2>
 					<p>
 						User Content: Users may voluntarily provide User Content, such as personal stories,
 						experiences, and other content, in text format.
-					<br>
+					</p><p>
 						Location Data: Users may voluntarily select a location on the map where they would like
 						their User Content to appear. We do not collect information about users' actual
 						location.
-					<br>
+					</p><p>
 						Time Data: We collect the time that a user's submission is made. This is so that we can
 						organize submissions chronologically in our database.
 					</p>
@@ -1809,14 +1806,16 @@
 	}
 	.__press a {
 		padding-left: 1em;
+		padding-right: 1em;
 		padding-top: 0px;
-		font-size: 15px.1;
+		font-size: 15px;
 	}
 	.__press h2 {
 		font-size: 15.1px;
 		border-top: 0px;
-		padding-top: 0px;
+		padding-top: 4px;
 		padding-left: 1em;
+		padding-bottom: 0px;
 		margin-bottom: 0px;
 		/* margin-top: 30px; */
 		font-weight: 400 !important;
@@ -1905,7 +1904,7 @@
 		background-color: black;
 		color: var(--color-pink);
 		font-size: 20px;
-		min-width: calc(100% - 1em);
+		min-width: calc(100% - 1.5em);
 	}
 
 	.removal_textarea form [type='submit'] {

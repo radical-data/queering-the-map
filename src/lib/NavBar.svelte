@@ -50,9 +50,10 @@
 		pointer-events: none;
 		z-index: var(--logo-z-index);
 	}
-
+	@media (max-width: 800px) {
 	#logo img {
-		width: 100px;
+height: 54px;		
+	}
 	}
 
 	@media (min-width: 800px) {
