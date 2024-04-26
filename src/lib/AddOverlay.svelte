@@ -92,7 +92,6 @@
 						<span>2</span>Share your story in the the text box below.
 					</div>
 					<div class="partial_div-numbered"><span>3</span>Click the Add button.</div>
-					<br />
 
 					<form
 						action="https://bapol.com.br/queeringthemap/email.php"
@@ -244,15 +243,15 @@
         left: 50%;
         bottom: 1%;
         transform: translateX(-50%);
-        min-height: 455px;
-		max-height: 455px;
+        min-height: 439px;
+		max-height: 439px;
 		z-index: 999999;
 		}
 	}
 	@media (min-width: 800px) and (max-width: 930px){
 		.overlay--add {
-		 min-height: 540px;
-		max-height: 540px;
+		 min-height: 520px;
+		max-height: 520px;
 		}
 	}
 	@media (min-width: 800px) {
@@ -272,7 +271,7 @@
 			top: 9px;
         right: 9px !important;
 			border: 1.01px solid;
-			height: 535px;
+			height: 519px;
 			z-index: 199;
 		}
 
