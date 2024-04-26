@@ -1,6 +1,5 @@
 <script>
 	import logo from '$lib/assets/queering-the-map-logo.svg';
-	import addButton from '$lib/assets/add.svg';
 	import { infoOverlayVisible, addOverlayVisible } from '../stores';
 
 	function openInfoOverlay() {
@@ -83,18 +82,6 @@
 		}
 	}
 
-	.overlay-trigger .overlay-trigger__icon {
-		display: block;
-		/* width: 40px; */
-		height: auto;
-	}
-
-	@media (min-width: 800px) {
-		.overlay-trigger .overlay-trigger__icon {
-			top: 0.25em;
-			width: 46px;
-		}
-	}
 
 	.overlay-trigger.overlay-trigger--info {
 		left: 9px;
@@ -105,15 +92,8 @@
 
 	
 
-	@media (min-width: 800px) {
-		.overlay-trigger.overlay-trigger--info .overlay-trigger__icon {
-			display: none;
-		}
-	}
 
-	.overlay-trigger.overlay-trigger--info .overlay-trigger__title img {
-		width: 45px;
-	}
+	
 	.overlay-trigger.overlay-trigger--info .overlay-trigger__title {
 		text-transform: uppercase;
 	}
@@ -130,9 +110,5 @@
 		width: 45px;
 	}
 
-	@media (min-width: 800px) {
-		.overlay-trigger.overlay-trigger--add {
-			/* right: 0.5em; */
-		}
-	}
+	
 </style>

@@ -1,10 +1,6 @@
 <script lang="ts">
-	import closeButton from '$lib/assets/close.svg';
-	import closeButtonHover from '$lib/assets/close-hover.svg';
 	export let functionOnClick: any;
 	export let position: 'right' | 'left' = 'left';
-	let closeButtonButton = closeButton;
-	let general_button__fadein = ''
 </script>
 
 <button
@@ -22,10 +18,7 @@
 	button {
 		z-index: 999;
 	}
-
-	.close-btn img {
-		width: 45px;
-	}
+	
 	.close-btn {
 		position: fixed;
 		line-height: 1;
