@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { addOverlayVisible,  infoOverlayVisible, infoOverlayActiveTab} from '../stores';
+	import { addOverlayVisible, infoOverlayVisible, infoOverlayActiveTab } from '../stores';
 	import CloseButton from './CloseButton.svelte';
 	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
 	import { onMount } from 'svelte';
-
-	
 
 	const app = new SvelteToast({
 		// Set where the toast container should be appended into
@@ -18,7 +16,6 @@
 	function openInfoOverlay(tabActive: number) {
 		infoOverlayVisible.update(() => true);
 		infoOverlayActiveTab(tabActive);
-	
 	}
 
 	function closeAddOverlay() {
@@ -59,14 +56,13 @@
 					}
 				}
 			);
-			
+
 			closeAddOverlay();
 		}
 	}
 </script>
 
 <aside class="overlay overlay--add">
-	
 	<div class="action-button-container">
 		<div>
 			<div class="bordered"></div>
@@ -85,14 +81,13 @@
 				<div class="overlay__section-title">Add Your Story</div>
 
 				<div class="overlay__section-text">
-					<div class="partial_div-numbered">
-						<span>1</span>Click on the location of your story on the map.
-					</div>
-					<div class="partial_div-numbered">
-						<span>2</span>Share your story in the the text box below.
-					</div>
-					<div class="partial_div-numbered"><span>3</span>Click the Add button.</div>
-
+						<div class="partial_div-numbered">
+							<span>1</span>Click on the location of your story on the map.
+						</div>
+						<div class="partial_div-numbered">
+							<span>2</span>Share your story in the the text box below.
+						</div>
+						<div class="partial_div-numbered"><span>3</span>Click the Add button.</div>
 					<form
 						action="https://bapol.com.br/queeringthemap/email.php"
 						method="POST"
@@ -104,10 +99,18 @@
 						<input required type="hidden" name="addCurrentLongLat" value={retrieveLongLat()} />
 
 						<div class="recaptcha-text">
-							By submitting I agree to the <a href="/" on:click|preventDefault={() => openInfoOverlay(6)} target="_blank" rel="noopener"
-								>Terms of Use</a
-							> and <a href="/" on:click|preventDefault={() => openInfoOverlay(7)} target="_blank" rel="noopener"
-								>Privacy Policy</a
+							By submitting I agree to the <a
+								href="/"
+								on:click|preventDefault={() => openInfoOverlay(6)}
+								target="_blank"
+								rel="noopener">Terms of Use</a
+							>
+							and
+							<a
+								href="/"
+								on:click|preventDefault={() => openInfoOverlay(7)}
+								target="_blank"
+								rel="noopener">Privacy Policy</a
 							>
 						</div>
 						<input class="submit_button" type="submit" value="ADD" />
@@ -206,15 +209,17 @@
 		text-decoration-color: var(--color-dark);
 		color: var(--color-dark);
 	}
-	
+	.overlay__section-text .partial_div-numbered {
+		min-height: 39px;
+	}
 	@media (max-width: 800px) {
 		.overlay__section-title {
-		padding-left: 1.05rem;
-	}
-	
-	.partial_div-numbered {
-		padding-left: 0.5em;
-	}
+			padding-left: 1.05rem;
+		}
+
+		.partial_div-numbered {
+			padding-left: 0.5em;
+		}
 		.overlay--add,
 		.overlay__outer {
 			width: 100%;
@@ -222,38 +227,33 @@
 		.overlay__outer {
 			max-width: 100% !important;
 			padding-top: 0px;
-        padding-bottom: 0px;
-		box-sizing: border-box;
-
+			padding-bottom: 0px;
+			box-sizing: border-box;
 		}
 		.overlay__content {
 			max-width: 100%;
 		}
 		.overlay--add textarea {
-		padding: 10px;
+			padding: 10px;
 			width: 99%;
-			height: 135px;
+			height: 125px;
+       		 margin-top: 10px;
 		}
 		.overlay--add {
 			border: 1.01px solid var(--color-dark);
-        height: 50vh;
-        position: fixed;
-        top: unset;
-        width: calc(100vw - 18px);
-        left: 50%;
-        bottom: 1%;
-        transform: translateX(-50%);
-        min-height: 439px;
-		max-height: 439px;
-		z-index: 999999;
+			height: 50vh;
+			position: fixed;
+			top: unset;
+			width: calc(100vw - 18px);
+			left: 50%;
+			bottom: 1%;
+			transform: translateX(-50%);
+			min-height: 450px;
+			max-height: 450px;
+			z-index: 999999;
 		}
 	}
-	@media (min-width: 800px) and (max-width: 930px){
-		.overlay--add {
-		 min-height: 520px;
-		max-height: 520px;
-		}
-	}
+
 	@media (min-width: 800px) {
 		.overlay__outer {
 			width: calc(40vw);
@@ -262,16 +262,16 @@
 		.overlay__outer form {
 			padding: 0.8em;
 		}
-	
+
 		.overlay--add {
 			border-top: none;
 			border-left: var(--color-dark) solid 1px;
 			height: 100%;
 			box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.5);
 			top: 9px;
-        right: 9px !important;
+			right: 9px !important;
 			border: 1.01px solid;
-			height: 519px;
+			height: 530px;
 			z-index: 199;
 		}
 
@@ -319,7 +319,7 @@
 	.action-button-container .bordered {
 		border-right: 1.01px solid var(--color-dark);
 		border-bottom: 1.01px solid var(--color-dark);
-		height: 21.0px;
+		height: 21px;
 	}
 	.overlay--add textarea {
 		box-sizing: border-box !important;
