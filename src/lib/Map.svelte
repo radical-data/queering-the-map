@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
-	import { getMomentText } from '$lib/getMomentText';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 
 	import markerImage from '$lib/assets/marker.png';
