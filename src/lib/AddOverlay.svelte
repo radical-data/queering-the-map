@@ -2,10 +2,25 @@
 	import { addOverlayVisible } from '../stores';
 	import ActionButton from './ActionButton.svelte';
 	import CloseButton from './CloseButton.svelte';
+	import { activeMarkerCoords } from '../stores';
+
+	let momentDescription = "";
 
 	function closeAddOverlay() {
 		addOverlayVisible.update(() => false);
 	}
+
+	async function handleAddMoment() {
+		console.log($activeMarkerCoords?.lat, $activeMarkerCoords?.lng, momentDescription)
+		const response = await fetch('/moments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({lng: $activeMarkerCoords?.lng, lat: $activeMarkerCoords?.lat, description: momentDescription})
+      });
+	}
+
 </script>
 
 <aside class="overlay overlay--add">
@@ -24,7 +39,7 @@
 							<li>Click the 'ADD' button.</li>
 						</ol>
 						<br />
-						<textarea id="txt_contents" class="subform"></textarea>
+						<textarea bind:value={momentDescription} id="txt_contents" class="subform"></textarea>
 						<div class="recaptcha-text">
 							This site is protected by reCAPTCHA and the Google
 							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
@@ -35,7 +50,7 @@
 								>Terms of Service</a
 							> apply.
 						</div>
-						<ActionButton link="">Add</ActionButton>
+						<ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
 					</div>
 				</section>
 		</div>
