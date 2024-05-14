@@ -15,7 +15,7 @@
 	const maptilerMapReference = 'd27741ff-e220-4106-a5a1-aedace679204';
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
-	async function getMoment(id?: number) {
+	async function getMoment(id?: number | string) {
 		try {
 			const response = await fetch(`/moment/${id}`);
 			const moment = await response.json();
@@ -46,7 +46,7 @@
 
 			map.loadImage(markerImage, (error, image) => {
 				if (error) throw error;
-				map.addImage('marker', image);
+				if (image) map.addImage('marker', image);
 			});
 
 			map.addLayer({
@@ -118,7 +118,7 @@
 					activeMarker.setLngLat([lng, lat]);
 				}
 
-				activeMarkerCoords.set([lng, lat]);
+				activeMarkerCoords.set({lng, lat});
 			});
 		});
 	});
