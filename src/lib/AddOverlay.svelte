@@ -11,7 +11,6 @@
 	}
 
 	async function handleAddMoment() {
-		console.log($activeMarkerCoords?.lat, $activeMarkerCoords?.lng, momentDescription)
 		const response = await fetch('/moments', {
         method: 'POST',
         headers: {
@@ -19,6 +18,8 @@
         },
         body: JSON.stringify({lng: $activeMarkerCoords?.lng, lat: $activeMarkerCoords?.lat, description: momentDescription})
       });
+	  
+	  addOverlayVisible.update(() => false);
 	}
 
 </script>
