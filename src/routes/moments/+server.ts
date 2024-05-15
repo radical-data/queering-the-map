@@ -43,7 +43,5 @@ export const POST: RequestHandler = async ({ request }) => {
 		return json({ error: "Error saving new moment" }, { status: 500 });
 	}
 
-	console.log(data);
-
 	return json({}, { status: 201 });
 };
