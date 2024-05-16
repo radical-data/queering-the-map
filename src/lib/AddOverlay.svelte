@@ -5,6 +5,7 @@
 	import { activeMarkerCoords } from '../stores';
 
 	let momentDescription = "";
+	let showSubmissionSucess = false;
 
 	function closeAddOverlay() {
 		addOverlayVisible.update(() => false);
@@ -19,7 +20,10 @@
         body: JSON.stringify({lng: $activeMarkerCoords?.lng, lat: $activeMarkerCoords?.lat, description: momentDescription})
       });
 	  
-	  addOverlayVisible.update(() => false);
+	  if (response.status === 201) { showSubmissionSucess = true }
+
+	  // TODO: should we give feedback on error?
+
 	}
 
 </script>
@@ -30,6 +34,17 @@
 	</div>
 	<div class="overlay__outer">
 			<div class="overlay__content">
+				{#if showSubmissionSucess}
+				<section>
+					<div class="overlay__section-title">Thank you for sharing</div>
+
+					<div class="overlay__section-text">
+						Your submission has been recieved. 
+						<br>
+						When Approved you will be able to see it on the map.
+				</section>
+				{/if}
+				{#if !showSubmissionSucess}
 				<section>
 					<div class="overlay__section-title">How to add to the map</div>
 
@@ -54,6 +69,7 @@
 						<ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
 					</div>
 				</section>
+				{/if}
 		</div>
 	</div>
 </aside>
