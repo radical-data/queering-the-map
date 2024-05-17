@@ -6,12 +6,11 @@
 	import markerImage from '$lib/assets/marker.png';
 
 	import moments from '$lib/data/filtered_data_id_only.json';
+	import style from '$lib/data/pmtiles/style.json';
 
 	let map: Map;
 	let mapContainer: HTMLDivElement;
 
-	const maptilerApiKey = 'SRfJh1CuGiISgDoqUg55';
-	const maptilerMapReference = 'd27741ff-e220-4106-a5a1-aedace679204';
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
 	async function getMoment(id: number) {
@@ -28,7 +27,7 @@
 	onMount(() => {
 		map = new Map({
 			container: mapContainer,
-			style: `https://api.maptiler.com/maps/${maptilerMapReference}/style.json?key=${maptilerApiKey}`,
+			style: style,
 			center: [initialState.lng, initialState.lat],
 			zoom: initialState.zoom,
 			minZoom: 2,
