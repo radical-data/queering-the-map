@@ -2,10 +2,30 @@
 	import { addOverlayVisible } from '../stores';
 	import ActionButton from './ActionButton.svelte';
 	import CloseButton from './CloseButton.svelte';
+	import { activeMarkerCoords } from '../stores';
+
+	let momentDescription = "";
+	let showSubmissionSucess = false;
 
 	function closeAddOverlay() {
 		addOverlayVisible.update(() => false);
 	}
+
+	async function handleAddMoment() {
+		const response = await fetch('/moments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({lng: $activeMarkerCoords?.lng, lat: $activeMarkerCoords?.lat, description: momentDescription})
+      });
+	  
+	  if (response.status === 201) { showSubmissionSucess = true }
+
+	  // TODO: should we give feedback on error?
+
+	}
+
 </script>
 
 <aside class="overlay overlay--add">
@@ -14,6 +34,17 @@
 	</div>
 	<div class="overlay__outer">
 			<div class="overlay__content">
+				{#if showSubmissionSucess}
+				<section>
+					<div class="overlay__section-title">Thank you for sharing</div>
+
+					<div class="overlay__section-text">
+						Your submission has been recieved. 
+						<br>
+						When Approved you will be able to see it on the map.
+				</section>
+				{/if}
+				{#if !showSubmissionSucess}
 				<section>
 					<div class="overlay__section-title">How to add to the map</div>
 
@@ -24,7 +55,7 @@
 							<li>Click the 'ADD' button.</li>
 						</ol>
 						<br />
-						<textarea id="txt_contents" class="subform"></textarea>
+						<textarea bind:value={momentDescription} id="txt_contents" class="subform"></textarea>
 						<div class="recaptcha-text">
 							This site is protected by reCAPTCHA and the Google
 							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
@@ -35,9 +66,10 @@
 								>Terms of Service</a
 							> apply.
 						</div>
-						<ActionButton link="">Add</ActionButton>
+						<ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
 					</div>
 				</section>
+				{/if}
 		</div>
 	</div>
 </aside>
