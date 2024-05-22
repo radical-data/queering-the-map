@@ -25,6 +25,7 @@
 		"eslint-plugin-svelte": "^2.30.0",
 		"prettier": "^3.0.0",
 		"prettier-plugin-svelte": "^3.0.0",
+		"supabase": "^1.153.1",
 		"svelte": "^4.2.7",
 		"svelte-check": "^3.6.0",
 		"tslib": "^2.4.1",
@@ -35,6 +36,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/apfel-grotezk": "^5.0.7",
+		"@supabase/supabase-js": "^2.41.1",
 		"maplibre-gl": "^3.6.2"
 	}
 }
