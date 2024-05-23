@@ -2,6 +2,10 @@ import { json } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
 import { supabase } from "$lib/clients/supabaseClient";
 
+const roundCoordinates = (coordinates: [number, number]): [number, number] => {
+	return coordinates.map(coord => parseFloat(coord.toFixed(6))) as [number, number];
+};
+
 export async function GET() {
 	const { data, error } = await supabase
 		.from("moments")
@@ -15,11 +19,16 @@ export async function GET() {
 
 	const geoJson = {
 		type: "FeatureCollection",
-		features: data.map((moment) => ({
-			type: "Feature",
-			id: moment.short_id,
-			geometry: moment.location,
-		})),
+		features: data.map((moment) => {
+			return {
+				type: "Feature",
+				id: moment.short_id,
+				geometry: {
+					type: "Point",
+					coordinates: roundCoordinates(moment.location.coordinates),
+				}
+			};
+		}),
 	};
 
 	return json(geoJson);
@@ -28,7 +37,7 @@ export async function GET() {
 export const POST: RequestHandler = async ({ request }) => {
 	const { lng, lat, description } = await request.json();
 
-	const { data, error } = await supabase
+	const { error } = await supabase
 		.from("moments")
 		.insert([
 			{
