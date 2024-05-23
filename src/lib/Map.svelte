@@ -41,7 +41,7 @@
 		map.on('load', () => {
 			map.addSource('moments', {
 				type: 'geojson',
-				data: '/moments'
+				data: 'moments.json'
 			});
 
 			map.loadImage(markerImage, (error, image) => {
@@ -126,7 +126,7 @@
 					activeMarker.setLngLat([lng, lat]);
 				}
 
-				activeMarkerCoords.set({lng, lat});
+				activeMarkerCoords.set({ lng, lat });
 			});
 		});
 	});

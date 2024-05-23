@@ -29,7 +29,7 @@
 		"svelte": "^4.2.7",
 		"svelte-check": "^3.6.0",
 		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
+		"typescript": "^5.4.5",
 		"vite": "^4.4.2",
 		"vitest": "^0.32.2"
 	},
@@ -37,6 +37,7 @@
 	"dependencies": {
 		"@fontsource/apfel-grotezk": "^5.0.7",
 		"@supabase/supabase-js": "^2.41.1",
+		"dotenv": "^16.4.5",
 		"maplibre-gl": "^3.6.2"
 	},
 	"packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
