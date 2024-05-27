@@ -42,11 +42,14 @@ export async function fetchAndWriteData() {
 
 	if (!geoJson) {
 		console.error('Failed to fetch data, aborting file write.');
-		return;
+		process.exit(1);
 	}
 
 	const filePath = writeDataToFile(geoJson);
 	console.log(`Fetched ${geoJson.features.length} moments and saved to ${filePath}`);
 }
 
-fetchAndWriteData();
+fetchAndWriteData().catch(err => {
+	console.error('Error in fetchAndWriteData:', err);
+	process.exit(1);
+});
