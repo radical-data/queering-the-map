@@ -31,7 +31,10 @@ export function writeDataToFile(geoJson) {
 		fs.mkdirSync(outputDir, { recursive: true });
 	}
 
-	fs.writeFileSync(path.resolve(outputDir, 'moments.json'), JSON.stringify(geoJson));
+	const filePath = path.resolve(outputDir, 'moments.json');
+	fs.writeFileSync(filePath, JSON.stringify(geoJson));
+
+	return filePath;
 }
 
 export async function fetchAndWriteData() {
@@ -42,5 +45,8 @@ export async function fetchAndWriteData() {
 		return;
 	}
 
-	writeDataToFile(geoJson);
+	const filePath = writeDataToFile(geoJson);
+	console.log(`Fetched ${geoJson.features.length} moments and saved to ${filePath}`);
 }
+
+fetchAndWriteData();

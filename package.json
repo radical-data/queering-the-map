@@ -1,5 +1,5 @@
 {
-	"name": "queering-the-map-web",
+	"name": "queering-the-map",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -12,12 +12,15 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"fetch-data": "npx vite-node --options.transformMode.ssr='/.*/' src/lib/scripts/fetchData.ts",
+		"seed-data": "npx vite-node --options.transformMode.ssr='/.*/' src/lib/scripts/seedData.ts"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.27.4",
+		"@types/geojson": "^7946.0.14",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
 		"eslint": "^8.28.0",
@@ -31,6 +34,7 @@
 		"tslib": "^2.4.1",
 		"typescript": "^5.4.5",
 		"vite": "^4.4.2",
+		"vite-node": "^1.6.0",
 		"vitest": "^0.32.2"
 	},
 	"type": "module",
