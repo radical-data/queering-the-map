@@ -1,8 +1,10 @@
 import { supabase } from '../clients/supabaseClient';
 import fs from 'fs';
 import path from 'path';
+import type { GeoJSON } from 'geojson';
+import { roundCoordinates } from '$lib/utils/utils';
 
-export async function fetchData() {
+export async function fetchData(): Promise<GeoJSON | null> {
 	const { data, error } = await supabase
 		.from('moments')
 		.select('short_id, location')
@@ -13,26 +15,36 @@ export async function fetchData() {
 		return null;
 	}
 
-	const geoJson = {
-		type: 'FeatureCollection',
+	const geoJson: GeoJSON = {
+		type: "FeatureCollection",
 		features: data.map((moment) => ({
-			type: 'Feature',
+			type: "Feature",
 			id: moment.short_id,
-			geometry: moment.location,
+			geometry: {
+				type: "Point",
+				coordinates: roundCoordinates(moment.location.coordinates, 6),
+			},
+			properties: {} // Include properties to match GeoJSON structure
 		})),
 	};
 
 	return geoJson;
 }
 
-export function writeDataToFile(geoJson) {
+export function writeDataToFile(geoJson: GeoJSON): string {
 	const outputDir = path.resolve('static');
 	if (!fs.existsSync(outputDir)) {
 		fs.mkdirSync(outputDir, { recursive: true });
 	}
 
+	// Remove "properties" before saving as it is empty
+	const simplifiedGeoJson = {
+		...geoJson,
+		features: geoJson.features.map(({ properties, ...rest }) => rest)
+	};
+
 	const filePath = path.resolve(outputDir, 'moments.json');
-	fs.writeFileSync(filePath, JSON.stringify(geoJson));
+	fs.writeFileSync(filePath, JSON.stringify(simplifiedGeoJson));
 
 	return filePath;
 }

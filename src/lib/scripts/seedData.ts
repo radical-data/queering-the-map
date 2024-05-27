@@ -1,6 +1,7 @@
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import type { FeatureCollection, Feature, Point } from 'geojson';
+import { roundCoordinates } from '$lib/utils/utils';
 
 function getRandomCoordinate(min: number, max: number): number {
     return Math.random() * (max - min) + min;
@@ -12,7 +13,7 @@ function generateRandomMoment(id: number): Feature {
 
     const point: Point = {
         type: "Point",
-        coordinates: [longitude, latitude]
+        coordinates: roundCoordinates([longitude, latitude], 6)
     };
 
     const feature: Feature = {
