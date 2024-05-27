@@ -4,12 +4,26 @@ Queering the Map is a community-based platform where individuals anonymously pin
 
 ## Setup
 
-1. Setup a Supabase (local) project with the [official CLI](https://supabase.com/docs/guides/cli/getting-started)
+You have two options for setting up the project: a quick setup for frontend-only work or a full setup with Supabase.
+
+### Option 1: Quick Setup for Frontend-Only Work
+
+This approach is quicker and allows you to work on the frontend without setting up Supabase. Note that popups will not show text if you choose this option.
+
 1. Install dependencies with `npm install`.
+2. Run the seed script to generate mock data: `npm run seed-data`.
+
+### Option 2: Full Setup with Supabase
+
+This approach is necessary if you want to work also work on the backend. It takes longer to set up but provides a complete development environment, aligned with what we use in production.
+
+1. Install dependencies with `npm install`.
+1. Set up a Supabase (local) project with the [official CLI](https://supabase.com/docs/guides/cli/getting-started).
 1. Set the environment variables.
-    1. Copy the `.env.example` file to `.env` (manually or with `cp .env.example .env`)
-    1. Get your `SUPABASE_URL` and `SUPABASE_ANON_KEY` from the output of `supabase start`
-1. Run the DB migrations locally with `supabase db reset`
+    1. Copy the `.env.example` file to `.env` (manually or with `cp .env.example .env`).
+    1. Get your `SUPABASE_URL` and `SUPABASE_ANON_KEY` from the output of `supabase start`.
+1. Run the DB migrations locally with `supabase db reset`.
+1. Fetch the data from Supabase: `npm run fetch-data`.
 
 ## Developing
 
@@ -21,9 +35,7 @@ npm run dev
 
 ## Testing
 
-For testing the database make sure that the `pgTap` extension is enabled in postgres ([more info](https://supabase.com/docs/guides/database/extensions/pgtap))
-Aftwerards you can run:
-`supabase test db`
+For testing the database make sure that the `pgTap` extension is enabled in postgres ([more info](https://supabase.com/docs/guides/database/extensions/pgtap)). Afterwards, you can run: `supabase test db`.
 
 
 ## Deploying and Building for production
