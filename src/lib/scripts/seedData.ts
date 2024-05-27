@@ -7,7 +7,7 @@ function getRandomCoordinate(min: number, max: number): number {
     return Math.random() * (max - min) + min;
 }
 
-function generateRandomMoment(id: number): Feature {
+function generateRandomMoment(id: number): Feature<Point> {
     const longitude = getRandomCoordinate(-180, 180);
     const latitude = getRandomCoordinate(-90, 90);
 
@@ -16,25 +16,18 @@ function generateRandomMoment(id: number): Feature {
         coordinates: roundCoordinates([longitude, latitude], 6)
     };
 
-    const feature: Feature = {
+    const feature: Feature<Point> = {
         type: "Feature",
         id: id,
         geometry: point,
-        properties: {
-            crs: {
-                type: "name",
-                properties: {
-                    name: "EPSG:4326"
-                }
-            }
-        }
+        properties: {}  // Empty properties to satisfy the GeoJSON type
     };
 
     return feature;
 }
 
-function generateRandomMoments(count: number): FeatureCollection {
-    const features: Feature[] = [];
+function generateRandomMoments(count: number): FeatureCollection<Point> {
+    const features: Feature<Point>[] = [];
     
     for (let i = 1; i <= count; i++) {
         features.push(generateRandomMoment(i));
@@ -54,7 +47,13 @@ function saveMomentsToFile(count: number, filePath: string): void {
         mkdirSync(dir, { recursive: true });
     }
 
-    writeFileSync(filePath, JSON.stringify(moments));
+    // Remove empty properties from each feature
+    const simplifiedMoments = {
+        ...moments,
+        features: moments.features.map(({ properties, ...rest }) => rest)
+    };
+
+    writeFileSync(filePath, JSON.stringify(simplifiedMoments));
     console.log(`Generated ${count} moments and saved to ${filePath}`);
 }
 
