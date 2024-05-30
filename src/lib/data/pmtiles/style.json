@@ -75,12 +75,64 @@
       "paint": {"fill-color": "rgba(205, 203, 173, 1)"}
     },
     {
+      "id": "natural_bare_rock",
+      "type": "fill",
+      "source": "qtm_pmtiles",
+      "source-layer": "natural",
+      "minzoom": 0,
+      "filter": ["all", ["==", "pmap:kind", "bare_rock"]],
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          1,
+          "hsla(330, 96%, 82%, 0.25)",
+          7,
+          "hsla(330, 96%, 82%, 0.6)"
+        ]
+      }
+    },
+    {
+      "id": "natural_sand",
+      "type": "fill",
+      "source": "qtm_pmtiles",
+      "source-layer": "natural",
+      "minzoom": 0,
+      "filter": ["all", ["==", "pmap:kind", "sand"]],
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          1,
+          "hsla(330, 96%, 82%, 0.25)",
+          7,
+          "hsla(330, 96%, 82%, 0.6)"
+        ]
+      }
+    },
+    {
+      "id": "landuse_hospital",
+      "type": "fill",
+      "source": "qtm_pmtiles",
+      "source-layer": "landuse",
+      "filter": ["all", ["==", "pmap:kind", "hospital"]],
+      "paint": {
+        "fill-color": "#fbbdd4",
+        "fill-outline-color": "rgba(245, 184, 203, 1)"
+      }
+    },
+    {
       "id": "landuse_industrial",
       "type": "fill",
       "source": "qtm_pmtiles",
       "source-layer": "landuse",
       "filter": ["all", ["==", "pmap:kind", "industrial"]],
-      "paint": {"fill-color": " #e49bc6"}
+      "paint": {
+        "fill-color": " #e49bc6",
+        "fill-outline-color": "rgba(220, 164, 184, 1)"
+      }
     },
     {
       "id": "landuse_cemetery",
@@ -108,6 +160,33 @@
       "paint": {"fill-color": "#ffdced"}
     },
     {
+      "id": "landuse_nature_reserve",
+      "type": "fill",
+      "source": "qtm_pmtiles",
+      "source-layer": "landuse",
+      "minzoom": 4,
+      "filter": ["all", ["==", "pmap:kind", "nature_reserve"]],
+      "paint": {"fill-color": "rgba(205, 203, 173, 1)"}
+    },
+    {
+      "id": "landuse_grass",
+      "type": "fill",
+      "source": "qtm_pmtiles",
+      "source-layer": "landuse",
+      "minzoom": 8,
+      "filter": ["all", ["==", "pmap:kind", "grass"]],
+      "paint": {"fill-color": "rgba(205, 203, 173, 1)"}
+    },
+    {
+      "id": "landuse_recreation_ground",
+      "type": "fill",
+      "source": "qtm_pmtiles",
+      "source-layer": "landuse",
+      "minzoom": 8,
+      "filter": ["all", ["==", "pmap:kind", "recreation_ground"]],
+      "paint": {"fill-color": "rgba(205, 203, 173, 1)"}
+    },
+    {
       "id": "landuse_park",
       "type": "fill",
       "source": "qtm_pmtiles",
@@ -115,6 +194,37 @@
       "minzoom": 8,
       "filter": ["all", ["==", "pmap:kind", "park"]],
       "paint": {"fill-color": "rgba(205, 203, 173, 1)"}
+    },
+    {
+      "id": "landuse_aerodrome",
+      "type": "fill",
+      "source": "qtm_pmtiles",
+      "source-layer": "landuse",
+      "minzoom": 8,
+      "filter": ["all", ["==", "pmap:kind", "aerodrome"]],
+      "paint": {"fill-color": "#e1e3e7"}
+    },
+    {
+      "id": "landuse_pitch",
+      "type": "fill",
+      "source": "qtm_pmtiles",
+      "source-layer": "landuse",
+      "filter": ["all", ["==", "pmap:kind", "pitch"]],
+      "paint": {
+        "fill-color": " #e49bc6",
+        "fill-outline-color": "rgba(245, 184, 203, 1)"
+      }
+    },
+    {
+      "id": "landuse_school",
+      "type": "fill",
+      "source": "qtm_pmtiles",
+      "source-layer": "landuse",
+      "filter": ["all", ["==", "pmap:kind", "school"]],
+      "paint": {
+        "fill-color": "#fbbdd4",
+        "fill-outline-color": "rgba(220, 164, 184, 1)"
+      }
     },
     {
       "id": "landuse-commercial",
@@ -130,9 +240,10 @@
       "type": "fill",
       "source": "qtm_pmtiles",
       "source-layer": "buildings",
+      "filter": ["all"],
       "paint": {
-        "fill-color": "#efc8da",
-        "fill-outline-color": "rgba(245, 184, 203, 1)"
+        "fill-color": "#efc7da",
+        "fill-outline-color": "rgba(220, 164, 184, 1)"
       }
     },
     {
@@ -171,9 +282,9 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-dasharray": [1, 3],
         "line-width": {"base": 1, "stops": [[0, 0.6], [4, 1], [5, 1], [12, 1]]},
-        "line-color": "#ecbfd7"
+        "line-color": "#ecbfd7",
+        "line-dasharray": [2, 3]
       }
     },
     {
@@ -346,8 +457,16 @@
       "paint": {
         "line-color": "rgba(211, 166, 182, 1)",
         "line-dasharray": [1],
-        "line-width": {"base": 1.2, "stops": [[15, 0.5], [20, 0.5]]}
+        "line-width": {"base": 1.2, "stops": [[15, 0.75], [20, 0.75]]}
       }
+    },
+    {
+      "id": "transit_taxiway",
+      "type": "line",
+      "source": "qtm_pmtiles",
+      "source-layer": "transit",
+      "filter": ["all", ["==", "pmap:kind_detail", "taxiway"]],
+      "paint": {"line-color": "white", "line-width": 2}
     },
     {
       "id": "roads_medium-road-label",
@@ -357,7 +476,7 @@
       "filter": ["all", ["==", "pmap:kind", "medium_road"]],
       "layout": {
         "symbol-placement": "line",
-        "text-field": "{name}",
+        "text-field": "{name}{name:en}",
         "text-font": ["Roboto Regular"],
         "text-rotation-alignment": "map",
         "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]}
@@ -377,10 +496,10 @@
       "filter": ["all", ["==", "pmap:kind", "minor_road"]],
       "layout": {
         "symbol-placement": "line",
-        "text-field": "{name}",
+        "text-field": "{name}{name:en}",
         "text-font": ["Roboto Regular"],
         "text-rotation-alignment": "map",
-        "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]}
+        "text-size": {"base": 1, "stops": [[13, 10], [14, 12]]}
       },
       "paint": {
         "text-color": "#974367",
@@ -394,10 +513,11 @@
       "type": "symbol",
       "source": "qtm_pmtiles",
       "source-layer": "roads",
+      "minzoom": 4,
       "filter": ["all", ["==", "pmap:kind", "highway"]],
       "layout": {
         "symbol-placement": "line",
-        "text-field": "{name}",
+        "text-field": "{name}{name:en}",
         "text-font": ["Roboto Regular"],
         "text-rotation-alignment": "map",
         "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]}
@@ -417,7 +537,7 @@
       "filter": ["all", ["==", "pmap:kind", "major_road"]],
       "layout": {
         "symbol-placement": "line",
-        "text-field": "{name}",
+        "text-field": "{name}{name:en}",
         "text-font": ["Roboto Regular"],
         "text-rotation-alignment": "map",
         "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]}
@@ -430,14 +550,14 @@
       }
     },
     {
-      "id": "places_state",
+      "id": "places_region",
       "type": "symbol",
       "source": "qtm_pmtiles",
       "source-layer": "places",
       "minzoom": 4,
-      "filter": ["all", ["==", "pmap:kind_detail", "state"]],
+      "filter": ["all", ["==", "pmap:kind", "region"]],
       "layout": {
-        "text-field": "{name}",
+        "text-field": "{name:en}",
         "text-font": ["Roboto Medium"],
         "text-letter-spacing": 0,
         "text-max-width": 9,
@@ -452,13 +572,76 @@
       }
     },
     {
+      "id": "places_province",
+      "type": "symbol",
+      "source": "qtm_pmtiles",
+      "source-layer": "places",
+      "minzoom": 4,
+      "filter": ["all", ["==", "pmap:kind_detail", "province"]],
+      "layout": {
+        "text-field": "{name:en}",
+        "text-font": ["Roboto Medium"],
+        "text-letter-spacing": 0,
+        "text-max-width": 9,
+        "text-size": {"base": 1.2, "stops": [[12, 10], [15, 14]]},
+        "text-transform": "uppercase",
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": " #64203f",
+        "text-halo-color": "#ecbfd7",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "places_state",
+      "type": "symbol",
+      "source": "qtm_pmtiles",
+      "source-layer": "places",
+      "minzoom": 4,
+      "filter": ["all", ["==", "pmap:kind_detail", "state"]],
+      "layout": {
+        "text-field": "{name:en}",
+        "text-font": ["Roboto Medium"],
+        "text-letter-spacing": 0,
+        "text-max-width": 9,
+        "text-size": {"base": 1.2, "stops": [[12, 10], [15, 14]]},
+        "text-transform": "uppercase",
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": " #64203f",
+        "text-halo-color": "#ecbfd7",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "places_hamlet",
+      "type": "symbol",
+      "source": "qtm_pmtiles",
+      "source-layer": "places",
+      "filter": ["all", ["==", "pmap:kind_detail", "hamlet"]],
+      "layout": {
+        "text-field": "{name:en}",
+        "text-font": ["Roboto Regular"],
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[10, 12], [15, 20]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "#422232",
+        "text-halo-color": "#ecbfd7",
+        "text-halo-width": 1
+      }
+    },
+    {
       "id": "places_village",
       "type": "symbol",
       "source": "qtm_pmtiles",
       "source-layer": "places",
       "filter": ["all", ["==", "pmap:kind_detail", "village"]],
       "layout": {
-        "text-field": "{name}",
+        "text-field": "{name:en}",
         "text-font": ["Roboto Regular"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[10, 12], [15, 20]]},
@@ -478,7 +661,7 @@
       "minzoom": 9,
       "filter": ["all", ["==", "pmap:kind_detail", "town"]],
       "layout": {
-        "text-field": "{name}",
+        "text-field": "{name:en}",
         "text-font": ["Roboto Regular"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[10, 12], [15, 20]]},
@@ -497,7 +680,7 @@
       "source-layer": "places",
       "filter": ["all", ["==", "pmap:kind", "neighbourhood"]],
       "layout": {
-        "text-field": "{name}",
+        "text-field": "{name:en}",
         "text-font": ["Roboto Regular"],
         "text-letter-spacing": 0,
         "text-max-width": 9,
@@ -555,15 +738,6 @@
       }
     },
     {
-      "id": "landuse_aerodrome",
-      "type": "fill",
-      "source": "qtm_pmtiles",
-      "source-layer": "landuse",
-      "minzoom": 8,
-      "filter": ["all", ["==", "pmap:kind", "aerodrome"]],
-      "paint": {"fill-color": "#e1e3e7"}
-    },
-    {
       "id": "poi_aerodrome",
       "type": "symbol",
       "source": "qtm_pmtiles",
@@ -598,8 +772,9 @@
       "filter": ["all", ["==", "pmap:kind", "park"]],
       "layout": {
         "text-size": 10,
-        "text-field": "{name}",
-        "text-font": ["Roboto Regular"]
+        "text-field": "{name}{name:en}",
+        "text-font": ["Roboto Regular"],
+        "symbol-placement": "point"
       },
       "paint": {
         "text-color": "#974367",
