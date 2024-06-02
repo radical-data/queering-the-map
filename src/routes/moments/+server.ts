@@ -1,6 +1,7 @@
 import { json } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
 import { supabase } from "$lib/clients/supabaseClient";
+import { CLOUDFLARE_TURNSTILE_SECRET } from "$env/static/private";
 
 export const POST: RequestHandler = async ({ request }) => {
 	const { lng, lat, description, captchaToken } = await request.json();
@@ -11,14 +12,14 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	const captchaVerifyUrl =
 		"https://challenges.cloudflare.com/turnstile/v0/siteverify";
-	const captchaSecret = process.env.PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY;
+	const captchaSecret = CLOUDFLARE_TURNSTILE_SECRET;
 
 	const verifyResponse = await fetch(captchaVerifyUrl, {
 		method: "POST",
 		headers: {
-			"Content-Type": "application/x-www-form-urlencoded",
+			"Content-Type": "application/json",
 		},
-		body: new URLSearchParams({
+		body: JSON.stringify({
 			secret: captchaSecret,
 			response: captchaToken,
 		}),

@@ -55,4 +55,9 @@ npm run build
 
 ### Set up Captcha Protection
 
-Follow the section 'Sign up for Captcha Supabase' in [Supabase's guide for Captcha Protection](https://supabase.com/docs/guides/auth/auth-captcha?captcha-method=turnstile-1&queryGroups=captcha-method).
+We use Cloudflare's turnstile. Once you create a widget there, populate the correct values for the env variables:
+```bash
+PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY
+CLOUDFLARE_TURNSTILE_SECRET
+```
+More info: https://developers.cloudflare.com/turnstile/get-started/
