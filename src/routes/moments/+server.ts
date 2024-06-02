@@ -26,9 +26,33 @@ export async function GET() {
 }
 
 export const POST: RequestHandler = async ({ request }) => {
-	const { lng, lat, description } = await request.json();
+	const { lng, lat, description, captchaToken } = await request.json();
 
-	const { data, error } = await supabase
+	if (!captchaToken) {
+		return json({ error: "CAPTCHA token is missing." }, { status: 400 });
+	}
+
+	const captchaVerifyUrl = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+	const captchaSecret = process.env.PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY;
+
+	const verifyResponse = await fetch(captchaVerifyUrl, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body: new URLSearchParams({
+			secret: captchaSecret,
+			response: captchaToken
+		})
+	});
+
+	const captchaResult = await verifyResponse.json();
+
+	if (!captchaResult.success) {
+		return json({ error: "CAPTCHA verification failed." }, { status: 400 });
+	}
+
+	const { error } = await supabase
 		.from("moments")
 		.insert([
 			{

@@ -40,3 +40,7 @@ To create a production version of the app:
 ```bash
 npm run build
 ```
+
+### Set up Captcha Protection
+
+Follow the section 'Sign up for Captcha Supabase' in [Supabase's guide for Captcha Protection](https://supabase.com/docs/guides/auth/auth-captcha?captcha-method=turnstile-1&queryGroups=captcha-method).
