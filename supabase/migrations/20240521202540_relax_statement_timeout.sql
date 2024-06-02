@@ -1,0 +1,1 @@
+alter role anon set statement_timeout = '30s';
