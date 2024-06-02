@@ -3,8 +3,9 @@
 	import ActionButton from './ActionButton.svelte';
 	import CloseButton from './CloseButton.svelte';
 	import { activeMarkerCoords } from '../stores';
-	import { turnstile } from '@svelte-put/cloudflare-turnstile';
+	import { turnstile, type TurnstileEventDetail } from '@svelte-put/cloudflare-turnstile';
 	import { PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY } from '$env/static/public';
+
 
 	let momentDescription = '';
 	let showSubmissionSucess = false;
@@ -20,17 +21,20 @@
 			return;
 		}
 
-		const response = await fetch('/api/moments', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
+		const payload = JSON.stringify({
 				lng: $activeMarkerCoords?.lng,
 				lat: $activeMarkerCoords?.lat,
 				description: momentDescription,
 				captchaToken
 			})
+
+
+		const response = await fetch('moments', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: payload
 		});
 
 		if (response.status === 201) {
@@ -41,7 +45,7 @@
 		}
 	}
 
-	const handleTurnstile = (e) => {
+	const handleTurnstile = (e: CustomEvent<TurnstileEventDetail<{token: string}>>) => {
 		captchaToken = e.detail.token;
 	};
 </script>
@@ -65,31 +69,31 @@
 				<section>
 					<div class="overlay__section-title">How to add to the map</div>
 					<div class="overlay__section-text">
-						<ol>
-							<li>Click on the location of your story.</li>
-							<li>Share your story in the text box below.</li>
-							<li>Click the 'ADD' button.</li>
-						</ol>
-						<br />
-						<textarea bind:value={momentDescription} id="txt_contents" class="subform"></textarea>
-						<div
+					<ol>
+						<li>Click on the location of your story.</li>
+						<li>Share your story in the text box below.</li>
+						<li>Click the 'ADD' button.</li>
+					</ol>
+					<br />
+					<textarea bind:value={momentDescription} id="txt_contents" class="subform"></textarea>
+						<div style='margin-top: 16px'
 							use:turnstile
 							turnstile-sitekey={PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
 							on:turnstile={handleTurnstile}
-						></div>
+						/>
 						<div class="recaptcha-text">
-							This site is protected by reCAPTCHA and the Google
-							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
+							This site is protected by Turnstile and Cloudflare
+							<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener"
 								>Privacy Policy</a
 							>
 							and
-							<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
+							<a href="https://www.cloudflare.com/website-terms/" target="_blank" rel="noopener"
 								>Terms of Service</a
 							>
 							apply.
 						</div>
-						<ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
 					</div>
+					<ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
 				</section>
 			{/if}
 		</div>
