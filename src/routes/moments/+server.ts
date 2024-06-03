@@ -31,16 +31,13 @@ export const POST: RequestHandler = async ({ request }) => {
 		return json({ error: "CAPTCHA verification failed." }, { status: 400 });
 	}
 
-	const { error } = await supabase
-		.from("moments")
-		.insert([
-			{
-				description,
-				location: `SRID=4326;POINT(${lng} ${lat})`,
-				status: "pending",
-			},
-		])
-		.select();
+	const { error } = await supabase.from("moments").insert([
+		{
+			description,
+			location: `SRID=4326;POINT(${lng} ${lat})`,
+			status: "pending",
+		},
+	]);
 
 	if (error) {
 		return json({ error: "Error saving new moment" }, { status: 500 });
