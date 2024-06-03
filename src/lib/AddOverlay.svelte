@@ -3,29 +3,49 @@
 	import ActionButton from './ActionButton.svelte';
 	import CloseButton from './CloseButton.svelte';
 	import { activeMarkerCoords } from '../stores';
+	import { turnstile, type TurnstileEventDetail } from '@svelte-put/cloudflare-turnstile';
+	import { PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY } from '$env/static/public';
 
-	let momentDescription = "";
+	let momentDescription = '';
 	let showSubmissionSucess = false;
+	let captchaToken = '';
 
 	function closeAddOverlay() {
 		addOverlayVisible.update(() => false);
 	}
 
 	async function handleAddMoment() {
-		const response = await fetch('/moments', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({lng: $activeMarkerCoords?.lng, lat: $activeMarkerCoords?.lat, description: momentDescription})
-      });
-	  
-	  if (response.status === 201) { showSubmissionSucess = true }
+		if (!captchaToken) {
+			alert('Please complete the CAPTCHA.');
+			return;
+		}
 
-	  // TODO: should we give feedback on error?
+		const payload = JSON.stringify({
+			lng: $activeMarkerCoords?.lng,
+			lat: $activeMarkerCoords?.lat,
+			description: momentDescription,
+			captchaToken
+		});
 
+		const response = await fetch('moments', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: payload
+		});
+
+		if (response.status === 201) {
+			showSubmissionSucess = true;
+		} else {
+			const result = await response.json();
+			alert(`Error: ${result.error}`);
+		}
 	}
 
+	const handleTurnstile = (e: CustomEvent<TurnstileEventDetail<{ token: string }>>) => {
+		captchaToken = e.detail.token;
+	};
 </script>
 
 <aside class="overlay overlay--add">
@@ -33,43 +53,48 @@
 		<CloseButton functionOnClick={closeAddOverlay} position="right">close add overlay</CloseButton>
 	</div>
 	<div class="overlay__outer">
-			<div class="overlay__content">
-				{#if showSubmissionSucess}
+		<div class="overlay__content">
+			{#if showSubmissionSucess}
 				<section>
 					<div class="overlay__section-title">Thank you for sharing</div>
-
 					<div class="overlay__section-text">
-						Your submission has been recieved. 
-						<br>
+						Your submission has been received.
+						<br />
 						When Approved you will be able to see it on the map.
+					</div>
 				</section>
-				{/if}
-				{#if !showSubmissionSucess}
+			{:else}
 				<section>
 					<div class="overlay__section-title">How to add to the map</div>
-
 					<div class="overlay__section-text">
 						<ol>
 							<li>Click on the location of your story.</li>
-							<li>Share your story in the the text box below.</li>
+							<li>Share your story in the text box below.</li>
 							<li>Click the 'ADD' button.</li>
 						</ol>
 						<br />
 						<textarea bind:value={momentDescription} id="txt_contents" class="subform"></textarea>
+						<div
+							style="margin-top: 16px"
+							use:turnstile
+							turnstile-sitekey={PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
+							on:turnstile={handleTurnstile}
+						/>
 						<div class="recaptcha-text">
-							This site is protected by reCAPTCHA and the Google
-							<a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
+							This site is protected by Turnstile and Cloudflare
+							<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener"
 								>Privacy Policy</a
 							>
 							and
-							<a href="https://policies.google.com/terms" target="_blank" rel="noopener"
+							<a href="https://www.cloudflare.com/website-terms/" target="_blank" rel="noopener"
 								>Terms of Service</a
-							> apply.
+							>
+							apply.
 						</div>
-						<ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
 					</div>
+					<ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
 				</section>
-				{/if}
+			{/if}
 		</div>
 	</div>
 </aside>
@@ -86,7 +111,7 @@
 
 	.overlay__outer {
 		width: calc(40vw - 2px);
-        padding: 2em;
+		padding: 2em;
 	}
 
 	.overlay__section-title {
@@ -174,7 +199,7 @@
 		font-family: 'Apfel Grotezk', sans-serif;
 	}
 
-    .action-button-container {
-        right: 0;
-    }
+	.action-button-container {
+		right: 0;
+	}
 </style>

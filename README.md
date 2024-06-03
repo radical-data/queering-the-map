@@ -37,7 +37,6 @@ npm run dev
 
 For testing the database make sure that the `pgTap` extension is enabled in postgres ([more info](https://supabase.com/docs/guides/database/extensions/pgtap)). Afterwards, you can run: `supabase test db`.
 
-
 ## Deploying and Building for production
 
 To use Supabase as a remote backend make sure to link your local development with your remote Supabase project:
@@ -52,3 +51,14 @@ To create a production version of the app:
 ```bash
 npm run build
 ```
+
+### Set up Captcha Protection
+
+For Captcha protection of the point submissions, we use Cloudflare Turnstile. Once you create a widget there, populate the correct values for the env variables:
+
+```bash
+PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY
+CLOUDFLARE_TURNSTILE_SECRET
+```
+
+For more info, see this guide: https://developers.cloudflare.com/turnstile/get-started/.
