@@ -82,7 +82,7 @@
 					.then((text) => {
 						const description = text;
 						if (coordinates.length === 2) {
-							new Popup({ offset: 40 })
+							new Popup({ offset: [0, -28] })
 								.setLngLat(coordinates as LngLatLike)
 								.setHTML(description)
 								.addTo(map);
