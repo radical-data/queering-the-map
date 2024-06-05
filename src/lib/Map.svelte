@@ -147,11 +147,15 @@
 				const { lng, lat } = e.lngLat;
 				activeMarkerCoords.set({ lng, lat });
 			});
+
+			map.on('hover', (e) => {
+				console.log(e);
+			});
 		});
 	});
 
 	$: {
-		if ($activeMarkerCoords != null) {
+		if ($activeMarkerCoords) {
 			activeMarkerGeoJSON.features = [
 				{
 					type: 'Feature',
