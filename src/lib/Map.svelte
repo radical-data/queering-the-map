@@ -20,7 +20,7 @@
 	const activeMarkerSourceId = 'active-marker-source';
 	const activeMarkerLayerId = 'active-marker-layer';
 
-	const activeMarkerGeoJSON: FeatureCollection = {
+	const activeMarkerGeoJSON: FeatureCollection<Point, GeoJsonProperties> = {
 		type: 'FeatureCollection',
 		features: []
 	};
@@ -106,7 +106,7 @@
 					return;
 				}
 
-				const coordinates = (feature.geometry as GeoJSON.Point).coordinates;
+				const coordinates = (feature.geometry as Point).coordinates;
 				if (typeof feature.id !== 'number') {
 					console.error('Invalid feature id:', feature.id);
 					return;
@@ -145,27 +145,30 @@
 				}
 
 				const { lng, lat } = e.lngLat;
-
-				activeMarkerGeoJSON.features = [
-					{
-						type: 'Feature',
-						geometry: {
-							type: 'Point',
-							coordinates: [lng, lat]
-						},
-						properties: {}
-					}
-				];
-
-				const source = map.getSource(activeMarkerSourceId) as GeoJSONSource;
-				if (source) {
-					source.setData(activeMarkerGeoJSON);
-				}
-
 				activeMarkerCoords.set({ lng, lat });
 			});
 		});
 	});
+
+	$: {
+		if ($activeMarkerCoords != null) {
+			activeMarkerGeoJSON.features = [
+				{
+					type: 'Feature',
+					geometry: {
+						type: 'Point',
+						coordinates: [$activeMarkerCoords.lng, $activeMarkerCoords.lat]
+					},
+					properties: {}
+				}
+			];
+
+			const source = map?.getSource(activeMarkerSourceId) as GeoJSONSource;
+			if (source) {
+				source.setData(activeMarkerGeoJSON);
+			}
+		}
+	}
 
 	onDestroy(() => {
 		if (map) {
