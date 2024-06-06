@@ -15,6 +15,10 @@
 	const maptilerMapReference = 'd27741ff-e220-4106-a5a1-aedace679204';
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
+	const markerHeight = 39;
+	const markerWidth = 10;
+	const markerCenter = 28;
+
 	async function getMoment(id?: number | string) {
 		try {
 			const response = await fetch(`/moment/${id}`);
@@ -78,11 +82,21 @@
 					console.error('Invalid feature id:', feature.id);
 					return;
 				}
+
 				getMoment(feature.id)
 					.then((text) => {
 						const description = text;
 						if (coordinates.length === 2) {
-							new Popup({ offset: [0, -28], maxWidth: 'none' })
+							new Popup({
+								offset: {
+									bottom: [0, -markerHeight],
+									'bottom-left': [0, -markerHeight],
+									'bottom-right': [0, -markerHeight],
+									right: [-markerWidth, -markerCenter],
+									left: [markerWidth, -markerCenter]
+								},
+								maxWidth: 'none'
+							})
 								.setLngLat(coordinates as LngLatLike)
 								.setHTML(description)
 								.addTo(map);
