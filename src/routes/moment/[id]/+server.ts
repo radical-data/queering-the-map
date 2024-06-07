@@ -1,29 +1,35 @@
 import { json, error } from '@sveltejs/kit';
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 
 type DescriptionsCacheType = Record<number, string>;
 
 let descriptionsCache: DescriptionsCacheType | null = null;
+let loadingPromise: Promise<DescriptionsCacheType | null> | null = null;
 
 async function loadDescriptions(): Promise<DescriptionsCacheType | null> {
     if (descriptionsCache) {
         return descriptionsCache;
     }
 
-    const descriptionsFilePath = path.resolve('static/data', 'descriptions.json');
+    if (!loadingPromise) {
+        const descriptionsFilePath = path.resolve('static/data', 'descriptions.json');
 
-    return new Promise((resolve, reject) => {
-        fs.readFile(descriptionsFilePath, 'utf8', (err, fileContent) => {
-            if (err) {
+        loadingPromise = fs.readFile(descriptionsFilePath, 'utf8')
+            .then(fileContent => {
+                descriptionsCache = JSON.parse(fileContent) as DescriptionsCacheType;
+                return descriptionsCache;
+            })
+            .catch(err => {
                 console.error('Error reading descriptions file:', err);
-                reject(error(500, 'Error fetching moment text'));
-            } else {
-                descriptionsCache = JSON.parse(fileContent);
-                resolve(descriptionsCache);
-            }
-        });
-    });
+                throw error(500, 'Error fetching moment text');
+            })
+            .finally(() => {
+                loadingPromise = null;
+            });
+    }
+
+    return loadingPromise;
 }
 
 export async function GET({ params }) {
