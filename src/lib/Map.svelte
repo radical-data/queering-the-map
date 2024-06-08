@@ -41,7 +41,7 @@
 		map.on('load', () => {
 			map.addSource('moments', {
 				type: 'geojson',
-				data: 'moments.json'
+				data: 'data/moments.json'
 			});
 
 			map.loadImage(markerImage, (error, image) => {
