@@ -1,10 +1,8 @@
 <script lang="ts">
-export let link: string;
+export let functionOnClick: any;
 </script>
 <div class="button-wrapper">
-	<a href={link} class="button" target="_blank" rel="noopener"
-		><slot></slot></a
-	>
+	<button class="button" on:click={functionOnClick}><slot></slot></button>
 </div>
 
 <style>

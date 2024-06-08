@@ -1,23 +1,37 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
+	import { GeoJSONSource, Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
-
 	import markerImage from '$lib/assets/marker.png';
-
-	import moments from '$lib/data/filtered_data_id_only.json';
 	import style from '$lib/data/pmtiles/style.json';
+	import addMarkerImage from '$lib/assets/add-marker.png';
+	import { activeMarkerCoords } from '../stores';
+	import type { FeatureCollection, Point, GeoJsonProperties } from 'geojson';
 
 	let map: Map;
 	let mapContainer: HTMLDivElement;
+	let isMomentLayerClicked = false;
 
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
-	async function getMoment(id: number) {
+	const markerHeight = 39;
+	const markerWidth = 10;
+	const markerCenter = 28;
+	const markerId = 'moments';
+	const markerLayerId = 'moments-layer';
+	const activeMarkerSourceId = 'active-marker-source';
+	const activeMarkerLayerId = 'active-marker-layer';
+
+	const activeMarkerGeoJSON: FeatureCollection<Point, GeoJsonProperties> = {
+		type: 'FeatureCollection',
+		features: []
+	};
+
+	async function getMoment(id?: number | string) {
 		try {
 			const response = await fetch(`/moment/${id}`);
-			const data = await response.json();
-			return data;
+			const moment = await response.json();
+			return moment.description;
 		} catch (error) {
 			console.error('Error fetching moment:', error);
 			return '';
@@ -37,72 +51,136 @@
 		map.keyboard.enable();
 
 		map.on('load', () => {
-			map.addSource('moments', {
+			map.addSource(markerId, {
 				type: 'geojson',
-				data: moments
+				data: 'data/moments.json'
 			});
 
 			map.loadImage(markerImage, (error, image) => {
 				if (error) throw error;
-				map.addImage('marker', image);
+				if (image) map.addImage('marker', image);
+			});
+
+			map.loadImage(addMarkerImage, (error, image) => {
+				if (error) throw error;
+				if (image) map.addImage('add-marker', image);
 			});
 
 			map.addLayer({
-				id: 'moments-layer',
+				id: markerLayerId,
 				type: 'symbol',
-				source: 'moments',
+				source: markerId,
 				layout: {
 					'icon-allow-overlap': true,
 					'icon-image': 'marker',
 					'icon-size': 0.5,
-					"icon-anchor": "bottom"
+					'icon-anchor': 'bottom'
 				},
 				paint: {}
 			});
 
-			map.on('click', 'moments-layer', function (e) {
-        if (!e.features) {
-          return;
-        }
-        if (e.features.length === 0) {
-          return;
-        }
-
-        const feature = e.features[0];
-
-        if (feature.geometry.type !== 'Point') {
-          return;
-        }
-        
-        const coordinates = (feature.geometry as GeoJSON.Point).coordinates;
-        getMoment(feature.properties.id)
-          .then((text) => {
-            const description = text;
-            if (coordinates.length === 2) {
-              new Popup({offset: 40})
-                .setLngLat(coordinates as LngLatLike)
-                .setHTML(description)
-                .addTo(map);
-            } else {
-              console.error('Invalid coordinates format');
-            }
-          })
-          .catch((error) => {
-            console.error('Error fetching moment:', error);
-          });
+			map.addSource(activeMarkerSourceId, {
+				type: 'geojson',
+				data: activeMarkerGeoJSON
 			});
 
-			// Change the cursor to a pointer when the mouse is over the moments layer.
-			map.on('mouseenter', 'moments-layer', function () {
+			map.addLayer({
+				id: activeMarkerLayerId,
+				type: 'symbol',
+				source: activeMarkerSourceId,
+				layout: {
+					'icon-allow-overlap': true,
+					'icon-image': 'add-marker',
+					'icon-size': 0.5,
+					'icon-anchor': 'bottom'
+				},
+				paint: {}
+			});
+
+			map.on('click', markerLayerId, function (e) {
+				isMomentLayerClicked = true;
+				if (!e.features || e.features.length === 0) {
+					return;
+				}
+
+				const feature = e.features[0];
+				if (feature.geometry.type !== 'Point') {
+					return;
+				}
+
+				const coordinates = (feature.geometry as Point).coordinates;
+				if (typeof feature.id !== 'number') {
+					console.error('Invalid feature id:', feature.id);
+					return;
+				}
+
+				getMoment(feature.id)
+					.then((text) => {
+						const description = text;
+						if (coordinates.length === 2) {
+							new Popup({
+								offset: {
+									bottom: [0, -markerHeight],
+									'bottom-left': [0, -markerHeight],
+									'bottom-right': [0, -markerHeight],
+									right: [-markerWidth, -markerCenter],
+									left: [markerWidth, -markerCenter]
+								},
+								maxWidth: 'none'
+							})
+								.setLngLat(coordinates as LngLatLike)
+								.setHTML(description)
+								.addTo(map);
+						} else {
+							console.error('Invalid coordinates format');
+						}
+					})
+					.catch((error) => {
+						console.error('Error fetching moment:', error);
+					});
+			});
+
+			// Change the cursor to a pointer when the mouse is over the moments layer
+			map.on('mouseenter', markerLayerId, function () {
 				map.getCanvas().style.cursor = 'pointer';
 			});
 
-			// Change it back to a pointer when it leaves.
-			map.on('mouseleave', 'moments-layer', function () {
+			// Change it back to default when it leaves
+			map.on('mouseleave', markerLayerId, function () {
 				map.getCanvas().style.cursor = '';
+			});
+
+			map.on('click', (e) => {
+				if (isMomentLayerClicked) {
+					isMomentLayerClicked = false;
+					return;
+				}
+
+				const { lng, lat } = e.lngLat;
+				activeMarkerCoords.set({ lng, lat });
 			});
 		});
 	});
+
+	$: {
+		if ($activeMarkerCoords) {
+			activeMarkerGeoJSON.features = [
+				{
+					type: 'Feature',
+					geometry: {
+						type: 'Point',
+						coordinates: [$activeMarkerCoords.lng, $activeMarkerCoords.lat]
+					},
+					properties: {}
+				}
+			];
+
+			const source = map?.getSource(activeMarkerSourceId) as GeoJSONSource;
+			if (source) {
+				source.setData(activeMarkerGeoJSON);
+			}
+		}
+	}
 
 	onDestroy(() => {
 		if (map) {
