@@ -1,23 +1,29 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { Map, NavigationControl, Marker, Popup, type LngLatLike } from 'maplibre-gl';
+	import { GeoJSONSource, Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import markerImage from '$lib/assets/marker.png';
 	import addMarkerImage from '$lib/assets/add-marker.png';
 	import { activeMarkerCoords } from '../stores';
+	import type { FeatureCollection, Point, GeoJsonProperties } from 'geojson';
 
 	let map: Map;
 	let mapContainer: HTMLDivElement;
-	let activeMarker: Marker | null = null;
 	let isMomentLayerClicked = false;
 
 	const maptilerApiKey = 'SRfJh1CuGiISgDoqUg55';
 	const maptilerMapReference = 'd27741ff-e220-4106-a5a1-aedace679204';
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
-	const markerHeight = 39;
-	const markerWidth = 10;
-	const markerCenter = 28;
+	const markerId = 'moments';
+	const markerLayerId = 'moments-layer';
+	const activeMarkerSourceId = 'active-marker-source';
+	const activeMarkerLayerId = 'active-marker-layer';
+
+	const activeMarkerGeoJSON: FeatureCollection<Point, GeoJsonProperties> = {
+		type: 'FeatureCollection',
+		features: []
+	};
 
 	async function getMoment(id?: number | string) {
 		try {
@@ -43,7 +49,7 @@
 		map.keyboard.enable();
 
 		map.on('load', () => {
-			map.addSource('moments', {
+			map.addSource(markerId, {
 				type: 'geojson',
 				data: 'data/moments.json'
 			});
@@ -53,10 +59,15 @@
 				if (image) map.addImage('marker', image);
 			});
 
+			map.loadImage(addMarkerImage, (error, image) => {
+				if (error) throw error;
+				if (image) map.addImage('add-marker', image);
+			});
+
 			map.addLayer({
-				id: 'moments-layer',
+				id: markerLayerId,
 				type: 'symbol',
-				source: 'moments',
+				source: markerId,
 				layout: {
 					'icon-allow-overlap': true,
 					'icon-image': 'marker',
@@ -66,7 +77,25 @@
 				paint: {}
 			});
 
-			map.on('click', 'moments-layer', function (e) {
+			map.addSource(activeMarkerSourceId, {
+				type: 'geojson',
+				data: activeMarkerGeoJSON
+			});
+
+			map.addLayer({
+				id: activeMarkerLayerId,
+				type: 'symbol',
+				source: activeMarkerSourceId,
+				layout: {
+					'icon-allow-overlap': true,
+					'icon-image': 'add-marker',
+					'icon-size': 0.5,
+					'icon-anchor': 'bottom'
+				},
+				paint: {}
+			});
+
+			map.on('click', markerLayerId, function (e) {
 				isMomentLayerClicked = true;
 				if (!e.features || e.features.length === 0) {
 					return;
@@ -77,7 +106,7 @@
 					return;
 				}
 
-				const coordinates = (feature.geometry as GeoJSON.Point).coordinates;
+				const coordinates = (feature.geometry as Point).coordinates;
 				if (typeof feature.id !== 'number') {
 					console.error('Invalid feature id:', feature.id);
 					return;
@@ -110,12 +139,12 @@
 			});
 
 			// Change the cursor to a pointer when the mouse is over the moments layer
-			map.on('mouseenter', 'moments-layer', function () {
+			map.on('mouseenter', markerLayerId, function () {
 				map.getCanvas().style.cursor = 'pointer';
 			});
 
 			// Change it back to default when it leaves
-			map.on('mouseleave', 'moments-layer', function () {
+			map.on('mouseleave', markerLayerId, function () {
 				map.getCanvas().style.cursor = '';
 			});
 
@@ -126,24 +155,34 @@
 				}
 
 				const { lng, lat } = e.lngLat;
-
-				if (activeMarker === null) {
-					const img = document.createElement('img');
-					img.src = addMarkerImage;
-					img.alt = 'Add Marker';
-					img.style.height = '38.5px';
-
-					activeMarker = new Marker({ draggable: true, element: img })
-						.setLngLat([lng, lat])
-						.addTo(map);
-				} else {
-					activeMarker.setLngLat([lng, lat]);
-				}
-
 				activeMarkerCoords.set({ lng, lat });
+			});
+
+			map.on('hover', (e) => {
+				console.log(e);
 			});
 		});
 	});
+
+	$: {
+		if ($activeMarkerCoords) {
+			activeMarkerGeoJSON.features = [
+				{
+					type: 'Feature',
+					geometry: {
+						type: 'Point',
+						coordinates: [$activeMarkerCoords.lng, $activeMarkerCoords.lat]
+					},
+					properties: {}
+				}
+			];
+
+			const source = map?.getSource(activeMarkerSourceId) as GeoJSONSource;
+			if (source) {
+				source.setData(activeMarkerGeoJSON);
+			}
+		}
+	}
 
 	onDestroy(() => {
 		if (map) {
