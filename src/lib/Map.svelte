@@ -11,8 +11,8 @@
 	let mapContainer: HTMLDivElement;
 	let isMomentLayerClicked = false;
 
-	const maptilerApiKey = 'SRfJh1CuGiISgDoqUg55';
-	const maptilerMapReference = 'd27741ff-e220-4106-a5a1-aedace679204';
+	const maptilerApiKey = 'NUeWSHu6cY1R3BuKrzoi';
+	const maptilerMapReference = 'toner-v2';
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
 	const markerId = 'moments';
@@ -51,7 +51,7 @@
 		map.on('load', () => {
 			map.addSource(markerId, {
 				type: 'geojson',
-				data: 'moments.json'
+				data: 'data/moments.json'
 			});
 
 			map.loadImage(markerImage, (error, image) => {
@@ -111,11 +111,21 @@
 					console.error('Invalid feature id:', feature.id);
 					return;
 				}
+
 				getMoment(feature.id)
 					.then((text) => {
 						const description = text;
 						if (coordinates.length === 2) {
-							new Popup({ offset: 40 })
+							new Popup({
+								offset: {
+									bottom: [0, -markerHeight],
+									'bottom-left': [0, -markerHeight],
+									'bottom-right': [0, -markerHeight],
+									right: [-markerWidth, -markerCenter],
+									left: [markerWidth, -markerCenter]
+								},
+								maxWidth: 'none'
+							})
 								.setLngLat(coordinates as LngLatLike)
 								.setHTML(description)
 								.addTo(map);
