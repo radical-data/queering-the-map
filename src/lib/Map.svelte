@@ -15,6 +15,9 @@
 	const maptilerMapReference = 'd27741ff-e220-4106-a5a1-aedace679204';
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
+	const markerHeight = 39;
+	const markerWidth = 10;
+	const markerCenter = 28;
 	const markerId = 'moments';
 	const markerLayerId = 'moments-layer';
 	const activeMarkerSourceId = 'active-marker-source';
