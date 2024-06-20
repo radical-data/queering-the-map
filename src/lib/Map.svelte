@@ -3,6 +3,7 @@
 	import { GeoJSONSource, Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import markerImage from '$lib/assets/marker.png';
+	import style from '$lib/data/pmtiles/style.json';
 	import addMarkerImage from '$lib/assets/add-marker.png';
 	import { activeMarkerCoords } from '../stores';
 	import type { FeatureCollection, Point, GeoJsonProperties } from 'geojson';
@@ -11,8 +12,6 @@
 	let mapContainer: HTMLDivElement;
 	let isMomentLayerClicked = false;
 
-	const maptilerApiKey = 'SRfJh1CuGiISgDoqUg55';
-	const maptilerMapReference = 'd27741ff-e220-4106-a5a1-aedace679204';
 	const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
 	const markerHeight = 39;
@@ -42,7 +41,7 @@
 	onMount(() => {
 		map = new Map({
 			container: mapContainer,
-			style: `https://api.maptiler.com/maps/${maptilerMapReference}/style.json?key=${maptilerApiKey}`,
+			style: style,
 			center: [initialState.lng, initialState.lat],
 			zoom: initialState.zoom,
 			minZoom: 2,
