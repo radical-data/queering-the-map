@@ -1,5 +1,5 @@
 <script>
-	import logo from '$lib/assets/queering-the-map-logo.webp';
+	import logo from '$lib/assets/queering-the-map-logo.svg';
 	import InfoButton from './InfoButton.svelte';
 	import AddButton from './AddButton.svelte';
 	import { infoOverlayVisible, addOverlayVisible } from '../stores';
@@ -41,19 +41,24 @@
 </nav>
 
 <style>
+	/****************************************************************************/
+	/* The logo */
+	/****************************************************************************/
+
 	#logo {
 		display: inline-block;
 		position: absolute;
 		text-align: center;
-		top: 1em;
+		top: 6px;
 		width: 100%;
 		margin: 0 auto;
 		pointer-events: none;
 		z-index: var(--logo-z-index);
 	}
-
-	#logo img {
-		width: 100px;
+	@media (max-width: 800px) {
+		#logo img {
+			height: 54px;
+		}
 	}
 
 	@media (min-width: 800px) {
