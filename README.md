@@ -12,6 +12,7 @@ This approach is quicker and allows you to work on the frontend without setting 
 
 1. Install dependencies with `npm install`.
 2. Run the seed script to generate mock data: `npm run seed-data`.
+3. Copy `.env.example` into `.env`.
 
 ### Option 2: Full Setup with Supabase
 
