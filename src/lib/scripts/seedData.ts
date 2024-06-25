@@ -79,6 +79,6 @@ if (isNaN(numberOfMoments) || numberOfMoments <= 0) {
 }
 
 const rootPath = process.cwd();
-const filePath = join(rootPath, 'static', 'moments.json');
+const filePath = join(rootPath, 'static/data', 'moments.json');
 
 saveMomentsToFile(numberOfMoments, filePath);
