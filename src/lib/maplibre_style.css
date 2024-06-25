@@ -24,3 +24,10 @@ the same background. */
 div.maplibregl-ctrl-group button:hover {
 	background-color: var(--color-pink) !important;
 }
+
+/******************************************************************************/
+/* Remove the OpenStreetMap attribution. */
+/******************************************************************************/
+.maplibregl-ctrl-attrib {
+	display: none;
+}
