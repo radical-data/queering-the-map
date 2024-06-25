@@ -55,3 +55,8 @@ div.mapboxgl-popup-content {
 .overlay--info .close-btn {
 	margin-left: -1px;
 }
+
+.overlay--add button {
+	top: 9px;
+	right: 9px !important;
+}
