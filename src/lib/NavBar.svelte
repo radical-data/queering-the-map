@@ -28,16 +28,14 @@
 		<img src={logo} alt="" />
 	</div>
 
-	{#if !$addOverlayVisible}
-		<button
-			on:click={openAddOverlay}
-			class="overlay-trigger overlay-trigger--add"
-			id="add"
-			aria-label="open add overlay"
-		>
-			<AddButton />
-		</button>
-	{/if}
+	<button
+		on:click={openAddOverlay}
+		class="overlay-trigger overlay-trigger--add"
+		id="add"
+		aria-label="open add overlay"
+	>
+		<AddButton />
+	</button>
 </nav>
 
 <style>
