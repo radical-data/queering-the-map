@@ -1,14 +1,32 @@
 <script lang="ts">
-	import '$lib/style.css';
-	import '$lib/maplibre_style.css';
-	import '$lib/navbar_buttons.css';
-	import AddOverlay from '$lib/AddOverlay.svelte';
-	import InfoOverlay from '$lib/InfoOverlay.svelte';
-	import Map from '$lib/Map.svelte';
-	import NavBar from '$lib/NavBar.svelte';
+	import { onMount } from 'svelte';
 	import { addOverlayVisible, infoOverlayVisible } from '../stores';
 	import qtm_sharing_image from '$lib/assets/qtm_sharing_image.jpg';
-	import DonatePopup from '$lib/DonatePopup.svelte';
+
+	let AddOverlay, InfoOverlay, Map, NavBar, DonatePopup;
+
+	onMount(async () => {
+		await Promise.all([
+			import('$lib/style.css'),
+			import('$lib/maplibre_style.css'),
+			import('$lib/navbar_buttons.css')
+		]);
+
+		const AddOverlayModule = await import('$lib/AddOverlay.svelte');
+		AddOverlay = AddOverlayModule.default;
+
+		const InfoOverlayModule = await import('$lib/InfoOverlay.svelte');
+		InfoOverlay = InfoOverlayModule.default;
+
+		const MapModule = await import('$lib/Map.svelte');
+		Map = MapModule.default;
+
+		const NavBarModule = await import('$lib/NavBar.svelte');
+		NavBar = NavBarModule.default;
+
+		const DonatePopupModule = await import('$lib/DonatePopup.svelte');
+		DonatePopup = DonatePopupModule.default;
+	});
 </script>
 
 <svelte:head>
@@ -39,12 +57,18 @@
 	<meta name="twitter:image" content={qtm_sharing_image} />
 </svelte:head>
 
-<NavBar></NavBar>
-{#if $infoOverlayVisible}
-	<InfoOverlay></InfoOverlay>
+{#if NavBar}
+	<svelte:component this={NavBar} />
 {/if}
-{#if $addOverlayVisible}
-	<AddOverlay></AddOverlay>
+{#if $infoOverlayVisible && InfoOverlay}
+	<svelte:component this={InfoOverlay} />
 {/if}
-<Map></Map>
-<DonatePopup></DonatePopup>
+{#if $addOverlayVisible && AddOverlay}
+	<svelte:component this={AddOverlay} />
+{/if}
+{#if Map}
+	<svelte:component this={Map} />
+{/if}
+{#if DonatePopup}
+	<svelte:component this={DonatePopup} />
+{/if}
