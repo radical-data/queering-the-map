@@ -3,6 +3,7 @@
 	import { GeoJSONSource, Map, NavigationControl, Popup, type LngLatLike } from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import markerImage from '$lib/assets/marker.png';
+	import markerHoveredImage from '$lib/assets/marker-hovered.png';
 	import style from '$lib/data/pmtiles/style.json';
 	import addMarkerImage from '$lib/assets/add-marker.png';
 	import { activeMarkerCoords } from '../stores';
@@ -19,6 +20,7 @@
 	const markerCenter = 28;
 	const markerId = 'moments';
 	const markerLayerId = 'moments-layer';
+	const markerHoveredLayerId = 'moments-hovered-layer';
 	const activeMarkerSourceId = 'active-marker-source';
 	const activeMarkerLayerId = 'active-marker-layer';
 
@@ -61,6 +63,11 @@
 				if (image) map.addImage('marker', image);
 			});
 
+			map.loadImage(markerHoveredImage, (error, image) => {
+				if (error) throw error;
+				if (image) map.addImage('marker-hovered', image);
+			});
+
 			map.loadImage(addMarkerImage, (error, image) => {
 				if (error) throw error;
 				if (image) map.addImage('add-marker', image);
@@ -77,6 +84,21 @@
 					'icon-anchor': 'bottom'
 				},
 				paint: {}
+			});
+
+			map.addLayer({
+				id: markerHoveredLayerId,
+				type: 'symbol',
+				source: markerId,
+				layout: {
+					'icon-allow-overlap': true,
+					'icon-image': 'marker-hovered',
+					'icon-size': 0.5,
+					'icon-anchor': 'bottom'
+				},
+				paint: {
+					'icon-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 1, 0]
+				}
 			});
 
 			map.addSource(activeMarkerSourceId, {
@@ -140,14 +162,37 @@
 					});
 			});
 
-			// Change the cursor to a pointer when the mouse is over the moments layer
-			map.on('mouseenter', markerLayerId, function () {
+			let hoveredFeatureId: number | null = null;
+
+			map.on('mouseenter', markerLayerId, function (e) {
 				map.getCanvas().style.cursor = 'pointer';
+				if (e.features && e.features.length > 0) {
+					const newHoveredFeatureId = e.features[0].id as number;
+					if (hoveredFeatureId !== null && hoveredFeatureId !== newHoveredFeatureId) {
+						map.setFeatureState({ source: markerId, id: hoveredFeatureId }, { hover: false });
+					}
+					hoveredFeatureId = newHoveredFeatureId;
+					map.setFeatureState({ source: markerId, id: hoveredFeatureId }, { hover: true });
+				}
 			});
 
-			// Change it back to default when it leaves
+			map.on('mousemove', markerLayerId, function (e) {
+				if (e.features && e.features.length > 0) {
+					const newHoveredFeatureId = e.features[0].id as number;
+					if (hoveredFeatureId !== null && hoveredFeatureId !== newHoveredFeatureId) {
+						map.setFeatureState({ source: markerId, id: hoveredFeatureId }, { hover: false });
+					}
+					hoveredFeatureId = newHoveredFeatureId;
+					map.setFeatureState({ source: markerId, id: hoveredFeatureId }, { hover: true });
+				}
+			});
+
 			map.on('mouseleave', markerLayerId, function () {
 				map.getCanvas().style.cursor = '';
+				if (hoveredFeatureId !== null) {
+					map.setFeatureState({ source: markerId, id: hoveredFeatureId }, { hover: false });
+					hoveredFeatureId = null;
+				}
 			});
 
 			map.on('click', (e) => {
