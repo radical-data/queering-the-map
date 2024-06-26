@@ -1,15 +1,14 @@
 <script lang="ts">
 	import '$lib/style.css';
 	import '$lib/maplibre_style.css';
-	import '$lib/toast_style.css';
 	import '$lib/navbar_buttons.css';
 	import AddOverlay from '$lib/AddOverlay.svelte';
 	import InfoOverlay from '$lib/InfoOverlay.svelte';
 	import Map from '$lib/Map.svelte';
-	import DonatePopup from '$lib/DonatePopup.svelte';
 	import NavBar from '$lib/NavBar.svelte';
 	import { addOverlayVisible, infoOverlayVisible } from '../stores';
 	import qtm_sharing_image from '$lib/assets/qtm_sharing_image.jpg';
+	import DonatePopup from '$lib/DonatePopup.svelte';
 </script>
 
 <svelte:head>
@@ -48,4 +47,4 @@
 	<AddOverlay></AddOverlay>
 {/if}
 <Map></Map>
-<DonatePopup />
+<DonatePopup></DonatePopup>

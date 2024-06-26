@@ -67,13 +67,7 @@
 	};
 
 	new SvelteToast({
-		// Set where the toast container should be appended into
-		target: document.body,
-		props: {
-			options: {
-				// Optionally set default options here
-			}
-		}
+		target: document.body
 	});
 </script>
 
