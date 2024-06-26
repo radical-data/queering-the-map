@@ -5,7 +5,7 @@
 	import markerImage from '$lib/assets/marker.png';
 	import style from '$lib/data/pmtiles/style.json';
 	import addMarkerImage from '$lib/assets/add-marker.png';
-	import { activeMarkerCoords } from '../stores';
+	import { activeMarkerCoords, addOverlayVisible } from '../stores';
 	import type { FeatureCollection, Point, GeoJsonProperties } from 'geojson';
 
 	let map: Map;
@@ -158,6 +158,7 @@
 
 				const { lng, lat } = e.lngLat;
 				activeMarkerCoords.set({ lng, lat });
+				addOverlayVisible.set(true);
 			});
 		});
 	});
