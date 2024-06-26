@@ -1,8 +1,6 @@
 /******************************************************************************/
 /* Styling of the SVG buttons in the nav bar */
 /******************************************************************************/
-/* TODO: Make a general component for navbar buttons and then inherit from that
-for the info and add button. The general component can then have this styling. */
 .general_button__fadein {
 	width: 45px;
 }

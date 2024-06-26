@@ -1,7 +1,6 @@
 <script lang="ts">
 	export let functionOnClick: any;
 	export let position: 'right' | 'left' = 'left';
-	// TODO: move SVG into separate file
 </script>
 
 <button
