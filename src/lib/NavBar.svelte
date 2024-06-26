@@ -1,7 +1,7 @@
 <script>
-	import logo from '$lib/assets/queering-the-map-logo.webp';
-	import infoButton from '$lib/assets/info.svg';
-	import addButton from '$lib/assets/add.svg';
+	import logo from '$lib/assets/queering-the-map-logo.svg';
+	import InfoButton from './InfoButton.svelte';
+	import AddButton from './AddButton.svelte';
 	import { infoOverlayVisible, addOverlayVisible } from '../stores';
 
 	function openInfoOverlay() {
@@ -20,8 +20,7 @@
 			id="info"
 			aria-label="open info overlay"
 		>
-			<span class="overlay-trigger__title">Info</span>
-			<img class="overlay-trigger__icon" src={infoButton} alt="info" />
+			<InfoButton />
 		</button>
 	{/if}
 
@@ -29,32 +28,35 @@
 		<img src={logo} alt="" />
 	</div>
 
-	{#if !$addOverlayVisible}
-		<button
-			on:click={openAddOverlay}
-			class="overlay-trigger overlay-trigger--add"
-			id="add"
-			aria-label="open add overlay"
-		>
-			<img class="overlay-trigger__icon" src={addButton} alt="add" />
-		</button>
-	{/if}
+	<button
+		on:click={openAddOverlay}
+		class="overlay-trigger overlay-trigger--add"
+		id="add"
+		aria-label="open add overlay"
+	>
+		<AddButton />
+	</button>
 </nav>
 
 <style>
+	/****************************************************************************/
+	/* The logo */
+	/****************************************************************************/
+
 	#logo {
 		display: inline-block;
 		position: absolute;
 		text-align: center;
-		top: 1em;
+		top: 6px;
 		width: 100%;
 		margin: 0 auto;
 		pointer-events: none;
 		z-index: var(--logo-z-index);
 	}
-
-	#logo img {
-		width: 100px;
+	@media (max-width: 800px) {
+		#logo img {
+			height: 54px;
+		}
 	}
 
 	@media (min-width: 800px) {
@@ -63,6 +65,9 @@
 		}
 	}
 
+	/****************************************************************************/
+	/* The menu buttons (info and add). */
+	/****************************************************************************/
 	.overlay-trigger {
 		border: none;
 		background-color: transparent;
@@ -81,57 +86,15 @@
 			top: 0.5em;
 		}
 	}
-
-	.overlay-trigger .overlay-trigger__icon {
-		display: block;
-		width: 40px;
-		height: auto;
-	}
-
-	@media (min-width: 800px) {
-		.overlay-trigger .overlay-trigger__icon {
-			top: 0.25em;
-			width: 50px;
-		}
-	}
-
+	/* Specifically for the info button  */
 	.overlay-trigger.overlay-trigger--info {
-		left: 0.25em;
-		top: 0.25em;
-		text-shadow: 0px 0px 3px white;
+		left: 9px;
+		top: 9px;
 	}
 
-	@media (min-width: 800px) {
-		.overlay-trigger.overlay-trigger--info {
-			left: 0.5em;
-		}
-	}
-
-	@media (min-width: 800px) {
-		.overlay-trigger.overlay-trigger--info .overlay-trigger__icon {
-			display: none;
-		}
-	}
-
-	.overlay-trigger.overlay-trigger--info .overlay-trigger__title {
-		display: none;
-		text-transform: uppercase;
-	}
-
-	@media (min-width: 800px) {
-		.overlay-trigger.overlay-trigger--info .overlay-trigger__title {
-			display: initial;
-		}
-	}
-
+	/* Specifically for the add button  */
 	.overlay-trigger.overlay-trigger--add {
-		right: 0.25em;
-		top: 0.25em;
-	}
-
-	@media (min-width: 800px) {
-		.overlay-trigger.overlay-trigger--add {
-			right: 0.5em;
-		}
+		right: 9px;
+		top: 9px;
 	}
 </style>

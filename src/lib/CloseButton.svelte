@@ -9,8 +9,21 @@
 	aria-label="close overlay"
 	style={position === 'right' ? 'right: 0' : ''}
 >
-	<span class="close-btn__inner"></span>
-	<span class="close-btn__text"><slot /></span>
+	<span class="close-btn__text">
+		<svg
+			class="general_button__fadein"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="#f4b9d6"
+			viewBox="0 0 45 45"
+			><rect x="0.5" y="0.5" width="44" height="44" fill="#f4b9d6" stroke="black"></rect><line
+				x1="15.3536"
+				y1="14.6464"
+				x2="31.617"
+				y2="30.9099"
+				stroke="black"
+			></line><line x1="14.6464" y1="30.9099" x2="30.9099" y2="14.6464" stroke="black"></line></svg
+		>
+	</span>
 </button>
 
 <style>
@@ -24,45 +37,13 @@
 		border: none;
 		background-color: transparent;
 		overflow: hidden;
-		padding: 5px;
+		padding: 0px;
 	}
 
 	.close-btn:hover {
 		cursor: pointer;
 	}
-
-	.close-btn__inner {
-		position: relative;
-		width: 24px;
-		height: 24px;
-		display: block;
-	}
-
-	.close-btn__inner:before,
-	.close-btn__inner:after {
-		content: '';
-		display: block;
-		width: 100%;
-		height: 2px;
-		background-color: var(--color-dark);
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform-origin: center center;
-	}
-
-	.close-btn__inner:before {
-		transform: translate(-50%, -50%) rotate(45deg);
-	}
-
-	.close-btn__inner:after {
-		transform: translate(-50%, -50%) rotate(-45deg);
-	}
-
 	.close-btn__text {
-		visibility: hidden;
-		width: 0;
-		height: 0;
 		display: inline-block;
 		overflow: hidden;
 	}
