@@ -219,13 +219,11 @@
 					</p>
 					<p>
 						This network includes (in alphabetical order by last name): Jacqueline Beaumont, Jamie
-						Bliss, Jean-Sebastien Gervais, William Gibson, Jonathan Chomko, Arianna C., Nova
-						Courtoise, Liane Decary-Chen, Melisa D., Sarah D., Moira A., Andy E., Andy M., Miriam
-						B., Felix W. P., Dennis Ohm-Fickler, Yonah B., J. Park, Miguel Rosales, Juan Camilo
-						Rodriguez Gonzalez, Sabine Rosenberg, Sunshine S., Ellie T., Tess Kuramoto, Emma Kirby,
-						Jo Kroese, Erin K., Robbie Mackay, Collette M., Elizabeth M., Lake M., Abirami N.,
-						Alexandra Ulsh, Ashleigh Watson, Iris H., Nadine F., August T., Desi B., Igor B.,
-						Brendan L., Doga A., as well as other members who prefer to remain anonymous.
+						Bliss, Jonathan Chomko, Nova Courtoise, Liane Decary-Chen, Carter Fredericks, Neema
+						Githere, Jean-Sebastien Gervais, William Gibson, Jo Kroese, Tess Kuramoto, Emma Kirby,
+						Robbie Mackay, Felipe Ignacio Noriega, Dennis Ohm-Fickler, Miguel Rosales, Juan Camilo
+						Rodriguez Gonzalez, Sabine Rosenberg, Alex Robichaud, Alexandra Ulsh, and Ashleigh
+						Watson, as well as other members who prefer to remain anonymous.
 					</p>
 				</div>
 				<h2>What data does Queering the Map collect?</h2>

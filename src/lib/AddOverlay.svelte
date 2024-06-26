@@ -105,7 +105,7 @@
 							turnstile-sitekey={PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
 							on:turnstile={handleTurnstile}
 						/>
-						<div class="recaptcha-text">
+						<!-- <div class="recaptcha-text">
 							This site is protected by Turnstile and Cloudflare
 							<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener"
 								>Privacy Policy</a
@@ -115,7 +115,7 @@
 								>Terms of Service</a
 							>
 							apply.
-						</div>
+						</div> -->
 
 						<div class="recaptcha-text">
 							By submitting I agree to the <a
@@ -130,7 +130,7 @@
 								on:click|preventDefault={() => openInfoOverlay(7)}
 								target="_blank"
 								rel="noopener">Privacy Policy</a
-							>
+							>.
 						</div>
 						<ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
 					</form>
@@ -206,7 +206,7 @@
 
 	a {
 		text-decoration: underline;
-		text-decoration-color: var(--color-pink-bright);
+		text-decoration-color: var(--color-dark);
 		color: var(--color-dark);
 	}
 
@@ -246,6 +246,11 @@
 			transform: translateX(-50%);
 			z-index: 999999;
 		}
+
+		.overlay--add .close-btn {
+			top: -1px !important;
+			right: -1px !important;
+		}
 	}
 
 	@media (min-width: 800px) {
@@ -277,6 +282,11 @@
 			max-height: 97vh;
 			height: unset;
 		}
+
+		.overlay--add .close-btn {
+			top: -1px !important;
+			right: -1px !important;
+		}
 	}
 
 	.recaptcha-text {
@@ -293,12 +303,14 @@
 		padding-right: 0.4em;
 		width: 100%;
 		font-size: 12pt;
+		height: 12em;
 		background-color: #f4b9d6;
 		border: 1.01px solid var(--color-dark);
 	}
 
 	textarea {
 		font-family: 'Apfel Grotezk', sans-serif;
+		resize: vertical;
 	}
 
 	.action-button-container {
