@@ -246,11 +246,6 @@
 			transform: translateX(-50%);
 			z-index: 999999;
 		}
-
-		.overlay--add .close-btn {
-			top: -1px !important;
-			right: -1px !important;
-		}
 	}
 
 	@media (min-width: 800px) {
@@ -281,11 +276,6 @@
 			top: 9px;
 			max-height: 97vh;
 			height: unset;
-		}
-
-		.overlay--add .close-btn {
-			top: -1px !important;
-			right: -1px !important;
 		}
 	}
 

@@ -47,11 +47,4 @@
 		display: inline-block;
 		overflow: hidden;
 	}
-
-	@media screen and (max-width: 800px) {
-		.overlay--add .close-btn {
-			top: -1px !important;
-			right: -1px !important;
-		}
-	}
 </style>
