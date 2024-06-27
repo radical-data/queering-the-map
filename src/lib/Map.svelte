@@ -40,7 +40,37 @@
 		}
 	}
 
-	onMount(async () => {
+	async function loadImageAndAddToMap(map: Map, imageUrl: string, imageId: string) {
+		try {
+			const image = await map.loadImage(imageUrl);
+			map.addImage(imageId, image.data);
+		} catch (error) {
+			console.error(`Error loading image (${imageUrl}):`, error);
+		}
+	}
+
+	function addPinLayer(
+		map: Map,
+		layerId: string,
+		sourceId: string,
+		iconImage: string,
+		paint: object = {}
+	) {
+		map.addLayer({
+			id: layerId,
+			type: 'symbol',
+			source: sourceId,
+			layout: {
+				'icon-allow-overlap': true,
+				'icon-image': iconImage,
+				'icon-size': 0.5,
+				'icon-anchor': 'bottom'
+			},
+			paint: paint
+		});
+	}
+
+	onMount(() => {
 		map = new Map({
 			container: mapContainer,
 			style: style,
@@ -59,63 +89,23 @@
 			});
 
 			try {
-				const markerImg = await map.loadImage(markerImage);
-				map.addImage('marker', markerImg.data);
-
-				const markerHoveredImg = await map.loadImage(markerHoveredImage);
-				map.addImage('marker-hovered', markerHoveredImg.data);
-
-				const addMarkerImg = await map.loadImage(addMarkerImage);
-				map.addImage('add-marker', addMarkerImg.data);
+				await loadImageAndAddToMap(map, markerImage, 'marker');
+				await loadImageAndAddToMap(map, markerHoveredImage, 'marker-hovered');
+				await loadImageAndAddToMap(map, addMarkerImage, 'add-marker');
 			} catch (error) {
 				console.error('Error loading marker images:', error);
 			}
 
-			map.addLayer({
-				id: markerLayerId,
-				type: 'symbol',
-				source: markerId,
-				layout: {
-					'icon-allow-overlap': true,
-					'icon-image': 'marker',
-					'icon-size': 0.5,
-					'icon-anchor': 'bottom'
-				},
-				paint: {}
-			});
-
-			map.addLayer({
-				id: markerHoveredLayerId,
-				type: 'symbol',
-				source: markerId,
-				layout: {
-					'icon-allow-overlap': true,
-					'icon-image': 'marker-hovered',
-					'icon-size': 0.5,
-					'icon-anchor': 'bottom'
-				},
-				paint: {
-					'icon-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 1, 0]
-				}
+			addPinLayer(map, markerLayerId, markerId, 'marker');
+			addPinLayer(map, markerHoveredLayerId, markerId, 'marker-hovered', {
+				'icon-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 1, 0]
 			});
 
 			map.addSource(activeMarkerSourceId, {
 				type: 'geojson',
 				data: activeMarkerGeoJSON
 			});
-
-			map.addLayer({
-				id: activeMarkerLayerId,
-				type: 'symbol',
-				source: activeMarkerSourceId,
-				layout: {
-					'icon-allow-overlap': true,
-					'icon-image': 'add-marker',
-					'icon-size': 0.5,
-					'icon-anchor': 'bottom'
-				},
-				paint: {}
-			});
+			addPinLayer(map, activeMarkerLayerId, activeMarkerSourceId, 'add-marker');
 
 			map.on('click', markerLayerId, function (e) {
 				isMomentLayerClicked = true;
