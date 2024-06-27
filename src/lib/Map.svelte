@@ -40,7 +40,7 @@
 		}
 	}
 
-	onMount(() => {
+	onMount(async () => {
 		map = new Map({
 			container: mapContainer,
 			style: style,
@@ -52,26 +52,24 @@
 		map.addControl(new NavigationControl({ showCompass: false }), 'bottom-right');
 		map.keyboard.enable();
 
-		map.on('load', () => {
+		map.on('load', async () => {
 			map.addSource(markerId, {
 				type: 'geojson',
 				data: 'data/moments.json'
 			});
 
-			map.loadImage(markerImage, (error, image) => {
-				if (error) throw error;
-				if (image) map.addImage('marker', image);
-			});
+			try {
+				const markerImg = await map.loadImage(markerImage);
+				map.addImage('marker', markerImg.data);
 
-			map.loadImage(markerHoveredImage, (error, image) => {
-				if (error) throw error;
-				if (image) map.addImage('marker-hovered', image);
-			});
+				const markerHoveredImg = await map.loadImage(markerHoveredImage);
+				map.addImage('marker-hovered', markerHoveredImg.data);
 
-			map.loadImage(addMarkerImage, (error, image) => {
-				if (error) throw error;
-				if (image) map.addImage('add-marker', image);
-			});
+				const addMarkerImg = await map.loadImage(addMarkerImage);
+				map.addImage('add-marker', addMarkerImg.data);
+			} catch (error) {
+				console.error('Error loading marker images:', error);
+			}
 
 			map.addLayer({
 				id: markerLayerId,
