@@ -89,7 +89,7 @@
       style: style,
       center: [initialState.lng, initialState.lat],
       zoom: initialState.zoom,
-      minZoom: 2,
+      minZoom: 3,
       maxZoom: 18
     });
     map.addControl(
