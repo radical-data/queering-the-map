@@ -1,11 +1,18 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import maplibregl, { type LngLatLike, type Map, type GeoJSONSource } from 'maplibre-gl';
+	import maplibregl, {
+		type LngLatLike,
+		type Map,
+		type GeoJSONSource,
+		type StyleSpecification,
+		MapMouseEvent
+	} from 'maplibre-gl';
 	const { Map, NavigationControl, Popup } = maplibregl;
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import markerImage from '$lib/assets/marker.png';
 	import markerHoveredImage from '$lib/assets/marker-hovered.png';
-	import style from '$lib/data/pmtiles/style.json';
+	import styleJson from '$lib/data/pmtiles/style.json';
+	const style = styleJson as StyleSpecification;
 	import addMarkerImage from '$lib/assets/add-marker.png';
 	import { activeMarkerCoords, addOverlayVisible } from '../stores';
 	import type { FeatureCollection, Point, GeoJsonProperties } from 'geojson';
