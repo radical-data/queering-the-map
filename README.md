@@ -10,9 +10,9 @@ You have two options for setting up the project: a quick setup for frontend-only
 
 This approach is quicker and allows you to work on the frontend without setting up Supabase. Note that popups will not show text if you choose this option.
 
-1. Install dependencies with `npm install`.
+1. Install dependencies with `npm ci`.
 2. Run the seed script to generate mock data: `npm run seed-data`.
-3. Copy `.env.example` into `.env`.
+3. Copy `.env.example` into `.env`: `cp .env.example .env`.
 
 ### Option 2: Full Setup with Supabase
 

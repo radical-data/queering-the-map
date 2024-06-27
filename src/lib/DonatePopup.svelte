@@ -25,8 +25,9 @@
 <style>
 	.toast-container {
 		position: fixed;
-		bottom: 6px;
-		left: 6px;
+		bottom: 0px;
+		left: 9px;
+		right: 70px;
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
