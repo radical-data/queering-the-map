@@ -164,7 +164,7 @@
 
 			let hoveredFeatureId: number | null = null;
 
-			map.on('mouseenter', markerLayerId, function (e) {
+			const pointerHoverHandler = (e) => {
 				map.getCanvas().style.cursor = 'pointer';
 				if (e.features && e.features.length > 0) {
 					const newHoveredFeatureId = e.features[0].id as number;
@@ -174,18 +174,9 @@
 					hoveredFeatureId = newHoveredFeatureId;
 					map.setFeatureState({ source: markerId, id: hoveredFeatureId }, { hover: true });
 				}
-			});
-
-			map.on('mousemove', markerLayerId, function (e) {
-				if (e.features && e.features.length > 0) {
-					const newHoveredFeatureId = e.features[0].id as number;
-					if (hoveredFeatureId !== null && hoveredFeatureId !== newHoveredFeatureId) {
-						map.setFeatureState({ source: markerId, id: hoveredFeatureId }, { hover: false });
-					}
-					hoveredFeatureId = newHoveredFeatureId;
-					map.setFeatureState({ source: markerId, id: hoveredFeatureId }, { hover: true });
-				}
-			});
+			};
+			map.on('mouseenter', markerLayerId, pointerHoverHandler);
+			map.on('mousemove', markerLayerId, pointerHoverHandler);
 
 			map.on('mouseleave', markerLayerId, function () {
 				map.getCanvas().style.cursor = '';
