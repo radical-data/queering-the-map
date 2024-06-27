@@ -7,6 +7,20 @@ function getRandomCoordinate(min: number, max: number): number {
   return Math.random() * (max - min) + min;
 }
 
+function generateRandomWord(): string {
+  // Source: https://stackoverflow.com/a/8084248
+  return (Math.random() + 1).toString(36).substring(9);
+}
+
+function generateRandomDescription(id: number): string {
+  const numWords = Math.floor(Math.random() * 16) + 2;
+  const words = [];
+  for (let i = 0; i < numWords; i++) {
+    words.push(generateRandomWord());
+  }
+  return `Description ${id} ${words.join(' ')}`;
+}
+
 function generateRandomMoment(id: number): Feature<Point> {
   const longitude = getRandomCoordinate(-180, 180);
   const latitude = getRandomCoordinate(-90, 90);
@@ -26,38 +40,45 @@ function generateRandomMoment(id: number): Feature<Point> {
   return feature;
 }
 
-function generateRandomMoments(count: number): FeatureCollection<Point> {
-  const features: Feature<Point>[] = [];
+function generateAndSaveMoments(count: number, filePath: string): void {
+    const features: Feature<Point>[] = [];
+    
+    for (let i = 1; i <= count; i++) {
+        features.push(generateRandomMoment(i));
+    }
 
-  for (let i = 1; i <= count; i++) {
-    features.push(generateRandomMoment(i));
-  }
+    const moments: FeatureCollection<Point> = {
+        type: "FeatureCollection",
+        features: features
+    };
 
-  return {
-    type: 'FeatureCollection',
-    features: features
-  };
+    // Remove empty properties from each feature
+    const simplifiedMoments = {
+        ...moments,
+        features: moments.features.map(({ properties, ...rest }) => rest)
+    };
+
+    saveToFile(simplifiedMoments, filePath);
 }
 
-function saveMomentsToFile(count: number, filePath: string): void {
-  const moments = generateRandomMoments(count);
+function generateAndSaveDescriptions(count: number, filePath: string): void {
+    const descriptions: Record<number, string> = {};
+    
+    for (let i = 1; i <= count; i++) {
+        descriptions[i] = generateRandomDescription(i);
+    }
 
-  const dir = dirname(filePath);
-  if (!existsSync(dir)) {
-    mkdirSync(dir, { recursive: true });
-  }
+    saveToFile(descriptions, filePath);
+}
 
-  // Remove empty properties from each feature
-  const simplifiedMoments = {
-    ...moments,
-    features: moments.features.map(
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      ({ properties, ...rest }) => rest
-    )
-  };
+function saveToFile(data: any, filePath: string): void {
+    const dir = dirname(filePath);
+    if (!existsSync(dir)) {
+        mkdirSync(dir, { recursive: true });
+    }
 
-  writeFileSync(filePath, JSON.stringify(simplifiedMoments));
-  console.log(`Generated ${count} moments and saved to ${filePath}`);
+    writeFileSync(filePath, JSON.stringify(data));
+    console.log(`Saved data to ${filePath}`);
 }
 
 function parseArguments(args: string[]): Record<string, string> {
@@ -82,6 +103,8 @@ if (isNaN(numberOfMoments) || numberOfMoments <= 0) {
 }
 
 const rootPath = process.cwd();
-const filePath = join(rootPath, 'static/data', 'moments.json');
+const momentsFilePath = join(rootPath, 'static/data', 'moments.json');
+const descriptionsFilePath = join(rootPath, 'static/data', 'descriptions.json');
 
-saveMomentsToFile(numberOfMoments, filePath);
+generateAndSaveMoments(numberOfMoments, momentsFilePath);
+generateAndSaveDescriptions(numberOfMoments, descriptionsFilePath);
