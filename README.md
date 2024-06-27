@@ -21,8 +21,8 @@ This approach is necessary if you want to work also work on the backend. It take
 1. Install dependencies with `npm install`.
 1. Set up a Supabase (local) project with the [official CLI](https://supabase.com/docs/guides/cli/getting-started).
 1. Set the environment variables.
-    1. Copy the `.env.example` file to `.env` (manually or with `cp .env.example .env`).
-    1. Get your `SUPABASE_URL` and `SUPABASE_ANON_KEY` from the output of `supabase start`.
+   1. Copy the `.env.example` file to `.env` (manually or with `cp .env.example .env`).
+   1. Get your `SUPABASE_URL` and `SUPABASE_ANON_KEY` from the output of `supabase start`.
 1. Run the DB migrations locally with `supabase db reset`.
 1. Fetch the data from Supabase: `npm run fetch-data`.
 
@@ -43,7 +43,7 @@ For testing the database make sure that the `pgTap` extension is enabled in post
 To use Supabase as a remote backend make sure to link your local development with your remote Supabase project:
 
 1. Make sure you have a Supabase acount and connect it to the supabase cli: `supabase login`
-1. Link a specific remote project `supabase link --project-ref <project-ref>`  ([more info](https://supabase.com/docs/reference/cli/supabase-link))
+1. Link a specific remote project `supabase link --project-ref <project-ref>` ([more info](https://supabase.com/docs/reference/cli/supabase-link))
 1. Run migrations on remote DB `supabase db push` ([more info](https://supabase.com/docs/reference/cli/supabase-db-push))
 1. Make sure that the env vars `SUPABASE_URL` and `SUPABASE_ANON_KEY` do point to the correct production project and not the local containers. You can grab them from inside [your Supabase project's dashboard](https://supabase.com/dashboard/project/_/settings/api).
 

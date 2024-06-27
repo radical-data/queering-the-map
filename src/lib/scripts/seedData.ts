@@ -4,7 +4,7 @@ import type { FeatureCollection, Feature, Point } from 'geojson';
 import { roundCoordinates } from '$lib/utils/utils';
 
 function getRandomCoordinate(min: number, max: number): number {
-    return Math.random() * (max - min) + min;
+  return Math.random() * (max - min) + min;
 }
 
 function generateRandomWord(): string {
@@ -22,22 +22,22 @@ function generateRandomDescription(id: number): string {
 }
 
 function generateRandomMoment(id: number): Feature<Point> {
-    const longitude = getRandomCoordinate(-180, 180);
-    const latitude = getRandomCoordinate(-90, 90);
+  const longitude = getRandomCoordinate(-180, 180);
+  const latitude = getRandomCoordinate(-90, 90);
 
-    const point: Point = {
-        type: "Point",
-        coordinates: roundCoordinates([longitude, latitude], 6)
-    };
+  const point: Point = {
+    type: 'Point',
+    coordinates: roundCoordinates([longitude, latitude], 6)
+  };
 
-    const feature: Feature<Point> = {
-        type: "Feature",
-        id: id,
-        geometry: point,
-        properties: {}  // Empty properties to satisfy the GeoJSON type
-    };
+  const feature: Feature<Point> = {
+    type: 'Feature',
+    id: id,
+    geometry: point,
+    properties: {} // Empty properties to satisfy the GeoJSON type
+  };
 
-    return feature;
+  return feature;
 }
 
 function generateAndSaveMoments(count: number, filePath: string): void {
@@ -82,13 +82,13 @@ function saveToFile(data: any, filePath: string): void {
 }
 
 function parseArguments(args: string[]): Record<string, string> {
-    const result: Record<string, string> = {};
-    for (let i = 0; i < args.length; i += 2) {
-        const key = args[i].replace('--', '');
-        const value = args[i + 1];
-        result[key] = value;
-    }
-    return result;
+  const result: Record<string, string> = {};
+  for (let i = 0; i < args.length; i += 2) {
+    const key = args[i].replace('--', '');
+    const value = args[i + 1];
+    result[key] = value;
+  }
+  return result;
 }
 
 const DEFAULT_NUMBER_OF_MOMENTS = 99999;
@@ -99,7 +99,7 @@ const parsedArgs = parseArguments(args);
 let numberOfMoments = parseInt(parsedArgs['number-of-features'], 10);
 
 if (isNaN(numberOfMoments) || numberOfMoments <= 0) {
-    numberOfMoments = DEFAULT_NUMBER_OF_MOMENTS;
+  numberOfMoments = DEFAULT_NUMBER_OF_MOMENTS;
 }
 
 const rootPath = process.cwd();
