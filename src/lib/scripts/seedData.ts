@@ -2,15 +2,23 @@ import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import type { FeatureCollection, Feature, Point } from 'geojson';
 import { roundCoordinates } from '$lib/utils/utils';
-import crypto from 'crypto';
 
 function getRandomCoordinate(min: number, max: number): number {
     return Math.random() * (max - min) + min;
 }
 
+function generateRandomWord(): string {
+  // Source: https://stackoverflow.com/a/8084248
+  return (Math.random() + 1).toString(36).substring(9);
+}
+
 function generateRandomDescription(id: number): string {
-    const randomText = crypto.randomBytes(16).toString('hex');
-    return `Description ${id} ${randomText}`;
+  const numWords = Math.floor(Math.random() * 16) + 2;
+  const words = [];
+  for (let i = 0; i < numWords; i++) {
+    words.push(generateRandomWord());
+  }
+  return `Description ${id} ${words.join(' ')}`;
 }
 
 function generateRandomMoment(id: number): Feature<Point> {
