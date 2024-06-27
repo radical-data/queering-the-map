@@ -25,7 +25,7 @@
 		"@typescript-eslint/eslint-plugin": "^7.14.1",
 		"@typescript-eslint/parser": "^7.14.1",
 		"@zerodevx/svelte-toast": "^0.9.5",
-		"eslint": "^9.5.0",
+		"eslint": "8.57",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.41.0",
 		"prettier": "^3.3.2",
@@ -35,6 +35,7 @@
 		"svelte-check": "^3.8.4",
 		"tslib": "^2.6.3",
 		"typescript": "^5.5.2",
+		"typescript-eslint": "^7.14.1",
 		"vite": "^5.3.1",
 		"vite-node": "^1.6.0",
 		"vitest": "^1.6.0"
