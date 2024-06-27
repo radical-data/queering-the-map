@@ -1,69 +1,69 @@
 @import '@fontsource/apfel-grotezk';
 
 :root {
-	/* colors */
-	--color-dark: #231f20;
-	--color-pink: #f4b9d6;
-	--color-pink-bright: #ff00ff;
+  /* colors */
+  --color-dark: #231f20;
+  --color-pink: #f4b9d6;
+  --color-pink-bright: #ff00ff;
 
-	/* breakpoints */
-	--screen-wide: 800px;
-	--screen-short: 450px;
+  /* breakpoints */
+  --screen-wide: 800px;
+  --screen-short: 450px;
 
-	/* transitions */
-	--transition-timing-function: ease;
-	--transition-duration: 300ms;
+  /* transitions */
+  --transition-timing-function: ease;
+  --transition-duration: 300ms;
 
-	/* z-index */
-	--logo-z-index: 20;
-	--overlay-z-index: 15;
-	--overlay-trigger-z-index: 5;
+  /* z-index */
+  --logo-z-index: 20;
+  --overlay-z-index: 15;
+  --overlay-trigger-z-index: 5;
 }
 
 body {
-	margin: 0;
-	font-family: 'Apfel Grotezk', sans-serif;
-	line-height: 1.3;
+  margin: 0;
+  font-family: 'Apfel Grotezk', sans-serif;
+  line-height: 1.3;
 }
 
 div.maplibregl-popup-content,
 div.mapboxgl-popup-content {
-	border-radius: 8px;
-	font-size: 1.2em;
-	max-width: min(70ch, 75vw);
-	width: max-content;
-	box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
-	font-family: 'Apfel Grotezk', sans-serif;
+  border-radius: 8px;
+  font-size: 1.2em;
+  max-width: min(70ch, 75vw);
+  width: max-content;
+  box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
+  font-family: 'Apfel Grotezk', sans-serif;
 }
 
 /* For the numbered lists in moderation and privacy policy */
 .partial_div-numbered {
-	padding-left: 1em;
-	padding-right: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .partial_div-numbered p {
-	padding-left: 0em;
-	padding-right: 1em;
+  padding-left: 0em;
+  padding-right: 1em;
 }
 
 .privacy_policy .partial_div-numbered {
-	align-items: baseline;
+  align-items: baseline;
 }
 
 /* Added here because it's used differently in the 2 occurrences of <CloseButton */
 .overlay--info .close-btn {
-	margin-left: -1px;
+  margin-left: -1px;
 }
 
 .overlay--add button {
-	top: 9px;
-	right: 9px !important;
+  top: 9px;
+  right: 9px !important;
 }
 
 @media screen and (max-width: 800px) {
-	.overlay--add .close-btn {
-		top: -1px !important;
-		right: -1px !important;
-	}
+  .overlay--add .close-btn {
+    top: -1px !important;
+    right: -1px !important;
+  }
 }
