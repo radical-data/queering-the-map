@@ -5,7 +5,8 @@
 		type Map,
 		type GeoJSONSource,
 		type StyleSpecification,
-		MapMouseEvent
+		type MapMouseEvent,
+		type MapGeoJSONFeature
 	} from 'maplibre-gl';
 	const { Map, NavigationControl, Popup } = maplibregl;
 	import 'maplibre-gl/dist/maplibre-gl.css';
@@ -160,7 +161,7 @@
 
 			let hoveredFeatureId: number | null = null;
 
-			const pointerHoverHandler = (e) => {
+			const pointerHoverHandler = (e: MapMouseEvent & { features?: MapGeoJSONFeature[] }) => {
 				map.getCanvas().style.cursor = 'pointer';
 				if (e.features && e.features.length > 0) {
 					const newHoveredFeatureId = e.features[0].id as number;
