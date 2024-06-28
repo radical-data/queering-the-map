@@ -12,8 +12,8 @@ div.maplibregl-ctrl-group button {
 }
 
 body .maplibregl-ctrl-bottom-right .maplibregl-ctrl {
-	margin-right: 9px;
-	margin-bottom: 9px;
+  margin-right: 9px;
+  margin-bottom: 9px;
 }
 
 /* The + icon */

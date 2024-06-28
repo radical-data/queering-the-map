@@ -25,8 +25,6 @@
   const initialState = { lng: -73.567256, lat: 45.501689, zoom: 12.5 };
 
   const markerHeight = 39;
-  const markerWidth = 10;
-  const markerCenter = 28;
   const markerId = 'moments';
   const markerLayerId = 'moments-layer';
   const markerHoveredLayerId = 'moments-hovered-layer';
@@ -151,12 +149,9 @@
             if (coordinates.length === 2) {
               new Popup({
                 offset: {
-                  bottom: [0, -markerHeight],
-                  'bottom-left': [0, -markerHeight],
-                  'bottom-right': [0, -markerHeight],
-                  right: [-markerWidth, -markerCenter],
-                  left: [markerWidth, -markerCenter]
+                  bottom: [0, -markerHeight]
                 },
+                anchor: 'bottom',
                 maxWidth: 'none'
               })
                 .setLngLat(coordinates as LngLatLike)

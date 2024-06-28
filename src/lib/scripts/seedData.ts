@@ -41,44 +41,44 @@ function generateRandomMoment(id: number): Feature<Point> {
 }
 
 function generateAndSaveMoments(count: number, filePath: string): void {
-    const features: Feature<Point>[] = [];
-    
-    for (let i = 1; i <= count; i++) {
-        features.push(generateRandomMoment(i));
-    }
+  const features: Feature<Point>[] = [];
 
-    const moments: FeatureCollection<Point> = {
-        type: "FeatureCollection",
-        features: features
-    };
+  for (let i = 1; i <= count; i++) {
+    features.push(generateRandomMoment(i));
+  }
 
-    // Remove empty properties from each feature
-    const simplifiedMoments = {
-        ...moments,
-        features: moments.features.map(({ properties, ...rest }) => rest)
-    };
+  const moments: FeatureCollection<Point> = {
+    type: 'FeatureCollection',
+    features: features
+  };
 
-    saveToFile(simplifiedMoments, filePath);
+  // Remove empty properties from each feature
+  const simplifiedMoments = {
+    ...moments,
+    features: moments.features.map(({ properties, ...rest }) => rest)
+  };
+
+  saveToFile(simplifiedMoments, filePath);
 }
 
 function generateAndSaveDescriptions(count: number, filePath: string): void {
-    const descriptions: Record<number, string> = {};
-    
-    for (let i = 1; i <= count; i++) {
-        descriptions[i] = generateRandomDescription(i);
-    }
+  const descriptions: Record<number, string> = {};
 
-    saveToFile(descriptions, filePath);
+  for (let i = 1; i <= count; i++) {
+    descriptions[i] = generateRandomDescription(i);
+  }
+
+  saveToFile(descriptions, filePath);
 }
 
 function saveToFile(data: any, filePath: string): void {
-    const dir = dirname(filePath);
-    if (!existsSync(dir)) {
-        mkdirSync(dir, { recursive: true });
-    }
+  const dir = dirname(filePath);
+  if (!existsSync(dir)) {
+    mkdirSync(dir, { recursive: true });
+  }
 
-    writeFileSync(filePath, JSON.stringify(data));
-    console.log(`Saved data to ${filePath}`);
+  writeFileSync(filePath, JSON.stringify(data));
+  console.log(`Saved data to ${filePath}`);
 }
 
 function parseArguments(args: string[]): Record<string, string> {
