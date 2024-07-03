@@ -12,8 +12,8 @@ div.maplibregl-ctrl-group button {
 }
 
 body .maplibregl-ctrl-bottom-right .maplibregl-ctrl {
-	margin-right: 9px;
-	margin-bottom: 9px;
+  margin-right: 9px;
+  margin-bottom: 9px;
 }
 
 /* The + icon */
@@ -36,4 +36,35 @@ div.maplibregl-ctrl-group button:hover {
 /******************************************************************************/
 .maplibregl-ctrl-attrib {
   display: none;
+}
+
+/******************************************************************************/
+/* Styling the pop-up Close Button */
+/******************************************************************************/
+
+.maplibregl-popup-close-button {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: grey;
+}
+
+.maplibregl-popup-close-button:hover {
+  background-color: none;
+}
+
+div.maplibregl-popup-content,
+div.mapboxgl-popup-content {
+  border-radius: 8px;
+  font-size: 1.2em;
+  max-width: min(45ch, 75vw);
+  width: max-content;
+  box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
+  font-family: 'Apfel Grotezk', sans-serif;
+  line-height: 1.3em;
+  padding: 12px;
 }

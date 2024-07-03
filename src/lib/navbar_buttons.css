@@ -19,3 +19,22 @@
 .general_button__fadein:hover line {
   stroke: var(--color-pink) !important;
 }
+
+/******************************************************************************/
+/* Styling the pop-up Close Button */
+/******************************************************************************/
+
+.maplibregl-popup-close-button {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: grey;
+}
+
+.maplibregl-popup-close-button:hover {
+  background-color: none;
+}
