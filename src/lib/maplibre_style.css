@@ -48,13 +48,14 @@ div.maplibregl-ctrl-group button:hover {
   border-radius: 0 3px 0 0;
   cursor: pointer;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: -2px !important;
+  top: -2px !important;
   color: grey;
+  outline: none;
 }
 
 .maplibregl-popup-close-button:hover {
-  background-color: none;
+  background-color: transparent !important;
 }
 
 div.maplibregl-popup-content,

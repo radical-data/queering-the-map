@@ -26,18 +26,6 @@ body {
   line-height: 1.3;
 }
 
-div.maplibregl-popup-content,
-div.mapboxgl-popup-content {
-  border-radius: 8px;
-  font-size: 1.2em;
-  max-width: min(45ch, 75vw);
-  width: max-content;
-  box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
-  font-family: 'Apfel Grotezk', sans-serif;
-  line-height: 1.3em;
-  padding: 12px;
-}
-
 /* For the numbered lists in moderation and privacy policy */
 .partial_div-numbered {
   padding-left: 1em;
