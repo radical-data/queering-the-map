@@ -1,5 +1,5 @@
 <script>
-  import logo from '$lib/assets/queering-the-map-logo.svg';
+  import logo from '$lib/assets/QTM_LOGO2024.png';
   import InfoButton from './InfoButton.svelte';
   import AddButton from './AddButton.svelte';
   import { infoOverlayVisible, addOverlayVisible } from '../stores';
@@ -55,7 +55,7 @@
   }
   @media (max-width: 800px) {
     #logo img {
-      height: 54px;
+      height: 51px;
     }
   }
 
