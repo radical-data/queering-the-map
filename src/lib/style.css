@@ -56,4 +56,8 @@ body {
     top: -1px !important;
     right: -1px !important;
   }
+
+  .overlay--info .close-btn {
+    margin-left: 0 !important;
+  }
 }
