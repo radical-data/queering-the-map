@@ -101,7 +101,7 @@
         <div class="overlay__section-title">Add Your Story</div>
         <div class="overlay__section-text">
           <div class="partial_div-numbered">
-            <span>1</span>Click on the location of your story on the map.
+            <span>1</span>Click the location of your story on the map.
           </div>
           <div class="partial_div-numbered">
             <span>2</span>Share your story in the the text box below.

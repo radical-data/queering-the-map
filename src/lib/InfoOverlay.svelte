@@ -77,7 +77,7 @@
             intimately connected.
           </p>
 
-          <h2>Territorial Acknowledgment</h2>
+          <h2>Land Acknowledgment</h2>
           <div class="overlay__section-text">
             <p>
               Queering the Map was initiated on the unceded traditional lands of
@@ -219,8 +219,10 @@
         <h2>Can I delete my post?</h2>
         <div class="overlay__section-text">
           <p>
-            Yes, of course! To delete a post, please fill out the Request
-            Removal form in the Moderation tab.
+            Yes, of course! To delete your post, please email the text of the
+            post you would like deleted to <a
+              href="mailto:hi@queeringthemap.com">hi@queeringthemap.com</a
+            > with the subject line 'Delete My Post'.
           </p>
         </div>
         <h2>How can I become a moderator?</h2>
@@ -1757,12 +1759,12 @@
             database.
           </p>
 
-          <p>
+          <!-- <p>
             Email Addresses: We collect user’s email addresses if they directly
             contact us through email, or use the Request for Removal form. We do
             not collect email addresses when a user submits User Content. We do
             not share email addresses with any third parties.
-          </p>
+          </p> -->
           <h2>2. Use of Information</h2>
           <p>
             Platform Functionality: We use the information collected to provide
