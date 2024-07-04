@@ -1964,6 +1964,7 @@
     font-weight: 500;
     background: transparent;
     cursor: pointer;
+    color: var(--color-dark);
   }
   .info__tabs button.active {
     background-color: var(--color-dark);
