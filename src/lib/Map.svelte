@@ -126,7 +126,7 @@
       });
       addPinLayer(map, activeMarkerLayerId, activeMarkerSourceId, 'add-marker');
 
-      map.on('click', markerLayerId, function (e) {
+      map.on('click', markerLayerId, function (e: MapMouseEvent) {
         isMomentLayerClicked = true;
         if (!e.features || e.features.length === 0) {
           return;
@@ -204,7 +204,7 @@
         }
       });
 
-      map.on('click', (e) => {
+      map.on('click', (e: MapMouseEvent) => {
         if (isMomentLayerClicked) {
           isMomentLayerClicked = false;
           return;
@@ -212,7 +212,6 @@
 
         const { lng, lat } = e.lngLat;
         activeMarkerCoords.set({ lng, lat });
-        addOverlayVisible.set(true);
       });
     });
   });
