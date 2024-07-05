@@ -8,7 +8,6 @@ function getRandomCoordinate(min: number, max: number): number {
 }
 
 function generateRandomWord(): string {
-  // Source: https://stackoverflow.com/a/8084248
   return (Math.random() + 1).toString(36).substring(9);
 }
 
@@ -55,6 +54,7 @@ function generateAndSaveMoments(count: number, filePath: string): void {
   // Remove empty properties from each feature
   const simplifiedMoments = {
     ...moments,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     features: moments.features.map(({ properties, ...rest }) => rest)
   };
 
@@ -71,7 +71,7 @@ function generateAndSaveDescriptions(count: number, filePath: string): void {
   saveToFile(descriptions, filePath);
 }
 
-function saveToFile(data: any, filePath: string): void {
+function saveToFile<T>(data: T, filePath: string): void {
   const dir = dirname(filePath);
   if (!existsSync(dir)) {
     mkdirSync(dir, { recursive: true });
