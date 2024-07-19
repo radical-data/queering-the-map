@@ -151,9 +151,7 @@
               const description = text;
               if (coordinates.length === 2) {
                 new Popup({
-                  offset: {
-                    bottom: [0, -markerHeight]
-                  },
+                  offset: [0, -markerHeight],
                   anchor: 'bottom',
                   maxWidth: 'none'
                 })
