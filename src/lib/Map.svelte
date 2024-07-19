@@ -15,7 +15,7 @@
   import styleJson from '$lib/data/pmtiles/style.json';
   const style = styleJson as StyleSpecification;
   import addMarkerImage from '$lib/assets/add-marker.png';
-  import { activeMarkerCoords, addOverlayVisible } from '../stores';
+  import { activeMarkerCoords } from '../stores';
   import type { FeatureCollection, Point, GeoJsonProperties } from 'geojson';
 
   let map: MapType;
