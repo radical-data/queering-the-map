@@ -126,8 +126,7 @@
       });
       addPinLayer(map, activeMarkerLayerId, activeMarkerSourceId, 'add-marker');
 
-      map.on('click', markerLayerId, function (e: MapMouseEvent) {
-        isMomentLayerClicked = true;
+      map.on('click', markerLayerId, function (e: MapMouseEvent & { features?: MapGeoJSONFeature[] }) {        isMomentLayerClicked = true;
         if (!e.features || e.features.length === 0) {
           return;
         }
