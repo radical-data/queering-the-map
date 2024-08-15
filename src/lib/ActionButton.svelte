@@ -1,9 +1,11 @@
 <script lang="ts">
+  export let isDisabled: boolean
   export let functionOnClick: () => void;
+  export let functionHover: () => void;
 </script>
 
 <div class="button-wrapper">
-  <button class="button" on:click={functionOnClick}><slot /></button>
+  <button class="button {isDisabled ? 'button-disabled' : 'button-enabled'}" on:click={functionOnClick} on:mouseenter={functionHover} disabled={isDisabled}><slot /></button>
 </div>
 
 <style>
@@ -27,8 +29,12 @@
     margin-top: 1rem;
   }
 
-  .button:hover {
+  .button-enabled:hover {
     background-color: black;
     color: var(--color-pink);
+  }
+
+  .button:disabled {
+    cursor: not-allowed;
   }
 </style>
