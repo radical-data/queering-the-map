@@ -16,6 +16,7 @@
 
   let momentDescription = '';
   let captchaToken = '';
+  let isAddButtonDisabled = true;
 
   function closeAddOverlay() {
     addOverlayVisible.update(() => false);
@@ -38,6 +39,11 @@
       }
     );
   };
+
+  const verifyInputs = () => {
+    isAddButtonDisabled = !$activeMarkerCoords?.lng || !$activeMarkerCoords?.lat || !momentDescription
+  }
+
 
   async function handleAddMoment() {
     if (!captchaToken) {
@@ -116,12 +122,14 @@
               class="subform"
             ></textarea>
 
+            {#if !isAddButtonDisabled}
             <div
               style="margin-top: 16px"
               use:turnstile
               turnstile-sitekey={PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
               on:turnstile={handleTurnstile}
             ></div>
+            {/if}
             <!-- <div class="recaptcha-text">
 							This site is protected by Turnstile and Cloudflare
 							<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener"
@@ -149,7 +157,7 @@
                 rel="noopener">Privacy Policy</a
               >.
             </div>
-            <ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
+            <ActionButton functionOnClick={handleAddMoment} functionHover={verifyInputs} isDisabled={isAddButtonDisabled}>Add</ActionButton>
           </form>
         </div>
       </section>
