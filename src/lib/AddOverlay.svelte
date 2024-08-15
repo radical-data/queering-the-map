@@ -41,9 +41,11 @@
   };
 
   const verifyInputs = () => {
-    isAddButtonDisabled = !$activeMarkerCoords?.lng || !$activeMarkerCoords?.lat || !momentDescription
-  }
-
+    isAddButtonDisabled =
+      !$activeMarkerCoords?.lng ||
+      !$activeMarkerCoords?.lat ||
+      !momentDescription;
+  };
 
   async function handleAddMoment() {
     if (!captchaToken) {
@@ -123,12 +125,12 @@
             ></textarea>
 
             {#if !isAddButtonDisabled}
-            <div
-              style="margin-top: 16px"
-              use:turnstile
-              turnstile-sitekey={PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
-              on:turnstile={handleTurnstile}
-            ></div>
+              <div
+                style="margin-top: 16px"
+                use:turnstile
+                turnstile-sitekey={PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
+                on:turnstile={handleTurnstile}
+              ></div>
             {/if}
             <!-- <div class="recaptcha-text">
 							This site is protected by Turnstile and Cloudflare
@@ -157,7 +159,11 @@
                 rel="noopener">Privacy Policy</a
               >.
             </div>
-            <ActionButton functionOnClick={handleAddMoment} functionHover={verifyInputs} isDisabled={isAddButtonDisabled}>Add</ActionButton>
+            <ActionButton
+              functionOnClick={handleAddMoment}
+              functionHover={verifyInputs}
+              isDisabled={isAddButtonDisabled}>Add</ActionButton
+            >
           </form>
         </div>
       </section>
