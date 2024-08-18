@@ -74,7 +74,7 @@
       layout: {
         'icon-allow-overlap': true,
         'icon-image': iconImage,
-        'icon-size': 0.5,
+        'icon-size': 0.45,
         'icon-anchor': 'bottom'
       },
       paint: paint
