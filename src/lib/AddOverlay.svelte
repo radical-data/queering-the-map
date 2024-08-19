@@ -17,6 +17,7 @@
   let momentDescription = '';
   let captchaToken = '';
   let isAddButtonDisabled = true;
+  let requestCaptcha = false;
 
   function closeAddOverlay() {
     addOverlayVisible.update(() => false);
@@ -40,12 +41,10 @@
     );
   };
 
-  const verifyInputs = () => {
-    isAddButtonDisabled =
+  $: isAddButtonDisabled =
       !$activeMarkerCoords?.lng ||
       !$activeMarkerCoords?.lat ||
       !momentDescription;
-  };
 
   async function handleAddMoment() {
     if (!captchaToken) {
@@ -81,6 +80,7 @@
     e: CustomEvent<TurnstileEventDetail<{ token: string }>>
   ) => {
     captchaToken = e.detail.token;
+    handleAddMoment()
   };
 
   new SvelteToast({
@@ -124,7 +124,7 @@
               class="subform"
             ></textarea>
 
-            {#if !isAddButtonDisabled}
+            {#if requestCaptcha}
               <div
                 style="margin-top: 16px"
                 use:turnstile
@@ -160,8 +160,7 @@
               >.
             </div>
             <ActionButton
-              functionOnClick={handleAddMoment}
-              functionHover={verifyInputs}
+              functionOnClick={() => requestCaptcha = true}
               isDisabled={isAddButtonDisabled}>Add</ActionButton
             >
           </form>
