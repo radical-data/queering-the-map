@@ -42,9 +42,9 @@
   };
 
   $: isAddButtonDisabled =
-      !$activeMarkerCoords?.lng ||
-      !$activeMarkerCoords?.lat ||
-      !momentDescription;
+    !$activeMarkerCoords?.lng ||
+    !$activeMarkerCoords?.lat ||
+    !momentDescription;
 
   async function handleAddMoment() {
     if (!captchaToken) {
@@ -80,7 +80,7 @@
     e: CustomEvent<TurnstileEventDetail<{ token: string }>>
   ) => {
     captchaToken = e.detail.token;
-    handleAddMoment()
+    handleAddMoment();
   };
 
   new SvelteToast({
@@ -160,7 +160,7 @@
               >.
             </div>
             <ActionButton
-              functionOnClick={() => requestCaptcha = true}
+              functionOnClick={() => (requestCaptcha = true)}
               isDisabled={isAddButtonDisabled}>Add</ActionButton
             >
           </form>
