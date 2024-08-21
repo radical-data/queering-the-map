@@ -69,7 +69,6 @@
     } else {
       const result = await response.json();
       alert(`Error: ${result.error}`);
-      showSubmissionSuccessNotification();
     }
   }
 
