@@ -10,6 +10,10 @@ export const POST: RequestHandler = async ({ request }) => {
     return json({ error: 'CAPTCHA token is missing.' }, { status: 400 });
   }
 
+  if (!description?.trim()) {
+		return json({ error: "Description cannot be empty." }, { status: 400 });
+	}
+
   const captchaVerifyUrl =
     'https://challenges.cloudflare.com/turnstile/v0/siteverify';
   const captchaSecret = CLOUDFLARE_TURNSTILE_SECRET;
