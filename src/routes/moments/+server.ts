@@ -11,8 +11,8 @@ export const POST: RequestHandler = async ({ request }) => {
   }
 
   if (!description?.trim()) {
-		return json({ error: "Description cannot be empty." }, { status: 400 });
-	}
+    return json({ error: 'Description cannot be empty.' }, { status: 400 });
+  }
 
   const captchaVerifyUrl =
     'https://challenges.cloudflare.com/turnstile/v0/siteverify';
