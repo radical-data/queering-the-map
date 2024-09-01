@@ -16,6 +16,8 @@
 
   let momentDescription = '';
   let captchaToken = '';
+  let isAddButtonDisabled = true;
+  let requestCaptcha = false;
 
   function closeAddOverlay() {
     addOverlayVisible.update(() => false);
@@ -38,6 +40,11 @@
       }
     );
   };
+
+  $: isAddButtonDisabled =
+    !$activeMarkerCoords?.lng ||
+    !$activeMarkerCoords?.lat ||
+    !momentDescription;
 
   async function handleAddMoment() {
     if (!captchaToken) {
@@ -73,6 +80,7 @@
     e: CustomEvent<TurnstileEventDetail<{ token: string }>>
   ) => {
     captchaToken = e.detail.token;
+    handleAddMoment();
   };
 
   new SvelteToast({
@@ -116,12 +124,14 @@
               class="subform"
             ></textarea>
 
-            <div
-              style="margin-top: 16px"
-              use:turnstile
-              turnstile-sitekey={PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
-              on:turnstile={handleTurnstile}
-            ></div>
+            {#if requestCaptcha}
+              <div
+                style="margin-top: 16px"
+                use:turnstile
+                turnstile-sitekey={PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
+                on:turnstile={handleTurnstile}
+              ></div>
+            {/if}
             <!-- <div class="recaptcha-text">
 							This site is protected by Turnstile and Cloudflare
 							<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener"
@@ -149,7 +159,10 @@
                 rel="noopener">Privacy Policy</a
               >.
             </div>
-            <ActionButton functionOnClick={handleAddMoment}>Add</ActionButton>
+            <ActionButton
+              functionOnClick={() => (requestCaptcha = true)}
+              isDisabled={isAddButtonDisabled}>Add</ActionButton
+            >
           </form>
         </div>
       </section>
