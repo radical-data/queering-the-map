@@ -14,7 +14,8 @@
     "test:integration": "playwright test",
     "test:unit": "vitest",
     "fetch-data": "npx vite-node --options.transformMode.ssr='/.*/' src/lib/scripts/fetchData.ts",
-    "seed-data": "npx vite-node --options.transformMode.ssr='/.*/' src/lib/scripts/seedData.ts"
+    "seed-data": "npx vite-node --options.transformMode.ssr='/.*/' src/lib/scripts/seedData.ts",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@playwright/test": "^1.45.2",
@@ -29,6 +30,7 @@
     "eslint": "8.57",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.43.0",
+    "husky": "^9.1.5",
     "prettier": "^3.3.3",
     "prettier-plugin-svelte": "^3.2.6",
     "supabase": "^1.183.5",
