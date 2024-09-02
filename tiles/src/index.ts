@@ -10,15 +10,10 @@ import {
 import { pmtiles_path, tileJSON, tile_path } from './shared';
 
 interface Env {
-  // biome-ignore lint: config name
   ALLOWED_ORIGINS?: string;
-  // biome-ignore lint: config name
   BUCKET: R2Bucket;
-  // biome-ignore lint: config name
   CACHE_CONTROL?: string;
-  // biome-ignore lint: config name
   PMTILES_PATH?: string;
-  // biome-ignore lint: config name
   PUBLIC_HOSTNAME?: string;
 }
 
@@ -87,6 +82,14 @@ class R2Source implements Source {
   }
 }
 
+function originMatchesPattern(origin: string, pattern: string): boolean {
+  const regexPattern = pattern
+    .replace(/[-\/\\^$+?.()|[\]{}]/g, '\\$&')
+    .replace(/\*/g, '.*');
+  const regex = new RegExp(`^${regexPattern}$`, 'i');
+  return regex.test(origin);
+}
+
 export default {
   async fetch(
     request: Request,
@@ -106,10 +109,12 @@ export default {
     }
 
     let allowedOrigin = '';
-    if (typeof env.ALLOWED_ORIGINS !== 'undefined') {
-      for (const o of env.ALLOWED_ORIGINS.split(',')) {
-        if (o === request.headers.get('Origin') || o === '*') {
-          allowedOrigin = o;
+    const requestOrigin = request.headers.get('Origin');
+    if (typeof env.ALLOWED_ORIGINS !== 'undefined' && requestOrigin) {
+      for (const pattern of env.ALLOWED_ORIGINS.split(',')) {
+        if (originMatchesPattern(requestOrigin, pattern) || pattern === '*') {
+          allowedOrigin = requestOrigin;
+          break;
         }
       }
     }
