@@ -7,7 +7,7 @@
     "pmtiles": "^3.0.7",
     "tsx": "^4.7.0",
     "typescript": "^4.9.5",
-    "wrangler": "3.19.0"
+    "wrangler": "3.73.0"
   },
   "private": true,
   "scripts": {
@@ -15,7 +15,7 @@
     "deploy": "wrangler deploy",
     "test": "tsx ../shared/index.test.ts",
     "tsc": "tsc --watch",
-    "build": "wrangler publish --outdir dist --dry-run",
+    "build": "wrangler deploy --outdir dist --dry-run",
     "buildlocal": "tsc",
     "biome": "biome check --config-path=../../js/ src/index.ts --apply",
     "biome-check": "biome check --config-path=../../js src/index.ts"
