@@ -84,7 +84,7 @@ class R2Source implements Source {
 
 function originMatchesPattern(origin: string, pattern: string): boolean {
   const regexPattern = pattern
-    .replace(/[-\/\\^$+?.()|[\]{}]/g, '\\$&')
+    .replace(/[-^$+?.()|[\]{}]/g, '\\$&')
     .replace(/\*/g, '.*');
   const regex = new RegExp(`^${regexPattern}$`, 'i');
   return regex.test(origin);
