@@ -38,9 +38,17 @@ export const tile_path = (
   return { ok: false, name: '', tile: [0, 0, 0], ext: '' };
 };
 
+interface Metadata {
+  vector_layers?: LayerSpecification[];
+  attribution?: string;
+  description?: string;
+  name?: string;
+  version?: string;
+}
+
 export const tileJSON = (
   header: Header,
-  metadata: any,
+  metadata: Metadata,
   hostname: string,
   tileset_name: string
 ) => {
