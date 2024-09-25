@@ -1,0 +1,12 @@
+name = "pmtiles-cloudflare"
+main = "src/index.ts"
+compatibility_date = "2022-10-18"
+minify = false
+
+r2_buckets  = [
+  { binding = "BUCKET", preview_bucket_name = "my-bucket-development", bucket_name = "my-bucket-production" }
+]
+
+[vars]
+# ALLOWED_ORIGINS = "http://localhost:8000"
+# CACHE_CONTROL = "public, max-age=86400"
