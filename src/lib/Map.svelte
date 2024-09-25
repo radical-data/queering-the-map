@@ -8,7 +8,7 @@
     type MapMouseEvent,
     type MapGeoJSONFeature
   } from 'maplibre-gl';
-  const { Map, NavigationControl, Popup } = maplibregl;
+  const { Map, NavigationControl, Popup, GeolocateControl } = maplibregl;
   import 'maplibre-gl/dist/maplibre-gl.css';
   import markerImage from '$lib/assets/marker.png';
   import markerHoveredImage from '$lib/assets/marker-hovered.png';
@@ -92,6 +92,14 @@
     });
     map.addControl(
       new NavigationControl({ showCompass: false }),
+      'bottom-right'
+    );
+    map.addControl(
+      new GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        }
+      }),
       'bottom-right'
     );
     map.keyboard.enable();
