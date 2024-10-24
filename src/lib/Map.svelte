@@ -8,7 +8,13 @@
     type MapMouseEvent,
     type MapGeoJSONFeature
   } from 'maplibre-gl';
-  const { Map, NavigationControl, Popup, GeolocateControl } = maplibregl;
+  const {
+    AttributionControl,
+    Map,
+    NavigationControl,
+    Popup,
+    GeolocateControl
+  } = maplibregl;
   import 'maplibre-gl/dist/maplibre-gl.css';
   import markerImage from '$lib/assets/marker.png';
   import markerHoveredImage from '$lib/assets/marker-hovered.png';
@@ -88,8 +94,14 @@
       center: [initialState.lng, initialState.lat],
       zoom: initialState.zoom,
       minZoom: 3,
-      maxZoom: 18
+      maxZoom: 18,
+      attributionControl: false
     });
+    map.addControl(
+      new AttributionControl({
+        compact: true
+      })
+    );
     map.addControl(
       new NavigationControl({ showCompass: false }),
       'bottom-right'
@@ -102,6 +114,7 @@
       }),
       'bottom-right'
     );
+
     map.keyboard.enable();
 
     map.on('load', async () => {
