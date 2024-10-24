@@ -1,11 +1,14 @@
 {
   "version": 8,
   "name": "QTM_NewStyle",
-  "metadata": { "maputnik:renderer": "mlgljs" },
+  "metadata": {
+    "maputnik:renderer": "mlgljs"
+  },
   "sources": {
     "qtm_pmtiles": {
       "type": "vector",
-      "url": "https://tiles.queeringthemap.com/basemap.json"
+      "url": "https://tiles.queeringthemap.com/basemap.json",
+      "attribution": "© <a href='https://openstreetmap.org'>OpenStreetMap</a>"
     }
   },
   "sprite": "https://sprites.queeringthemap.com/qtm_sprites",
@@ -14,7 +17,9 @@
     {
       "id": "background",
       "type": "background",
-      "paint": { "background-color": "#ecbfd7" }
+      "paint": {
+        "background-color": "#ecbfd7"
+      }
     },
     {
       "id": "landcover_grassland",
@@ -22,7 +27,9 @@
       "source": "qtm_pmtiles",
       "source-layer": "landcover",
       "filter": ["all", ["==", "pmap:kind", "grassland"]],
-      "layout": { "visibility": "visible" },
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "fill-color": [
           "interpolate",
@@ -41,7 +48,9 @@
       "source": "qtm_pmtiles",
       "source-layer": "landcover",
       "filter": ["all", ["==", "pmap:kind", "glacier"]],
-      "layout": { "visibility": "visible" },
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "fill-opacity": {
           "base": 1,
@@ -78,7 +87,9 @@
       "source-layer": "natural",
       "minzoom": 8,
       "filter": ["all", ["==", "pmap:kind", "wood"]],
-      "paint": { "fill-color": "rgba(205, 203, 173, 1)" }
+      "paint": {
+        "fill-color": "rgba(205, 203, 173, 1)"
+      }
     },
     {
       "id": "natural_bare_rock",
@@ -146,7 +157,9 @@
       "source": "qtm_pmtiles",
       "source-layer": "landuse",
       "filter": ["all", ["==", "pmap:kind", "cemetery"]],
-      "paint": { "fill-color": "rgba(205, 203, 173, 1)" }
+      "paint": {
+        "fill-color": "rgba(205, 203, 173, 1)"
+      }
     },
     {
       "id": "landuse-residential",
@@ -154,8 +167,12 @@
       "source": "qtm_pmtiles",
       "source-layer": "landuse",
       "filter": ["all", ["==", "pmap:kind", "residential"]],
-      "layout": { "visibility": "visible" },
-      "paint": { "fill-color": "#f4d2e2" }
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#f4d2e2"
+      }
     },
     {
       "id": "landuse_fun",
@@ -163,7 +180,9 @@
       "source": "qtm_pmtiles",
       "source-layer": "landuse",
       "filter": ["all", ["in", "pmap:kind", "beach", " dog_park"]],
-      "paint": { "fill-color": "#ffdced" }
+      "paint": {
+        "fill-color": "#ffdced"
+      }
     },
     {
       "id": "landuse_nature_reserve",
@@ -172,7 +191,9 @@
       "source-layer": "landuse",
       "minzoom": 4,
       "filter": ["all", ["==", "pmap:kind", "nature_reserve"]],
-      "paint": { "fill-color": "rgba(205, 203, 173, 1)" }
+      "paint": {
+        "fill-color": "rgba(205, 203, 173, 1)"
+      }
     },
     {
       "id": "landuse_grass",
@@ -181,7 +202,9 @@
       "source-layer": "landuse",
       "minzoom": 8,
       "filter": ["all", ["==", "pmap:kind", "grass"]],
-      "paint": { "fill-color": "rgba(205, 203, 173, 1)" }
+      "paint": {
+        "fill-color": "rgba(205, 203, 173, 1)"
+      }
     },
     {
       "id": "landuse_recreation_ground",
@@ -190,7 +213,9 @@
       "source-layer": "landuse",
       "minzoom": 8,
       "filter": ["all", ["==", "pmap:kind", "recreation_ground"]],
-      "paint": { "fill-color": "rgba(205, 203, 173, 1)" }
+      "paint": {
+        "fill-color": "rgba(205, 203, 173, 1)"
+      }
     },
     {
       "id": "landuse_park",
@@ -199,7 +224,9 @@
       "source-layer": "landuse",
       "minzoom": 8,
       "filter": ["all", ["==", "pmap:kind", "park"]],
-      "paint": { "fill-color": "rgba(205, 203, 173, 1)" }
+      "paint": {
+        "fill-color": "rgba(205, 203, 173, 1)"
+      }
     },
     {
       "id": "landuse_aerodrome",
@@ -208,7 +235,9 @@
       "source-layer": "landuse",
       "minzoom": 8,
       "filter": ["all", ["==", "pmap:kind", "aerodrome"]],
-      "paint": { "fill-color": "#e1e3e7" }
+      "paint": {
+        "fill-color": "#e1e3e7"
+      }
     },
     {
       "id": "landuse_pitch",
@@ -238,8 +267,12 @@
       "source": "qtm_pmtiles",
       "source-layer": "landuse",
       "filter": ["all", ["==", "pmap:kind", "commercial"]],
-      "layout": { "visibility": "visible" },
-      "paint": { "fill-color": "hsla(0, 60%, 87%, 0.23)" }
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "hsla(0, 60%, 87%, 0.23)"
+      }
     },
     {
       "id": "buildings",
@@ -258,7 +291,9 @@
       "source": "qtm_pmtiles",
       "source-layer": "water",
       "filter": ["all"],
-      "paint": { "fill-color": "#788BF2" }
+      "paint": {
+        "fill-color": "#788BF2"
+      }
     },
     {
       "id": "boundaries_country",
@@ -315,7 +350,10 @@
       "source": "qtm_pmtiles",
       "source-layer": "boundaries",
       "filter": ["all", ["==", "pmap:kind", "county"]],
-      "layout": { "line-join": "round", "visibility": "visible" },
+      "layout": {
+        "line-join": "round",
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "#9e9cab",
         "line-dasharray": [2, 2, 2, 2],
@@ -335,7 +373,10 @@
       "source": "qtm_pmtiles",
       "source-layer": "boundaries",
       "filter": ["all", ["==", "pmap:kind", "region"]],
-      "layout": { "line-join": "round", "visibility": "visible" },
+      "layout": {
+        "line-join": "round",
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "#9e9cab",
         "line-dasharray": [2, 2, 2, 2],
@@ -385,7 +426,10 @@
       "source": "qtm_pmtiles",
       "source-layer": "roads",
       "filter": ["all", ["==", "pmap:kind", "minor_road"]],
-      "layout": { "line-cap": "round", "line-join": "round" },
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
       "paint": {
         "line-color": "#e7b3d6",
         "line-opacity": {
@@ -411,7 +455,10 @@
       "source": "qtm_pmtiles",
       "source-layer": "roads",
       "filter": ["all", ["==", "pmap:kind", "minor_road"]],
-      "layout": { "line-cap": "round", "line-join": "round" },
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
       "paint": {
         "line-color": "#f3d9ea",
         "line-opacity": 1,
@@ -553,7 +600,9 @@
       "source": "qtm_pmtiles",
       "source-layer": "roads",
       "filter": ["all", ["==", "pmap:kind", "path"]],
-      "layout": { "visibility": "visible" },
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "rgba(211, 166, 182, 1)",
         "line-dasharray": [1],
@@ -572,7 +621,10 @@
       "source": "qtm_pmtiles",
       "source-layer": "transit",
       "filter": ["all", ["==", "pmap:kind_detail", "taxiway"]],
-      "paint": { "line-color": "white", "line-width": 2 }
+      "paint": {
+        "line-color": "white",
+        "line-width": 2
+      }
     },
     {
       "id": "roads_medium-road-label",
