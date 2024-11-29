@@ -13,6 +13,7 @@
   } from '@svelte-put/cloudflare-turnstile';
   import { PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY } from '$env/static/public';
   import { SvelteToast, toast } from '@zerodevx/svelte-toast';
+  import './toast.css'; 
 
   let momentDescription = '';
   let captchaToken = '';
@@ -33,7 +34,9 @@
       'Your story was successfully submitted. It will appear publicly on the map once it has been approved by our moderators.',
       {
         theme: {
-          '--toastBarHeight': 0
+          '--toastBackground': 'black',
+          '--toastBarHeight': 0,
+          '--toastColor': 'var(--color-pink)',
         },
 
         duration: 5000
