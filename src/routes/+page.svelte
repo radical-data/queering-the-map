@@ -1,6 +1,7 @@
 <script lang="ts">
   import '$lib/style.css';
   import '$lib/maplibre_style.css';
+  import '$lib/toast.css';
   import '$lib/navbar_buttons.css';
   import AddOverlay from '$lib/AddOverlay.svelte';
   import InfoOverlay from '$lib/InfoOverlay.svelte';
